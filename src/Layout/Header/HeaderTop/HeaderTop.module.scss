@@ -1,0 +1,38 @@
+.top {
+	background: #f8f8f8;
+
+	.wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 14px;
+	}
+}
+
+
+
+.headerRight {
+	.list {
+		font-weight: 500;
+		display: flex;
+
+		& > * + * {
+			margin-left: 40px;
+		}
+	}
+}
+
+.favorites {
+	display: flex;
+	a {
+		color: #8291a3;
+	}
+
+	& > * + * {
+		margin-left: 11px;
+	}
+}
+
+.priamary {
+	color: var(--primary);
+}

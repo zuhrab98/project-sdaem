@@ -1,0 +1,17 @@
+@import './fonts';
+@import 'variables';
+@import './libs/normalize';
+
+body {
+	background: var(--white);
+	color: var(--title);
+	font-family: 'Inter';
+  min-height: 100vh;
+}
+
+.container {
+	max-width: 1310px;
+	width: 100%;
+	padding: 0px 15px;
+	margin: 0 auto;
+}
