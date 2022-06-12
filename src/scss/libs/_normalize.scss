@@ -1,25 +1,38 @@
-* {
+*,
+::before,
+::after {
 	padding: 0;
 	margin: 0;
-	list-style: none;
+	border: 0;
 	outline: none;
 	box-sizing: border-box;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-html {
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-}
-
+html,
 body {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	color: var(--title);
+	height: 100vh;
+}
+
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 1 auto;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+	max-width: 100%;
+	height: auto;
 }
 
 a,

@@ -1,12 +1,11 @@
-@import './fonts';
+@import 'fonts';
 @import 'variables';
-@import './libs/normalize';
+@import 'libs/normalize';
 
 body {
+	font-family: 'Inter';
 	background: var(--white);
 	color: var(--title);
-	font-family: 'Inter';
-  min-height: 100vh;
 }
 
 .container {
@@ -14,4 +13,15 @@ body {
 	width: 100%;
 	padding: 0px 15px;
 	margin: 0 auto;
+}
+
+.logo {
+	display: flex;
+	cursor: pointer;
+}
+
+footer {
+	.logo {
+		padding-bottom: 10px;
+	}
 }

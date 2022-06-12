@@ -1,11 +1,16 @@
-import { Layout } from '../Layout/Layout'
+import { Layout } from '../../Layout/Layout'
 import React from 'react'
-import { Button } from '../components/Button/Button'
+import { Button } from '../../components/Button/Button'
+import styles from './Home.module.scss'
 
 export const Home = () => {
 	return (
 		<Layout>
-			<Button icon={'home'} name={'return'}>
+			<div className={styles.home}>
+				<div className={styles.bgHome}>Main</div>
+			</div>
+
+			{/* <Button icon={'home'} name={'return'}>
 				Вернуться на главную
 			</Button>
 			<Button icon={'location'} name={'openMap'}>
@@ -14,7 +19,7 @@ export const Home = () => {
 			<Button name={'buttonDef'}>Войти</Button>
 			<Button name={'error'} icon='error'>
 				Ошибка ввода
-			</Button>
+			</Button> */}
 		</Layout>
 	)
 }

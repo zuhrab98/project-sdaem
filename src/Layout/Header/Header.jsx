@@ -5,8 +5,10 @@ import { HeaderTop } from './HeaderTop/HeaderTop'
 export const Header = () => {
 	return (
 		<>
-			<HeaderTop />
-			<HeaderBottom />
+			<header>
+				<HeaderTop />
+				<HeaderBottom />
+			</header>
 		</>
 	)
 }

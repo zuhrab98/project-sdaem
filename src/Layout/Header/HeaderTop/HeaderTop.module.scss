@@ -9,8 +9,6 @@
 	}
 }
 
-
-
 .headerRight {
 	.list {
 		font-weight: 500;
@@ -23,13 +21,13 @@
 }
 
 .favorites {
-	display: flex;
 	a {
-		color: #8291a3;
-	}
-
-	& > * + * {
-		margin-left: 11px;
+		display: flex;
+		align-items: center;
+		color: var(--grey);
+		svg {
+			margin-left: 11px;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@ import '../scss/app.scss'
 
 export const Layout = ({ children }) => {
 	return (
-		<div>
+		<div className='wrapper'>
 			<Header />
 			<main>{children}</main>
 			<Footer />
