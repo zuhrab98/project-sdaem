@@ -1,5 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
+import styles from './Lists.module.scss'
 
 export const Lists = ({ lists, tag }) => {
 	const Tag = tag

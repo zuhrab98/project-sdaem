@@ -1,0 +1,86 @@
+.filterOfferType {
+	position: relative;
+	flex: 0 0 190px;
+	border-right: 1px solid rgba(101, 78, 249, 0.1);
+	padding: 0 20px;
+}
+
+.title {
+	margin-bottom: 11px;
+	font-weight: 500;
+	line-height: 17px;
+	color: #bdbdbd;
+}
+
+.button {
+	position: relative;
+	width: 100%;
+	padding: 12px 9px 12px;
+	background: #ffffff;
+	border: 2px solid rgba(102, 78, 249, 0.8);
+	border-radius: 20px;
+
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 14px;
+	color: var(--text-grey);
+	text-align: left;
+	transition: 0.2s ease-in-out;
+	cursor: pointer;
+
+	svg {
+		position: absolute;
+		right: 7px;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: transform 0.3s;
+	}
+
+	&:hover {
+		background: rgba(102, 78, 249, 0.1);
+	}
+}
+
+.buttonActive {
+	box-shadow: (0px 5px 15px rgba(135, 124, 202, 0.25));
+
+	svg {
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+}
+
+.dropdown {
+	min-width: 150px;
+  margin-top: 10px;
+	position: absolute;
+	left: 20px;
+	display: none;
+	background: #ffffff;
+	box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
+	border-radius: 10px;
+}
+
+.dropdown.toggleActive {
+	display: block;
+}
+
+.list {
+	margin-top: 10px;
+
+	li {
+		padding: 10px 15px 10px;
+		font-size: 14px;
+		line-height: 17px;
+		color: #1e2123;
+		cursor: pointer;
+		transition: 0.3s ease-in-out;
+
+		&:hover {
+			background: #f7f5f5;
+		}
+	}
+}
+
+.listActive {
+	background: #f7f5f5;
+}

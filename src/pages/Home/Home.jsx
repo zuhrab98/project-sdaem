@@ -1,13 +1,14 @@
 import { Layout } from '../../Layout/Layout'
 import React from 'react'
-import { Button } from '../../components/Button/Button'
 import styles from './Home.module.scss'
+import { Tabs } from '../../components/Tabs/Tabs'
 
 export const Home = () => {
 	return (
 		<Layout>
-			<div className={styles.home}>
-				<div className={styles.bgHome}>Main</div>
+			<div className={styles.filterBlock}>
+				<div className={styles.bg}></div>
+				<Tabs />
 			</div>
 
 			{/* <Button icon={'home'} name={'return'}>

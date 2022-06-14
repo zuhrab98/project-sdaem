@@ -1,0 +1,28 @@
+.optionsFilter {
+	flex: 0 0 160px;
+	padding: 0px 20px;
+	border-right: 1px solid rgba(101, 78, 249, 0.1);
+	display: flex;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	background: transparent;
+	color: var(--title);
+	cursor: pointer;
+
+	.content {
+		margin-right: 4px;
+	}
+}
+
+.content {
+}
+
+.icon {
+	display: contents;
+}

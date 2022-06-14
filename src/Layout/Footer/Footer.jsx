@@ -2,27 +2,7 @@ import React from 'react'
 import styles from './Footer.module.scss'
 import { Icons } from '../../components/Icons/Icons'
 import { Lists } from '../../components/Lists/Lists'
-
-const apartments = [
-	{ name: 'Квартиры в Минске', href: '#' },
-	{ name: 'Квартиры в Гомеле', href: '#' },
-	{ name: 'Квартиры в Бресте', href: '#' },
-	{ name: 'Квартиры в Витебске', href: '#' },
-	{ name: 'Квартиры в Гродно', href: '#' },
-	{ name: 'Квартиры в Могилеве', href: '#' },
-]
-const listServices = [
-	{ name: 'Новости', href: '#' },
-	{ name: 'Размещение и тарифы', href: '#' },
-	{ name: 'Объявления на карте', href: '#' },
-	{ name: 'Контакты', href: '#' },
-]
-
-const listProduct = [
-	{ name: 'Коттеджи и усадьбы', href: '#' },
-	{ name: 'Бани и сауны', href: '#' },
-	{ name: 'Авто на прокат', href: '#' },
-]
+import { apartments, listProduct, listServices } from './data'
 
 export const Footer = () => {
 	return (

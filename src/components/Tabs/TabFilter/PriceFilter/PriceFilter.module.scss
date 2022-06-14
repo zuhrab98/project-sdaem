@@ -1,0 +1,62 @@
+.filterPrice {
+	flex: 0 0 215px;
+	padding: 0px 20px;
+	border-right: 1px solid rgba(101, 78, 249, 0.1);
+}
+
+.title {
+	margin-bottom: 11px;
+	font-weight: 500;
+	line-height: 17px;
+	color: #bdbdbd;
+}
+
+.priceWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.input {
+	max-width: 80px;
+	padding: 10px 14px 9px;
+
+	background: #f8f8f8;
+	border-radius: 20px;
+
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	color: var(--text-grey);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.rentalPrice {
+	display: flex;
+	flex: 0 0 430px;
+	padding: 0px 25px;
+	border-right: 1px solid rgba(101, 78, 249, 0.1);
+	align-items: center;
+
+	.title {
+		margin-bottom: 0;
+		margin-right: 20px;
+		flex-shrink: 0;
+		line-height: 1;
+		color: var(--primary);
+	}
+
+	.input {
+		max-width: 100px;
+		padding-left: 9px;
+	}
+  
+	.priceWrapper {
+		width: 100%;
+	}
+}
