@@ -18,4 +18,17 @@ export const Button = ({ children, icon, name }) => {
 			{children}
 		</button>
 	)
+
+	{
+		/* <Button icon={'home'} name={'return'}>
+				Вернуться на главную
+			</Button>
+			<Button icon={'location'} name={'openMap'}>
+				Открыть карту
+			</Button>
+			<Button name={'buttonDef'}>Войти</Button>
+			<Button name={'error'} icon='error'>
+				Ошибка ввода
+			</Button> */
+	}
 }

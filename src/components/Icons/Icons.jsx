@@ -1,4 +1,4 @@
-export const Icons = ({ id, size }) => {
+export const Icons = ({ id, size, ClasName = '' }) => {
 	switch (id) {
 		case 'location':
 			return (
@@ -136,6 +136,36 @@ export const Icons = ({ id, size }) => {
 						strokeLinecap='round'
 						strokeLinejoin='round'
 					/>
+				</svg>
+			)
+		case 'arrow-more':
+			return (
+				<svg
+					width='6'
+					height='4'
+					viewBox='0 0 6 4'
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'
+				>
+					<path
+						d='M0.5 0.75L3 3.25L5.5 0.75'
+						stroke='#FEB700'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+					/>
+				</svg>
+			)
+		case 'metro':
+			return (
+				<svg
+					className={ClasName}
+					width='20'
+					height='13'
+					viewBox='0 0 20 13'
+					fill='#BDBDBD'
+					xmlns='http://www.w3.org/2000/svg'
+				>
+					<path d='M19.6401 11.4773H18.3812L14.4755 0.509766L9.99979 7.19943L5.21594 0.589264L1.61882 11.4773H0.359905L0 12.9373H4.77911L6.65514 7.59981L10.0565 12.2942L10.0769 12.3238L10.0978 12.2942L13.3449 7.59981L15.2209 12.9373H20L19.6401 11.4773Z' />
 				</svg>
 			)
 

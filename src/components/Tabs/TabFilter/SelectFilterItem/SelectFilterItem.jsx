@@ -3,11 +3,15 @@ import cn from 'classnames'
 import styles from './SelectFilterItem.module.scss'
 import { Icons } from '../../../Icons/Icons'
 
-export const SelectFilterItem = ({ title, data }) => {
+export const SelectFilterItem = ({
+	title,
+	data,
+	ClassName = '',
+	name = 'Выберите',
+	children,
+}) => {
 	const [active, setActive] = React.useState(null)
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
-
-	const refFilter = React.useRef(null)
 
 	const toggleVisiblePopup = (i) => {
 		setVisiblePopup((prev) => !prev)
@@ -15,15 +19,20 @@ export const SelectFilterItem = ({ title, data }) => {
 	}
 
 	return (
-		<div ref={refFilter} className={styles.filterOfferType}>
-			<div className={styles.title}>{title}</div>
+		<div
+			className={cn(styles.filterOfferType, {
+				[styles.filterMetro]: ClassName === 'filterMetro',
+				[styles.filterArea]: ClassName === 'filterDistricts',
+			})}
+		>
+			{title && <div className={styles.title}>{title}</div>}
 			<button
 				onClick={toggleVisiblePopup}
 				className={cn(styles.button, {
 					[styles.buttonActive]: visiblePopup,
 				})}
 			>
-				Выберите <Icons id={'arrow'} />
+				{children} {name} <Icons id={'arrow'} />
 			</button>
 			<div
 				className={cn(styles.dropdown, {
@@ -39,7 +48,7 @@ export const SelectFilterItem = ({ title, data }) => {
 								[styles.listActive]: i === active,
 							})}
 						>
-							{item.id}
+							{item}
 						</li>
 					))}
 				</ul>
