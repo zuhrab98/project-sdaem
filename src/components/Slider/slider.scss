@@ -1,0 +1,41 @@
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+	width: 40px;
+	height: 40px;
+	margin-top: 0;
+	border-radius: 50%;
+	border: 1px solid #664ef9;
+	top: 100%;
+	position: relative;
+	z-index: 99;
+}
+
+.swiper .swiper-button-prev {
+	left: 48%;
+	transform: translateX(-50%);
+	margin-right: auto;
+	top: 40px;
+}
+
+.swiper .swiper-button-next {
+	right: 48%;
+	transform: translateX(50%);
+	margin-left: auto;
+}
+
+.swiper .swiper-button-prev::after,
+.swiper .swiper-button-next::after {
+	content: unset;
+	top: 30%;
+	line-height: 24px;
+	font-size: unset;
+	color: var(--primary);
+}
+
+.swiper .swiper-button-prev::after {
+	content: url('../../assets/arrow-prev.svg');
+}
+
+.swiper .swiper-button-next::after {
+	content: url('../../assets/arrow-next.svg');
+}

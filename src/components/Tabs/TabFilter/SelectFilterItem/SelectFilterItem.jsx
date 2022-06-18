@@ -12,21 +12,37 @@ export const SelectFilterItem = ({
 }) => {
 	const [active, setActive] = React.useState(null)
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
+	const btnRef = React.useRef()
 
 	const toggleVisiblePopup = (i) => {
 		setVisiblePopup((prev) => !prev)
 		setActive(i)
 	}
 
+	React.useEffect(() => {
+		const closePopup = (e) => {
+			console.log(e.path[0], btnRef)
+
+			if (e.path[0] !== btnRef.current) {
+				setVisiblePopup(false)
+			}
+		}
+		document.body.addEventListener('click', closePopup)
+
+		return () => document.body.removeEventListener('click', closePopup)
+	}, [])
+
 	return (
 		<div
 			className={cn(styles.filterOfferType, {
 				[styles.filterMetro]: ClassName === 'filterMetro',
-				[styles.filterArea]: ClassName === 'filterDistricts',
+				[styles.filterDistricts]: ClassName === 'filterDistricts',
 			})}
 		>
 			{title && <div className={styles.title}>{title}</div>}
+
 			<button
+				ref={btnRef}
 				onClick={toggleVisiblePopup}
 				className={cn(styles.button, {
 					[styles.buttonActive]: visiblePopup,
@@ -34,6 +50,7 @@ export const SelectFilterItem = ({
 			>
 				{children} {name} <Icons id={'arrow'} />
 			</button>
+
 			<div
 				className={cn(styles.dropdown, {
 					[styles.toggleActive]: visiblePopup,

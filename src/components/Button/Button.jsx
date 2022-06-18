@@ -12,6 +12,7 @@ export const Button = ({ children, icon, name }) => {
 				[styles.openMap]: name === 'openMap',
 				[styles.buttonDef]: name === 'buttonDef',
 				[styles.error]: name === 'error',
+				[styles.show]: name === 'show',
 			})}
 		>
 			{icon && <Icons id={icon} />}

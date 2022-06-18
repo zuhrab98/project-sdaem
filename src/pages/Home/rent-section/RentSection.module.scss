@@ -22,7 +22,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-  margin-bottom: 54px;
+	margin-bottom: 54px;
 }
 
 .titleRow {
@@ -60,4 +60,40 @@
 	display: flex;
 	justify-content: flex-end;
 	gap: 30px;
+}
+
+.sliderRow {
+	margin-bottom: 32px;
+}
+
+.offers {
+	display: flex;
+	align-items: center;
+
+  .left {
+    padding-right: 30px;
+    border-right: 1px solid rgba(108, 80, 233, 0.1);
+  }
+
+  button {
+    margin-left: 24px;
+  }
+
+	.number {
+		font-weight: 700;
+		font-size: 60px;
+		line-height: 73px;
+		color: var(--title);
+
+		span {
+			color: var(--primary);
+		}
+	}
+
+	.text {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(130, 145, 163, 0.6);
+	}
 }

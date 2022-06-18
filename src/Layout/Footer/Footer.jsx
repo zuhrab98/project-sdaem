@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Footer.module.scss'
 import { Icons } from '../../components/Icons/Icons'
 import { Lists } from '../../components/Lists/Lists'
-import { apartments, listProduct, listServices } from './data'
+import { apartments, listProduct, listServices, PAYMENT } from './data'
 
 export const Footer = () => {
 	return (
@@ -59,21 +59,12 @@ export const Footer = () => {
 						</ul>
 					</div>
 					<div className={styles.payment}>
-						<div className={styles.paymentItem}>
-							<img src='payments/visa.png' width={42} height={14} alt='visa' />
-						</div>
-						<div className={styles.paymentItem}>
-							<img src='payments/webpay.png' alt='webpay' />
-						</div>
-						<div className={styles.paymentItem}>
-							<img src='payments/verified-by-visa.png' alt='verified-by-visa' />
-						</div>
-						<div className={styles.paymentItem}>
-							<img src='payments/securecode.png' alt='securecode' />
-						</div>
-						<div className={styles.paymentItem}>
-							<img src='payments/belkart.png' alt='belkart' />
-						</div>
+						{PAYMENT &&
+							PAYMENT.map((item, i) => (
+								<div key={i} className={styles.paymentItem}>
+									<img src={item.src} alt={item.alt} />
+								</div>
+							))}
 					</div>
 				</div>
 			</div>
