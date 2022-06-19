@@ -1,27 +1,21 @@
 import React from 'react'
-import cn from 'classnames'
 import styles from './HeaderTop.module.scss'
-import { NavLink } from '../NavLink/NavLink'
+import { NavLinks } from '../NavLink/NavLink'
 import { Icons } from '../../../components/Icons/Icons'
-
-const navs = [
-	{ name: 'Главная', href: '#' },
-	{ name: 'Новости' },
-	{ name: 'Размещение и тарифы', href: '#' },
-	{ name: 'Объявления на карте', href: '#' },
-	{ name: 'Контакты', href: '#' },
-]
+import data from './data.json'
 
 export const HeaderTop = () => {
 	return (
 		<div className={styles.top}>
 			<div className={`container`}>
 				<div className={styles.wrapper}>
-					<NavLink navs={navs} appearance={'grey'} />
+					<NavLinks navs={data.NAVS} appearance={'grey'} />
 					<div className={styles.headerRight}>
 						<ul className={styles.list}>
 							<li className={styles.favorites}>
-								<a href='#'>Закладки  <Icons id={'heart'} /></a>
+								<a href='#'>
+									Закладки <Icons id={'heart'} />
+								</a>
 							</li>
 							<li>
 								<a href='#' className={styles.priamary}>

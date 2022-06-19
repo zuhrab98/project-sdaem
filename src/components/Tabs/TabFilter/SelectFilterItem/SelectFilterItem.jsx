@@ -21,8 +21,6 @@ export const SelectFilterItem = ({
 
 	React.useEffect(() => {
 		const closePopup = (e) => {
-			console.log(e.path[0], btnRef)
-
 			if (e.path[0] !== btnRef.current) {
 				setVisiblePopup(false)
 			}
