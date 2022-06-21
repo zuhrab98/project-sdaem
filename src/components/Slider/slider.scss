@@ -1,41 +1,88 @@
-.swiper .swiper-button-prev,
-.swiper .swiper-button-next {
-	width: 40px;
-	height: 40px;
-	margin-top: 0;
+.swiper {
+	position: static;
+	padding-top: 35px;
+	padding-bottom: 105px;
+	filter: drop-shadow(0px 20px 40px rgba(135, 124, 202, 0.15));
+}
+
+.swiper-button-prev {
+	padding: 19px;
+	border: 1px solid var(--primary);
 	border-radius: 50%;
-	border: 1px solid #664ef9;
-	top: 100%;
-	position: relative;
-	z-index: 99;
-}
-
-.swiper .swiper-button-prev {
-	left: 48%;
-	transform: translateX(-50%);
-	margin-right: auto;
-	top: 40px;
-}
-
-.swiper .swiper-button-next {
-	right: 48%;
-	transform: translateX(50%);
-	margin-left: auto;
-}
-
-.swiper .swiper-button-prev::after,
-.swiper .swiper-button-next::after {
-	content: unset;
-	top: 30%;
-	line-height: 24px;
-	font-size: unset;
 	color: var(--primary);
+	margin-right: 50px;
+	&:hover {
+		background: rgba(102, 78, 249, 0.1);
+	}
+}
+.swiper-button-next {
+	padding: 19px;
+	border: 1px solid var(--primary);
+	border-radius: 50%;
+	color: var(--primary);
+	margin-left: 50px;
+	&:hover {
+		background: rgba(102, 78, 249, 0.1);
+	}
 }
 
-.swiper .swiper-button-prev::after {
-	content: url('../../assets/arrow-prev.svg');
+.swiper-button-prev:after {
+	font-size: 15px !important;
 }
 
-.swiper .swiper-button-next::after {
-	content: url('../../assets/arrow-next.svg');
+.swiper-button-next:after {
+	font-size: 15px !important;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+	position: absolute;
+	top: 90.9%;
+	left: 46.6%;
+}
+
+// .swiper .swiper-button-prev,
+// .swiper .swiper-button-next {
+// 	width: 40px;
+// 	height: 40px;
+// 	margin-top: 0;
+// 	border-radius: 50%;
+// 	border: 1px solid #664ef9;
+// 	top: 100%;
+// 	position: relative;
+// 	z-index: 99;
+// }
+
+// // .swiper .swiper-wrapper {
+// //   box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
+// // }
+
+// .swiper .swiper-button-prev {
+// 	left: 48%;
+// 	transform: translateX(-50%);
+// 	margin-right: auto;
+// 	top: 40px;
+// }
+
+// .swiper .swiper-button-next {
+// 	right: 48%;
+// 	transform: translateX(50%);
+// 	margin-left: auto;
+// }
+
+// .swiper .swiper-button-prev::after,
+// .swiper .swiper-button-next::after {
+// 	content: unset;
+// 	top: 30%;
+// 	line-height: 24px;
+// 	font-size: unset;
+// 	color: var(--primary);
+// }
+
+// .swiper .swiper-button-prev::after {
+// 	content: url('../../assets/svg/arrow-prev.svg');
+// }
+
+// .swiper .swiper-button-next::after {
+// 	content: url('../../assets/svg/arrow-next.svg');
+// }

@@ -41,12 +41,14 @@
 	}
 }
 
+
 .buttonActive {
 	box-shadow: (0px 5px 15px rgba(135, 124, 202, 0.25));
 
 	svg:last-child {
 		transform: translate(-50%, -50%) rotate(180deg);
 	}
+
 }
 
 .dropdown {

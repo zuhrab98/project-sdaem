@@ -23,7 +23,7 @@ export const TabFilter = () => {
 					</button>
 					<button className={cn(styles.button, styles.showBtn)}>
 						Показать
-						<Icons id={'arrow'} size={{ w: 12, h: 7 }} />
+						<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill={'#242424'} />
 					</button>
 				</div>
 			</div>

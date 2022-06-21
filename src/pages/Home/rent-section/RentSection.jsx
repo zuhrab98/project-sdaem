@@ -34,9 +34,7 @@ export const RentSection = () => {
 						/>
 					</div>
 				</div>
-				<div className={styles.sliderRow}>
-					<Slider data={CARD_LOCATION} cards={LocationCard} />
-				</div>
+				<Slider data={CARD_LOCATION} cards={LocationCard} />
 				<div className={styles.offers}>
 					<div className={styles.left}>
 						<p className={styles.number}>
@@ -44,7 +42,7 @@ export const RentSection = () => {
 						</p>
 						<p className={styles.text}>Предложений по Минску</p>
 					</div>
-					<Button name='show'>
+					<Button tag='a' name='show'>
 						<span>Посмотреть все</span>{' '}
 						<Icons size={{ w: 16, h: 9 }} id={'arrow'} fill='#fff' />
 					</Button>
