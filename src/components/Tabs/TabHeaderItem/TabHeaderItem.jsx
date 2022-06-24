@@ -3,8 +3,14 @@ import styles from './TabHeaderItem.module.scss'
 import cn from 'classnames'
 import { TabFilter } from '../TabFilter/TabFilter'
 
-export const TabHeaderItem = ({ items }) => {
-  
+export const TabHeaderItem = ({
+	items,
+	onChangeSortCities,
+	valueCities,
+	onChangeSortRooms,
+	valueRooms,
+  filteres
+}) => {
 	const [active, setActive] = React.useState(0)
 
 	const onClickActive = (i) => {
@@ -14,7 +20,7 @@ export const TabHeaderItem = ({ items }) => {
 	return (
 		<>
 			<div className={styles.title}>
-				<a href='#'>Sdaem.by</a> - у нас живут <span>ваши объявления</span>
+				Sdaem.by - у нас живут <span>ваши объявления</span>
 			</div>
 
 			<ul className={styles.tabsList}>
@@ -26,13 +32,17 @@ export const TabHeaderItem = ({ items }) => {
 							[styles.tabItemActive]: i === active,
 						})}
 					>
-						<button className={styles.tabBtn} data-tabs={item.lable}>
-							{item.name}
-						</button>
+						<button className={styles.tabBtn}>{item.name}</button>
 					</li>
 				))}
 			</ul>
-			<TabFilter active={active} />
+			<TabFilter
+				onChangeSortCities={onChangeSortCities}
+				valueCities={valueCities}
+				onChangeSortRooms={onChangeSortRooms}
+				valueRooms={valueRooms}
+        filteres={filteres}
+			/>
 		</>
 	)
 }

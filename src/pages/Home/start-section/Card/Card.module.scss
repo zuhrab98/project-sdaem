@@ -15,9 +15,9 @@
 	color: #242424;
 
 	a {
-    span {
-      padding-right: 10px;
-    }
+		span {
+			padding-right: 10px;
+		}
 		svg {
 			transform: rotate(270deg);
 		}
@@ -51,6 +51,7 @@
 
 		span {
 			padding-right: 10px;
+			color: var(--white);
 		}
 
 		svg {

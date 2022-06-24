@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Label } from '../../../../components/Label/Label'
-import { Icons } from '../../../../components/Icons/Icons'
-
+import { Label } from '../Label/Label'
+import { Icons } from '../Icons/Icons'
+import { Button } from '../Button/Button'
 import styles from './LocationCard.module.scss'
-import { OwnerPopup } from '../../../../components/OwnerPopup/OwnerPopup'
+import { OwnerPopup } from '../OwnerPopup/OwnerPopup'
 
 export const LocationCard = ({ data }) => {
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
@@ -26,7 +26,7 @@ export const LocationCard = ({ data }) => {
 							<span>{data.numberPeopleRoom}</span>
 						</Label>
 						<Label tag={'span'} type='small'>
-							<span>{data.rooms}</span>
+							<span>{data.rooms} комн.</span>
 						</Label>
 						<Label tag={'span'} type='small'>
 							<span>{data.quadrature}</span>
@@ -36,7 +36,9 @@ export const LocationCard = ({ data }) => {
 				<div className={styles.locationBlock}>
 					<div className={styles.location}>
 						<Icons id='location' />
-						<p className={styles.text}>{data.address}</p>
+						<p className={styles.text}>
+							{data.citi}, {data.address}
+						</p>
 					</div>
 					<div className={styles.location}>
 						<Icons id='metro' />
@@ -44,7 +46,7 @@ export const LocationCard = ({ data }) => {
 					</div>
 					<div className={styles.location}>
 						<Icons id='pointer' />
-						<p className={styles.text}>{data.area}</p>
+						<p className={styles.text}>{data.region}</p>
 					</div>
 				</div>
 				<p className={styles.desc}>{data.description}</p>
@@ -52,15 +54,15 @@ export const LocationCard = ({ data }) => {
 					<Label
 						tag={'div'}
 						onClick={() => setVisiblePopup(!visiblePopup)}
-						type='primary'
+						type='primaryPointer'
 					>
 						<Icons id='phone' />
 						<span>Контакты</span>
 						{visiblePopup && <OwnerPopup owner={data.owner} />}
 					</Label>
-					<Label tag={'div'} type='yellow'>
-						<a href='#'>Подробнее</a>
-					</Label>
+					<Button tag={'a'} path={'/news'} name='yellow'>
+						<span>Подробнее</span>
+					</Button>
 				</div>
 			</div>
 		</div>

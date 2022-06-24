@@ -1,18 +1,21 @@
 import React from 'react'
-import { Home } from './pages/Home/Home'
-import { News } from './pages/News'
 import { Route, Routes } from 'react-router-dom'
-import { Error } from './pages/404'
+
+import { Home } from './pages/Home/Home'
+import { NewsDetail } from './pages/News-datail/NewsDetail'
 import { Сontacts } from './pages/Сontacts'
+import { NotFound } from './pages/NotFound'
+import { News } from './pages/News/News'
 
 const App = () => {
+  
 	return (
 		<>
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='news' element={<News />} />
-				<Route path='error' element={<Error />} />
 				<Route path='contacts' element={<Сontacts />} />
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 		</>
 	)

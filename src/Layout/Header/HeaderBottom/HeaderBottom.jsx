@@ -3,6 +3,7 @@ import cn from 'classnames'
 import styles from './HeaderBottom.module.scss'
 import { NavLinks } from '../NavLink/NavLink'
 import { Button } from '../../../components/Button/Button'
+import { Link } from 'react-router-dom'
 
 const navs = [
 	{ name: 'Квартиры на сутки', path: 'rooms' },
@@ -16,13 +17,15 @@ export const HeaderBottom = () => {
 		<div className={styles.bottom}>
 			<div className='container'>
 				<div className={styles.wrapper}>
-					<a href='#' className={styles.logo}>
+					<Link to='/' className={styles.logo}>
 						<img src='img/logo.svg' width={134} height={19} alt='logo' />
-					</a>
+					</Link>
 					<NavLinks navs={navs} appearance={'black'} />
-					<Button name={'addAdvert'}>
-						<span>+</span> Разместить объявление
-					</Button>
+					<div>
+						<Button path='/' tag='a' name={'addAdvert'}>
+							<span>+</span> Разместить объявление
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>

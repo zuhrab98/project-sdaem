@@ -1,0 +1,20 @@
+{
+	"FILTER_CITIES": {
+    "title": "Город",
+		"cities": [
+			{ "name": "Минск", "sortProperty": "citi" },
+			{ "name": "Екатеринбург", "sortProperty": "citi" },
+			{ "name": "Москва", "sortProperty": "citi" }
+		]
+	},
+
+	"FILTER_ROOMS": {
+    "title": "Комнаты",
+		"rooms": [
+			{ "name": "1", "sortProperty": "rooms" },
+			{ "name": "2", "sortProperty": "rooms" },
+			{ "name": "3", "sortProperty": "rooms" },
+			{ "name": "4", "sortProperty": "rooms" }
+		]
+	}
+}

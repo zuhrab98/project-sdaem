@@ -8,64 +8,58 @@ import { Link } from 'react-router-dom'
 
 export const NewsSection = () => {
 	const [news, setWews] = React.useState([])
+	const [apartment, setApartment] = React.useState([])
 
 	React.useEffect(() => {
 		setWews(data.NEWS)
+		setApartment(data.APARTAMET_FOR_DAY)
 	}, [])
 
 	return (
-		<section className={styles.startSection}>
+		<section className={styles.newsSection}>
 			<div className='container'>
 				<div className={styles.wrapper}>
 					<div className={styles.apartmentForDay}>
-						<Link to='/'>
-							<span className={styles.text}>ЧТО ТАКОЕ SDAEM.BY</span>
-						</Link>
+						<p className={styles.sdaemText}>
+							ЧТО ТАКОЕ <Link to='/'>SDAEM.BY</Link>
+						</p>
 						<h3 className={styles.title}>Квартира на сутки в Минске</h3>
 						<div className={styles.content}>
 							<div className={styles.img}>
-								<img src='' alt='apartment-img' />
+								<img src={apartment.img} alt='apartment-img' />
 							</div>
-							<p className={styles.text}>
-								<b>Нужна квартира на сутки в Минске?</b> На веб-сайте sdaem.by
-								вас ждет масса выгодных предложений. Каталог насчитывает более
-								500 квартир. Благодаря удобной навигации вы быстро найдете
-								подходящий вариант. В каталоге представлены комфортабельные
-								однокомнатные квартиры на сутки и квартиры с большим количеством
-								комнат в разных районах города, с различной степенью удобства от
-								дешевых до VIP с джакузи.
-							</p>
+							<div className={styles.textColumn}>
+								<p
+									className={styles.text}
+									dangerouslySetInnerHTML={{ __html: apartment.contentText }}
+								></p>
+								<p
+									className={styles.text}
+									dangerouslySetInnerHTML={{ __html: apartment.contentText2 }}
+								></p>
+							</div>
 						</div>
 						<div className={styles.footerText}>
-							<p>
-								Чтобы снять квартиру на сутки в Минске, вам достаточно
-								определиться с выбором и связаться с владельцем для уточнения
-								условий аренды и заключить договор. Заметим, на сайте
-								представлены исключительно квартиры на сутки без посредников,
-								что избавляет посетителей от необходимости взаимодействовать с
-								агентствами, тратя свое время и деньги. Также пользователи сайта
-								могут совершенно бесплатно размещать объявления о готовности
-								сдать квартиру на сутки.
-							</p>
+							<p>{apartment.footerText}</p>
 						</div>
 					</div>
-					<div className={styles.news}>
-						<h3 className={styles.news}>Новости</h3>
+					<div className={styles.newsBlock}>
+						<h3 className={styles.titleNews}>Новости</h3>
 						<div className={styles.conteiner}>
 							{news &&
 								news.map((item) => (
-									<div className={styles.item}>
-										<div className={styles.date}>{item.date}</div>
-										<a href='#' className={styles.title}>
+									<div key={item.id} className={styles.item}>
+										<Link to='#' className={styles.title}>
 											{item.title}
-										</a>
+										</Link>
+										<div className={styles.date}>{item.date}</div>
 									</div>
 								))}
 						</div>
 						<div className={styles.newsViewAll}>
-							<a href='#' className={styles.link}>
+							<Link to='#' className={styles.link}>
 								Посмотреть все
-							</a>
+							</Link>
 							<Icons id={'arrow'} size={{ w: 12, h: 7 }} />
 						</div>
 					</div>

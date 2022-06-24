@@ -8,9 +8,10 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css'
 import './slider.scss'
+import { LocationCard } from '../LocationCard/LocationCard'
+import Skeleton from '../LocationCard/Skeleton'
 
-export const Slider = ({ data, cards }) => {
-	const Cards = cards
+export const Slider = ({ data, loading }) => {
 	return (
 		<>
 			<Swiper
@@ -19,11 +20,17 @@ export const Slider = ({ data, cards }) => {
 				slidesPerView={3}
 				navigation
 			>
-				{data.map((obj) => (
-					<SwiperSlide key={obj.id}>
-						<Cards data={obj} />
-					</SwiperSlide>
-				))}
+				{loading
+					? [...new Array(3)].map((_, index) => (
+							<SwiperSlide key={index}>
+								<Skeleton />
+							</SwiperSlide>
+					  ))
+					: data.map((obj) => (
+							<SwiperSlide key={obj.id}>
+								<LocationCard data={obj} />
+							</SwiperSlide>
+					  ))}
 			</Swiper>
 		</>
 	)

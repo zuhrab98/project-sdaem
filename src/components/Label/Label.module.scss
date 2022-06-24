@@ -12,6 +12,14 @@
 	color: var(--text-grey);
 }
 
+.lightGrey {
+	padding: 10px 8px;
+
+	span {
+		color: #8291a3;
+	}
+}
+
 .labelGold {
 	color: var(--white);
 	padding: 8px 12px;
@@ -21,20 +29,29 @@
 }
 
 .labelPrimary,
-.labelYellow {
+.labelYellow,
+.primaryPointer {
 	padding: 10px 15px;
+}
+
+.primaryPointer {
 	font-weight: 700;
-	font-size: 14px;
-	line-height: 17px;
 	color: var(--primary);
 	background: var(--white);
 	box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
 	cursor: pointer;
 }
 
+.labelPrimary {
+	max-width: 140px;
+	font-weight: 500;
+	color: var(--primary);
+	background: rgba(102, 78, 249, 0.1);
+	box-shadow: 0px 0px 20px rgba(0, 96, 206, 0.1);
+}
+
 .labelYellow {
 	display: inline-block;
-	background: rgba(255, 213, 79, 0.1);
 	background: rgba(255, 213, 79, 0.1);
 	cursor: pointer;
 	a {

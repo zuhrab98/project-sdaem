@@ -1,0 +1,20 @@
+{
+	"tabs": [
+		{
+			"name": "Квартиры на сутки",
+			"lable": "apartment"
+		},
+		{
+			"name": "Коттеджи и усадьбы",
+			"lable": "cottage"
+		},
+		{
+			"name": "Бани и сауны",
+			"lable": "bathhouses"
+		},
+		{
+			"name": "Авто напрокат",
+			"lable": "car"
+		}
+	]
+}

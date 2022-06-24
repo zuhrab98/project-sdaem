@@ -9,7 +9,7 @@
 		linear-gradient(360deg, #7e6af3 15.95%, #6540cd 63.1%);
 	background-repeat: no-repeat;
 	background-size: cover;
-	margin-bottom: 300px;
+	margin-bottom: 180px;
 
 	&::before {
 		content: '';
@@ -56,13 +56,16 @@
 }
 
 .cardsRow {
-	max-width: 1300px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 30px;
-	position: absolute;
-	top: 322px;
+  padding: 0 15px;
+  max-width: 1310px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  position: absolute;
+  top: 322px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 
 	&::after {
 		content: '';

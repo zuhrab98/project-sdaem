@@ -15,7 +15,7 @@
 .button {
 	position: relative;
 	width: 100%;
-	padding: 12px 9px 12px;
+	padding: 9px 8px 9px 12px;
 	background: #ffffff;
 	border: 2px solid rgba(102, 78, 249, 0.8);
 	border-radius: 20px;
@@ -41,27 +41,24 @@
 	}
 }
 
-
 .buttonActive {
 	box-shadow: (0px 5px 15px rgba(135, 124, 202, 0.25));
 
 	svg:last-child {
 		transform: translate(-50%, -50%) rotate(180deg);
 	}
-
 }
 
 .dropdown {
-  position: relative;
+	position: relative;
 	min-width: 150px;
 	margin-top: 10px;
 	position: absolute;
 	left: 20px;
-	display: none;
 	background: #ffffff;
 	box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
 	border-radius: 10px;
-  z-index: 99;
+	z-index: 100;
 }
 
 .dropdown.toggleActive {
@@ -85,11 +82,14 @@
 	}
 }
 
-.listActive {
+.selectActiveMetro,
+.selectActiveReg,
+.selectActiveCiti,
+.selectActiveRoom {
 	background: #f7f5f5;
 }
 
-// =========== Фильтр для ветро и районов ===========
+// =========== Фильтр для метро и районов ===========
 .filterMetro,
 .filterDistricts {
 	max-width: 185px;
@@ -105,7 +105,7 @@
 		line-height: 20px;
 
 		&:hover {
-			background:white;
+			background: white;
 		}
 	}
 

@@ -3,15 +3,16 @@ import styles from './Footer.module.scss'
 import { Icons } from '../../components/Icons/Icons'
 import { Lists } from '../../components/Lists/Lists'
 import { apartments, listProduct, listServices, PAYMENT } from './data'
+import { Link } from 'react-router-dom'
 
 export const Footer = () => {
 	return (
 		<footer>
 			<div className={`container ${styles.footerContainer}`}>
 				<div className={styles.desc}>
-					<a href='#' className='logo'>
+					<Link to='/' className='logo'>
 						<img src='img/logo.svg' width={134} height={19} alt='logo' />
-					</a>
+					</Link>
 					<p className={styles.p}>СДАЁМ БАЙ</p>
 					<p>
 						ИП Шушкевич Андрей Викторович УНП 192602485 Минским горисполкомом
@@ -42,17 +43,29 @@ export const Footer = () => {
 						Мы в соцсетях
 						<ul className={styles.socialsList}>
 							<li>
-								<a href='#'>
+								<a
+									href='https://www.instagram.com/sdaem.by'
+									target='_blank'
+									rel='noreferrer'
+								>
 									<Icons id={'instagram'} />
 								</a>
 							</li>
 							<li>
-								<a href='#'>
+								<a
+									href='https://vk.com/sdaem_by'
+									target='_blank'
+									rel='noreferrer'
+								>
 									<Icons id={'vk'} />
 								</a>
 							</li>
 							<li>
-								<a href='#'>
+								<a
+									href='https://www.facebook.com/sdaem.by'
+									target='_blank'
+									rel='noreferrer'
+								>
 									<Icons id={'facebook'} />
 								</a>
 							</li>

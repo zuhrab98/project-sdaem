@@ -1,0 +1,33 @@
+.mainBlock {
+  padding-bottom: 65px;
+  position: relative;
+  top: -44px;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 844px;
+	margin: 0 auto;
+}
+
+.imgBlock {
+	margin-bottom: 40px;
+}
+
+.textBlock {
+	p {
+		span {
+			display: inline-block;
+			font-size: 16px;
+			line-height: 1.5;
+			color: var(--title);
+		}
+
+		& > * + * {
+			padding-top: 30px;
+		}
+	}
+}

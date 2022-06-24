@@ -1,0 +1,23 @@
+.newsSection {
+	padding: 62px 0px 100px;
+	min-height: 280px;
+	background: linear-gradient(
+		90deg,
+		rgba(148, 175, 255, 0.1) 0%,
+		rgba(78, 100, 249, 0.1) 94.5%
+	);
+}
+
+.title {
+	font-weight: 700;
+	margin-bottom: 44px;
+	font-size: 25px;
+	line-height: 30px;
+	color: var(--title);
+}
+
+.cardsRow {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+}

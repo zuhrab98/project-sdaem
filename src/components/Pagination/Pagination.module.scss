@@ -1,0 +1,46 @@
+.root {
+	display: flex;
+
+	li {
+		display: inline-block;
+		margin-right: 4px;
+	}
+
+	a {
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+
+		font-size: 18px;
+		line-height: 22px;
+		color: #686868;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	:global {
+		.previous {
+			display: none;
+		}
+		.next {
+			display: none;
+		}
+
+		.selected {
+			a {
+				font-weight: 700;
+				color: var(--title);
+				position: relative;
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -3px;
+					left: 0;
+					right: 0;
+					height: 3px;
+					background: var(--light-yellow);
+				}
+			}
+		}
+	}
+}

@@ -34,9 +34,13 @@ export const Card = ({ data }) => {
 				></p>
 			)}
 
-			<Button tag='a' name={data.type ? '' : 'yellow'}>
+			<Button tag='a' path='/' name='yellowGradient'>
 				<span>{data.bntText}</span>
-				{data.id !== '1' ? <Icons id={'arrow'} size={{ w: 12, h: 7 }} fill='#242424' /> : ''}
+				{data.id !== '1' ? (
+					<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill='#242424' />
+				) : (
+					''
+				)}
 			</Button>
 		</div>
 	)
