@@ -7,8 +7,8 @@ import { Сontacts } from './pages/Сontacts'
 import { NotFound } from './pages/NotFound'
 import { News } from './pages/News/News'
 
+
 const App = () => {
-  
 	return (
 		<>
 			<Routes>

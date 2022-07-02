@@ -1,35 +1,44 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
 import cn from 'classnames'
 import styles from './Filter.module.scss'
 import { Icons } from '../Icons/Icons'
-import { HomeContext } from '../../pages/Home/Home'
+import {
+	setFilterByMetro,
+	setFilterByCities,
+	setFilterByRooms,
+	setFilterByRegions,
+} from '../../redux/slices/filterSlice'
 
-export const Filter = ({
-	onChangeSortMetro,
-	onChangeSortRegions,
-	onChangeSortRooms,
-	onChangeSortCities,
-	title,
-	list,
-	ClassName = '',
-	children,
-	name,
-}) => {
+export const Filter = ({ title, list, ClassName = '', children, name }) => {
 	const { filterByRooms, filterByCities, filterByMetro, filterByRegions } =
-		React.useContext(HomeContext)
+		useSelector((store) => store.filter)
+	const dispatch = useDispatch()
 
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [filterName, setFilterName] = React.useState(name)
 	const btnRef = React.useRef()
 
 	const toggleVisiblePopup = (obj) => {
-		setVisiblePopup(false)
-		// вызывается функ чтоб получить тот элемент на который нажали
-		onChangeSortMetro && onChangeSortMetro(obj)
-		onChangeSortRegions && onChangeSortRegions(obj)
-		onChangeSortCities && onChangeSortCities(obj)
-		onChangeSortRooms && onChangeSortRooms(obj)
+		switch (obj.filterProperty) {
+			case 'metro':
+				dispatch(setFilterByMetro(obj))
+				return
+			case 'regions':
+				dispatch(setFilterByRegions(obj))
+				return
+			case 'citi':
+				dispatch(setFilterByCities(obj))
+				return
+			case 'rooms':
+				dispatch(setFilterByRooms(obj))
+				return
+			default:
+				break
+		}
 
+		setVisiblePopup(false)
 		// Обновляем имя
 		setFilterName(obj ? obj.name : '')
 	}

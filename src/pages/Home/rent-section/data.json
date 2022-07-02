@@ -1,13 +1,13 @@
 {
 	"metroStations": [
-		{ "name": "Грушевка" },
-		{ "name": "ВДНХ" },
-		{ "name": "Чкаловская" }
+		{ "name": "Грушевка", "filterProperty": "metro" },
+		{ "name": "ВДНХ", "filterProperty": "metro" },
+		{ "name": "Чкаловская", "filterProperty": "metro" }
 	],
 	"regions": [
-		{ "name": "Шабаны" },
-		{ "name": "Уралмаш" },
-		{ "name": "Аэропорт" }
+		{ "name": "Шабаны", "filterProperty": "regions"},
+		{ "name": "Уралмаш", "filterProperty": "regions"},
+		{ "name": "Аэропорт", "filterProperty": "regions"}
 	],
 
 	"CARD_LOCATION": [
