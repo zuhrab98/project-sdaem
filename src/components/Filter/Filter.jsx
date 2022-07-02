@@ -2,30 +2,28 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './Filter.module.scss'
 import { Icons } from '../Icons/Icons'
+import { HomeContext } from '../../pages/Home/Home'
 
 export const Filter = ({
-	valueMetro,
 	onChangeSortMetro,
-	valueRegions,
 	onChangeSortRegions,
-	valueRooms,
 	onChangeSortRooms,
-	valueCities,
 	onChangeSortCities,
-
 	title,
 	list,
 	ClassName = '',
 	children,
 	name,
 }) => {
+	const { filterByRooms, filterByCities, filterByMetro, filterByRegions } =
+		React.useContext(HomeContext)
+
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [filterName, setFilterName] = React.useState(name)
 	const btnRef = React.useRef()
 
 	const toggleVisiblePopup = (obj) => {
 		setVisiblePopup(false)
-
 		// вызывается функ чтоб получить тот элемент на который нажали
 		onChangeSortMetro && onChangeSortMetro(obj)
 		onChangeSortRegions && onChangeSortRegions(obj)
@@ -75,17 +73,17 @@ export const Filter = ({
 								onClick={() => toggleVisiblePopup(obj)}
 								className={cn(styles.item, {
 									// активный селект
-									[styles.selectActiveMetro]: valueMetro
-										? obj?.name === valueMetro?.name
+									[styles.selectActiveMetro]: filterByMetro
+										? obj?.name === filterByMetro?.name
 										: '',
-									[styles.selectActiveReg]: valueRegions
-										? obj?.name === valueRegions?.name
+									[styles.selectActiveReg]: filterByRegions
+										? obj?.name === filterByRegions?.name
 										: '',
-									[styles.selectActiveCiti]: valueCities
-										? obj?.name === valueCities?.name
+									[styles.selectActiveCiti]: filterByCities
+										? obj?.name === filterByCities?.name
 										: '',
-									[styles.selectActiveRoom]: valueRooms
-										? obj?.name === valueMetro?.name
+									[styles.selectActiveRoom]: filterByRooms
+										? obj?.name === filterByRooms?.name
 										: '',
 								})}
 							>

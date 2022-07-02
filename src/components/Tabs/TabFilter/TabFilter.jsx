@@ -9,31 +9,21 @@ import { Button } from '../../Button/Button'
 import { Icons } from '../../Icons/Icons'
 import { Link } from 'react-router-dom'
 
-export const TabFilter = ({
-	onChangeSortRooms,
-	valueRooms,
-	onChangeSortCities,
-	valueCities,
-	filteres,
-}) => {
+export const TabFilter = ({ onChangeSortRooms, onChangeSortCities }) => {
 	return (
 		<div className={styles.tabsFilter}>
 			<div className={styles.wrapper}>
 				<Filter
 					onChangeSortCities={onChangeSortCities}
-					valueCities={valueCities}
 					title={data?.FILTER_CITIES?.title}
 					name='Город'
 					list={data?.FILTER_CITIES?.cities}
-					filteres={filteres}
 				/>
 				<Filter
 					onChangeSortRooms={onChangeSortRooms}
-					valueRooms={valueRooms}
 					name='Комнаты'
 					title={data?.FILTER_ROOMS?.title}
 					list={data?.FILTER_ROOMS?.rooms}
-					filteres={filteres}
 				/>
 				<PriceFilter />
 				<OptionsFilter />

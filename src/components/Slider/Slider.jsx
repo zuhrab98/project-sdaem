@@ -11,7 +11,7 @@ import './slider.scss'
 import { LocationCard } from '../LocationCard/LocationCard'
 import Skeleton from '../LocationCard/Skeleton'
 
-export const Slider = ({ data, loading }) => {
+export const Slider = ({ data, isLoading }) => {
 	return (
 		<>
 			<Swiper
@@ -20,7 +20,7 @@ export const Slider = ({ data, loading }) => {
 				slidesPerView={3}
 				navigation
 			>
-				{loading
+				{isLoading
 					? [...new Array(3)].map((_, index) => (
 							<SwiperSlide key={index}>
 								<Skeleton />

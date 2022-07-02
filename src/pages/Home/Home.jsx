@@ -10,10 +10,11 @@ import {
 	StartSection,
 } from './index'
 
+export const HomeContext = React.createContext()
+
 export const Home = () => {
 	const [isLoading, setLoading] = React.useState(true)
 	const [items, setItems] = React.useState([])
-	const [data, setData] = React.useState([])
 
 	const [filterByMetro, setFilterByMetro] = React.useState(null)
 	const [filterByRegions, setFilterRegions] = React.useState(null)
@@ -28,33 +29,37 @@ export const Home = () => {
 			const itemsResponse = await axios.get(
 				`https://62b821b603c36cb9b7c248ae.mockapi.io/items`
 			)
-
 			setItems(itemsResponse.data)
-			setData(itemsResponse.data)
-
 			// после завершения запроса удоляем компаненту скелетон
 			setLoading(false)
 		}
+
 		fetchData()
 	}, [])
 
 	return (
 		<Layout>
-			<HomeFilters
-				onChangeSortRooms={(rooms) => setFilterByRooms(rooms)}
-				valueRooms={filterByRooms}
-				onChangeSortCities={(cities) => setFilterCities(cities)}
-				valueCities={filterByCities}
-			/>
-			<GallerySections />
-			<RentSection
-				cards={items}
-				loading={isLoading}
-				onChangeSortMetro={(metro) => setFilterByMetro(metro)}
-				valueMetro={filterByMetro}
-				onChangeSortRegions={(region) => setFilterRegions(region)}
-				valueRegions={filterByRegions}
-			/>
+			<HomeContext.Provider
+				value={{
+					items,
+					isLoading,
+					filterByRooms,
+					filterByCities,
+					filterByMetro,
+					filterByRegions,
+				}}
+			>
+				<HomeFilters
+					onChangeSortRooms={(rooms) => setFilterByRooms(rooms)}
+					onChangeSortCities={(cities) => setFilterCities(cities)}
+				/>
+				<GallerySections />
+				<RentSection
+					onChangeSortMetro={(metro) => setFilterByMetro(metro)}
+					onChangeSortRegions={(region) => setFilterRegions(region)}
+				/>
+			</HomeContext.Provider>
+
 			<StartSection />
 			<NewsSection />
 		</Layout>

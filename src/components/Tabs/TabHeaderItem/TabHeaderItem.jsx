@@ -6,10 +6,7 @@ import { TabFilter } from '../TabFilter/TabFilter'
 export const TabHeaderItem = ({
 	items,
 	onChangeSortCities,
-	valueCities,
 	onChangeSortRooms,
-	valueRooms,
-  filteres
 }) => {
 	const [active, setActive] = React.useState(0)
 
@@ -38,10 +35,7 @@ export const TabHeaderItem = ({
 			</ul>
 			<TabFilter
 				onChangeSortCities={onChangeSortCities}
-				valueCities={valueCities}
 				onChangeSortRooms={onChangeSortRooms}
-				valueRooms={valueRooms}
-        filteres={filteres}
 			/>
 		</>
 	)

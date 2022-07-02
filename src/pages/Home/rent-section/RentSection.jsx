@@ -6,15 +6,12 @@ import styles from './RentSection.module.scss'
 import { Slider } from '../../../components/Slider/Slider'
 import { Button } from '../../../components/Button/Button'
 import data from './data'
+import { HomeContext } from '../Home'
 
-export const RentSection = ({
-	onChangeSortMetro,
-	valueMetro,
-	onChangeSortRegions,
-	valueRegions,
-	cards,
-	loading,
-}) => {
+export const RentSection = ({ onChangeSortMetro, onChangeSortRegions }) => {
+	const { isLoading, items, filterByMetro, filterByRegions } =
+		React.useContext(HomeContext)
+
 	const [sortByMetro, setSortByMetro] = React.useState([])
 	const [sortByRegions, setSortByRegions] = React.useState([])
 
@@ -23,18 +20,17 @@ export const RentSection = ({
 		setSortByRegions(data.regions) // получаем районы
 	}, [])
 
-
 	const filteredCards = () => {
-		return cards
+		return items
 			.filter((card) => {
-				if (valueMetro) {
-					return card.metro === valueMetro.name
+				if (filterByMetro) {
+					return card.metro === filterByMetro.name
 				}
 				return true
 			})
 			.filter((card) => {
-				if (valueRegions) {
-					return card.region === valueRegions.name
+				if (filterByRegions) {
+					return card.region === filterByRegions.name
 				}
 				return true
 			})
@@ -51,7 +47,6 @@ export const RentSection = ({
 					<div className={styles.filter}>
 						{/* выподающее меню Станций метро*/}
 						<Filter
-							valueMetro={valueMetro}
 							onChangeSortMetro={onChangeSortMetro}
 							list={sortByMetro && sortByMetro}
 							ClassName='filterMetro'
@@ -62,7 +57,6 @@ export const RentSection = ({
 
 						{/* выподающее меню Районов*/}
 						<Filter
-							valueRegions={valueRegions}
 							onChangeSortRegions={onChangeSortRegions}
 							list={sortByRegions && sortByRegions}
 							ClassName='filterDistricts'
@@ -71,7 +65,7 @@ export const RentSection = ({
 					</div>
 				</div>
 
-				<Slider data={filteredCards()} loading={loading} />
+				<Slider data={filteredCards()} isLoading={isLoading} />
 
 				<div className={styles.offers}>
 					<div className={styles.left}>

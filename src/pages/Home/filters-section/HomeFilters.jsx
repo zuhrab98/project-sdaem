@@ -6,20 +6,14 @@ import { TabHeaderItem } from '../../../components/Tabs/TabHeaderItem/TabHeaderI
 import data from './data.json'
 
 export const HomeFilters = ({
-	valueRooms,
 	onChangeSortRooms,
-	valueCities,
 	onChangeSortCities,
-  filteres
 }) => {
 	return (
 		<section className={cn(styles.filterSection, 'container')}>
 			<div className={styles.wrapper}>
 				<TabHeaderItem
-					valueRooms={valueRooms}
 					onChangeSortRooms={onChangeSortRooms}
-					valueCities={valueCities}
-          filteres={filteres}
 					onChangeSortCities={onChangeSortCities}
 					items={data && data?.tabs}
 				/>
