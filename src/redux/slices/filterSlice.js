@@ -6,6 +6,8 @@ const initialState = {
 	filterByRegions: null,
 	filterByRooms: null,
 	filterByCities: null,
+	filterByPriceFrom: null,
+	filterByPriceTo: null,
 }
 
 export const filterSlice = createSlice({
@@ -27,6 +29,12 @@ export const filterSlice = createSlice({
 		setFilterByCities: (state, action) => {
 			state.filterByCities = action.payload
 		},
+		setFilterByPriceFrom: (state, action) => {
+			state.filterByPriceFrom = action.payload
+		},
+		setFilterByPriceTo: (state, action) => {
+			state.filterByPriceTo = action.payload
+		},
 	},
 })
 
@@ -37,6 +45,8 @@ export const {
 	setFilterByRegions,
 	setFilterByRooms,
 	setFilterByCities,
+	setFilterByPriceFrom,
+	setFilterByPriceTo,
 } = filterSlice.actions
 
 export default filterSlice.reducer

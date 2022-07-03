@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import cn from 'classnames'
-import styles from './Filter.module.scss'
+import styles from './FilterSelect.module.scss'
 import { Icons } from '../Icons/Icons'
 import {
 	setFilterByMetro,
@@ -11,16 +11,21 @@ import {
 	setFilterByRegions,
 } from '../../redux/slices/filterSlice'
 
-export const Filter = ({ title, list, ClassName = '', children, name }) => {
-	const { filterByRooms, filterByCities, filterByMetro, filterByRegions } =
-		useSelector((store) => store.filter)
-	const dispatch = useDispatch()
-
+export const FilterSelect = ({ title, list, ClassName = '', children, name }) => {
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [filterName, setFilterName] = React.useState(name)
 	const btnRef = React.useRef()
 
+	const { filterByRooms, filterByCities, filterByMetro, filterByRegions } =
+		useSelector((store) => store.filter)
+
+	const dispatch = useDispatch()
+
 	const toggleVisiblePopup = (obj) => {
+		// console.log(obj)
+		// Обновляем имя
+		setFilterName(obj.name)
+
 		switch (obj.filterProperty) {
 			case 'metro':
 				dispatch(setFilterByMetro(obj))
@@ -37,10 +42,8 @@ export const Filter = ({ title, list, ClassName = '', children, name }) => {
 			default:
 				break
 		}
-
+		console.log(obj)
 		setVisiblePopup(false)
-		// Обновляем имя
-		setFilterName(obj ? obj.name : '')
 	}
 
 	React.useEffect(() => {

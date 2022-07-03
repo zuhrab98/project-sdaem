@@ -3,11 +3,7 @@ import styles from './TabHeaderItem.module.scss'
 import cn from 'classnames'
 import { TabFilter } from '../TabFilter/TabFilter'
 
-export const TabHeaderItem = ({
-	items,
-	onChangeSortCities,
-	onChangeSortRooms,
-}) => {
+export const TabHeaderItem = ({ items }) => {
 	const [active, setActive] = React.useState(0)
 
 	const onClickActive = (i) => {
@@ -33,10 +29,7 @@ export const TabHeaderItem = ({
 					</li>
 				))}
 			</ul>
-			<TabFilter
-				onChangeSortCities={onChangeSortCities}
-				onChangeSortRooms={onChangeSortRooms}
-			/>
+			<TabFilter />
 		</>
 	)
 }
