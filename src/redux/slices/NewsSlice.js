@@ -16,10 +16,14 @@ export const NewsSlice = createSlice({
 		setCurrentPage(state, action) {
 			state.currentPage = action.payload
 		},
+		setFilterPage(state, action) {
+			console.log(Number(action.payload.currentPage))
+			state.currentPage = Number(action.payload.currentPage)
+		},
 	},
 })
 
 // Action creators are generated for each case reducer function
-export const { setLoadings, setCurrentPage } = NewsSlice.actions
+export const { setLoadings, setCurrentPage, setFilterPage } = NewsSlice.actions
 
 export default NewsSlice.reducer
