@@ -12,8 +12,6 @@ import {
 
 import { setCards, setLoadings } from '../../redux/slices/filterSlice'
 
-export const HomeContext = React.createContext()
-
 export const Home = () => {
 	// const { loading } = useSelector((store) => store.filter)
 	const dispatch = useDispatch()

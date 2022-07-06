@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { setCurrentPage, setLoadings } from '../../redux/slices/NewsSlice'
 
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import Skeleton from '../../components/LocationCard/Skeleton'
@@ -8,7 +9,7 @@ import { NewsCards } from '../../components/newsCards/NewsCards'
 import { Pagination } from '../../components/Pagination/Pagination'
 import { Search } from '../../components/Search/Search'
 import { Layout } from '../../Layout/Layout'
-import { setLoadings } from '../../redux/slices/NewsSlice'
+
 import styles from './News.module.scss'
 import cn from 'classnames'
 
@@ -17,9 +18,10 @@ export const NewsContext = React.createContext()
 export const News = () => {
 	const [items, setitems] = React.useState([])
 	const [searchInput, setSearchInput] = React.useState('')
-	const [currentPage, setCurrentPage] = React.useState(1)
 
-	const { breadcrumbs, loading } = useSelector((store) => store.news)
+	const { breadcrumbs, loading, currentPage } = useSelector(
+		(store) => store.news
+	)
 	const dispatch = useDispatch()
 
 	React.useEffect(() => {
@@ -35,9 +37,9 @@ export const News = () => {
 	}, [currentPage, dispatch])
 
 	// По нажатию на кнопку поиска делаем фильтрацию новостных карточек
-	const search = searchInput ? `search=${searchInput}` : ''
 	const onClickSearch = async (e) => {
 		dispatch(setLoadings(true))
+		const search = searchInput ? `search=${searchInput}` : ''
 
 		e.preventDefault()
 		const cartResponse = await axios.get(
@@ -47,10 +49,15 @@ export const News = () => {
 		dispatch(setLoadings(false))
 		setitems(cartResponse.data)
 	}
+
+	const onPageChange = (number) => {
+		dispatch(setCurrentPage(number))
+	}
+
 	return (
 		<Layout>
 			<NewsContext.Provider
-				value={{ onClickSearch, setSearchInput, searchInput, setCurrentPage }}
+				value={{ onClickSearch, setSearchInput, searchInput }}
 			>
 				<div className={styles.wrapper}>
 					<div className={cn(`${'container'}`, styles.wrapperContainer)}>
@@ -70,7 +77,7 @@ export const News = () => {
 										<NewsCards key={cardNews.id} data={cardNews} />
 								  ))}
 						</div>
-						<Pagination />
+						<Pagination currentPage={currentPage} onPageChange={onPageChange} />
 					</div>
 				</div>
 			</NewsContext.Provider>

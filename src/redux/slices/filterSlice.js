@@ -19,7 +19,6 @@ export const filterSlice = createSlice({
 			state.loading = action.payload
 		},
 		setCards(state, action) {
-			console.log(action)
 			state.rentalCards = action.payload
 		},
 		setFilterByMetro(state, action) {
@@ -47,6 +46,7 @@ export const filterSlice = createSlice({
 export const {
 	setLoadings,
 	setCards,
+	setPageCounte,
 	setFilterByMetro,
 	setFilterByRegions,
 	setFilterByRooms,

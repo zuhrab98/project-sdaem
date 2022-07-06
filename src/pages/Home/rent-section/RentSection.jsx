@@ -11,15 +11,9 @@ import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
 
 export const RentSection = ({ cards }) => {
 	// получаем из stora необходимые свойства
-	const {
-		loading,
-		filterByMetro,
-		filterByRegions,
-		filterByRooms,
-		filterByCities,
-		filterByPriceFrom,
-		filterByPriceTo,
-	} = useSelector((store) => store.filter)
+	const { loading, filterByMetro, filterByRegions } = useSelector(
+		(store) => store.filter
+	)
 
 	const [sortByMetro, setSortByMetro] = React.useState([])
 	const [sortByRegions, setSortByRegions] = React.useState([])
@@ -27,7 +21,7 @@ export const RentSection = ({ cards }) => {
 	React.useEffect(() => {
 		setSortByMetro(data.metroStations) // получаем стации метро
 		setSortByRegions(data.regions) // получаем районы
-	}, [])
+	}, [sortByMetro, sortByRegions])
 
 	return (
 		<section className={styles.rentSection}>

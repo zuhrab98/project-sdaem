@@ -1,8 +1,7 @@
 import React from 'react'
-import cn from 'classnames'
+
 import styles from './Search.module.scss'
 import { Icons } from '../Icons/Icons'
-import { Link } from 'react-router-dom'
 import { NewsContext } from '../../pages/News/News'
 
 export const Search = () => {
