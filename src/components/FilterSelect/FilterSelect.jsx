@@ -11,38 +11,43 @@ import {
 	setFilterByRegions,
 } from '../../redux/slices/filterSlice'
 
-export const FilterSelect = ({ title, list, ClassName = '', children, name }) => {
+export const FilterSelect = ({
+	title,
+	list,
+	ClassName = '',
+	children,
+	name,
+}) => {
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [filterName, setFilterName] = React.useState(name)
 	const btnRef = React.useRef()
 
+  // useSelector по сути слушатеь на изминения store.filter, далее компонент перерисовывается 
 	const { filterByRooms, filterByCities, filterByMetro, filterByRegions } =
 		useSelector((store) => store.filter)
 
 	const dispatch = useDispatch()
 
-	const toggleVisiblePopup = (obj) => {
-		// console.log(obj)
+	const onClickListItem = (obj) => {
 		// Обновляем имя
+		// console.log(obj)
 		setFilterName(obj.name)
-
 		switch (obj.filterProperty) {
 			case 'metro':
 				dispatch(setFilterByMetro(obj))
 				return
-			case 'regions':
+			case 'region':
 				dispatch(setFilterByRegions(obj))
 				return
 			case 'citi':
 				dispatch(setFilterByCities(obj))
 				return
-			case 'rooms':
+			case 'room':
 				dispatch(setFilterByRooms(obj))
 				return
 			default:
 				break
 		}
-		console.log(obj)
 		setVisiblePopup(false)
 	}
 
@@ -66,14 +71,14 @@ export const FilterSelect = ({ title, list, ClassName = '', children, name }) =>
 		>
 			{title && <div className={styles.title}>{title}</div>}
 
-			<button
+			<span
 				ref={btnRef}
 				onClick={() => setVisiblePopup((prev) => !prev)}
 				className={cn(styles.button, { [styles.buttonActive]: visiblePopup })}
 			>
-				{/* children это иконка метро*/}
+				{/* children это иконка метро либо другая*/}
 				{children} {filterName} <Icons id={'arrow'} />
-			</button>
+			</span>
 
 			{/* выподающее меню */}
 			{visiblePopup && (
@@ -81,8 +86,8 @@ export const FilterSelect = ({ title, list, ClassName = '', children, name }) =>
 					<ul className={styles.list}>
 						{list?.map((obj, i) => (
 							<li
-								key={i}
-								onClick={() => toggleVisiblePopup(obj)}
+								key={obj?.name}
+								onClick={() => onClickListItem(obj)}
 								className={cn(styles.item, {
 									// активный селект
 									[styles.selectActiveMetro]: filterByMetro

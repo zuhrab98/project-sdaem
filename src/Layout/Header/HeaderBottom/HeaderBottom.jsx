@@ -18,7 +18,7 @@ export const HeaderBottom = () => {
 			<div className='container'>
 				<div className={styles.wrapper}>
 					<Link to='/' className={styles.logo}>
-						<img src='img/logo.svg' width={134} height={19} alt='logo' />
+						<img src='/img/logo.svg' width={134} height={19} alt='logo' />
 					</Link>
 					<NavLinks navs={navs} appearance={'black'} />
 					<div>

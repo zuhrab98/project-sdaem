@@ -5,9 +5,9 @@
 		{ "name": "Чкаловская", "filterProperty": "metro" }
 	],
 	"regions": [
-		{ "name": "Шабаны", "filterProperty": "regions"},
-		{ "name": "Уралмаш", "filterProperty": "regions"},
-		{ "name": "Аэропорт", "filterProperty": "regions"}
+		{ "name": "Шабаны", "filterProperty": "region" },
+		{ "name": "Уралмаш", "filterProperty": "region" },
+		{ "name": "Аэропорт", "filterProperty": "region" }
 	],
 
 	"CARD_LOCATION": [

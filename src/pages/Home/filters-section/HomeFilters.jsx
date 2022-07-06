@@ -9,7 +9,7 @@ export const HomeFilters = () => {
 	return (
 		<section className={cn(styles.filterSection, 'container')}>
 			<div className={styles.wrapper}>
-				<TabHeaderItem items={data && data?.tabs} />
+				<TabHeaderItem tabs={data && data?.tabs} />
 			</div>
 		</section>
 	)

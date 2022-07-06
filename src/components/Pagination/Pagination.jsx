@@ -16,7 +16,7 @@ export const Pagination = () => {
 			breakLabel='...'
 			onPageChange={(e) => setCurrentPage(e.selected + 1)}
 			pageRangeDisplayed={3}
-			pageCount={3}
+			pageCount={12}
 			renderOnZeroPageCount={null}
 		/>
 	)

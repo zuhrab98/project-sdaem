@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	loading: true,
+	rentalCards: [],
 	filterByMetro: null,
 	filterByRegions: null,
 	filterByRooms: null,
@@ -14,25 +15,29 @@ export const filterSlice = createSlice({
 	name: 'filter',
 	initialState,
 	reducers: {
-		setLoadings: (state, action) => {
+		setLoadings(state, action) {
 			state.loading = action.payload
 		},
-		setFilterByMetro: (state, action) => {
+		setCards(state, action) {
+			console.log(action)
+			state.rentalCards = action.payload
+		},
+		setFilterByMetro(state, action) {
 			state.filterByMetro = action.payload
 		},
-		setFilterByRegions: (state, action) => {
+		setFilterByRegions(state, action) {
 			state.filterByRegions = action.payload
 		},
-		setFilterByRooms: (state, action) => {
+		setFilterByRooms(state, action) {
 			state.filterByRooms = action.payload
 		},
-		setFilterByCities: (state, action) => {
+		setFilterByCities(state, action) {
 			state.filterByCities = action.payload
 		},
-		setFilterByPriceFrom: (state, action) => {
+		setFilterByPriceFrom(state, action) {
 			state.filterByPriceFrom = action.payload
 		},
-		setFilterByPriceTo: (state, action) => {
+		setFilterByPriceTo(state, action) {
 			state.filterByPriceTo = action.payload
 		},
 	},
@@ -41,12 +46,14 @@ export const filterSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const {
 	setLoadings,
+	setCards,
 	setFilterByMetro,
 	setFilterByRegions,
 	setFilterByRooms,
 	setFilterByCities,
 	setFilterByPriceFrom,
 	setFilterByPriceTo,
+	setNewsDetail,
 } = filterSlice.actions
 
 export default filterSlice.reducer

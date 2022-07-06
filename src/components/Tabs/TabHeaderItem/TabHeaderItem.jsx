@@ -3,7 +3,7 @@ import styles from './TabHeaderItem.module.scss'
 import cn from 'classnames'
 import { TabFilter } from '../TabFilter/TabFilter'
 
-export const TabHeaderItem = ({ items }) => {
+export const TabHeaderItem = ({ tabs }) => {
 	const [active, setActive] = React.useState(0)
 
 	const onClickActive = (i) => {
@@ -17,7 +17,7 @@ export const TabHeaderItem = ({ items }) => {
 			</div>
 
 			<ul className={styles.tabsList}>
-				{items.map((item, i) => (
+				{tabs.map((item, i) => (
 					<li
 						onClick={() => onClickActive(i)}
 						key={`${item.name}_${i}`}

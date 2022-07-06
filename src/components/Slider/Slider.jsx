@@ -11,7 +11,7 @@ import './slider.scss'
 import { LocationCard } from '../LocationCard/LocationCard'
 import Skeleton from '../LocationCard/Skeleton'
 
-export const Slider = ({ data, isLoading }) => {
+export const Slider = ({ cards, isLoading }) => {
 	return (
 		<>
 			<Swiper
@@ -26,7 +26,7 @@ export const Slider = ({ data, isLoading }) => {
 								<Skeleton />
 							</SwiperSlide>
 					  ))
-					: data.map((obj) => (
+					: cards.map((obj) => (
 							<SwiperSlide key={obj.id}>
 								<LocationCard data={obj} />
 							</SwiperSlide>

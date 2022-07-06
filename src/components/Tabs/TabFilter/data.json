@@ -1,6 +1,5 @@
 {
 	"FILTER_CITIES": {
-    "title": "Город",
 		"cities": [
 			{ "name": "Минск", "filterProperty": "citi" },
 			{ "name": "Екатеринбург", "filterProperty": "citi" },
@@ -9,12 +8,11 @@
 	},
 
 	"FILTER_ROOMS": {
-    "title": "Комнаты",
 		"rooms": [
-			{ "name": "1", "filterProperty": "rooms" },
-			{ "name": "2", "filterProperty": "rooms" },
-			{ "name": "3", "filterProperty": "rooms" },
-			{ "name": "4", "filterProperty": "rooms" }
+			{ "name": "1", "filterProperty": "room" },
+			{ "name": "2", "filterProperty": "room" },
+			{ "name": "3", "filterProperty": "room" },
+			{ "name": "4", "filterProperty": "room" }
 		]
 	}
 }

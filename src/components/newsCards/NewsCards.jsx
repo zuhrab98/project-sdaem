@@ -5,6 +5,7 @@ import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
 
 export const NewsCards = ({ data }) => {
+
 	return (
 		<div className={styles.card}>
 			<div className={styles.headerCard}>
@@ -14,12 +15,13 @@ export const NewsCards = ({ data }) => {
 				<p className={styles.title}>{data.title}</p>
 				<p className={styles.desc}>{data.description}</p>
 				<div className={styles.footer}>
-					<Label tag='a' type='lightGrey'>
+					<Label tag='div' type='lightGrey'>
 						<span>{data.date}</span>
 					</Label>
 					<Button
 						tag='a'
-						onClick={() => console.log('читать')}
+						path={`/news/${data.id}`}
+						onClick={data}
 						name='lightPrimary'
 					>
 						<span>Читать</span>
@@ -29,3 +31,4 @@ export const NewsCards = ({ data }) => {
 		</div>
 	)
 }
+// {`id:${data.id}`}

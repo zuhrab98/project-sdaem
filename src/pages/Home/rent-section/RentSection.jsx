@@ -29,19 +29,13 @@ export const RentSection = ({ cards }) => {
 		setSortByRegions(data.regions) // получаем районы
 	}, [])
 
-	console.log(filterByCities)
-
 	return (
 		<section className={styles.rentSection}>
 			<div className='container'>
 				<div className={styles.header}>
 					<div className={styles.titleRow}>
 						<div className={styles.subtitle}>КВАРТИРЫ НА СУТКИ</div>
-						<div className={styles.title}>
-							{filterByCities
-								? `Аренда квартир в ${filterByCities.name}e`
-								: 'Все квартиры'}
-						</div>
+						<div className={styles.title}>Аренда квартир в Минске</div>
 					</div>
 					<div className={styles.filter}>
 						{/* выподающее меню Станций метро*/}
@@ -63,15 +57,7 @@ export const RentSection = ({ cards }) => {
 				</div>
 
 				<Slider
-					data={filteredCards(
-						cards,
-						filterByMetro,
-						filterByRegions,
-						filterByRooms,
-						filterByCities,
-						filterByPriceFrom,
-						filterByPriceTo
-					)}
+					cards={filteredCards(cards, filterByMetro, filterByRegions)}
 					isLoading={loading}
 				/>
 

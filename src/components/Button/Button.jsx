@@ -1,14 +1,30 @@
 import React from 'react'
 import cn from 'classnames'
 import styles from './Button.module.scss'
-import { Icons } from '../Icons/Icons'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setNewsDetail } from '../../redux/slices/filterSlice'
+import filteredCards from '../../filteredCards'
 
-export const Button = ({ children, name, tag, path }) => {
+export const Button = ({ children, name, tag, path, onClick }) => {
+	const dispatch = useDispatch()
+	// const onSubmitFilter = (e) => {
+	// 	e.preventDefault()
+
+	// 	filteredCards(
+	// 		cards,
+	// 		filterByRooms,
+	// 		filterByCities,
+	// 		filterByPriceFrom,
+	// 		filterByPriceTo
+	// 	)
+	// }
+
 	return (
 		<>
 			{tag === 'a' ? (
 				<Link
+					onClick={() => dispatch(setNewsDetail(onClick))}
 					to={`${path}`}
 					className={cn(styles.button, {
 						[styles.openMap]: name === 'openMap',
@@ -27,6 +43,7 @@ export const Button = ({ children, name, tag, path }) => {
 					className={cn(styles.button, {
 						[styles.return]: name === 'return',
 						[styles.buttonDef]: name === 'buttonDef',
+						[styles.lightYellow]: name === 'lightYellow',
 						[styles.error]: name === 'error',
 						[styles.show]: name === 'show',
 						[styles.yellowGradient]: name === 'yellow',

@@ -57,7 +57,7 @@ export const NewsSection = () => {
 								))}
 						</div>
 						<div className={styles.newsViewAll}>
-							<Link to='#' className={styles.link}>
+							<Link to='news' className={styles.link}>
 								Посмотреть все
 							</Link>
 							<Icons id={'arrow'} size={{ w: 12, h: 7 }} />

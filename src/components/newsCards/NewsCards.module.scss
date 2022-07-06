@@ -8,11 +8,12 @@
 
 .headerCard {
 	min-width: 406px;
-	min-height: 226px;
+	max-height: 226px;
 	display: flex;
 	justify-content: center;
 	background: #e0e0e0;
 	border-radius: 10px;
+	overflow: hidden;
 }
 
 .title {
