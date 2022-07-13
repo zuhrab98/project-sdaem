@@ -5,7 +5,6 @@ import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
 
 export const NewsCards = ({ data }) => {
-
 	return (
 		<div className={styles.card}>
 			<div className={styles.headerCard}>

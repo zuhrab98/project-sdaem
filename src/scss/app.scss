@@ -3,12 +3,15 @@
 @import 'libs/normalize';
 
 body {
-  font-weight: 400;
+	font-weight: 400;
 	font-family: 'Inter';
 	background: var(--white);
 	color: var(--title);
 }
 
+main {
+	overflow: hidden;
+}
 
 .container {
 	max-width: 1310px;

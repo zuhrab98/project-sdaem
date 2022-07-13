@@ -9,9 +9,17 @@
 	border-radius: 0px 10px 10px;
 }
 
-.form {
+.filteres {
 	display: flex;
 	align-items: center;
+
+	& > div + div {
+		border-left: 1px solid rgba(101, 78, 249, 0.1);
+	}
+
+	& > div:nth-child(-n + 2) {
+		flex: 0 0 190px;
+	}
 }
 
 .buttons {
@@ -19,6 +27,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding-left: 17px;
+	height: 64px;
 
 	a {
 		margin-right: 20px;

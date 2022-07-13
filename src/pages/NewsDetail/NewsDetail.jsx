@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 
 import { Layout } from '../../Layout/Layout'
@@ -10,43 +10,41 @@ import { NewsCards } from '../../components/newsCards/NewsCards'
 import styles from './NewsDetail.module.scss'
 import data from './data.json'
 import axios from 'axios'
+import { setBreadcrums } from '../../redux/slices/filterSlice'
 
 export const NewsDetail = () => {
-	// const { newsDetail } = useSelector((store) => store.filter)
 	const { id } = useParams()
-
 	const [socialIcons, setSocialIcons] = React.useState([])
 	const [mainBlock, setMainBlock] = React.useState({})
 	const [newsCards, setNewsCards] = React.useState([])
 
-	const { newsDetail } = useSelector((store) => store.newsDetail)
+	const { breadcrumbs } = useSelector((store) => store.filter)
+	const dispatch = useDispatch()
 
 	React.useEffect(() => {
+		dispatch(setBreadcrums({ page: 'Новости', path: '/news' }))
+
 		const fetchNewsCards = async () => {
-			const cartResponse = await axios.get(
+			const { data } = await axios.get(
 				`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?id=${Number(id)}`
 			)
-			setNewsCards(cartResponse.data[0])
+			console.log(data[0])
+			setNewsCards(data[0])
 		}
 		fetchNewsCards()
 		setSocialIcons(data.socials)
 		setMainBlock(data)
-	}, [id])
-
-	console.log(newsCards)
+	}, [dispatch, id])
 
 	return (
 		<Layout>
 			<div className={styles.headerSection}>
 				<div className={styles.wrapperContainer}>
-					<Breadcrumbs
-						pagaName={newsCards?.title}
-						breadcrumsb={newsDetail.breadcrums ? newsDetail.breadcrums : []}
-					/>
-					<h1 className={styles.title1}>{newsCards?.title}</h1>
+					<Breadcrumbs pagaName={newsCards?.title} breadcrumsb={breadcrumbs} />
+					<h1 className={styles.title1}>{newsCards && newsCards?.title}</h1>
 					<div className={styles.headerWrapper}>
 						<Label tag='div' type='primary'>
-							{newsCards?.date}
+							{newsCards && newsCards?.date}
 						</Label>
 						<div className={styles.toShare}>
 							<span className={styles.text}>Поделиться</span>

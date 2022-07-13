@@ -1,44 +1,32 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import cn from 'classnames'
-import styles from './TabFilter.module.scss'
+
 import data from './data.json'
 import { PriceFilter } from './PriceFilter/PriceFilter'
 import { OptionsFilter } from './OptionsFilter/OptionsFilter'
 import { Button } from '../../Button/Button'
 import { Icons } from '../../Icons/Icons'
-import { Link } from 'react-router-dom'
 import { FilterSelect } from '../../FilterSelect/FilterSelect'
-import { useDispatch, useSelector } from 'react-redux'
-import filteredCards from '../../../filteredCards'
-import { setCards } from '../../../redux/slices/filterSlice'
+
+import styles from './TabFilter.module.scss'
+import { StringParam, useQueryParam } from 'use-query-params'
 
 export const TabFilter = () => {
-  
-	// const {
-	// 	rentalCards,
-	// 	filterByRooms,
-	// 	filterByCities,
-	// 	filterByPriceFrom,
-	// 	filterByPriceTo,
-	// } = useSelector((store) => store.filter)
-
-	const dispatch = useDispatch()
-
-	const onSubmitFilters = (e) => {
-		e.preventDefault()
-	}
+	const { filterByRooms, filterByCities } = useSelector((store) => store.filter)
 
 	return (
 		<div className={styles.tabsFilter}>
-			<form className={styles.form}>
+			<div className={styles.filteres}>
 				<FilterSelect
-					title={'Город'}
-					name='Город'
+					title='Город'
+					name={filterByCities ? filterByCities.name : 'Минск'}
 					list={data?.FILTER_CITIES?.cities}
 				/>
 				<FilterSelect
-					name='Комнаты'
-					title={'Комнаты'}
+					title='Комнаты'
+					name={filterByRooms ? filterByRooms.name : 'Комнаты'}
 					list={data?.FILTER_ROOMS?.rooms}
 				/>
 
@@ -47,18 +35,20 @@ export const TabFilter = () => {
 
 				<div className={styles.buttons}>
 					<Button to='/' tag='a' name='openMap'>
-						<Icons id={'location'} />
+						<Icons id='location' fill='#FEC81B' />
 						<span>На карте</span>
 					</Button>
-					<button
-						onClick={(e) => onSubmitFilters(e)}
+					<Link
+						to={{
+							pathname: `/apartmentCatalog`,
+						}}
 						className={styles.lightYellow}
 					>
 						<span>Показать</span>
 						<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill={'#242424'} />
-					</button>
+					</Link>
 				</div>
-			</form>
+			</div>
 		</div>
 	)
 }

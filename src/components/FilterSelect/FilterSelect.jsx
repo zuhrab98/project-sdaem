@@ -22,15 +22,15 @@ export const FilterSelect = ({
 	const [filterName, setFilterName] = React.useState(name)
 	const btnRef = React.useRef()
 
-  // useSelector по сути слушатеь на изминения store.filter, далее компонент перерисовывается 
+	// useSelector по сути слушатеь на изминения store.filter, далее компонент перерисовывается
 	const { filterByRooms, filterByCities, filterByMetro, filterByRegions } =
 		useSelector((store) => store.filter)
 
 	const dispatch = useDispatch()
 
 	const onClickListItem = (obj) => {
-		// Обновляем имя
 		// console.log(obj)
+		// Обновляем имя
 		setFilterName(obj.name)
 		switch (obj.filterProperty) {
 			case 'metro':
@@ -59,6 +59,7 @@ export const FilterSelect = ({
 			}
 		}
 		document.body.addEventListener('click', closePopup)
+
 		return () => document.body.removeEventListener('click', closePopup)
 	}, [])
 
@@ -67,24 +68,26 @@ export const FilterSelect = ({
 			className={cn(styles.filterOfferType, {
 				[styles.filterMetro]: ClassName === 'filterMetro',
 				[styles.filterDistricts]: ClassName === 'filterDistricts',
+				[styles.rentalApartment]: ClassName === 'rentalApartment',
+				[styles.sortPrice]: ClassName === 'sortPrice',
 			})}
 		>
 			{title && <div className={styles.title}>{title}</div>}
 
-			<span
+			<div
 				ref={btnRef}
 				onClick={() => setVisiblePopup((prev) => !prev)}
 				className={cn(styles.button, { [styles.buttonActive]: visiblePopup })}
 			>
 				{/* children это иконка метро либо другая*/}
 				{children} {filterName} <Icons id={'arrow'} />
-			</span>
+			</div>
 
 			{/* выподающее меню */}
 			{visiblePopup && (
 				<div className={styles.dropdown}>
 					<ul className={styles.list}>
-						{list?.map((obj, i) => (
+						{list?.map((obj) => (
 							<li
 								key={obj?.name}
 								onClick={() => onClickListItem(obj)}

@@ -23,7 +23,7 @@ export const StartSection = () => {
 						живописном районе
 					</p>
 					<Button tag='a' name='openMap'>
-						<Icons id='location' /> <span>Открыть карту</span>
+						<Icons id='location' fill='#FEC81B' /> <span>Открыть карту</span>
 					</Button>
 				</div>
 				<div className={styles.cardsRow}>

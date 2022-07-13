@@ -1,13 +1,4 @@
-const filteredCards = (
-	cards,
-	filterByMetro,
-	filterByRegions,
-	filterByRooms,
-	filterByCities,
-	filterPriceFrom,
-	filterPriceTo
-) => {
-
+export const filteredCardsSlider = (cards, filterByMetro, filterByRegions) => {
 	return cards
 		.filter((card) => {
 			if (filterByMetro) {
@@ -27,34 +18,36 @@ const filteredCards = (
 			}
 			return true
 		})
+}
+
+export const filteredApartmentCatalog = (
+	cards,
+	filterByRooms,
+	filterByCities,
+	filterByPriceFrom,
+	filterByPriceTo
+) => {
+	return cards
 		.filter((card) => {
 			if (filterByRooms) {
-				if (filterByRooms.name === 'Все') {
-					return true
-				}
 				return card.rooms === filterByRooms.name
 			}
 			return true
 		})
 		.filter((card) => {
 			if (filterByCities) {
-				if (filterByCities.name === 'Все') {
-					return true
-				}
 				return card.citi === filterByCities.name
 			}
 			return true
 		})
 		.filter((card) => {
-			if (filterPriceFrom && filterPriceTo) {
+			if (filterByPriceFrom.price && filterByPriceTo.price) {
 				return (
-					Number(card.price.split('.')[0]) >= Number(filterPriceFrom.price) &&
-					filterPriceTo &&
-					Number(filterPriceTo.price) >= Number(card.price.split('.')[0])
+					Number(card.price.split('.')[0]) >= Number(filterByPriceFrom.price) &&
+					filterByPriceTo &&
+					Number(filterByPriceTo.price) >= Number(card.price.split('.')[0])
 				)
 			}
 			return true
 		})
 }
-
-export default filteredCards

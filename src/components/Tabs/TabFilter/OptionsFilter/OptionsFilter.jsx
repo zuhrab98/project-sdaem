@@ -3,7 +3,7 @@ import cn from 'classnames'
 import styles from './OptionsFilter.module.scss'
 import { Icons } from '../../../Icons/Icons'
 
-export const OptionsFilter = ({ ClassName }) => {
+export const OptionsFilter = () => {
 	return (
 		<div className={styles.optionsFilter}>
 			<button type='button' className={styles.button}>

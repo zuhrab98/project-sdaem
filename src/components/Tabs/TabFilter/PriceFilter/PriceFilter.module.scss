@@ -1,10 +1,10 @@
 .filterPrice {
 	flex: 0 0 215px;
 	padding: 0px 20px;
-	border-right: 1px solid rgba(101, 78, 249, 0.1);
 }
 
 .title {
+	font-size: 14px;
 	margin-bottom: 11px;
 	font-weight: 500;
 	line-height: 17px;
@@ -40,7 +40,6 @@ input::-webkit-inner-spin-button {
 	display: flex;
 	flex: 0 0 430px;
 	padding: 0px 25px;
-	border-right: 1px solid rgba(101, 78, 249, 0.1);
 	align-items: center;
 
 	.title {
@@ -55,7 +54,7 @@ input::-webkit-inner-spin-button {
 		max-width: 100px;
 		padding-left: 9px;
 	}
-  
+
 	.priceWrapper {
 		width: 100%;
 	}

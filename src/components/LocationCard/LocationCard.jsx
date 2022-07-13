@@ -1,18 +1,51 @@
 import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination, Navigation } from 'swiper'
+import cn from 'classnames'
 
 import { Label } from '../Label/Label'
 import { Icons } from '../Icons/Icons'
 import { Button } from '../Button/Button'
-import styles from './LocationCard.module.scss'
 import { OwnerPopup } from '../OwnerPopup/OwnerPopup'
+import styles from './LocationCard.module.scss'
 
-export const LocationCard = ({ data }) => {
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import './swiperCards.scss'
+
+export const LocationCard = ({ cardList, ClassName, data, fav }) => {
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
-
 	return (
-		<div className={styles.card}>
-			<div className={styles.headerCard}>
-				<img src={data.img} alt='locationPhoto' />
+		<div
+			className={cn(styles.card, {
+				[styles.shadow]: fav,
+				[styles.catalogCard]: ClassName === 'catalogCard',
+			})}
+		>
+			<div className={cn(styles.headerCard, 'headerCard')}>
+				{data.img.length > 1 ? (
+					<Swiper
+						className={styles.sliderCatalog}
+						slidesPerView={1}
+						spaceBetween={30}
+						loop={true}
+						pagination={{
+							clickable: true,
+						}}
+						navigation={true}
+						modules={[Pagination, Navigation]}
+					>
+						{data?.img.map((url, i) => (
+							<SwiperSlide key={i}>
+								<img src={url} alt='locationPhoto' />
+							</SwiperSlide>
+						))}
+					</Swiper>
+				) : (
+					<img src={data.img[0]} alt='locationPhoto' />
+				)}
 			</div>
 			<div className={styles.body}>
 				<div className={styles.row}>
@@ -51,6 +84,12 @@ export const LocationCard = ({ data }) => {
 				</div>
 				<p className={styles.desc}>{data.description}</p>
 				<div className={styles.footer}>
+					{fav && (
+						<Button name='fav'>
+							<Icons id='heart' fill='#EB5757' />
+						</Button>
+					)}
+
 					<Label
 						tag={'div'}
 						onClick={() => setVisiblePopup(!visiblePopup)}

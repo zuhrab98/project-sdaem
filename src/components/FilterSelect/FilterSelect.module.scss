@@ -1,11 +1,11 @@
 .filterOfferType {
 	position: relative;
-	flex: 0 0 190px;
-	border-right: 1px solid rgba(101, 78, 249, 0.1);
 	padding: 0 20px;
+  width: 100%;
 }
 
 .title {
+	font-size: 14px;
 	margin-bottom: 11px;
 	font-weight: 500;
 	line-height: 17px;
@@ -14,7 +14,7 @@
 
 .button {
 	position: relative;
-  display: flex;
+	display: flex;
 	width: 100%;
 	padding: 9px 8px 9px 12px;
 	background: #ffffff;
@@ -116,8 +116,55 @@
 	}
 }
 
+// =========== Сортировка на странице каталог кваритир ===========
+
+.sortPrice {
+	max-width: 230px;
+	padding: 0;
+
+	.button {
+		padding: 10px 10px 10px 42px;
+	}
+
+	.dropdown {
+		width: 100%;
+		left: 0;
+	}
+}
+
 .filterDistricts {
 	.button {
 		padding: 11px 10px 9px 14px;
+	}
+}
+.rentalApartment {
+	display: flex;
+	align-items: center;
+	flex: 0 0 258px;
+	padding-left: 0;
+
+	.button {
+		border: 0;
+		background: #f8f8f8;
+		padding: 10px 11px 12px;
+	}
+
+	.buttonActive {
+		box-shadow: 0px 3px 11px rgba(135, 124, 202, 0.18);
+	}
+
+	.title {
+		margin-right: 25px;
+		margin-bottom: 0;
+
+		color: var(--primary);
+	}
+
+	.dropdown {
+		margin-top: 10px;
+		left: 86px;
+		box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.18);
+		z-index: 100;
+		top: 60px;
 	}
 }

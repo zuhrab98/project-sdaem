@@ -2,12 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	loading: true,
-	newsDetail: {
-		breadcrums: [
-			{ page: 'Home', path: '/' },
-			{ page: 'Новости', path: '/news' },
-		],
-	},
+	newsDetail: null,
+	breadcrums: [
+		{ page: 'Home', path: '/' },
+		{ page: 'Новости', path: '/news' },
+	],
 }
 
 export const NewsDetailSlice = createSlice({

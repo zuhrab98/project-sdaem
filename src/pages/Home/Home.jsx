@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
 	Layout,
 	HomeFilters,
@@ -13,7 +13,7 @@ import {
 import { setCards, setLoadings } from '../../redux/slices/filterSlice'
 
 export const Home = () => {
-	// const { loading } = useSelector((store) => store.filter)
+	const { rentalCards } = useSelector((store) => store.filter)
 	const dispatch = useDispatch()
 	const [items, setItems] = React.useState([])
 
@@ -34,7 +34,7 @@ export const Home = () => {
 		<Layout>
 			<HomeFilters />
 			<GallerySections />
-			<RentSection cards={items} />
+			<RentSection cards={rentalCards} />
 			<StartSection />
 			<NewsSection />
 		</Layout>

@@ -3,28 +3,14 @@ import cn from 'classnames'
 import styles from './Button.module.scss'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setNewsDetail } from '../../redux/slices/filterSlice'
+import { setNewsDetail } from '../../redux/slices/NewsDetaitSlice'
 import filteredCards from '../../filteredCards'
 
 export const Button = ({ children, name, tag, path, onClick }) => {
-	const dispatch = useDispatch()
-	// const onSubmitFilter = (e) => {
-	// 	e.preventDefault()
-
-	// 	filteredCards(
-	// 		cards,
-	// 		filterByRooms,
-	// 		filterByCities,
-	// 		filterByPriceFrom,
-	// 		filterByPriceTo
-	// 	)
-	// }
-
 	return (
 		<>
 			{tag === 'a' ? (
 				<Link
-					onClick={() => dispatch(setNewsDetail(onClick))}
 					to={`${path}`}
 					className={cn(styles.button, {
 						[styles.openMap]: name === 'openMap',
@@ -40,6 +26,7 @@ export const Button = ({ children, name, tag, path, onClick }) => {
 				</Link>
 			) : (
 				<button
+					onClick={onClick}
 					className={cn(styles.button, {
 						[styles.return]: name === 'return',
 						[styles.buttonDef]: name === 'buttonDef',
@@ -47,6 +34,8 @@ export const Button = ({ children, name, tag, path, onClick }) => {
 						[styles.error]: name === 'error',
 						[styles.show]: name === 'show',
 						[styles.yellowGradient]: name === 'yellow',
+						[styles.fav]: name === 'fav',
+						[styles.beige]: name === 'beige',
 					})}
 				>
 					{children}

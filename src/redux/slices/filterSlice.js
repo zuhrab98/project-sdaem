@@ -2,13 +2,15 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	loading: true,
+	filteredCards: [],
 	rentalCards: [],
 	filterByMetro: null,
 	filterByRegions: null,
 	filterByRooms: null,
-	filterByCities: null,
-	filterByPriceFrom: null,
-	filterByPriceTo: null,
+	filterByCities: { name: 'Минск', filterProperty: 'citi' },
+	filterByPriceFrom: { price: '', value: 'от' },
+	filterByPriceTo: { price: '', value: 'до' },
+	breadcrumbs: [{ page: 'Home', path: '/' }],
 }
 
 export const filterSlice = createSlice({
@@ -20,6 +22,9 @@ export const filterSlice = createSlice({
 		},
 		setCards(state, action) {
 			state.rentalCards = action.payload
+		},
+		setFilteredCards(state, action) {
+			state.filteredCards = action.payload
 		},
 		setFilterByMetro(state, action) {
 			state.filterByMetro = action.payload
@@ -39,6 +44,12 @@ export const filterSlice = createSlice({
 		setFilterByPriceTo(state, action) {
 			state.filterByPriceTo = action.payload
 		},
+		setBreadcrums(state, action) {
+			state.breadcrumbs.push(action.payload)
+			state.breadcrumbs = state.breadcrumbs.filter(
+				(item) => item.page !== action.payload.page
+			)
+		},
 	},
 })
 
@@ -46,7 +57,7 @@ export const filterSlice = createSlice({
 export const {
 	setLoadings,
 	setCards,
-	setPageCounte,
+	setFilteredCards,
 	setFilterByMetro,
 	setFilterByRegions,
 	setFilterByRooms,
@@ -54,6 +65,7 @@ export const {
 	setFilterByPriceFrom,
 	setFilterByPriceTo,
 	setNewsDetail,
+	setBreadcrums,
 } = filterSlice.actions
 
 export default filterSlice.reducer

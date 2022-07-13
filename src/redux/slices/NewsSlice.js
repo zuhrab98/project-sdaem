@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const NewsSlice = createSlice({
-	name: 'news-detail',
+	name: 'news',
 	initialState,
 	reducers: {
 		setLoadings(state, action) {
@@ -17,7 +17,6 @@ export const NewsSlice = createSlice({
 			state.currentPage = action.payload
 		},
 		setFilterPage(state, action) {
-			console.log(Number(action.payload.currentPage))
 			state.currentPage = Number(action.payload.currentPage)
 		},
 	},

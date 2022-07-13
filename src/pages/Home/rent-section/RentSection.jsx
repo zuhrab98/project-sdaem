@@ -6,7 +6,7 @@ import { Slider } from '../../../components/Slider/Slider'
 import { Button } from '../../../components/Button/Button'
 import data from './data'
 import { useSelector } from 'react-redux'
-import filteredCards from '../../../filteredCards'
+import { filteredCardsSlider } from '../../../filteredCards'
 import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
 
 export const RentSection = ({ cards }) => {
@@ -38,7 +38,7 @@ export const RentSection = ({ cards }) => {
 							ClassName='filterMetro'
 							name='Метро'
 						>
-							<Icons id='metro' ClasName={styles.metroIcon} />
+							<Icons id='metro' ClassName={styles.metroIcon} />
 						</FilterSelect>
 
 						{/* выподающее меню Районов*/}
@@ -51,7 +51,7 @@ export const RentSection = ({ cards }) => {
 				</div>
 
 				<Slider
-					cards={filteredCards(cards, filterByMetro, filterByRegions)}
+					cards={filteredCardsSlider(cards, filterByMetro, filterByRegions)}
 					isLoading={loading}
 				/>
 

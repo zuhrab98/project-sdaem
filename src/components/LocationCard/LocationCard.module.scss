@@ -1,17 +1,24 @@
 .card {
-	width: 406px;
-	min-height: 522px;
+	max-width: 406px;
+	width: 100%;
 	background: #fffefe;
 	border-radius: 10px;
 }
 
 .headerCard {
 	min-width: 406px;
+	max-width: 550px;
 	min-height: 226px;
 	display: flex;
 	justify-content: center;
 	background: #e0e0e0;
 	border-radius: 10px;
+	flex-shrink: 0;
+
+	img {
+		height: 100%;
+		border-radius: 10px;
+	}
 }
 
 .body {
@@ -74,16 +81,17 @@
 	line-height: 15px;
 	color: var(--grey);
 	margin-bottom: 12px;
-  text-align: left;
+	text-align: left;
 }
 
 .footer {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding-top: 13px;
 	border-top: 1px solid rgba(101, 78, 249, 0.1);
 
-	& div:first-child {
+	& > div {
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -94,3 +102,18 @@
 	}
 }
 
+// стили применяются на странице каталог
+.sliderCatalog {
+	max-width: 479px;
+}
+.catalogCard {
+	max-width: 100%;
+	display: flex;
+
+	.footer {
+    
+	}
+}
+.shadow {
+	box-shadow: (0px 20px 40px rgba(39, 95, 158, 0.1));
+}

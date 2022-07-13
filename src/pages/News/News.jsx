@@ -28,10 +28,11 @@ export const News = () => {
 	const [items, setitems] = React.useState([])
 	const [searchInput, setSearchInput] = React.useState('')
 
-	const { breadcrumbs, loading, currentPage } = useSelector(
-		(store) => store.news
-	)
+	const { loading, currentPage } = useSelector((store) => store.news)
 
+	const { breadcrumbs } = useSelector((store) => store.filter)
+
+	// Если был первый рендер запрашиваем определенную страницу по умолчанию 1
 	React.useEffect(() => {
 		const fetchNewsCards = async () => {
 			const cartResponse = await axios.get(
@@ -44,6 +45,7 @@ export const News = () => {
 		fetchNewsCards()
 	}, [currentPage, dispatch])
 
+	// Если был первый рендер , то проверяем URL-параметры и сохроняем в редукс
 	React.useEffect(() => {
 		// парсим наш url и делаем из него объект
 		if (window.location.search) {
@@ -51,7 +53,7 @@ export const News = () => {
 			dispatch(setFilterPage(params))
 			// {currentPage: '1'} пример
 		}
-	}, [])
+	}, [dispatch])
 
 	React.useEffect(() => {
 		const queryString = qs.stringify({
@@ -85,10 +87,7 @@ export const News = () => {
 			>
 				<div className={styles.wrapper}>
 					<div className={cn(`${'container'}`, styles.wrapperContainer)}>
-						<Breadcrumbs
-							pagaName={'Новости'}
-							breadcrumsb={breadcrumbs ? breadcrumbs : []}
-						/>
+						<Breadcrumbs pagaName={'Новости'} breadcrumsb={breadcrumbs} />
 						<div className={styles.headerRow}>
 							<h1 className={styles.title}>Новости</h1>
 							<Search />
