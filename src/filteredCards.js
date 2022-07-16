@@ -51,3 +51,15 @@ export const filteredApartmentCatalog = (
 			return true
 		})
 }
+
+export const sort = (cards, sortCards) => {
+	if (sortCards?.filterProperty === 'asc') {
+		return cards.sort((a, b) => {
+			return a.price.split('.')[0] - b.price.split('.')[0]
+		})
+	} else if (sortCards?.filterProperty === 'desc') {
+		return cards.sort((a, b) => {
+			return b.price.split('.')[0] - a.price.split('.')[0]
+		})
+	}
+}

@@ -18,29 +18,18 @@
 		cursor: pointer;
 	}
 
-	:global {
-		.previous {
-			display: none;
-		}
-		.next {
-			display: none;
-		}
-
-		.selected {
-			a {
-				font-weight: 700;
-				color: var(--title);
-				position: relative;
-				&::after {
-					content: '';
-					position: absolute;
-					bottom: -3px;
-					left: 0;
-					right: 0;
-					height: 3px;
-					background: var(--light-yellow);
-				}
-			}
+	.active {
+		font-weight: 700;
+		color: var(--title);
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			right: 0;
+			height: 3px;
+			background: var(--light-yellow);
 		}
 	}
 }

@@ -7,10 +7,11 @@ const initialState = {
 	filterByMetro: null,
 	filterByRegions: null,
 	filterByRooms: null,
-	filterByCities: { name: 'Минск', filterProperty: 'citi' },
+	filterByCities: null,
 	filterByPriceFrom: { price: '', value: 'от' },
 	filterByPriceTo: { price: '', value: 'до' },
 	breadcrumbs: [{ page: 'Home', path: '/' }],
+	sortCards: null,
 }
 
 export const filterSlice = createSlice({
@@ -50,6 +51,14 @@ export const filterSlice = createSlice({
 				(item) => item.page !== action.payload.page
 			)
 		},
+		setFiltersClear(state) {
+			state.filterByPriceFrom = { price: '', value: 'от' }
+			state.filterByPriceTo = { price: '', value: 'до' }
+			state.filterByRooms = null
+		},
+		setSort(state, action) {
+			state.sortCards = action.payload
+		},
 	},
 })
 
@@ -66,6 +75,8 @@ export const {
 	setFilterByPriceTo,
 	setNewsDetail,
 	setBreadcrums,
+	setFiltersClear,
+	setSort,
 } = filterSlice.actions
 
 export default filterSlice.reducer

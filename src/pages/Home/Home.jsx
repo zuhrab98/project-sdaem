@@ -13,7 +13,6 @@ import {
 import { setCards, setLoadings } from '../../redux/slices/filterSlice'
 
 export const Home = () => {
-	const { rentalCards } = useSelector((store) => store.filter)
 	const dispatch = useDispatch()
 	const [items, setItems] = React.useState([])
 
@@ -34,7 +33,7 @@ export const Home = () => {
 		<Layout>
 			<HomeFilters />
 			<GallerySections />
-			<RentSection cards={rentalCards} />
+			<RentSection cards={items} />
 			<StartSection />
 			<NewsSection />
 		</Layout>

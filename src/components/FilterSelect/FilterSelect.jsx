@@ -9,6 +9,7 @@ import {
 	setFilterByCities,
 	setFilterByRooms,
 	setFilterByRegions,
+	setSort,
 } from '../../redux/slices/filterSlice'
 
 export const FilterSelect = ({
@@ -44,6 +45,12 @@ export const FilterSelect = ({
 				return
 			case 'room':
 				dispatch(setFilterByRooms(obj))
+				return
+			case 'asc':
+				dispatch(setSort(obj))
+				return
+			case 'desc':
+				dispatch(setSort(obj))
 				return
 			default:
 				break

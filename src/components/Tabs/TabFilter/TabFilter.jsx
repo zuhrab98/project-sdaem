@@ -21,7 +21,7 @@ export const TabFilter = () => {
 			<div className={styles.filteres}>
 				<FilterSelect
 					title='Город'
-					name={filterByCities ? filterByCities.name : 'Минск'}
+					name={filterByCities ? filterByCities.name : 'Город'}
 					list={data?.FILTER_CITIES?.cities}
 				/>
 				<FilterSelect

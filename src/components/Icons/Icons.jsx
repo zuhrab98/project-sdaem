@@ -120,7 +120,7 @@ export const Icons = ({ id, size, ClassName = '', fill }) => {
 					width='20'
 					height='13'
 					viewBox='0 0 20 13'
-					fill='#BDBDBD'
+					fill={fill ? fill : '#BDBDBD'}
 					xmlns='http://www.w3.org/2000/svg'
 				>
 					<path d='M19.6401 11.4773H18.3812L14.4755 0.509766L9.99979 7.19943L5.21594 0.589264L1.61882 11.4773H0.359905L0 12.9373H4.77911L6.65514 7.59981L10.0565 12.2942L10.0769 12.3238L10.0978 12.2942L13.3449 7.59981L15.2209 12.9373H20L19.6401 11.4773Z' />
@@ -129,8 +129,8 @@ export const Icons = ({ id, size, ClassName = '', fill }) => {
 		case 'user':
 			return (
 				<svg
-					width='16'
-					height='16'
+					width={size ? size.w : '16'}
+					height={size ? size.h : '16'}
 					viewBox='0 0 16 16'
 					fill='none'
 					xmlns='http://www.w3.org/2000/svg'

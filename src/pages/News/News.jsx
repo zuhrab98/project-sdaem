@@ -24,19 +24,18 @@ export const NewsContext = React.createContext()
 export const News = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
+	const { loading, currentPage } = useSelector((store) => store.news)
+	const { breadcrumbs } = useSelector((store) => store.filter)
 
 	const [items, setitems] = React.useState([])
 	const [searchInput, setSearchInput] = React.useState('')
-
-	const { loading, currentPage } = useSelector((store) => store.news)
-
-	const { breadcrumbs } = useSelector((store) => store.filter)
+	const [itemsPerPage] = React.useState(8)
 
 	// Если был первый рендер запрашиваем определенную страницу по умолчанию 1
 	React.useEffect(() => {
 		const fetchNewsCards = async () => {
 			const cartResponse = await axios.get(
-				`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?page=${currentPage}&limit=10`
+				`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards`
 			)
 			setitems(cartResponse.data)
 			dispatch(setLoadings(false))
@@ -44,23 +43,6 @@ export const News = () => {
 
 		fetchNewsCards()
 	}, [currentPage, dispatch])
-
-	// Если был первый рендер , то проверяем URL-параметры и сохроняем в редукс
-	React.useEffect(() => {
-		// парсим наш url и делаем из него объект
-		if (window.location.search) {
-			const params = qs.parse(window.location.search.substring(1))
-			dispatch(setFilterPage(params))
-			// {currentPage: '1'} пример
-		}
-	}, [dispatch])
-
-	React.useEffect(() => {
-		const queryString = qs.stringify({
-			currentPage,
-		})
-		navigate(`?${queryString}`)
-	}, [currentPage, navigate])
 
 	// По нажатию на кнопку поиска делаем фильтрацию новостных карточек
 	const onClickSearch = async (e) => {
@@ -76,9 +58,14 @@ export const News = () => {
 		setitems(cartResponse.data)
 	}
 
-	const onPageChange = (number) => {
-		dispatch(setCurrentPage(number))
+	const paginate = (pageNumber) => {
+		dispatch(setCurrentPage(pageNumber))
 	}
+
+	// получаем индекс первой страницы, последней
+	const lastItemIndex = currentPage * itemsPerPage
+	const firstItemIndex = lastItemIndex - itemsPerPage
+	const currentItem = items.slice(firstItemIndex, lastItemIndex)
 
 	return (
 		<Layout>
@@ -96,11 +83,15 @@ export const News = () => {
 							{loading
 								? // при загрузке рендерим 4 компонентов скелетон
 								  [...new Array(4)].map((_, index) => <Skeleton key={index} />)
-								: items.map((cardNews) => (
+								: currentItem.map((cardNews) => (
 										<NewsCards key={cardNews.id} data={cardNews} />
 								  ))}
 						</div>
-						<Pagination currentPage={currentPage} onPageChange={onPageChange} />
+						<Pagination
+							itemsPerPage={itemsPerPage}
+							totalItems={items.length}
+							paginate={paginate}
+						/>
 					</div>
 				</div>
 			</NewsContext.Provider>

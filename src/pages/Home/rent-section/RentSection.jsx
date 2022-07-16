@@ -62,7 +62,7 @@ export const RentSection = ({ cards }) => {
 						</p>
 						<p className={styles.text}>Предложений по Минску</p>
 					</div>
-					<Button tag='a' name='show'>
+					<Button tag='a' path='/apartmentCatalog' name='show'>
 						<span>Посмотреть все</span>{' '}
 						<Icons size={{ w: 16, h: 9 }} id={'arrow'} fill='#fff' />
 					</Button>
