@@ -1,12 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+
+export const fetchnewsDetail = createAsyncThunk(
+	'newsDetail/fetchHomeCardsStatus',
+	async (id) => {
+		const { data } = await axios.get(
+			`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards/${id}`
+		)
+		return data
+	}
+)
 
 const initialState = {
 	loading: true,
-	newsDetail: null,
-	breadcrums: [
-		{ page: 'Home', path: '/' },
-		{ page: 'Новости', path: '/news' },
-	],
+	newsCardsDetail: null,
+	status: 'loading',
 }
 
 export const NewsDetailSlice = createSlice({
@@ -20,9 +28,22 @@ export const NewsDetailSlice = createSlice({
 			state.newsDetail = action.payload
 		},
 	},
+	extraReducers: {
+		[fetchnewsDetail.pending]: (state) => {
+			state.status = 'loading'
+			state.newsCardsDetail = []
+		},
+		[fetchnewsDetail.fulfilled]: (state, action) => {
+			state.status = 'success'
+			state.newsCardsDetail = action.payload
+		},
+		[fetchnewsDetail.rejected]: (state) => {
+			state.status = 'error'
+			state.newsCardsDetail = []
+		},
+	},
 })
 
-// Action creators are generated for each case reducer function
 export const { setLoadings, setNewsDetail } = NewsDetailSlice.actions
 
 export default NewsDetailSlice.reducer

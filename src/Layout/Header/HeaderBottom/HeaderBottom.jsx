@@ -70,9 +70,9 @@ export const HeaderBottom = () => {
 					<Link to='/' className={styles.logo}>
 						<img src='/img/logo.svg' width={134} height={19} alt='logo' />
 					</Link>
-					<NavLinks navs={navs} selecteds={selecteds} appearance={'black'} />
+					<NavLinks navs={navs} selecteds={selecteds} appearance='black' />
 					<div>
-						<Button path='*' tag='a' name={'addAdvert'}>
+						<Button path='*' tag='a' name='addAdvert'>
 							<span>+</span> Разместить объявление
 						</Button>
 					</div>

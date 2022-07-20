@@ -17,9 +17,9 @@ export const listProduct = [
 ]
 
 export const PAYMENT = [
-	{ src: 'payments/visa.png', alt: 'visa' },
-	{ src: 'payments/webpay.png', alt: 'webpay' },
-	{ src: 'payments/verified-by-visa.png', alt: 'verified-by-visa' },
-	{ src: 'payments/securecode.png', alt: 'securecode' },
-	{ src: 'payments/belkart.png', alt: 'belkart' },
+	{ src: '/payments/visa.png', alt: 'visa' },
+	{ src: '/payments/webpay.png', alt: 'webpay' },
+	{ src: '/payments/verified-by-visa.png', alt: 'verified-by-visa' },
+	{ src: '/payments/securecode.png', alt: 'securecode' },
+	{ src: '/payments/belkart.png', alt: 'belkart' },
 ]

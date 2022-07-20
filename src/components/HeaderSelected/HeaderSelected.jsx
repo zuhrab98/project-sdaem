@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from './HeaderSelected.module.scss'
 import { Link } from 'react-router-dom'
-import { setFilterByCities } from '../../redux/slices/filterSlice'
+import { setFiltered } from '../../redux/slices/filterSlice'
 import { useDispatch } from 'react-redux'
 
 export const HeaderSelected = ({ paramName, selecteds }) => {
 	const dispatch = useDispatch()
 
 	const handlerClick = (item) => {
-		dispatch(setFilterByCities({ name: item.citi, filterProperty: 'citi' }))
+		dispatch(setFiltered({ name: item.citi, filterProperty: 'citi' }))
 	}
 
 	return (

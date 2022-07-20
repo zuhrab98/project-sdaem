@@ -1,27 +1,15 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectFilter, setFiltered } from '../../../../redux/slices/filterSlice'
 import cn from 'classnames'
 import styles from './PriceFilter.module.scss'
 
-import { useDispatch, useSelector } from 'react-redux'
-import {
-	setFilterByPriceFrom,
-	setFilterByPriceTo,
-} from '../../../../redux/slices/filterSlice'
-
 export const PriceFilter = ({ ClassName }) => {
-  const dispatch = useDispatch()
-	const { filterByPriceFrom, filterByPriceTo } = useSelector(
-		(store) => store.filter
-	)
+	const dispatch = useDispatch()
+	const { filtered } = useSelector(selectFilter)
 
-	const onChangeInput = (price, value) => {
-		if (value === 'от') {
-			console.log(price)
-			dispatch(setFilterByPriceFrom({ price, value }))
-		} else if (value === 'до') {
-			console.log(price)
-			dispatch(setFilterByPriceTo({ price, value }))
-		}
+	const onChangeInput = (obj) => {
+		dispatch(setFiltered(obj))
 	}
 
 	return (
@@ -33,9 +21,14 @@ export const PriceFilter = ({ ClassName }) => {
 			<div className={styles.title}>Цена за сутки (BYN)</div>
 			<div className={styles.priceWrapper}>
 				<input
-					onChange={(e) => onChangeInput(e.target.value, 'от')}
+					onChange={(e) =>
+						onChangeInput({
+							price: e.target.value,
+							filterProperty: 'priceFrom',
+						})
+					}
 					className={styles.input}
-					value={filterByPriceFrom.price}
+					value={filtered.priceFrom.price}
 					name='price'
 					type='number'
 					placeholder='От'
@@ -43,9 +36,11 @@ export const PriceFilter = ({ ClassName }) => {
 				-
 				<input
 					className={styles.input}
-					onChange={(e) => onChangeInput(e.target.value, 'до')}
+					onChange={(e) =>
+						onChangeInput({ price: e.target.value, filterProperty: 'priceTo' })
+					}
 					name='price'
-					value={filterByPriceTo.price}
+					value={filtered.priceTo.price}
 					type='number'
 					placeholder='До'
 				/>

@@ -11,7 +11,7 @@ export const NewsCards = ({ data }) => {
 				<img src={data.img} alt='apartmentImg' />
 			</div>
 			<div className={styles.body}>
-				<p className={styles.title}>{data.title}</p>
+				<h3 className={styles.title}>{data.title}</h3>
 				<p className={styles.desc}>{data.description}</p>
 				<div className={styles.footer}>
 					<Label tag='div' type='lightGrey'>

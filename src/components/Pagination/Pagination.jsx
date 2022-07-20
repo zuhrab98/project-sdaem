@@ -1,13 +1,10 @@
 import React from 'react'
+
 import styles from './Pagination.module.scss'
 import cn from 'classnames'
 
-export const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
-	const pageNumbers = []
+export const Pagination = ({ paginate, pageNumbers }) => {
 	const [state, setState] = React.useState(1)
-	for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
-		pageNumbers.push(i)
-	}
 
 	const onClickPage = (e, pageNumber) => {
 		e.preventDefault()
@@ -21,7 +18,7 @@ export const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
 				{pageNumbers.map((number) => (
 					<li key={number}>
 						<a
-							href='#'
+							role='button'
 							className={cn({ [styles.active]: number === state })}
 							onClick={(e) => onClickPage(e, number)}
 						>
@@ -33,10 +30,3 @@ export const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
 		</div>
 	)
 }
-
-// breakLabel='...'
-// 			onPageChange={(e) => onPageChange(e.selected + 1)}
-// 			pageRangeDisplayed={3}
-// 			pageCount={Math.ceil(currentPage / items)}
-// 			forcePage={currentPage - 1}
-// 			renderOnZeroPageCount={null}

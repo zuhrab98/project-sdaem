@@ -5,10 +5,8 @@ import cn from 'classnames'
 import styles from './FilterSelect.module.scss'
 import { Icons } from '../Icons/Icons'
 import {
-	setFilterByMetro,
-	setFilterByCities,
-	setFilterByRooms,
-	setFilterByRegions,
+	selectFilter,
+	setFiltered,
 	setSort,
 } from '../../redux/slices/filterSlice'
 
@@ -22,41 +20,29 @@ export const FilterSelect = ({
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [filterName, setFilterName] = React.useState(name)
 	const btnRef = React.useRef()
-
 	// useSelector по сути слушатеь на изминения store.filter, далее компонент перерисовывается
-	const { filterByRooms, filterByCities, filterByMetro, filterByRegions } =
-		useSelector((store) => store.filter)
+	const { filtered } = useSelector(selectFilter)
 
 	const dispatch = useDispatch()
 
 	const onClickListItem = (obj) => {
-		// console.log(obj)
 		// Обновляем имя
 		setFilterName(obj.name)
-		switch (obj.filterProperty) {
-			case 'metro':
-				dispatch(setFilterByMetro(obj))
-				return
-			case 'region':
-				dispatch(setFilterByRegions(obj))
-				return
-			case 'citi':
-				dispatch(setFilterByCities(obj))
-				return
-			case 'room':
-				dispatch(setFilterByRooms(obj))
-				return
-			case 'asc':
-				dispatch(setSort(obj))
-				return
-			case 'desc':
-				dispatch(setSort(obj))
-				return
-			default:
-				break
+		dispatch(setFiltered(obj))
+
+		// если фильтрвция по возрастанию или убыванию
+		if (obj.filterProperty === 'desc' || obj.filterProperty === 'asc') {
+			dispatch(setSort(obj))
 		}
+		// закрыть popup
 		setVisiblePopup(false)
 	}
+
+	// когда делаем очистку фильтров обновляем имя фильтр
+	React.useEffect(() => {
+		console.log(name)
+		setFilterName(name)
+	}, [name])
 
 	React.useEffect(() => {
 		// если клик произошел в не области выподающего списка
@@ -80,7 +66,7 @@ export const FilterSelect = ({
 				[styles.sortPrice]: ClassName === 'sortPrice',
 			})}
 		>
-			{title && <div className={styles.title}>{title}</div>}
+			{title && <span className={styles.title}>{title}</span>}
 
 			<div
 				ref={btnRef}
@@ -101,17 +87,17 @@ export const FilterSelect = ({
 								onClick={() => onClickListItem(obj)}
 								className={cn(styles.item, {
 									// активный селект
-									[styles.selectActiveMetro]: filterByMetro
-										? obj?.name === filterByMetro?.name
+									[styles.selectActiveMetro]: filtered.metro
+										? obj?.name === filtered.metro?.name
 										: '',
-									[styles.selectActiveReg]: filterByRegions
-										? obj?.name === filterByRegions?.name
+									[styles.selectActiveReg]: filtered.region
+										? obj?.name === filtered.region?.name
 										: '',
-									[styles.selectActiveCiti]: filterByCities
-										? obj?.name === filterByCities?.name
+									[styles.selectActiveCiti]: filtered.citi
+										? obj?.name === filtered.citi?.name
 										: '',
-									[styles.selectActiveRoom]: filterByRooms
-										? obj?.name === filterByRooms?.name
+									[styles.selectActiveRoom]: filtered.room
+										? obj?.name === filtered.room?.name
 										: '',
 								})}
 							>

@@ -1,0 +1,23 @@
+.inputGroup {
+	position: relative;
+
+	svg:first-child {
+		position: absolute;
+		top: 16px;
+		right: 20px;
+	}
+	svg:last-child {
+		position: absolute;
+		top: 16px;
+		left: 20px;
+	}
+
+  input {
+    &:focus {
+			border: 2px solid rgba(78, 100, 249, 0.8);
+      & + svg {
+        fill: #6540cd;
+      }
+		}
+  }
+}

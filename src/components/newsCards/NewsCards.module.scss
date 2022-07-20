@@ -7,29 +7,20 @@
 }
 
 .headerCard {
-	min-width: 406px;
+	width: 406px;
 	max-height: 226px;
 	display: flex;
-	justify-content: center;
 	background: #e0e0e0;
 	border-radius: 10px;
 	overflow: hidden;
 }
-
 .title {
 	font-weight: 700;
 	font-size: 16px;
 	line-height: 19px;
-	margin-bottom: 15px;
 	color: var(--title);
 }
-
-.body {
-	padding: 30px 20px 23px;
-}
-
 .desc {
-	max-width: 366px;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 17px;
@@ -41,6 +32,14 @@
 	display: -webkit-box; /* Включаем флексбоксы */
 	-webkit-box-orient: vertical; /* Вертикальная ориентация */
 	overflow: hidden; /* Обрезаем всё за пределами блока */
+}
+
+.body {
+	padding: 30px 20px 23px;
+	display: flex;
+	height: 273px;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .footer {

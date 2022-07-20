@@ -1,9 +1,9 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import cn from 'classnames'
 
-import data from './data.json'
+import data from '../../../api/data'
 import { PriceFilter } from './PriceFilter/PriceFilter'
 import { OptionsFilter } from './OptionsFilter/OptionsFilter'
 import { Button } from '../../Button/Button'
@@ -11,10 +11,11 @@ import { Icons } from '../../Icons/Icons'
 import { FilterSelect } from '../../FilterSelect/FilterSelect'
 
 import styles from './TabFilter.module.scss'
-import { StringParam, useQueryParam } from 'use-query-params'
+import { selectFilter } from '../../../redux/slices/filterSlice'
 
 export const TabFilter = () => {
-	const { filterByRooms, filterByCities } = useSelector((store) => store.filter)
+	const { filterByRooms, filterByCities } = useSelector(selectFilter)
+	const [visibleOptions, setvisibleOptions] = React.useState(false)
 
 	return (
 		<div className={styles.tabsFilter}>
@@ -22,17 +23,15 @@ export const TabFilter = () => {
 				<FilterSelect
 					title='Город'
 					name={filterByCities ? filterByCities.name : 'Выберите'}
-					list={data?.FILTER_CITIES?.cities}
+					list={data?.FILTER_CITIES}
 				/>
 				<FilterSelect
 					title='Комнаты'
 					name={filterByRooms ? filterByRooms.name : 'Выберите'}
-					list={data?.FILTER_ROOMS?.rooms}
+					list={data?.FILTER_ROOMS}
 				/>
-
 				<PriceFilter />
-				<OptionsFilter />
-
+				<OptionsFilter onclick={() => setvisibleOptions((prev) => !prev)} />
 				<div className={styles.buttons}>
 					<Button to='/' tag='a' name='openMap'>
 						<Icons id='location' fill='#FEC81B' />
@@ -48,6 +47,21 @@ export const TabFilter = () => {
 					</Link>
 				</div>
 			</div>
+			{visibleOptions && (
+				<div className={cn('container', styles.moreOptions)}>
+					<FilterSelect
+						title='Спальные места'
+						name={'Выберите'}
+						list={data?.SLEEPING_PLACES}
+					/>
+					<FilterSelect title='Район' name='Выберите' list={data?.REGIONS} />
+					<FilterSelect
+						title='Метро'
+						name='Выберите'
+						list={data?.METRO_STATIONS}
+					/>
+				</div>
+			)}
 		</div>
 	)
 }

@@ -18,10 +18,31 @@ export const filteredApartmentCatalog = (
 	cards,
 	filterByRooms,
 	filterByCities,
-	filterByPriceFrom,
-	filterByPriceTo
+	priceFrom,
+	priceTo,
+	filterByMetro,
+	filterByRegions,
+  filterByPlaces
 ) => {
 	return cards
+		.filter((card) => {
+			if (filterByPlaces) {
+				return card.numberPeopleRoom === filterByPlaces.name
+			}
+			return true
+		})
+		.filter((card) => {
+			if (filterByMetro) {
+				return card.metro === filterByMetro.name
+			}
+			return true
+		})
+		.filter((card) => {
+			if (filterByRegions) {
+				return card.region === filterByRegions.name
+			}
+			return true
+		})
 		.filter((card) => {
 			if (filterByRooms) {
 				return card.rooms === filterByRooms.name
@@ -35,14 +56,12 @@ export const filteredApartmentCatalog = (
 			return true
 		})
 		.filter((card) => {
-			if (filterByPriceFrom.price && filterByPriceTo.price) {
+			if (priceFrom.price && priceTo.price) {
 				return (
-					Number(card.price.split('.')[0]) >= Number(filterByPriceFrom.price) &&
-					filterByPriceTo &&
-					Number(filterByPriceTo.price) >= Number(card.price.split('.')[0])
+					Number(card.price.split('.')[0]) >= Number(priceFrom.price) &&
+					Number(priceTo.price) >= Number(card.price.split('.')[0])
 				)
 			}
 			return true
 		})
 }
-

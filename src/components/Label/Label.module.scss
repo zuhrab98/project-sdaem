@@ -10,9 +10,9 @@
 
 	font-weight: 500;
 	color: var(--text-grey);
-  svg {
-    margin-right: 5px;
-  }
+	svg {
+		margin-right: 5px;
+	}
 }
 
 .lightGrey {
@@ -46,7 +46,6 @@
 }
 
 .labelPrimary {
-	max-width: 140px;
 	font-weight: 500;
 	color: var(--primary);
 	background: rgba(102, 78, 249, 0.1);

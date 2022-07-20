@@ -1,15 +1,15 @@
 import React from 'react'
-import cn from 'classnames'
-import styles from './GalleryAds.module.scss'
-import { Link } from 'react-router-dom'
-import { setFilterByCities } from '../../../../redux/slices/filterSlice'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import styles from './GalleryAds.module.scss'
+import { setFiltered } from '../../../../redux/slices/filterSlice'
 
 export const GalleryAds = ({ data }) => {
 	const dispatch = useDispatch()
 
 	const handlerClick = (citi) => {
-		citi && dispatch(setFilterByCities({ name: citi, filterProperty: 'citi' }))
+		citi && dispatch(setFiltered({ name: citi, filterProperty: 'citi' }))
 	}
 
 	return (

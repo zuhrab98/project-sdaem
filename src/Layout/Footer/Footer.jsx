@@ -11,7 +11,7 @@ export const Footer = () => {
 			<div className={`container ${styles.footerContainer}`}>
 				<div className={styles.desc}>
 					<Link to='/' className='logo'>
-						<img src='img/logo.svg' width={134} height={19} alt='logo' />
+						<img src='/img/logo.svg' width={134} height={19} alt='logo' />
 					</Link>
 					<p className={styles.p}>СДАЁМ БАЙ</p>
 					<p>

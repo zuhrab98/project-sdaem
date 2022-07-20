@@ -66,8 +66,7 @@
 	}
 }
 
-.headerWrapper
- {
+.headerWrapper {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -108,11 +107,6 @@
 	display: flex;
 }
 
-
-
-
-
-
 .mainBlock {
 	padding-bottom: 65px;
 	position: relative;
@@ -135,16 +129,7 @@
 
 .textBlock {
 	p {
-		span {
-			display: inline-block;
-			font-size: 16px;
-			line-height: 1.5;
-			color: var(--title);
-		}
-
-		& > * + * {
-			padding-top: 30px;
-		}
+		white-space: pre-wrap;
 	}
 }
 

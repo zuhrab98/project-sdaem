@@ -14,13 +14,23 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import './swiperCards.scss'
+import { useDispatch } from 'react-redux'
+import { setFav } from '../../redux/slices/catalogSlice'
 
-export const LocationCard = ({ cardList, data, fav }) => {
+export const LocationCard = ({ cardList, data, catalogCards }) => {
+	const dispatch = useDispatch()
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
+	const [activeFav, setActiveFav] = React.useState(false)
+
+	const hendlerClick = () => {
+		setActiveFav((prev) => !prev)
+		dispatch(setFav(Number(data.id)))
+	}
+
 	return (
 		<div
 			className={cn(styles.card, {
-				[styles.cardCatalog]: fav,
+				[styles.cardCatalog]: catalogCards,
 				[styles.catalogCard]: cardList,
 			})}
 		>
@@ -84,10 +94,13 @@ export const LocationCard = ({ cardList, data, fav }) => {
 					</div>
 					<p className={styles.desc}>{data.description}</p>
 					<div className={styles.footer}>
-						{fav && (
-							<Button name='fav'>
-								<Icons id='heart' fill='#EB5757' />
-								{cardList && 'В закладки'}
+						{catalogCards && (
+							<Button name='fav' onClick={() => hendlerClick(data)}>
+								{activeFav ? (
+									<Icons id='fav' />
+								) : (
+									<Icons id='heart' fill='#EB5757' />
+								)}
 							</Button>
 						)}
 
@@ -118,7 +131,7 @@ export const LocationCard = ({ cardList, data, fav }) => {
 					</div>
 					<div className={styles.locationBlock}>
 						<div className={styles.location}>
-							<Icons id='location' fill='#664EF9' size={{w: 20, h: 20}} />
+							<Icons id='location' fill='#664EF9' size={{ w: 20, h: 20 }} />
 							<p className={styles.text}>
 								{data.citi}, {data.address}
 							</p>
@@ -142,7 +155,7 @@ export const LocationCard = ({ cardList, data, fav }) => {
 						</Label>
 					</div>
 					<p className={styles.desc}>{data.description}</p>
-          
+
 					<div className={styles.footer}>
 						<div className={styles.left}>
 							<Label
@@ -154,9 +167,13 @@ export const LocationCard = ({ cardList, data, fav }) => {
 								<span>Контакты</span>
 								{visiblePopup && <OwnerPopup owner={data.owner} />}
 							</Label>
-							<Button name='fav'>
+							<Button name='fav' onClick={() => hendlerClick(data)}>
 								{cardList && 'В закладки'}
-								<Icons id='heart' fill='#EB5757' />
+								{activeFav ? (
+									<Icons id='fav' />
+								) : (
+									<Icons id='heart' fill='#EB5757' />
+								)}
 							</Button>
 						</div>
 						<Button tag={'a'} path={'/apartmentCatalog'} name='yellow'>

@@ -2,18 +2,18 @@ import React from 'react'
 
 import styles from './Search.module.scss'
 import { Icons } from '../Icons/Icons'
-import { NewsContext } from '../../pages/News/News'
+import { useDispatch } from 'react-redux'
+import { setSearch } from '../../redux/slices/NewsSlice'
 
-export const Search = () => {
-	const { onClickSearch, setSearchInput, searchInput } =
-		React.useContext(NewsContext)
+export const Search = ({ onClickSearch, search }) => {
+	const dispatch = useDispatch()
 
 	return (
 		<>
 			<form className={styles.root}>
 				<input
-					onChange={(e) => setSearchInput(e.target.value)}
-					value={searchInput}
+					onChange={(e) => dispatch(setSearch(e.target.value))}
+					value={search}
 					className={styles.input}
 					placeholder='Поиск по статьям'
 				/>

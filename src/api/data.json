@@ -1,0 +1,29 @@
+{
+	"FILTER_CITIES": [
+		{ "name": "Минск", "filterProperty": "citi" },
+		{ "name": "Екатеринбург", "filterProperty": "citi" },
+		{ "name": "Москва", "filterProperty": "citi" }
+	],
+	"SLEEPING_PLACES": [
+		{ "name": "1 (1)", "filterProperty": "places" },
+		{ "name": "2 (1+1)", "filterProperty": "places" },
+		{ "name": "3 (2+1)", "filterProperty": "places" },
+		{ "name": "4 (2+2)", "filterProperty": "places" }
+	],
+	"FILTER_ROOMS": [
+		{ "name": "1", "filterProperty": "room" },
+		{ "name": "2", "filterProperty": "room" },
+		{ "name": "3", "filterProperty": "room" },
+		{ "name": "4", "filterProperty": "room" }
+	],
+	"METRO_STATIONS": [
+		{ "name": "Грушевка", "filterProperty": "metro" },
+		{ "name": "ВДНХ", "filterProperty": "metro" },
+		{ "name": "Чкаловская", "filterProperty": "metro" }
+	],
+	"REGIONS": [
+		{ "name": "Шабаны", "filterProperty": "region" },
+		{ "name": "Уралмаш", "filterProperty": "region" },
+		{ "name": "Аэропорт", "filterProperty": "region" }
+	]
+}

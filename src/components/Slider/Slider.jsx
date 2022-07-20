@@ -10,8 +10,12 @@ import 'swiper/css'
 import './slider.scss'
 import { LocationCard } from '../LocationCard/LocationCard'
 import Skeleton from '../LocationCard/Skeleton'
+import { useSelector } from 'react-redux'
+import { selectHome } from '../../redux/slices/homeSlice'
 
-export const Slider = ({ cards, isLoading }) => {
+export const Slider = ({ cards }) => {
+	const { status } = useSelector(selectHome)
+
 	return (
 		<>
 			<Swiper
@@ -20,7 +24,7 @@ export const Slider = ({ cards, isLoading }) => {
 				slidesPerView={3}
 				navigation
 			>
-				{isLoading
+				{status === 'loading'
 					? [...new Array(3)].map((_, index) => (
 							<SwiperSlide key={index}>
 								<Skeleton />

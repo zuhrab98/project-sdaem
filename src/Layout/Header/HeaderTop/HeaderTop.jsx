@@ -10,13 +10,13 @@ export const HeaderTop = () => {
 		<div className={styles.top}>
 			<div className={`container`}>
 				<div className={styles.wrapper}>
-					<NavLinks navs={data.NAVS} appearance={'grey'} />
+					<NavLinks navs={data.NAVS} appearance='grey' />
 					<div className={styles.headerRight}>
 						<ul className={styles.list}>
 							<li className={styles.favorites}>
-								<a href='#'>
-									Закладки <Icons id={'heart'} />
-								</a>
+								<Link to='/favorites'>
+									Закладки <Icons id='heart' />
+								</Link>
 							</li>
 							<li>
 								<Link to='/authForm' className={styles.priamary}>

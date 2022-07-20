@@ -1,49 +1,65 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
-import { Layout } from '../../Layout/Layout'
 import { Icons } from '../../components/Icons/Icons'
 import { Label } from '../../components/Label/Label'
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import { NewsCards } from '../../components/newsCards/NewsCards'
 import styles from './NewsDetail.module.scss'
 import data from './data.json'
-import axios from 'axios'
-import { setBreadcrums } from '../../redux/slices/filterSlice'
+import { selectFilter, setBreadcrums } from '../../redux/slices/filterSlice'
+import { fetchnewsDetail } from '../../redux/slices/NewsDetaitSlice'
+import { Skeleton } from '@mui/material'
+import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
+
+const breadcrumsb = [
+	{ page: 'Home', path: '/' },
+	{ page: 'Новости', path: '/news' },
+]
 
 export const NewsDetail = () => {
 	const { id } = useParams()
-	const [socialIcons, setSocialIcons] = React.useState([])
-	const [mainBlock, setMainBlock] = React.useState({})
-	const [newsCards, setNewsCards] = React.useState([])
-
-	const { breadcrumbs } = useSelector((store) => store.filter)
+	const navigate = useNavigate()
 	const dispatch = useDispatch()
+	const { newsCardsDetail, status } = useSelector((state) => state.newsDetail)
+
+	const [socialIcons, setSocialIcons] = React.useState([])
+	const [cardsList, setCardsList] = React.useState([])
+	const [newsCardsDetaill, setNewsCardsDetail] = React.useState([])
 
 	React.useEffect(() => {
-		dispatch(setBreadcrums({ page: 'Новости', path: '/news' }))
+		dispatch(fetchnewsDetail(id))
+	}, [id, dispatch])
 
-		const fetchNewsCards = async () => {
-			const { data } = await axios.get(
-				`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?id=${Number(id)}`
-			)
-			setNewsCards(data[0])
-		}
-		fetchNewsCards()
+	React.useEffect(() => {
+		setNewsCardsDetail(newsCardsDetail)
 		setSocialIcons(data.socials)
-		setMainBlock(data)
-	}, [dispatch, id])
+		// Перемешиваем массив
+		const shuffled = data?.newsList.sort(() => 0.5 - Math.random())
+		// Получаем подмассив из первых 3 элементов после перемешивания
+		let selected = shuffled.slice(0, 3)
+		setCardsList(selected)
+	}, [newsCardsDetail])
+
+	if (status === 'error') {
+		alert('Ошибка')
+		navigate('/')
+	}
 
 	return (
-		<Layout>
+		<>
 			<div className={styles.headerSection}>
 				<div className={styles.wrapperContainer}>
-					<Breadcrumbs pagaName={newsCards?.title} breadcrumsb={breadcrumbs} />
-					<h1 className={styles.title1}>{newsCards && newsCards?.title}</h1>
+					<Breadcrumbs
+						breadcrumsb={breadcrumsb}
+						pagaName={newsCardsDetaill?.title}
+					/>
+					<h1 className={styles.title1}>
+						{newsCardsDetaill && newsCardsDetaill?.title}
+					</h1>
 					<div className={styles.headerWrapper}>
 						<Label tag='div' type='primary'>
-							{newsCards && newsCards?.date}
+							{newsCardsDetaill && newsCardsDetaill?.date}
 						</Label>
 						<div className={styles.toShare}>
 							<span className={styles.text}>Поделиться</span>
@@ -72,24 +88,31 @@ export const NewsDetail = () => {
 			<div className={styles.mainBlock}>
 				<div className={styles.wrapper}>
 					<div className={styles.imgBlock}>
-						<img src={newsCards.img} width={844} height={563} alt='mainImg' />
+						<img
+							src={newsCardsDetaill.img}
+							width={844}
+							height={563}
+							alt='mainImg'
+						/>
 					</div>
 					<div className={styles.textBlock}>
-						<p dangerouslySetInnerHTML={{ __html: data?.description.text }}></p>
+						<p>{newsCardsDetaill?.fullDescription}</p>
 					</div>
 				</div>
 				<div className={styles.newsCards}>
 					<div className='container'>
 						<h3 className={styles.title}>Читайте также</h3>
 						<div className={styles.cardsRow}>
-							{mainBlock.newsList &&
-								mainBlock.newsList.map((card, index) => (
-									<NewsCards key={index} data={card} />
-								))}
+							{status === 'loading'
+								? // при загрузке рендерим скелетон
+								  [...new Array(3)].map((_, index) => <Skeleton key={index} />)
+								: cardsList.map((cardNews) => (
+										<NewsCards key={cardNews.id} data={cardNews} />
+								  ))}
 						</div>
 					</div>
 				</div>
 			</div>
-		</Layout>
+		</>
 	)
 }

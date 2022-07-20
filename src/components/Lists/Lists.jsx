@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Lists.module.scss'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setFilterByCities } from '../../redux/slices/filterSlice'
+import { setFiltered } from '../../redux/slices/filterSlice'
 
 export const Lists = ({ lists, tag }) => {
 	const Tag = tag
@@ -10,7 +10,7 @@ export const Lists = ({ lists, tag }) => {
 	const dispatch = useDispatch()
 
 	const handlerClick = (citi) => {
-		citi && dispatch(setFilterByCities({ name: citi, filterProperty: 'citi' }))
+		citi && dispatch(setFiltered({ name: citi, filterProperty: 'citi' }))
 	}
 
 	return (

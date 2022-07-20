@@ -1,7 +1,5 @@
 .tabsFilter {
 	width: 1062px;
-	height: 100px;
-	padding: 15px 0;
 	font-size: 14px;
 	font-weight: 500;
 
@@ -12,6 +10,8 @@
 .filteres {
 	display: flex;
 	align-items: center;
+	padding: 15px 0;
+	border-bottom: 1px solid rgba(101, 78, 249, 0.1);
 
 	& > div + div {
 		border-left: 1px solid rgba(101, 78, 249, 0.1);
@@ -62,5 +62,15 @@
 
 	&:hover {
 		background: var(--btn-yellow);
+	}
+}
+
+.moreOptions {
+	display: grid;
+	grid-template-columns: repeat(3, 185px);
+	padding: 15px 0;
+
+	& > div + div {
+		border-left: 1px solid rgba(101, 78, 249, 0.1);
 	}
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import cn from 'classnames'
@@ -12,86 +11,83 @@ import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import { OptionsFilter } from '../../components/Tabs/TabFilter/OptionsFilter/OptionsFilter'
 import { PriceFilter } from '../../components/Tabs/TabFilter/PriceFilter/PriceFilter'
 import { FilterSelect } from '../../components/FilterSelect/FilterSelect'
-import data from '../../components/Tabs/TabFilter/data.json'
-import { Layout } from '../../Layout/Layout'
-import { filteredApartmentCatalog } from '../../filteredCards'
+import { filteredApartmentCatalog } from '../../utils/filteredCards'
 import { Button } from '../../components/Button/Button'
-import { setFiltersClear, setLoadings } from '../../redux/slices/filterSlice'
-import { setCurrentPage } from '../../redux/slices/catalogSlice'
+import { selectFilter, setFiltersClear } from '../../redux/slices/filterSlice'
+import {
+	fetchCatalogCards,
+	setCurrentPage,
+} from '../../redux/slices/catalogSlice'
 import { Pagination } from '../../components/Pagination/Pagination'
-import Skeleton from '../../components/LocationCard/Skeleton'
+import { usePagination } from '../../hooks/usePagination'
+import { skeleton } from '../../utils/skeleton'
+import data from '../../api/data'
 
 const layoutGroup = [
 	{ value: 'list', name: 'Список' },
 	{ value: 'table', name: 'Плитка' },
 ]
 
+const sort = [
+	{ name: 'По возрастанию цены', filterProperty: 'asc' },
+	{ name: 'По убыванию цены', filterProperty: 'desc' },
+]
+
+const breadcrumsb = [{ page: 'Home', path: '/' }]
+
 export const ApartamentCatalog = () => {
+	const dispatch = useDispatch()
 	const location = useLocation()
 	const useParam = location.state
-	const { currentPage } = useSelector((store) => store.catalog)
-	const {
-		rentalCards,
-		filterByRooms,
-		filterByCities,
-		filterByPriceFrom,
-		filterByPriceTo,
-		breadcrumbs,
-		sortCards,
-		loading,
-	} = useSelector((store) => store.filter)
-	const dispatch = useDispatch()
+
+	const { currentPage, status, itemsCard } = useSelector(
+		(store) => store.catalog
+	)
+	const { sortCards, filtered } = useSelector(selectFilter)
 
 	const [titleCatalog, setTitleCatalog] = React.useState()
-	const [items, setItems] = React.useState([])
+	const [visibleOptions, setvisibleOptions] = React.useState(false)
 	const [filterCards, setFilterCards] = React.useState([])
 	const [layoutItem, setLayoutItem] = React.useState('table')
 	const [itemsPerPage] = React.useState(6)
 
 	React.useEffect(() => {
 		setTitleCatalog(useParam?.paramName ? useParam.paramName : 'Квартиры')
+		setFilterCards(itemsCard)
+	}, [itemsCard, useParam])
+
+	React.useEffect(() => {
 		const order = sortCards?.filterProperty === 'asc' ? 'asc' : 'desc'
 		const param = useParam?.paramName ? useParam.paramName : 'rooms'
+		dispatch(fetchCatalogCards({ param, order, filtered }))
 
-		const fetchData = async () => {
-			const itemsRes = await axios.get(
-				`https://62b821b603c36cb9b7c248ae.mockapi.io/${param}?sortBy=price&order=${order}`
-			)
-			const data = await itemsRes.data
-			setItems(data)
-			const filtersCard = filteredApartmentCatalog(
-				data,
-				filterByRooms,
-				filterByCities,
-				filterByPriceFrom,
-				filterByPriceTo
-			)
-			setFilterCards(filtersCard)
-			dispatch(setLoadings(false))
-		}
 		window.scroll(0, 0)
-		fetchData()
-	}, [sortCards, useParam, filterByCities, dispatch])
-
-	// получаем индекс первой страницы, последней
-	const lastItemIndex = currentPage * itemsPerPage
-	const firstItemIndex = lastItemIndex - itemsPerPage
-	const currentItem = filterCards.slice(firstItemIndex, lastItemIndex)
+	}, [sortCards, filtered.citi])
 
 	const handleClickByShow = () => {
-		// функс фильтрует карточки
+		// функс фильтрует карточки при нажатии показать объекты
 		const filtersCard = filteredApartmentCatalog(
-			items,
-			filterByRooms,
-			filterByCities,
-			filterByPriceFrom,
-			filterByPriceTo
+			itemsCard,
+			filtered.room,
+			filtered.citi,
+			filtered.priceFrom,
+			filtered.priceTo,
+			filtered.metro,
+			filtered.region,
+      filtered.places
 		)
 		setFilterCards(filtersCard)
 	}
+
 	const paginate = (pageNumber) => {
 		dispatch(setCurrentPage(pageNumber))
 	}
+
+	const { currentItem, pageNumbers } = usePagination(
+		currentPage,
+		filterCards,
+		itemsPerPage
+	)
 
 	switch (titleCatalog) {
 		case 'rooms':
@@ -110,120 +106,121 @@ export const ApartamentCatalog = () => {
 			break
 	}
 
+  console.log(filtered.places?.name );
+
 	return (
-		<Layout>
-			<div className={styles.apartmentCatalog}>
-				<div className={styles.header}>
-					<div className='container'>
-						<Breadcrumbs
-							pagaName={`${titleCatalog} ${
-								filterByCities?.name ? ` в ${filterByCities?.name}е` : ''
-							}`}
-							breadcrumsb={breadcrumbs}
-						/>
-						<h1>
-							Аренда {titleCatalog} на сутки
-							{filterByCities?.name ? ` в ${filterByCities?.name}е` : ''}
-						</h1>
+		<div className={styles.apartmentCatalog}>
+			<div className={styles.header}>
+				<div className='container'>
+					<Breadcrumbs breadcrumsb={breadcrumsb} pagaName={titleCatalog} />
+					<h1>
+						Аренда {titleCatalog} на сутки
+						{filtered.citi ? ` в ${filtered.citi?.name}е` : ''}
+					</h1>
+				</div>
+			</div>
+			<div className={styles.filteres}>
+				<div className={cn('container', styles.filteresRow)}>
+					<FilterSelect
+						ClassName='rentalApartment'
+						title='Комнаты'
+						name={filtered.room ? filtered.room.name : 'Комнаты'}
+						list={data?.FILTER_ROOMS}
+					/>
+
+					<PriceFilter ClassName='rentalPrice' />
+					<OptionsFilter onclick={() => setvisibleOptions((prev) => !prev)} />
+					<div className={styles.buttons}>
+						<Button onClick={() => dispatch(setFiltersClear())} name='beige'>
+							<span>Очистить</span>
+						</Button>
+						<Button onClick={() => handleClickByShow()} name='show'>
+							<span>Показать объекты</span>
+							<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill={'#FFFFFF'} />
+						</Button>
 					</div>
 				</div>
-				<div className={styles.filteres}>
-					<div className={cn('container', styles.filteresRow)}>
+				{visibleOptions && (
+					<div className={cn('container', styles.moreOptions)}>
 						<FilterSelect
-							ClassName='rentalApartment'
-							title='Комнаты'
-							name={filterByRooms ? filterByRooms.name : 'Комнаты'}
-							list={data?.FILTER_ROOMS?.rooms}
+							title='Спальные места'
+							ClassName='filterDistricts'
+							name={filtered.places ? filtered.places.name : 'Выберите'}
+							list={data?.SLEEPING_PLACES}
 						/>
-
-						<PriceFilter
-							ClassName='rentalPrice'
-							filterByPriceFrom={filterByPriceFrom}
-							filterByPriceTo={filterByPriceTo}
+						<FilterSelect
+							title='Район'
+							ClassName='filterDistricts'
+							name={filtered.region ? filtered.region.name : 'Выберите'}
+							list={data?.REGIONS}
 						/>
-						<OptionsFilter />
-						<div className={styles.buttons}>
-							<Button onClick={() => dispatch(setFiltersClear())} name='beige'>
-								<span>Очистить</span>
-							</Button>
-							<Button onClick={() => handleClickByShow()} name='show'>
-								<span>Показать объекты</span>
-								<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill={'#FFFFFF'} />
-							</Button>
-						</div>
+						<FilterSelect
+							title='Метро'
+							ClassName='filterDistricts'
+							name={filtered.metro ? filtered.metro.name : 'Выберите'}
+							list={data?.METRO_STATIONS}
+						/>
 					</div>
-				</div>
-				<div className={styles.sortWrapper}>
-					<div className='container'>
-						<div className={styles.row}>
-							<FilterSelect
-								name='По умолчанию'
-								ClassName='sortPrice'
-								list={[
-									{ name: 'По возрастанию цены', filterProperty: 'asc' },
-									{ name: 'По убыванию цены', filterProperty: 'desc' },
-								]}
-							>
-								<Icons id='sortIcon' ClassName={styles.sortIcon} />
-							</FilterSelect>
-							<div className={styles.layoutGroupRoot}>
-								{layoutGroup.map((item, i) => (
-									<button
-										key={i}
-										onClick={() => setLayoutItem(item.value)}
-										className={cn(styles.itemBtn, {
-											[styles.active]: layoutItem === item.value,
-										})}
-									>
-										<Icons
-											id={item.value}
-											fill={layoutItem === item.value && '#664EF9'}
-										/>{' '}
-										{item.name}
-									</button>
-								))}
-							</div>
-							<Button to='/*' tag='a' name='openMap'>
-								<Icons id='location' fill='#664ef9' />
-								<span>Показать на карте</span>
-							</Button>
-						</div>
-					</div>
-				</div>
+				)}
+			</div>
 
-				<div className={styles.wrapperContent}>
-					<div className='container'>
-						<h2 className={styles.title}>
-							Найдено {filterCards.length} результата
-						</h2>
-						<div
-							className={cn(styles.boxCards, {
-								[styles.cardslist]: layoutItem === 'list',
-							})}
-						>
-							{loading
-								? [...new Array(itemsPerPage)].map((_, i) => (
-										<Skeleton key={i} />
-								  ))
-								: currentItem.map((card, i) => (
-										<LocationCard
-											cardList={layoutItem === 'list'}
-											key={i}
-											data={card}
-											fav
-										/>
-								  ))}
+			<div className={styles.sortWrapper}>
+				<div className='container'>
+					<div className={styles.row}>
+						<FilterSelect name='По умолчанию' ClassName='sortPrice' list={sort}>
+							<Icons id='sortIcon' ClassName={styles.sortIcon} />
+						</FilterSelect>
+						<div className={styles.layoutGroupRoot}>
+							{layoutGroup.map((item, i) => (
+								<button
+									key={i}
+									onClick={() => setLayoutItem(item.value)}
+									className={cn(styles.itemBtn, {
+										[styles.active]: layoutItem === item.value,
+									})}
+								>
+									<Icons
+										id={item.value}
+										fill={layoutItem === item.value && '#664EF9'}
+									/>{' '}
+									{item.name}
+								</button>
+							))}
 						</div>
-						{filterCards.length > 1 && (
-							<Pagination
-								itemsPerPage={itemsPerPage}
-								totalItems={filterCards.length}
-								paginate={paginate}
-							/>
-						)}
+						<Button to='*' tag='a' name='openMap'>
+							<Icons id='location' fill='#664ef9' />
+							<span>Показать на карте</span>
+						</Button>
 					</div>
 				</div>
 			</div>
-		</Layout>
+
+			<div className={styles.wrapperContent}>
+				<div className='container'>
+					<h2 className={styles.title}>
+						Найдено {filterCards.length} результата
+					</h2>
+					<div
+						className={cn(styles.boxCards, {
+							[styles.cardslist]: layoutItem === 'list',
+						})}
+					>
+						{status === 'loading'
+							? skeleton(itemsPerPage)
+							: currentItem.map((card, i) => (
+									<LocationCard
+										cardList={layoutItem === 'list'}
+										key={i}
+										data={card}
+										catalogCards
+									/>
+							  ))}
+					</div>
+					{filterCards.length > 1 && (
+						<Pagination pageNumbers={pageNumbers} paginate={paginate} />
+					)}
+				</div>
+			</div>
+		</div>
 	)
 }

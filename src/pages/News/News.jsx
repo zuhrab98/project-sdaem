@@ -1,51 +1,63 @@
 import axios from 'axios'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCurrentPage, setLoadings } from '../../redux/slices/NewsSlice'
+import {
+	setCurrentPage,
+	setLoadings,
+	fetchNewsCards,
+} from '../../redux/slices/NewsSlice'
 
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import Skeleton from '../../components/LocationCard/Skeleton'
 import { NewsCards } from '../../components/newsCards/NewsCards'
 import { Pagination } from '../../components/Pagination/Pagination'
 import { Search } from '../../components/Search/Search'
-import { Layout } from '../../Layout/Layout'
 
 import styles from './News.module.scss'
 import cn from 'classnames'
+import { usePagination } from '../../hooks/usePagination'
+import { useNavigate } from 'react-router'
+import { skeleton } from '../../utils/skeleton'
 
-export const NewsContext = React.createContext()
+const breadcrumsb = [{ page: 'Home', path: '/' }]
 
 export const News = () => {
 	const dispatch = useDispatch()
-	const { loading, currentPage } = useSelector((store) => store.news)
-	const { breadcrumbs } = useSelector((store) => store.filter)
+	const navigate = useNavigate()
 
+	const { loading, currentPage, search, news } = useSelector(
+		(store) => store.news
+	)
 	const [items, setitems] = React.useState([])
-	const [searchInput, setSearchInput] = React.useState('')
 	const [itemsPerPage] = React.useState(8)
 
 	React.useEffect(() => {
-		const fetchNewsCards = async () => {
-			const cartResponse = await axios.get(
-				`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards`
-			)
-			setitems(cartResponse.data)
-			dispatch(setLoadings(false))
+		dispatch(fetchNewsCards())
+		dispatch(setLoadings(true))
+		const fetchNewsCardsFunc = async () => {
+			try {
+				const { data } = await axios.get(
+					`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards`
+				)
+				setitems(data)
+				dispatch(setLoadings(false))
+			} catch (error) {
+				alert('Ошибка')
+				navigate('/')
+			}
 		}
-		fetchNewsCards()
+		fetchNewsCardsFunc()
 		window.scroll(0, 0)
-	}, [currentPage, dispatch])
+	}, [dispatch])
 
 	// По нажатию на кнопку поиска делаем фильтрацию новостных карточек
 	const onClickSearch = async (e) => {
 		dispatch(setLoadings(true))
-		const search = searchInput ? `search=${searchInput}` : ''
-
+		const searchValue = search ? `search=${search}` : ''
 		e.preventDefault()
 		const cartResponse = await axios.get(
-			`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?${search}`
+			`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?${searchValue}`
 		)
-
 		dispatch(setLoadings(false))
 		setitems(cartResponse.data)
 	}
@@ -54,41 +66,29 @@ export const News = () => {
 		dispatch(setCurrentPage(pageNumber))
 	}
 
-	// получаем индекс первой страницы, последней
-	const lastItemIndex = currentPage * itemsPerPage
-	const firstItemIndex = lastItemIndex - itemsPerPage
-	const currentItem = items.slice(firstItemIndex, lastItemIndex)
+	const { currentItem, pageNumbers } = usePagination(
+		currentPage,
+		items,
+		itemsPerPage
+	)
+
+	const newsCards = currentItem.map((cardNews) => (
+		<NewsCards key={cardNews.id} data={cardNews} />
+	))
 
 	return (
-		<Layout>
-			<NewsContext.Provider
-				value={{ onClickSearch, setSearchInput, searchInput }}
-			>
-				<div className={styles.wrapper}>
-					<div className={cn(`${'container'}`, styles.wrapperContainer)}>
-						<Breadcrumbs pagaName={'Новости'} breadcrumsb={breadcrumbs} />
-						<div className={styles.headerRow}>
-							<h1 className={styles.title}>Новости</h1>
-							<Search />
-						</div>
-						<div className={styles.newsCards}>
-							{loading
-								? // при загрузке рендерим скелетон
-								  [...new Array(itemsPerPage)].map((_, index) => (
-										<Skeleton key={index} />
-								  ))
-								: currentItem.map((cardNews) => (
-										<NewsCards key={cardNews.id} data={cardNews} />
-								  ))}
-						</div>
-						<Pagination
-							itemsPerPage={itemsPerPage}
-							totalItems={items.length}
-							paginate={paginate}
-						/>
-					</div>
+		<div className={styles.wrapper}>
+			<div className={cn(`${'container'}`, styles.wrapperContainer)}>
+				<Breadcrumbs breadcrumsb={breadcrumsb} pagaName='Новости' />
+				<div className={styles.headerRow}>
+					<h1 className={styles.title}>Новости</h1>
+					<Search onClickSearch={onClickSearch} search={search} />
 				</div>
-			</NewsContext.Provider>
-		</Layout>
+				<div className={styles.newsCards}>
+					{loading ? skeleton(itemsPerPage) : newsCards}
+				</div>
+				<Pagination pageNumbers={pageNumbers} paginate={paginate} />
+			</div>
+		</div>
 	)
 }

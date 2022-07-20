@@ -33,4 +33,22 @@
 
 .priamary {
 	color: var(--primary);
+	position: relative;
+
+	&:after {
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 0;
+		bottom: 0;
+		height: 2px;
+		background-color: var(--primary);
+		content: '';
+		transition: width 0.3s ease-out;
+	}
+
+	&:hover:after,
+	&:focus:after {
+		width: 100%;
+	}
 }

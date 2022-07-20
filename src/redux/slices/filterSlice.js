@@ -1,16 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-	loading: true,
-	filteredCards: [],
-	rentalCards: [],
-	filterByMetro: null,
-	filterByRegions: null,
-	filterByRooms: null,
-	filterByCities: null,
-	filterByPriceFrom: { price: '0', value: 'от' },
-	filterByPriceTo: { price: '', value: 'до' },
-	breadcrumbs: [{ page: 'Home', path: '/' }],
+	filtered: {
+		region: null,
+		metro: null,
+		room: null,
+		citi: null,
+		places: null,
+		priceFrom: { price: '0', filterProperty: 'priceFrom' },
+		priceTo: { price: '', filterProperty: 'priceTo' },
+	},
 	sortCards: null,
 }
 
@@ -18,32 +17,9 @@ export const filterSlice = createSlice({
 	name: 'filter',
 	initialState,
 	reducers: {
-		setLoadings(state, action) {
-			state.loading = action.payload
-		},
-		setCards(state, action) {
-			state.rentalCards = action.payload
-		},
-		setFilteredCards(state, action) {
-			state.filteredCards = action.payload
-		},
-		setFilterByMetro(state, action) {
-			state.filterByMetro = action.payload
-		},
-		setFilterByRegions(state, action) {
-			state.filterByRegions = action.payload
-		},
-		setFilterByRooms(state, action) {
-			state.filterByRooms = action.payload
-		},
-		setFilterByCities(state, action) {
-			state.filterByCities = action.payload
-		},
-		setFilterByPriceFrom(state, action) {
-			state.filterByPriceFrom = action.payload
-		},
-		setFilterByPriceTo(state, action) {
-			state.filterByPriceTo = action.payload
+		setFiltered(state, action) {
+			const key = action.payload.filterProperty
+			state.filtered[key] = action.payload
 		},
 		setBreadcrums(state, action) {
 			state.breadcrumbs.push(action.payload)
@@ -52,10 +28,14 @@ export const filterSlice = createSlice({
 			)
 		},
 		setFiltersClear(state) {
-			state.filterByPriceFrom = { price: '', value: 'от' }
-			state.filterByPriceTo = { price: '', value: 'до' }
-			state.filterByRooms = null
-			state.filterByCities = null
+			state.filtered.priceFrom = { price: '0', filterProperty: 'priceFrom' }
+			state.filtered.priceTo = { price: '', filterProperty: 'priceTo' }
+			state.filtered.room = null
+			state.filtered.citi = null
+			state.filtered.region = null
+			state.filtered.metro = null
+			state.filtered.places = null
+			state.sortCards = null
 		},
 		setSort(state, action) {
 			state.sortCards = action.payload
@@ -63,21 +43,8 @@ export const filterSlice = createSlice({
 	},
 })
 
-// Action creators are generated for each case reducer function
-export const {
-	setLoadings,
-	setCards,
-	setFilteredCards,
-	setFilterByMetro,
-	setFilterByRegions,
-	setFilterByRooms,
-	setFilterByCities,
-	setFilterByPriceFrom,
-	setFilterByPriceTo,
-	setNewsDetail,
-	setBreadcrums,
-	setFiltersClear,
-	setSort,
-} = filterSlice.actions
+export const selectFilter = (state) => state.filter
+export const { setFiltered, setBreadcrums, setFiltersClear, setSort } =
+	filterSlice.actions
 
 export default filterSlice.reducer

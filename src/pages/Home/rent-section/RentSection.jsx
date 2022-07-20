@@ -6,14 +6,16 @@ import { Slider } from '../../../components/Slider/Slider'
 import { Button } from '../../../components/Button/Button'
 import data from './data'
 import { useSelector } from 'react-redux'
-import { filteredCardsSlider } from '../../../filteredCards'
+import {
+	filteredApartmentCatalog,
+	filteredCardsSlider,
+} from '../../../utils/filteredCards'
 import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
+import { selectFilter } from '../../../redux/slices/filterSlice'
 
 export const RentSection = ({ cards }) => {
 	// получаем из stora необходимые свойства
-	const { loading, filterByMetro, filterByRegions } = useSelector(
-		(store) => store.filter
-	)
+	const { filtered } = useSelector(selectFilter)
 
 	const [sortByMetro, setSortByMetro] = React.useState([])
 	const [sortByRegions, setSortByRegions] = React.useState([])
@@ -22,6 +24,17 @@ export const RentSection = ({ cards }) => {
 		setSortByMetro(data.metroStations) // получаем стации метро
 		setSortByRegions(data.regions) // получаем районы
 	}, [sortByMetro, sortByRegions])
+
+	const filtersCard = filteredApartmentCatalog(
+		cards,
+		filtered.room,
+		filtered.citi,
+		filtered.priceFrom,
+		filtered.priceTo,
+		filtered.metro,
+		filtered.region,
+		filtered.places
+	)
 
 	return (
 		<section className={styles.rentSection}>
@@ -50,17 +63,14 @@ export const RentSection = ({ cards }) => {
 					</div>
 				</div>
 
-				<Slider
-					cards={filteredCardsSlider(cards, filterByMetro, filterByRegions)}
-					isLoading={loading}
-				/>
+				<Slider cards={filtersCard} />
 
 				<div className={styles.offers}>
 					<div className={styles.left}>
 						<p className={styles.number}>
 							341 <span>+</span>
 						</p>
-						<p className={styles.text}>Предложений по Минску</p>
+						<p className={styles.text}>Предложение</p>
 					</div>
 					<Button tag='a' path='/apartmentCatalog' name='show'>
 						<span>Посмотреть все</span>{' '}

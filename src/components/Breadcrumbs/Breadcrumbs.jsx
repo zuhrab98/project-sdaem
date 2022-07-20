@@ -1,10 +1,11 @@
 import React from 'react'
 import cn from 'classnames'
 import styles from './Breadcrumbs.module.scss'
-import { Link } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Icons } from '../Icons/Icons'
 
 export const Breadcrumbs = ({ breadcrumsb, pagaName }) => {
+
 	return (
 		<div className={styles.breadcrumsb}>
 			{breadcrumsb.map((crumbs, i) => (

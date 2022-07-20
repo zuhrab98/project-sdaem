@@ -10,7 +10,7 @@
 		rgba(78, 101, 249, 0.1) 94.5%
 	);
 	h1 {
-    font-size: 25px;
+		font-size: 25px;
 		padding: 30px 0 40px;
 	}
 }
@@ -43,6 +43,7 @@
 .filteresRow {
 	height: 82px;
 	display: flex;
+	border-bottom: 1px solid rgba(78, 100, 249, 0.1);
 
 	& > div + div {
 		border-left: 1px solid rgba(101, 78, 249, 0.1);
@@ -112,5 +113,21 @@
 		line-height: 1;
 		color: var(--title);
 		margin-bottom: 40px;
+	}
+}
+
+.moreOptions {
+	display: flex;
+	padding: 20px 0 30px;
+
+	& > * + * {
+		margin-left: 48px;
+	}
+
+	& > div {
+		span {
+			color: var(--primary) !important;
+			padding-bottom: 5px;
+		}
 	}
 }
