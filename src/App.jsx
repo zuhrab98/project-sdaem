@@ -8,6 +8,7 @@ import { Сontacts } from './pages/Сontacts'
 import { NotFound } from './pages/NotFound/NotFound'
 import { News } from './pages/News/News'
 import { AuthForm } from './pages/AuthForm/AuthForm'
+import { RegistrationАorm } from './pages/RegistrationАorm/RegistrationАorm'
 
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 			<Route path='/news/:id' exact element={<NewsDetail />} />
 			<Route path='/contacts' exact element={<Сontacts />} />
 			<Route path='/authForm' exact element={<AuthForm />} />
+			<Route path='/registr' exact element={<RegistrationАorm />} />
 			<Route path='*' element={<NotFound />} />
 		</Routes>
 	)

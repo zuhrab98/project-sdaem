@@ -44,9 +44,8 @@ export const Icons = ({ id, size, ClassName = '', fill }) => {
 				<svg
 					width={size ? size.w : '20'}
 					height={size ? size.h : '20'}
+					fill={fill ? fill : 'white'}
 					viewBox='0 0 20 20'
-					fill='white'
-					fill-opacity='0.5'
 					xmlns='http://www.w3.org/2000/svg'
 				>
 					<path d='M10 0C4.5 0 0 4.5 0 10C0 15.5 4.5 20 10 20C15.5 20 20 15.5 20 10C20 4.5 15.5 0 10 0ZM10 2C11.1 2 11.9 2.9 11.8 4L11 12H9L8.2 4C8.1 2.9 8.9 2 10 2ZM10 18C8.9 18 8 17.1 8 16C8 14.9 8.9 14 10 14C11.1 14 12 14.9 12 16C12 17.1 11.1 18 10 18Z' />
@@ -131,8 +130,8 @@ export const Icons = ({ id, size, ClassName = '', fill }) => {
 				<svg
 					width={size ? size.w : '16'}
 					height={size ? size.h : '16'}
-					viewBox='0 0 16 16'
 					fill={fill ? fill : '#686868'}
+					viewBox='0 0 16 16'
 					xmlns='http://www.w3.org/2000/svg'
 				>
 					<g clipPath='url(#clip0_2831_1903)'>
@@ -178,10 +177,10 @@ export const Icons = ({ id, size, ClassName = '', fill }) => {
 		case 'mail':
 			return (
 				<svg
-					width='18'
-					height='16'
+					width={size ? size.w : '18'}
+					height={size ? size.h : '16'}
+					fill={fill ? fill : 'white'}
 					viewBox='0 0 18 16'
-					fill='white'
 					xmlns='http://www.w3.org/2000/svg'
 				>
 					<path d='M16.3926 15.0709C16.7973 15.0709 17.1479 14.9373 17.4459 14.6735L12.3462 9.57364C12.2239 9.66125 12.1053 9.74645 11.9932 9.82746C11.6116 10.1086 11.3018 10.3281 11.064 10.4853C10.8262 10.6429 10.5098 10.8035 10.1148 10.9675C9.71958 11.1317 9.35137 11.2135 9.0098 11.2135H8.9998H8.9898C8.6482 11.2135 8.27999 11.1317 7.88479 10.9675C7.48959 10.8035 7.17318 10.6429 6.9356 10.4853C6.69779 10.3281 6.38821 10.1087 6.00638 9.82746C5.89997 9.74946 5.78196 9.66387 5.65438 9.57227L0.553711 14.6735C0.85172 14.9373 1.20254 15.0709 1.60712 15.0709H16.3926Z' />
