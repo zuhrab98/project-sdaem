@@ -15,13 +15,13 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import './swiperCards.scss'
 
-export const LocationCard = ({ cardList, ClassName, data, fav }) => {
+export const LocationCard = ({ cardList, data, fav }) => {
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	return (
 		<div
 			className={cn(styles.card, {
 				[styles.cardCatalog]: fav,
-				[styles.catalogCard]: ClassName === 'catalogCard',
+				[styles.catalogCard]: cardList,
 			})}
 		>
 			<div className={cn(styles.headerCard, 'headerCard')}>
@@ -100,7 +100,7 @@ export const LocationCard = ({ cardList, ClassName, data, fav }) => {
 							<span>Контакты</span>
 							{visiblePopup && <OwnerPopup owner={data.owner} />}
 						</Label>
-						<Button tag={'a'} path={'/news'} name='yellow'>
+						<Button tag={'a'} path={'/apartmentCatalog'} name='yellow'>
 							<span>Подробнее</span>
 						</Button>
 					</div>
@@ -159,7 +159,7 @@ export const LocationCard = ({ cardList, ClassName, data, fav }) => {
 								<Icons id='heart' fill='#EB5757' />
 							</Button>
 						</div>
-						<Button tag={'a'} path={'/news'} name='yellow'>
+						<Button tag={'a'} path={'/apartmentCatalog'} name='yellow'>
 							<span>Подробнее</span>
 						</Button>
 					</div>

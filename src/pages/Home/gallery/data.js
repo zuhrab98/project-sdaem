@@ -3,31 +3,25 @@ export const GALLERY_ADS = [
 		img: 'img/promo1.jpg',
 		title: 'Квартиры на сутки',
 		subtitle: 'СНЯТЬ КВАРТИРУ',
-		cities: [
-			{ city: 'Минск', href: '#' },
-			{ city: 'Витебск', href: '#' },
-			{ city: 'Гродно', href: '#' },
-			{ city: 'Брест', href: '#' },
-			{ city: 'Могилев', href: '#' },
-		],
+		cities: [{ citi: 'Минск' }, { citi: 'Москва' }, { citi: 'Екатеринбург' }],
 	},
 	{
 		img: 'img/promo2.jpg',
 		title: 'Коттеджи и усадьбы',
 		subtitle: 'СНЯТЬ коттедж НА ПРАЗДНИК',
-		href: '#',
+		paramName: 'cottages',
 	},
 	{
 		img: 'img/promo3.jpg',
 		title: 'Бани и сауны',
 		subtitle: 'ПОПАРИТЬСЯ В БанЕ С ДРУЗЬЯМИ',
-		href: '#',
+		paramName: 'baths',
 	},
 	{
 		img: 'img/promo4.jpg',
 		title: 'Авто на прокат',
 		subtitle: 'ЕСЛИ СРОЧНО НУЖНА МАШИНА',
-		href: '#',
+		paramName: 'cars',
 	},
 ]
 

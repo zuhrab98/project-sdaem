@@ -61,6 +61,7 @@ export const FilterSelect = ({
 	React.useEffect(() => {
 		// если клик произошел в не области выподающего списка
 		const closePopup = (e) => {
+			// console.log(btnRef.current);
 			if (e.path[0] !== btnRef.current) {
 				setVisiblePopup(false)
 			}

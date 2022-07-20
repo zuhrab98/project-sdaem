@@ -1,3 +1,9 @@
-.list {
-  
+.item {
+	a {
+		transition: 0.2s ease-in-out;
+	}
+	&:hover a {
+		color: #f1c73b;
+		text-shadow: 2px 2px 5px #a8791333;
+	}
 }

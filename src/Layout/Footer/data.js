@@ -1,22 +1,19 @@
 export const apartments = [
-	{ name: 'Квартиры в Минске', href: '#' },
-	{ name: 'Квартиры в Гомеле', href: '#' },
-	{ name: 'Квартиры в Бресте', href: '#' },
-	{ name: 'Квартиры в Витебске', href: '#' },
-	{ name: 'Квартиры в Гродно', href: '#' },
-	{ name: 'Квартиры в Могилеве', href: '#' },
+	{ name: 'Квартиры в Минске', citi: 'Минск' },
+	{ name: 'Квартиры в Екатерин-е', citi: 'Екатеринбург' },
+	{ name: 'Квартиры в Москве', citi: 'Москва' },
 ]
 export const listServices = [
-	{ name: 'Новости', href: '#' },
-	{ name: 'Размещение и тарифы', href: '#' },
-	{ name: 'Объявления на карте', href: '#' },
-	{ name: 'Контакты', href: '#' },
+	{ name: 'Новости', path: '/news' },
+	{ name: 'Размещение и тарифы', path: '/*' },
+	{ name: 'Объявления на карте', path: '/*' },
+	{ name: 'Контакты', path: '/contacts' },
 ]
 
 export const listProduct = [
-	{ name: 'Коттеджи и усадьбы', href: '#' },
-	{ name: 'Бани и сауны', href: '#' },
-	{ name: 'Авто на прокат', href: '#' },
+	{ name: 'Коттеджи и усадьбы', paramName: 'cottages' },
+	{ name: 'Бани и сауны', paramName: 'baths' },
+	{ name: 'Авто на прокат', paramName: 'cars' },
 ]
 
 export const PAYMENT = [

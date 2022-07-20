@@ -21,12 +21,12 @@ export const TabFilter = () => {
 			<div className={styles.filteres}>
 				<FilterSelect
 					title='Город'
-					name={filterByCities ? filterByCities.name : 'Город'}
+					name={filterByCities ? filterByCities.name : 'Выберите'}
 					list={data?.FILTER_CITIES?.cities}
 				/>
 				<FilterSelect
 					title='Комнаты'
-					name={filterByRooms ? filterByRooms.name : 'Комнаты'}
+					name={filterByRooms ? filterByRooms.name : 'Выберите'}
 					list={data?.FILTER_ROOMS?.rooms}
 				/>
 
@@ -39,9 +39,8 @@ export const TabFilter = () => {
 						<span>На карте</span>
 					</Button>
 					<Link
-						to={{
-							pathname: `/apartmentCatalog`,
-						}}
+						to={`/apartmentCatalog`}
+						state={{ paramName: null, citi: filterByCities?.name }}
 						className={styles.lightYellow}
 					>
 						<span>Показать</span>

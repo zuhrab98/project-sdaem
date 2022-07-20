@@ -19,7 +19,7 @@ export const Home = () => {
 	React.useEffect(() => {
 		const fetchData = async () => {
 			const itemsResponse = await axios.get(
-				`https://62b821b603c36cb9b7c248ae.mockapi.io/items`
+				`https://62b821b603c36cb9b7c248ae.mockapi.io/rooms`
 			)
 			setItems(itemsResponse.data)
 			dispatch(setCards(itemsResponse.data))

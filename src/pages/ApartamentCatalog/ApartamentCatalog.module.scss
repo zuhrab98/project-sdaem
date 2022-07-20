@@ -1,11 +1,16 @@
 .apartmentCatalog {
-	padding-top: 100px;
 }
 
 .header {
-	margin-bottom: 57px;
-
+	padding-top: 100px;
+	padding-bottom: 57px;
+	background: linear-gradient(
+		90deg,
+		rgba(148, 175, 255, 0.1) 0%,
+		rgba(78, 101, 249, 0.1) 94.5%
+	);
 	h1 {
+    font-size: 25px;
 		padding: 30px 0 40px;
 	}
 }
@@ -14,20 +19,19 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 30px;
-  padding-bottom: 80px;
+	padding-bottom: 80px;
 }
 
-.notFoundTitle{
-  text-align: center;
-  font-weight: 700;
-  font-size: 26px;
+.notFoundTitle {
+	text-align: center;
+	font-weight: 700;
+	font-size: 26px;
 }
 
 .cardslist {
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	gap: 30px;
-
 }
 
 .filteres {
@@ -101,12 +105,12 @@
 }
 
 .wrapperContent {
-  padding-bottom: 80px;
+	padding-bottom: 80px;
 	.title {
 		font-weight: 700;
 		font-size: 20px;
 		line-height: 1;
 		color: var(--title);
-    margin-bottom: 40px;
+		margin-bottom: 40px;
 	}
 }

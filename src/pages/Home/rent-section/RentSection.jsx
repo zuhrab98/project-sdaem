@@ -29,7 +29,7 @@ export const RentSection = ({ cards }) => {
 				<div className={styles.header}>
 					<div className={styles.titleRow}>
 						<div className={styles.subtitle}>КВАРТИРЫ НА СУТКИ</div>
-						<div className={styles.title}>Аренда квартир в Минске</div>
+						<div className={styles.title}>Аренда квартир</div>
 					</div>
 					<div className={styles.filter}>
 						{/* выподающее меню Станций метро*/}

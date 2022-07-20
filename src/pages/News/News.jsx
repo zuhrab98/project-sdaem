@@ -40,8 +40,8 @@ export const News = () => {
 			setitems(cartResponse.data)
 			dispatch(setLoadings(false))
 		}
-
 		fetchNewsCards()
+		window.scroll(0, 0)
 	}, [currentPage, dispatch])
 
 	// По нажатию на кнопку поиска делаем фильтрацию новостных карточек
@@ -81,8 +81,10 @@ export const News = () => {
 						</div>
 						<div className={styles.newsCards}>
 							{loading
-								? // при загрузке рендерим 4 компонентов скелетон
-								  [...new Array(4)].map((_, index) => <Skeleton key={index} />)
+								? // при загрузке рендерим скелетон
+								  [...new Array(itemsPerPage)].map((_, index) => (
+										<Skeleton key={index} />
+								  ))
 								: currentItem.map((cardNews) => (
 										<NewsCards key={cardNews.id} data={cardNews} />
 								  ))}

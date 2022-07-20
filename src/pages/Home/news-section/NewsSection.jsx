@@ -49,7 +49,7 @@ export const NewsSection = () => {
 							{news &&
 								news.map((item) => (
 									<div key={item.id} className={styles.item}>
-										<Link to='#' className={styles.title}>
+										<Link to='/news' className={styles.titleLink}>
 											{item.title}
 										</Link>
 										<div className={styles.date}>{item.date}</div>

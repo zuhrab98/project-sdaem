@@ -68,7 +68,7 @@
 		}
 		&:last-child {
 			border: none;
-      margin-bottom: 32px;
+			margin-bottom: 32px;
 		}
 	}
 
@@ -81,13 +81,17 @@
 	}
 
 	.conteiner {
-		a {
+		.titleLink {
 			display: inline-block;
 			font-weight: 600;
 			font-size: 14px;
 			line-height: 17px;
 			color: var(--title);
 			margin-bottom: 6px;
+			transition: 0.3s ease-in-out;
+			&:hover {
+				color: #6b50e9;
+			}
 		}
 		.date {
 			font-weight: 400;

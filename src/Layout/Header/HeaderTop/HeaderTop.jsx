@@ -3,6 +3,7 @@ import styles from './HeaderTop.module.scss'
 import { NavLinks } from '../NavLink/NavLink'
 import { Icons } from '../../../components/Icons/Icons'
 import data from './data.json'
+import { Link } from 'react-router-dom'
 
 export const HeaderTop = () => {
 	return (
@@ -18,9 +19,9 @@ export const HeaderTop = () => {
 								</a>
 							</li>
 							<li>
-								<a href='#' className={styles.priamary}>
+								<Link to='/authForm' className={styles.priamary}>
 									Вход и регистрация
-								</a>
+								</Link>
 							</li>
 						</ul>
 					</div>

@@ -3,6 +3,12 @@
 	border-radius: 10px;
 	height: 270px;
 	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		transform: scale3d(1.1, 1.1, 1.1);
+		box-shadow: 4px 4px 8px 1px rgba(34, 60, 80, 0.2);
+	}
 }
 
 .link {
@@ -68,4 +74,11 @@
 	font-size: 14px;
 	line-height: 17px;
 	color: rgba(255, 255, 255, 0.7);
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		background: #6c55ff;
+		transform: scale3d(1.1, 1.1, 1.1);
+		color: #ffffff;
+	}
 }

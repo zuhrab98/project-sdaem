@@ -8,7 +8,7 @@ const initialState = {
 	filterByRegions: null,
 	filterByRooms: null,
 	filterByCities: null,
-	filterByPriceFrom: { price: '', value: 'от' },
+	filterByPriceFrom: { price: '0', value: 'от' },
 	filterByPriceTo: { price: '', value: 'до' },
 	breadcrumbs: [{ page: 'Home', path: '/' }],
 	sortCards: null,
@@ -55,6 +55,7 @@ export const filterSlice = createSlice({
 			state.filterByPriceFrom = { price: '', value: 'от' }
 			state.filterByPriceTo = { price: '', value: 'до' }
 			state.filterByRooms = null
+			state.filterByCities = null
 		},
 		setSort(state, action) {
 			state.sortCards = action.payload

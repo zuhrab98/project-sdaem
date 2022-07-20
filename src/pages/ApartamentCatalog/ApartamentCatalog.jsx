@@ -17,7 +17,11 @@ import data from '../../components/Tabs/TabFilter/data.json'
 import { Layout } from '../../Layout/Layout'
 import { filteredApartmentCatalog, sort } from '../../filteredCards'
 import { Button } from '../../components/Button/Button'
-import { setFiltersClear, setLoadings } from '../../redux/slices/filterSlice'
+import {
+	setFilterByCities,
+	setFiltersClear,
+	setLoadings,
+} from '../../redux/slices/filterSlice'
 import { setCurrentPage } from '../../redux/slices/catalogSlice'
 import { Pagination } from '../../components/Pagination/Pagination'
 import Skeleton from '../../components/LocationCard/Skeleton'
@@ -28,6 +32,9 @@ const layoutGroup = [
 ]
 
 export const ApartamentCatalog = () => {
+	const location = useLocation()
+	const useParam = location.state
+	// console.log(location.state)
 	const { currentPage } = useSelector((store) => store.catalog)
 	const {
 		rentalCards,
@@ -41,17 +48,20 @@ export const ApartamentCatalog = () => {
 	} = useSelector((store) => store.filter)
 	const dispatch = useDispatch()
 
+	const [titleCatalog, setTitleCatalog] = React.useState()
 	const [items, setItems] = React.useState([])
 	const [filterCards, setFilterCards] = React.useState([])
 	const [layoutItem, setLayoutItem] = React.useState('table')
 	const [itemsPerPage] = React.useState(6)
 
 	React.useEffect(() => {
+		setTitleCatalog(useParam?.paramName ? useParam.paramName : 'Квартиры')
 		const order = sortCards?.filterProperty === 'asc' ? 'asc' : 'desc'
+		const param = useParam?.paramName ? useParam.paramName : 'rooms'
 
 		const fetchData = async () => {
 			const itemsRes = await axios.get(
-				`https://62b821b603c36cb9b7c248ae.mockapi.io/items?sortBy=price&order=${order}`
+				`https://62b821b603c36cb9b7c248ae.mockapi.io/${param}?sortBy=price&order=${order}`
 			)
 			const data = await itemsRes.data
 			setItems(data)
@@ -67,14 +77,14 @@ export const ApartamentCatalog = () => {
 		}
 		window.scroll(0, 0)
 		fetchData()
-	}, [sortCards])
+	}, [sortCards, useParam, filterByCities])
 
 	// получаем индекс первой страницы, последней
 	const lastItemIndex = currentPage * itemsPerPage
 	const firstItemIndex = lastItemIndex - itemsPerPage
 	const currentItem = filterCards.slice(firstItemIndex, lastItemIndex)
 
-	const handleClickShow = () => {
+	const handleClickByShow = () => {
 		// функс фильтрует карточки
 		const filtersCard = filteredApartmentCatalog(
 			items,
@@ -89,18 +99,37 @@ export const ApartamentCatalog = () => {
 		dispatch(setCurrentPage(pageNumber))
 	}
 
+	switch (titleCatalog) {
+		case 'rooms':
+			setTitleCatalog('Квартир')
+			return
+		case 'cottages':
+			setTitleCatalog('Коттеджи и усадьбы')
+			return
+		case 'cars':
+			setTitleCatalog('Авто')
+			return
+		case 'baths':
+			setTitleCatalog('Бани и сауны')
+			return
+		default:
+			break
+	}
+
 	return (
 		<Layout>
 			<div className={styles.apartmentCatalog}>
 				<div className={styles.header}>
 					<div className='container'>
 						<Breadcrumbs
-							pagaName='Квартиры в Минске'
+							pagaName={`${titleCatalog} ${
+								filterByCities?.name ? ` в ${filterByCities?.name}е` : ''
+							}`}
 							breadcrumsb={breadcrumbs}
 						/>
 						<h1>
-							Аренда квартир на сутки{' '}
-							{filterByCities && `в ${filterByCities?.name}`}
+							Аренда {titleCatalog} на сутки
+							{filterByCities?.name ? ` в ${filterByCities?.name}е` : ''}
 						</h1>
 					</div>
 				</div>
@@ -123,7 +152,7 @@ export const ApartamentCatalog = () => {
 							<Button onClick={() => dispatch(setFiltersClear())} name='beige'>
 								<span>Очистить</span>
 							</Button>
-							<Button onClick={() => handleClickShow()} name='show'>
+							<Button onClick={() => handleClickByShow()} name='show'>
 								<span>Показать объекты</span>
 								<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill={'#FFFFFF'} />
 							</Button>
@@ -182,13 +211,12 @@ export const ApartamentCatalog = () => {
 								? [...new Array(itemsPerPage)].map((_, i) => (
 										<Skeleton key={i} />
 								  ))
-								: currentItem.map((card) => (
+								: currentItem.map((card, i) => (
 										<LocationCard
-											ClassName={layoutItem === 'list' && 'catalogCard'}
 											cardList={layoutItem === 'list'}
-											key={card.id}
+											key={i}
 											data={card}
-											fav={true}
+											fav
 										/>
 								  ))}
 						</div>
