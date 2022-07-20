@@ -2,9 +2,6 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './Button.module.scss'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { setNewsDetail } from '../../redux/slices/NewsDetaitSlice'
-import filteredCards from '../../filteredCards'
 
 export const Button = ({ children, name, tag, path, onClick }) => {
 	return (
@@ -20,6 +17,7 @@ export const Button = ({ children, name, tag, path, onClick }) => {
 						[styles.addAdvert]: name === 'addAdvert',
 						[styles.lightYellow]: name === 'lightYellow',
 						[styles.lightPrimary]: name === 'lightPrimary',
+						[styles.buttonDef]: name === 'buttonDef',
 					})}
 				>
 					{children}

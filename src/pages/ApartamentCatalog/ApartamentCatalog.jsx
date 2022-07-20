@@ -1,9 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import cn from 'classnames'
-import qs from 'qs'
 
 import styles from './ApartamentCatalog.module.scss'
 import { Icons } from '../../components/Icons/Icons'
@@ -15,13 +14,9 @@ import { PriceFilter } from '../../components/Tabs/TabFilter/PriceFilter/PriceFi
 import { FilterSelect } from '../../components/FilterSelect/FilterSelect'
 import data from '../../components/Tabs/TabFilter/data.json'
 import { Layout } from '../../Layout/Layout'
-import { filteredApartmentCatalog, sort } from '../../filteredCards'
+import { filteredApartmentCatalog } from '../../filteredCards'
 import { Button } from '../../components/Button/Button'
-import {
-	setFilterByCities,
-	setFiltersClear,
-	setLoadings,
-} from '../../redux/slices/filterSlice'
+import { setFiltersClear, setLoadings } from '../../redux/slices/filterSlice'
 import { setCurrentPage } from '../../redux/slices/catalogSlice'
 import { Pagination } from '../../components/Pagination/Pagination'
 import Skeleton from '../../components/LocationCard/Skeleton'
@@ -34,7 +29,6 @@ const layoutGroup = [
 export const ApartamentCatalog = () => {
 	const location = useLocation()
 	const useParam = location.state
-	// console.log(location.state)
 	const { currentPage } = useSelector((store) => store.catalog)
 	const {
 		rentalCards,
@@ -77,7 +71,7 @@ export const ApartamentCatalog = () => {
 		}
 		window.scroll(0, 0)
 		fetchData()
-	}, [sortCards, useParam, filterByCities])
+	}, [sortCards, useParam, filterByCities, dispatch])
 
 	// получаем индекс первой страницы, последней
 	const lastItemIndex = currentPage * itemsPerPage

@@ -1,13 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-	setCurrentPage,
-	setFilterPage,
-	setLoadings,
-} from '../../redux/slices/NewsSlice'
-import qs from 'qs'
-import { useNavigate } from 'react-router-dom'
+import { setCurrentPage, setLoadings } from '../../redux/slices/NewsSlice'
 
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import Skeleton from '../../components/LocationCard/Skeleton'
@@ -23,7 +17,6 @@ export const NewsContext = React.createContext()
 
 export const News = () => {
 	const dispatch = useDispatch()
-	const navigate = useNavigate()
 	const { loading, currentPage } = useSelector((store) => store.news)
 	const { breadcrumbs } = useSelector((store) => store.filter)
 
@@ -31,7 +24,6 @@ export const News = () => {
 	const [searchInput, setSearchInput] = React.useState('')
 	const [itemsPerPage] = React.useState(8)
 
-	// Если был первый рендер запрашиваем определенную страницу по умолчанию 1
 	React.useEffect(() => {
 		const fetchNewsCards = async () => {
 			const cartResponse = await axios.get(

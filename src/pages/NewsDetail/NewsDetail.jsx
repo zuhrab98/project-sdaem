@@ -28,7 +28,6 @@ export const NewsDetail = () => {
 			const { data } = await axios.get(
 				`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?id=${Number(id)}`
 			)
-			console.log(data[0])
 			setNewsCards(data[0])
 		}
 		fetchNewsCards()

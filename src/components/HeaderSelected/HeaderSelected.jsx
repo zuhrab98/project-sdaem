@@ -1,8 +1,6 @@
 import React from 'react'
-import cn from 'classnames'
 import styles from './HeaderSelected.module.scss'
 import { Link } from 'react-router-dom'
-import { Icons } from '../Icons/Icons'
 import { setFilterByCities } from '../../redux/slices/filterSlice'
 import { useDispatch } from 'react-redux'
 
