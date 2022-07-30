@@ -2,10 +2,11 @@ import React from 'react'
 import styles from './Footer.module.scss'
 import { Icons } from '../../components/Icons/Icons'
 import { Lists } from '../../components/Lists/Lists'
-import { apartments, listProduct, listServices, PAYMENT } from './data'
+import data from '../../api/data.json'
 import { Link } from 'react-router-dom'
 
 export const Footer = () => {
+
 	return (
 		<footer>
 			<div className={`container ${styles.footerContainer}`}>
@@ -15,26 +16,33 @@ export const Footer = () => {
 					</Link>
 					<p className={styles.p}>СДАЁМ БАЙ</p>
 					<p>
-						ИП Шушкевич Андрей Викторович УНП 192602485 Минским горисполкомом
-						10.02.2016 220068, РБ, г. Минск, ул. Осипенко, 21, кв.23 +375 29 621
-						48 33, sdaem@sdaem.by Режим работы: 08:00-22:00
+						ИП Шушкевич Андрей Викторович <br />
+						УНП 192602485 Минским горисполкомом <br />
+						10.02.2016
+						<br />
+						220068, РБ, г. Минск, ул. Осипенко, 21, кв.23
+						<br />
+						+375 29 621 48 33, sdaem@sdaem.by
+						<br />
+						Режим работы: 08:00-22:00
+						<br />
 					</p>
 				</div>
 
 				<div className={styles.content}>
 					<ul className={styles.listProduct}>
-						<Lists lists={listProduct} tag='a' />
+						<Lists lists={data.LIST_PRODUCTS} tag='a' />
 					</ul>
 
 					<div className={styles.wrapperApartment}>
 						<div className={styles.apartmentTitle}>Квартиры</div>
 						<ul className={styles.listApartment}>
-							<Lists lists={apartments} tag='a' />
+							<Lists lists={data.APARTAMENTS} tag='a' />
 						</ul>
 					</div>
 
 					<ul className={styles.listServices}>
-						<Lists lists={listServices} tag='a' />
+						<Lists lists={data.NAVS_FOOTER} tag='a' />
 					</ul>
 				</div>
 
@@ -72,8 +80,8 @@ export const Footer = () => {
 						</ul>
 					</div>
 					<div className={styles.payment}>
-						{PAYMENT &&
-							PAYMENT.map((item, i) => (
+						{data.PAYMENT &&
+							data.PAYMENT.map((item, i) => (
 								<div key={i} className={styles.paymentItem}>
 									<img src={item.src} alt={item.alt} />
 								</div>

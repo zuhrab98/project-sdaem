@@ -13,6 +13,7 @@ export const NavLinks = ({ navs, appearance, selecteds }) => {
 		setModalOpen((prev) => !prev)
 	}
 
+
 	return (
 		<div className={styles.nav}>
 			{navs.map((item, i) => (

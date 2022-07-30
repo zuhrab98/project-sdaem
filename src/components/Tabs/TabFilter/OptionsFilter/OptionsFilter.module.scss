@@ -32,9 +32,14 @@
 		content: '';
 		transition: width 0.3s ease-out;
 	}
+  
+	&:hover:after {
+		width: 100%;
+	}
+}
 
-	&:hover:after,
-	&:focus:after {
+.active {
+	&::after {
 		width: 100%;
 	}
 }

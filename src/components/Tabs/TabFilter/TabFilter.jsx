@@ -4,30 +4,30 @@ import { Link } from 'react-router-dom'
 import cn from 'classnames'
 
 import data from '../../../api/data'
-import { PriceFilter } from './PriceFilter/PriceFilter'
+import { PriceFilter } from '../../PriceFilter/PriceFilter'
 import { OptionsFilter } from './OptionsFilter/OptionsFilter'
 import { Button } from '../../Button/Button'
 import { Icons } from '../../Icons/Icons'
 import { FilterSelect } from '../../FilterSelect/FilterSelect'
+import { MoreOptions } from '../../../pages/ApartamentCatalog/MoreOptions/MoreOptions'
 
 import styles from './TabFilter.module.scss'
 import { selectFilter } from '../../../redux/slices/filterSlice'
 
 export const TabFilter = () => {
-	const { filterByRooms, filterByCities } = useSelector(selectFilter)
+	const { filtered } = useSelector(selectFilter)
 	const [visibleOptions, setvisibleOptions] = React.useState(false)
-
 	return (
 		<div className={styles.tabsFilter}>
 			<div className={styles.filteres}>
 				<FilterSelect
 					title='Город'
-					name={filterByCities ? filterByCities.name : 'Выберите'}
+					name={filtered.citi ? filtered.citi.name : 'Выберите'}
 					list={data?.FILTER_CITIES}
 				/>
 				<FilterSelect
 					title='Комнаты'
-					name={filterByRooms ? filterByRooms.name : 'Выберите'}
+					name={filtered.room ? filtered.room.name : 'Выберите'}
 					list={data?.FILTER_ROOMS}
 				/>
 				<PriceFilter />
@@ -39,7 +39,7 @@ export const TabFilter = () => {
 					</Button>
 					<Link
 						to={`/apartmentCatalog`}
-						state={{ paramName: null, citi: filterByCities?.name }}
+						state={{ paramName: null, citi: filtered.citi?.name }}
 						className={styles.lightYellow}
 					>
 						<span>Показать</span>
@@ -47,21 +47,7 @@ export const TabFilter = () => {
 					</Link>
 				</div>
 			</div>
-			{visibleOptions && (
-				<div className={cn('container', styles.moreOptions)}>
-					<FilterSelect
-						title='Спальные места'
-						name={'Выберите'}
-						list={data?.SLEEPING_PLACES}
-					/>
-					<FilterSelect title='Район' name='Выберите' list={data?.REGIONS} />
-					<FilterSelect
-						title='Метро'
-						name='Выберите'
-						list={data?.METRO_STATIONS}
-					/>
-				</div>
-			)}
+			<MoreOptions visibleOptions={visibleOptions} filtered={filtered} />
 		</div>
 	)
 }

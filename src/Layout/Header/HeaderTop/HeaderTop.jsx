@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './HeaderTop.module.scss'
 import { NavLinks } from '../NavLink/NavLink'
 import { Icons } from '../../../components/Icons/Icons'
-import data from './data.json'
+import data from '../../../api/data.json'
 import { Link } from 'react-router-dom'
 
 export const HeaderTop = () => {

@@ -4,25 +4,21 @@ import { Icons } from '../../../components/Icons/Icons'
 import styles from './RentSection.module.scss'
 import { Slider } from '../../../components/Slider/Slider'
 import { Button } from '../../../components/Button/Button'
-import data from './data'
+import data from '../../../api/data.json'
 import { useSelector } from 'react-redux'
-import {
-	filteredApartmentCatalog,
-	filteredCardsSlider,
-} from '../../../utils/filteredCards'
+import { filteredApartmentCatalog } from '../../../utils/filteredCards'
 import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
 import { selectFilter } from '../../../redux/slices/filterSlice'
 
 export const RentSection = ({ cards }) => {
 	// получаем из stora необходимые свойства
 	const { filtered } = useSelector(selectFilter)
-
 	const [sortByMetro, setSortByMetro] = React.useState([])
 	const [sortByRegions, setSortByRegions] = React.useState([])
 
 	React.useEffect(() => {
-		setSortByMetro(data.metroStations) // получаем стации метро
-		setSortByRegions(data.regions) // получаем районы
+		setSortByMetro(data.METRO_STATIONS) // получаем стации метро
+		setSortByRegions(data.REGIONS) // получаем районы
 	}, [sortByMetro, sortByRegions])
 
 	const filtersCard = filteredApartmentCatalog(
@@ -68,7 +64,7 @@ export const RentSection = ({ cards }) => {
 				<div className={styles.offers}>
 					<div className={styles.left}>
 						<p className={styles.number}>
-							341 <span>+</span>
+							{filtersCard?.length} <span>+</span>
 						</p>
 						<p className={styles.text}>Предложение</p>
 					</div>

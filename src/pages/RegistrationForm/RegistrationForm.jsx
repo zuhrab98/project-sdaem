@@ -46,6 +46,13 @@ export const RegistrationForm = () => {
 						type='password'
 						placeholder='Пароль'
 					/>
+					<InputGroup
+						icon='castle'
+						errorIcon={errors?.password}
+						register={register}
+						type='password'
+						placeholder='Повторите пароль'
+					/>
 					<Button name='buttonDef'>Зарегистрироваться</Button>
 				</form>
 

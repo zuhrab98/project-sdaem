@@ -26,7 +26,6 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 		setActiveFav((prev) => !prev)
 		dispatch(setFav(Number(data.id)))
 	}
-
 	return (
 		<div
 			className={cn(styles.card, {
@@ -34,7 +33,8 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 				[styles.catalogCard]: cardList,
 			})}
 		>
-			<div className={cn(styles.headerCard, 'headerCard')}>
+			<div className={cn(styles.headerCard, 'headerCard', {[styles.imgList]: cardList})}>
+        <span className={styles.label}>Gold</span>
 				{data.img.length > 1 ? (
 					<Swiper
 						slidesPerView={1}

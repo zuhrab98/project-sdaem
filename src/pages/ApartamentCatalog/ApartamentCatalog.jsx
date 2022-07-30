@@ -8,12 +8,10 @@ import { Icons } from '../../components/Icons/Icons'
 import { LocationCard } from '../../components/LocationCard/LocationCard'
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 
-import { OptionsFilter } from '../../components/Tabs/TabFilter/OptionsFilter/OptionsFilter'
-import { PriceFilter } from '../../components/Tabs/TabFilter/PriceFilter/PriceFilter'
 import { FilterSelect } from '../../components/FilterSelect/FilterSelect'
 import { filteredApartmentCatalog } from '../../utils/filteredCards'
 import { Button } from '../../components/Button/Button'
-import { selectFilter, setFiltersClear } from '../../redux/slices/filterSlice'
+import { selectFilter } from '../../redux/slices/filterSlice'
 import {
 	fetchCatalogCards,
 	setCurrentPage,
@@ -21,7 +19,7 @@ import {
 import { Pagination } from '../../components/Pagination/Pagination'
 import { usePagination } from '../../hooks/usePagination'
 import { skeleton } from '../../utils/skeleton'
-import data from '../../api/data'
+import { Filteres } from './Filteres/Filteres'
 
 const layoutGroup = [
 	{ value: 'list', name: 'Список' },
@@ -46,26 +44,12 @@ export const ApartamentCatalog = () => {
 	const { sortCards, filtered } = useSelector(selectFilter)
 
 	const [titleCatalog, setTitleCatalog] = React.useState()
-	const [visibleOptions, setvisibleOptions] = React.useState(false)
 	const [filterCards, setFilterCards] = React.useState([])
 	const [layoutItem, setLayoutItem] = React.useState('table')
 	const [itemsPerPage] = React.useState(6)
 
 	React.useEffect(() => {
 		setTitleCatalog(useParam?.paramName ? useParam.paramName : 'Квартиры')
-		setFilterCards(itemsCard)
-	}, [itemsCard, useParam])
-
-	React.useEffect(() => {
-		const order = sortCards?.filterProperty === 'asc' ? 'asc' : 'desc'
-		const param = useParam?.paramName ? useParam.paramName : 'rooms'
-		dispatch(fetchCatalogCards({ param, order, filtered }))
-
-		window.scroll(0, 0)
-	}, [sortCards, filtered.citi])
-
-	const handleClickByShow = () => {
-		// функс фильтрует карточки при нажатии показать объекты
 		const filtersCard = filteredApartmentCatalog(
 			itemsCard,
 			filtered.room,
@@ -74,10 +58,18 @@ export const ApartamentCatalog = () => {
 			filtered.priceTo,
 			filtered.metro,
 			filtered.region,
-      filtered.places
+			filtered.places
 		)
 		setFilterCards(filtersCard)
-	}
+	}, [itemsCard, useParam])
+
+	React.useEffect(() => {
+		const order = sortCards?.filterProperty === 'asc' ? 'asc' : 'desc'
+		const param = useParam?.paramName ? useParam.paramName : 'rooms'
+		dispatch(fetchCatalogCards({ param, order, filtered }))
+
+		window.scroll(0, 0)
+	}, [sortCards, filtered.citi, useParam, dispatch])
 
 	const paginate = (pageNumber) => {
 		dispatch(setCurrentPage(pageNumber))
@@ -106,8 +98,6 @@ export const ApartamentCatalog = () => {
 			break
 	}
 
-  console.log(filtered.places?.name );
-
 	return (
 		<div className={styles.apartmentCatalog}>
 			<div className={styles.header}>
@@ -119,51 +109,7 @@ export const ApartamentCatalog = () => {
 					</h1>
 				</div>
 			</div>
-			<div className={styles.filteres}>
-				<div className={cn('container', styles.filteresRow)}>
-					<FilterSelect
-						ClassName='rentalApartment'
-						title='Комнаты'
-						name={filtered.room ? filtered.room.name : 'Комнаты'}
-						list={data?.FILTER_ROOMS}
-					/>
-
-					<PriceFilter ClassName='rentalPrice' />
-					<OptionsFilter onclick={() => setvisibleOptions((prev) => !prev)} />
-					<div className={styles.buttons}>
-						<Button onClick={() => dispatch(setFiltersClear())} name='beige'>
-							<span>Очистить</span>
-						</Button>
-						<Button onClick={() => handleClickByShow()} name='show'>
-							<span>Показать объекты</span>
-							<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill={'#FFFFFF'} />
-						</Button>
-					</div>
-				</div>
-				{visibleOptions && (
-					<div className={cn('container', styles.moreOptions)}>
-						<FilterSelect
-							title='Спальные места'
-							ClassName='filterDistricts'
-							name={filtered.places ? filtered.places.name : 'Выберите'}
-							list={data?.SLEEPING_PLACES}
-						/>
-						<FilterSelect
-							title='Район'
-							ClassName='filterDistricts'
-							name={filtered.region ? filtered.region.name : 'Выберите'}
-							list={data?.REGIONS}
-						/>
-						<FilterSelect
-							title='Метро'
-							ClassName='filterDistricts'
-							name={filtered.metro ? filtered.metro.name : 'Выберите'}
-							list={data?.METRO_STATIONS}
-						/>
-					</div>
-				)}
-			</div>
-
+			<Filteres setFilterCards={setFilterCards} />
 			<div className={styles.sortWrapper}>
 				<div className='container'>
 					<div className={styles.row}>
@@ -221,6 +167,21 @@ export const ApartamentCatalog = () => {
 					)}
 				</div>
 			</div>
+			<section className={styles.maps}>
+				<div className='container'>
+					<div className={styles.content}>
+						<h3 className={styles.title}>
+							Показать найденные квартиры на карте
+						</h3>
+						<p className={styles.text}>
+							Ищите новостройки рядом с работой, парком или родственниками
+						</p>
+						<Button tag='a' name='openMap'>
+							<Icons id='location' fill='#FEC81B' /> <span>Открыть карту</span>
+						</Button>
+					</div>
+				</div>
+			</section>
 		</div>
 	)
 }

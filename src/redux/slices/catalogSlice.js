@@ -1,24 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { filteredApartmentCatalog } from '../../utils/filteredCards'
 
 export const fetchCatalogCards = createAsyncThunk(
 	'catalog/fetchCatalogCardsStatus',
-	async ({ param, order, filtered }) => {
+	async ({ param, order }) => {
 		const { data } = await axios.get(
 			`https://62b821b603c36cb9b7c248ae.mockapi.io/${param}?sortBy=price&order=${order}`
 		)
-		const filtersCard = filteredApartmentCatalog(
-			data,
-			filtered.room,
-			filtered.citi,
-			filtered.priceFrom,
-			filtered.priceTo,
-			filtered.metro,
-			filtered.region,
-			filtered.places
-		)
-		return filtersCard
+		return data
 	}
 )
 

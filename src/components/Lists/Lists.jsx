@@ -6,7 +6,6 @@ import { setFiltered } from '../../redux/slices/filterSlice'
 
 export const Lists = ({ lists, tag }) => {
 	const Tag = tag
-
 	const dispatch = useDispatch()
 
 	const handlerClick = (citi) => {

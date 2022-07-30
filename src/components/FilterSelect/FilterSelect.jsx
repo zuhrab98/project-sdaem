@@ -40,7 +40,6 @@ export const FilterSelect = ({
 
 	// когда делаем очистку фильтров обновляем имя фильтр
 	React.useEffect(() => {
-		console.log(name)
 		setFilterName(name)
 	}, [name])
 
@@ -61,6 +60,7 @@ export const FilterSelect = ({
 		<div
 			className={cn(styles.filterOfferType, {
 				[styles.filterMetro]: ClassName === 'filterMetro',
+				[styles.moreOptionsFilter]: ClassName === 'moreOptionsFilter',
 				[styles.filterDistricts]: ClassName === 'filterDistricts',
 				[styles.rentalApartment]: ClassName === 'rentalApartment',
 				[styles.sortPrice]: ClassName === 'sortPrice',

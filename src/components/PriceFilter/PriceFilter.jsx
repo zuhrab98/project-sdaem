@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectFilter, setFiltered } from '../../../../redux/slices/filterSlice'
+import { selectFilter, setFiltered } from '../../redux/slices/filterSlice'
 import cn from 'classnames'
 import styles from './PriceFilter.module.scss'
 

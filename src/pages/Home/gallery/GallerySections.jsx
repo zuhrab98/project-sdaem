@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './GallerySections.module.scss'
 import { GalleryAds } from './GalleryAds/GalleryAds'
-import { GALLERY_ADS, PROMO_MENU } from './data'
+import data from '../../../api/data.json'
 import { PromoMenu } from './PromoMenu/PromoMenu'
 
 export const GallerySections = () => {
@@ -12,20 +12,24 @@ export const GallerySections = () => {
 				<div className={styles.row}>
 					{/* карточки с картинками */}
 					<div className={styles.cards}>
-						<GalleryAds data={GALLERY_ADS} />
+						<GalleryAds data={data.GALLERY_ADS} />
 					</div>
 
 					{/* боковое меню популярных ссылок */}
 					<div className={styles.promoMenu}>
 						<div className={styles.popularLinks}>
 							<PromoMenu
-								data={PROMO_MENU.cottages}
-								title={PROMO_MENU.cottagesTitle}
+								data={data.PROMO_MENU.ROOMS}
+								title={data.PROMO_MENU.ROOMS_TITLE}
+							/>
+							<PromoMenu
+								data={data.PROMO_MENU.COTTAGES}
+								title={data.PROMO_MENU.COTTAGES_TITLE}
 								showMore={true}
 							/>
 							<PromoMenu
-								data={PROMO_MENU.populars}
-								title={PROMO_MENU.popularsTitle}
+								data={data.PROMO_MENU.POPULARS}
+								title={data.PROMO_MENU.POPULARS_TITLE}
 							/>
 						</div>
 					</div>

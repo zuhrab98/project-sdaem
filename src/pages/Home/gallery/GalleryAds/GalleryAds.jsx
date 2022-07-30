@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import styles from './GalleryAds.module.scss'
 import { setFiltered } from '../../../../redux/slices/filterSlice'
+import { Icons } from '../../../../components/Icons/Icons'
 
 export const GalleryAds = ({ data }) => {
 	const dispatch = useDispatch()
@@ -18,14 +19,10 @@ export const GalleryAds = ({ data }) => {
 				data.map((item) => (
 					<div key={item.title} className={styles.item}>
 						{item.paramName ? (
-							<Link
-								to='/apartmentCatalog'
-								state={{ paramName: item.paramName }}
-								className={styles.desc}
-							>
+							<div className={styles.desc}>
 								<p className={styles.subtitle}>{item.subtitle}</p>
 								<h3 className={styles.title}>{item.title}</h3>
-							</Link>
+							</div>
 						) : (
 							<div className={styles.desc}>
 								<p className={styles.subtitle}>{item.subtitle}</p>
@@ -50,6 +47,15 @@ export const GalleryAds = ({ data }) => {
 						<div className={styles.link}>
 							<img src={item.img} alt='' />
 						</div>
+						{item.paramName && (
+							<Link
+								to='/apartmentCatalog'
+								state={{ paramName: item.paramName }}
+								className={styles.arrow}
+							>
+								<Icons id='arrow' size={{ w: 15, h: 8 }} fill={'#ffffff'} />
+							</Link>
+						)}
 					</div>
 				))}
 		</>

@@ -1,0 +1,162 @@
+.moreOptions {
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	transition: all 0.3s ease-in-out;
+
+	box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
+}
+
+.moreOptionsActive {
+	height: 313px;
+	padding: 20px 0 30px;
+	overflow: visible;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.filters {
+	display: grid;
+	grid-template-columns: repeat(3, 200px);
+	gap: 48px;
+
+	button {
+		background: #f8f8f8;
+	}
+
+	& > div {
+		span {
+			color: var(--primary) !important;
+			padding-bottom: 5px;
+		}
+	}
+}
+
+// стилизация чекбоксов
+.checkboxsList {
+	display: grid;
+	flex-flow: column wrap;
+	height: 199px;
+	margin-top: 30px;
+  grid-template-rows: repeat(6, 30px);
+  grid-auto-flow: column;
+
+	& > li{
+		margin-bottom: 10px;
+	}
+
+	.realCheckbox {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		z-index: -1;
+	}
+
+	.checkboxRow {
+		display: flex;
+		align-items: center;
+	}
+	.text {
+		font-size: 14px;
+		line-height: 17px;
+		color: var(--title);
+		cursor: pointer;
+	}
+	.customCheckbox {
+		position: relative;
+		flex-shrink: 0;
+		display: inline-block;
+		margin-right: 10px;
+		width: 20px;
+		height: 20px;
+
+		background: #f8f8f8;
+		border: 1px solid #f0f0f0;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	.customCheckbox::before {
+		content: '';
+		position: absolute;
+		display: block;
+
+		width: 13px;
+		height: 13px;
+		left: 50%;
+		top: 50%;
+
+		background-image: url(../../../assets/svg/checked.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+
+		transform: translate(-50%, -50%) scale(0);
+		transition: transform 0.2s ease-in;
+	}
+
+	.realCheckbox:checked + .customCheckbox {
+		background-color: var(--primary);
+		&::before {
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+}
+
+.maps {
+	padding: 75px 0 86px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background: url('../../../assets/headerBg.png'),
+		linear-gradient(360deg, #7e6af3 15.95%, #6540cd 63.1%);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	&::before {
+		content: '';
+		position: absolute;
+		right: 140px;
+		top: 46px;
+		width: 61px;
+		height: 61px;
+		background-image: url('../../../assets/circles.png');
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+
+.content {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.title {
+		font-weight: 700;
+		font-size: 25px;
+		line-height: 30px;
+		margin-bottom: 20px;
+		color: var(--white);
+	}
+	.text {
+		max-width: 320px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 19px;
+		margin-bottom: 23px;
+		color: var(--white);
+	}
+	button {
+		svg {
+			margin-right: 8px;
+		}
+		span {
+			color: var(--title);
+		}
+	}
+}

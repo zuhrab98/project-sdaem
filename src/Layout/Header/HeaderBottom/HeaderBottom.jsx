@@ -4,8 +4,10 @@ import styles from './HeaderBottom.module.scss'
 import { NavLinks } from '../NavLink/NavLink'
 import { Button } from '../../../components/Button/Button'
 import { Link } from 'react-router-dom'
+import  data  from '../../../api/data.json'
 
-const navs = [
+
+const NAVS_BY_PARAMS = [
 	{ name: 'Квартиры на сутки', paramName: 'rooms' },
 	{ name: 'Коттеджи и усадьбы', paramName: 'cottages' },
 	{ name: 'Бани и Сауны', paramName: 'baths' },
@@ -70,9 +72,13 @@ export const HeaderBottom = () => {
 					<Link to='/' className={styles.logo}>
 						<img src='/img/logo.svg' width={134} height={19} alt='logo' />
 					</Link>
-					<NavLinks navs={navs} selecteds={selecteds} appearance='black' />
+					<NavLinks
+						navs={data.NAVS_BY_PARAMS}
+						selecteds={data.SELECTEDS_HEADER}
+						appearance='black'
+					/>
 					<div>
-						<Button path='*' tag='a' name='addAdvert'>
+						<Button path='/advertisement' tag='a' name='addAdvert'>
 							<span>+</span> Разместить объявление
 						</Button>
 					</div>

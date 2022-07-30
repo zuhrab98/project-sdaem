@@ -10,7 +10,7 @@ export const HeaderSelected = ({ paramName, selecteds }) => {
 	const handlerClick = (item) => {
 		dispatch(setFiltered({ name: item.citi, filterProperty: 'citi' }))
 	}
-
+  
 	return (
 		<div className={styles.selected}>
 			{selecteds[paramName].map((item, i) => (

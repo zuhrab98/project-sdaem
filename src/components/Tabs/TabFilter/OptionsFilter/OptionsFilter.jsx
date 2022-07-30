@@ -3,10 +3,14 @@ import cn from 'classnames'
 import styles from './OptionsFilter.module.scss'
 import { Icons } from '../../../Icons/Icons'
 
-export const OptionsFilter = ({ onclick }) => {
+export const OptionsFilter = ({ onclick, visibleOptions }) => {
 	return (
 		<div className={styles.optionsFilter}>
-			<button onClick={onclick} type='button' className={styles.button}>
+			<button
+				onClick={onclick}
+				type='button'
+				className={cn(styles.button, { [styles.active]: visibleOptions })}
+			>
 				<span className={styles.content}>Больше опций </span>
 				<span className={styles.icon}>
 					<Icons id={'options'} />
