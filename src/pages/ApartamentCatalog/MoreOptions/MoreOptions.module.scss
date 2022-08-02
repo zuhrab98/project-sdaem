@@ -24,7 +24,7 @@
 	gap: 48px;
 
 	button {
-		background: #f8f8f8;
+		background: var(--dark-grey);
 	}
 
 	& > div {
@@ -41,10 +41,10 @@
 	flex-flow: column wrap;
 	height: 199px;
 	margin-top: 30px;
-  grid-template-rows: repeat(6, 30px);
-  grid-auto-flow: column;
+	grid-template-rows: repeat(6, 30px);
+	grid-auto-flow: column;
 
-	& > li{
+	& > li {
 		margin-bottom: 10px;
 	}
 
@@ -103,6 +103,18 @@
 		background-color: var(--primary);
 		&::before {
 			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+}
+
+.checkboxRow {
+	&:hover {
+		.customCheckbox {
+			background: rgba(102, 78, 249, 0.1);
+			border: 1px solid rgba(102, 78, 249, 0.1);
+			&::before {
+				transform: translate(-50%, -50%) scale(1);
+			}
 		}
 	}
 }

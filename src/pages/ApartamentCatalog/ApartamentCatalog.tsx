@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import cn from 'classnames'
 
@@ -20,36 +20,42 @@ import { Pagination } from '../../components/Pagination/Pagination'
 import { usePagination } from '../../hooks/usePagination'
 import { skeleton } from '../../utils/skeleton'
 import { Filteres } from './Filteres/Filteres'
+import { CardsType, FilterPropertyType } from '../../type'
+import { RootState, useAppDispatch } from '../../redux/store'
 
 const layoutGroup = [
 	{ value: 'list', name: 'Список' },
 	{ value: 'table', name: 'Плитка' },
 ]
 
-const sort = [
+const sort: FilterPropertyType[] = [
 	{ name: 'По возрастанию цены', filterProperty: 'asc' },
 	{ name: 'По убыванию цены', filterProperty: 'desc' },
 ]
 
+interface useParamType {
+	paramName?: string | null
+	citi?: string
+}
+
 const breadcrumsb = [{ page: 'Home', path: '/' }]
 
-export const ApartamentCatalog = () => {
-	const dispatch = useDispatch()
+export const ApartamentCatalog: React.FC = (): JSX.Element => {
+	const dispatch = useAppDispatch()
 	const location = useLocation()
-	const useParam = location.state
-
+	const useParam: useParamType = location.state
 	const { currentPage, status, itemsCard } = useSelector(
-		(store) => store.catalog
+		(store: RootState) => store.catalog
 	)
 	const { sortCards, filtered } = useSelector(selectFilter)
 
-	const [titleCatalog, setTitleCatalog] = React.useState()
-	const [filterCards, setFilterCards] = React.useState([])
-	const [layoutItem, setLayoutItem] = React.useState('table')
-	const [itemsPerPage] = React.useState(6)
+	const [titleCatalog, setTitleCatalog] = React.useState<string>()
+	const [filterCards, setFilterCards] = React.useState<CardsType[]>([])
+	const [layoutItem, setLayoutItem] = React.useState<string>('table')
+	const [itemsPerPage] = React.useState<number>(6)
 
 	React.useEffect(() => {
-		setTitleCatalog(useParam?.paramName ? useParam.paramName : 'Квартиры')
+		setTitleCatalog(useParam?.paramName || 'Квартиры')
 		const filtersCard = filteredApartmentCatalog(
 			itemsCard,
 			filtered.room,
@@ -66,13 +72,14 @@ export const ApartamentCatalog = () => {
 	React.useEffect(() => {
 		const order = sortCards?.filterProperty === 'asc' ? 'asc' : 'desc'
 		const param = useParam?.paramName ? useParam.paramName : 'rooms'
-		dispatch(fetchCatalogCards({ param, order, filtered }))
+
+		dispatch(fetchCatalogCards({ param, order }))
 
 		window.scroll(0, 0)
 	}, [sortCards, filtered.citi, useParam, dispatch])
 
-	const paginate = (pageNumber) => {
-		dispatch(setCurrentPage(pageNumber))
+	const paginate = (pageNumbe: number) => {
+		dispatch(setCurrentPage(pageNumbe))
 	}
 
 	const { currentItem, pageNumbers } = usePagination(
@@ -133,7 +140,7 @@ export const ApartamentCatalog = () => {
 								</button>
 							))}
 						</div>
-						<Button to='*' tag='a' name='openMap'>
+						<Button tag='a' path='/maps' name='openMap'>
 							<Icons id='location' fill='#664ef9' />
 							<span>Показать на карте</span>
 						</Button>

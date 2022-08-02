@@ -1,4 +1,6 @@
-export const Icons = ({ id, size, ClassName = '', fill }) => {
+import { IconProps } from './interface'
+
+export const Icons = ({ id, size, ClassName = '', fill }: IconProps) => {
 	switch (id) {
 		case 'location':
 			return (

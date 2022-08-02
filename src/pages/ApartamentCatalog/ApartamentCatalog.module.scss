@@ -83,6 +83,7 @@
 		align-items: center;
 		padding: 10px 15px;
 		background: transparent;
+		border-radius: 18px;
 
 		svg {
 			margin-right: 10px;
@@ -93,6 +94,11 @@
 		line-height: 17px;
 		color: var(--title);
 		cursor: pointer;
+    transition: .2s ease-in;
+
+		&:hover {
+      background: #f8f8f8;
+    }
 	}
 
 	.itemBtn.active {
@@ -134,7 +140,7 @@
 	gap: 48px;
 
 	button {
-		background: #f8f8f8;
+		background: var(--dark-grey);
 	}
 
 	& > div {

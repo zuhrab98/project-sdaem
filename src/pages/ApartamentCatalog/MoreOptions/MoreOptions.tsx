@@ -3,11 +3,17 @@ import cn from 'classnames'
 
 import styles from './MoreOptions.module.scss'
 
-import data from '../../../api/data'
+import data from '../../../api/data.json'
 import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
+import { MoreOptionsProps, OptionType } from './interface'
 
+export const MoreOptions: React.FC<MoreOptionsProps> = ({
+	filtered,
+	visibleOptions,
+}): JSX.Element => {
+ 
+	const option: OptionType[] = data.OPTIONS
 
-export const MoreOptions = ({ filtered, visibleOptions }) => {
 	return (
 		<div
 			className={cn(styles.moreOptions, {
@@ -21,7 +27,7 @@ export const MoreOptions = ({ filtered, visibleOptions }) => {
 							title='Спальные места'
 							ClassName='moreOptionsFilter'
 							name={filtered.places ? filtered.places.name : 'Выберите'}
-							list={data?.SLEEPING_PLACES}
+							list={data.SLEEPING_PLACES}
 						/>
 						<FilterSelect
 							title='Район'
@@ -37,7 +43,7 @@ export const MoreOptions = ({ filtered, visibleOptions }) => {
 						/>
 					</div>
 					<ul className={styles.checkboxsList}>
-						{data.OPTIONS.map(({ id, name, label, checked }) => (
+						{option.map(({ id, name, label }) => (
 							<li key={id} className={styles.item}>
 								<label className={styles.checkboxRow}>
 									<input

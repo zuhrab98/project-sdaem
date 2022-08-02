@@ -17,13 +17,13 @@ export const Pagination = ({ paginate, pageNumbers }) => {
 			<ul className={styles.pagination}>
 				{pageNumbers.map((number) => (
 					<li key={number}>
-						<a
+						<span
 							role='button'
 							className={cn({ [styles.active]: number === state })}
 							onClick={(e) => onClickPage(e, number)}
 						>
 							{number}
-						</a>
+						</span>
 					</li>
 				))}
 			</ul>

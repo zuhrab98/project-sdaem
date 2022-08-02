@@ -10,6 +10,10 @@
 
 .name {
 	color: #feb700;
+  transition: padding .2s ease-in;
+  &:hover {
+    padding-left: 10px;
+  }
 }
 
 .count {

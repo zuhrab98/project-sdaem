@@ -2,8 +2,15 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './Button.module.scss'
 import { Link } from 'react-router-dom'
+import { ButtonProps } from './interface'
 
-export const Button = ({ children, name, tag, path, onClick }) => {
+export const Button: React.FC<ButtonProps> = ({
+	children,
+	name,
+	tag,
+	path,
+	onClick,
+}): JSX.Element => {
 	return (
 		<>
 			{tag === 'a' ? (

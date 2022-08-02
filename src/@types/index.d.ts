@@ -1,0 +1,6 @@
+declare module '*.scss'
+declare module '*.svg'
+declare module '*.jpeg'
+declare module '*.png'
+declare module '*.ts'
+declare module '*.tsx'

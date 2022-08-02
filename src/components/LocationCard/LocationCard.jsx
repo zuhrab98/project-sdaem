@@ -140,17 +140,17 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 					<div className={styles.labelRow}>
 						<Label tag={'span'} type='small'>
 							<Icons id={'user'} size={{ w: '20', h: '20' }} />
-							<span>{data.numberPeopleRoom}</span>
+							<p>{data.numberPeopleRoom}</p>
 						</Label>
 						<Label tag={'span'} type='small'>
-							<span>{data.rooms} комн.</span>
+							<p>{data.rooms} комн.</p>
 						</Label>
 						<Label tag={'span'} className={styles.location}>
 							<Icons id='metro' fill='#664EF9' />
 							<p className={styles.text}>{data.metro}</p>
 						</Label>
 						<Label tag={'span'} className={styles.location}>
-							район:
+							<span className={styles.primaryText}>район:</span>
 							<p className={styles.text}>{data.region}</p>
 						</Label>
 					</div>

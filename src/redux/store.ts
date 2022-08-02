@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
 import catalogSlice from './slices/catalogSlice'
 import filterSlice from './slices/filterSlice'
 import homeSlice from './slices/homeSlice'
@@ -14,3 +15,7 @@ export const store = configureStore({
 		newsDetail: NewsDetailSlice,
 	},
 })
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+export const useAppDispatch: () => AppDispatch = useDispatch

@@ -1,13 +1,13 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
 import { Button } from '../../components/Button/Button'
-import { Label } from '../../components/Label/Label'
 import { InputGroup } from '../../components/InputGroup/InputGroup'
 import styles from './RegistrationForm.module.scss'
+import { FormValues } from '../../type'
 
-export const RegistrationForm = () => {
+export const RegistrationForm: React.FC = (): JSX.Element => {
 	const {
 		register,
 		handleSubmit,
@@ -15,7 +15,7 @@ export const RegistrationForm = () => {
 		formState: { errors },
 	} = useForm({ mode: 'onChange' })
 
-	const onSubmit = (data) => {
+	const onSubmit: SubmitHandler<FormValues> = (data) => {
 		console.log(data)
 		reset()
 	}

@@ -23,12 +23,12 @@ export const PriceFilter = ({ ClassName }) => {
 				<input
 					onChange={(e) =>
 						onChangeInput({
-							price: e.target.value,
+							name: e.target.value,
 							filterProperty: 'priceFrom',
 						})
 					}
 					className={styles.input}
-					value={filtered.priceFrom.price}
+					value={filtered.priceFrom.name}
 					name='price'
 					type='number'
 					placeholder='От'
@@ -37,10 +37,10 @@ export const PriceFilter = ({ ClassName }) => {
 				<input
 					className={styles.input}
 					onChange={(e) =>
-						onChangeInput({ price: e.target.value, filterProperty: 'priceTo' })
+						onChangeInput({ name: e.target.value, filterProperty: 'priceTo' })
 					}
 					name='price'
-					value={filtered.priceTo.price}
+					value={filtered.priceTo.name}
 					type='number'
 					placeholder='До'
 				/>

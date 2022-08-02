@@ -8,7 +8,7 @@ export const NavLinks = ({ navs, appearance, selecteds }) => {
 	const [isModalOpen, setModalOpen] = React.useState(false)
 	const [isActive, setActive] = React.useState()
 
-	const onClickNavItem = (i) => {
+  const onClickNavItem = (i) => {
 		setActive(i)
 		setModalOpen((prev) => !prev)
 	}

@@ -1,8 +1,11 @@
-import React from 'react'
+import { CardsType } from '../type'
 
-export const usePagination = (currentPage, filterCards, itemsPerPage) => {
-
-  // получаем индекс первой страницы, последней
+export const usePagination = (
+	currentPage: number,
+	filterCards: CardsType[],
+	itemsPerPage: number
+): { currentItem: CardsType[]; pageNumbers: number[] } => {
+	// получаем индекс первой страницы, последней
 	const lastItemIndex = currentPage * itemsPerPage
 	const firstItemIndex = lastItemIndex - itemsPerPage
 	const currentItem = filterCards.slice(firstItemIndex, lastItemIndex)

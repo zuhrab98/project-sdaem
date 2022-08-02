@@ -6,7 +6,8 @@
 		margin-right: 4px;
 	}
 
-	a {
+	span {
+		position: relative;
 		display: inline-block;
 		width: 22px;
 		height: 22px;
@@ -16,6 +17,22 @@
 		color: #686868;
 		text-align: center;
 		cursor: pointer;
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			right: 0;
+			height: 0;
+			background: var(--light-yellow);
+			transition: height 0.3s ease-out;
+		}
+
+		&:hover::after {
+			height: 3px;
+			background: #e4e2e2;
+		}
 	}
 
 	.active {
@@ -23,13 +40,7 @@
 		color: var(--title);
 		position: relative;
 		&::after {
-			content: '';
-			position: absolute;
-			bottom: -3px;
-			left: 0;
-			right: 0;
 			height: 3px;
-			background: var(--light-yellow);
 		}
 	}
 }

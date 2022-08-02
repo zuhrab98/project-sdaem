@@ -1,11 +1,14 @@
 import React from 'react'
 import cn from 'classnames'
 import styles from './Breadcrumbs.module.scss'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Icons } from '../Icons/Icons'
+import { BreadcrumbsProps } from './interface'
 
-export const Breadcrumbs = ({ breadcrumsb, pagaName }) => {
-
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+	breadcrumsb,
+	pagaName,
+}): JSX.Element => {
 	return (
 		<div className={styles.breadcrumsb}>
 			{breadcrumsb.map((crumbs, i) => (

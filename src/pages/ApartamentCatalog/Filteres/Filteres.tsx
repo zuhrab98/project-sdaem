@@ -16,11 +16,14 @@ import {
 import { MoreOptions } from '../MoreOptions/MoreOptions'
 import { useDispatch, useSelector } from 'react-redux'
 import { filteredApartmentCatalog } from '../../../utils/filteredCards'
+import { FilteresProps } from './interface'
+import { RootState } from '../../../redux/store'
 
-export const Filteres = ({ setFilterCards }) => {
+
+export const Filteres: React.FC<FilteresProps> = ({ setFilterCards }) => {
 	const dispatch = useDispatch()
 	const { filtered } = useSelector(selectFilter)
-	const { itemsCard } = useSelector((store) => store.catalog)
+	const { itemsCard } = useSelector((store: RootState) => store.catalog)
 
 	const [visibleOptions, setvisibleOptions] = React.useState(false)
 
@@ -46,7 +49,7 @@ export const Filteres = ({ setFilterCards }) => {
 					ClassName='rentalApartment'
 					title='Комнаты'
 					name={filtered.room ? filtered.room.name : 'Выберите'}
-					list={data?.FILTER_ROOMS}
+					list={data.FILTER_ROOMS}
 				/>
 
 				<PriceFilter ClassName='rentalPrice' />

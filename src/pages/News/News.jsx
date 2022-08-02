@@ -8,7 +8,6 @@ import {
 } from '../../redux/slices/NewsSlice'
 
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
-import Skeleton from '../../components/LocationCard/Skeleton'
 import { NewsCards } from '../../components/newsCards/NewsCards'
 import { Pagination } from '../../components/Pagination/Pagination'
 import { Search } from '../../components/Search/Search'

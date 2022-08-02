@@ -1,14 +1,15 @@
 import React from 'react'
-import { Icons } from '../../components/Icons/Icons'
+import { Icons } from '../Icons/Icons'
 import styles from './InputGroup.module.scss'
+import { InputGroupProps } from './interface'
 
-export const InputGroup = ({
+export const InputGroup: React.FC<InputGroupProps> = ({
 	icon,
 	register,
 	type,
 	placeholder,
 	errorIcon,
-	id,
+  id
 }) => {
 	// волидация для email
 	const pattern = type === 'email' && {
@@ -28,9 +29,9 @@ export const InputGroup = ({
 					pattern,
 					minLength: minLength,
 				})}
-        type={type}
+				type={type}
+        id={id}
 				placeholder={placeholder}
-				id={id}
 			/>
 			<Icons id={icon} size={{ w: 20, h: 20 }} fill='#686868' />
 		</div>

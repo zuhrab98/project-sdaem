@@ -4,7 +4,7 @@
 	justify-content: center;
 	padding: 10px 18px;
 
-	transition: all 0.2s;
+	transition: 0.2s ease-in;
 	text-align: center;
 	cursor: pointer;
 
@@ -36,6 +36,10 @@
 	span {
 		color: var(--btn-yellow);
 	}
+
+	&:hover {
+		background: rgba(255, 213, 79, 0.2);
+	}
 }
 
 .show {
@@ -48,11 +52,19 @@
 		vertical-align: middle;
 		margin-left: 16px;
 	}
+
+	&:hover {
+		background: #5c35f9;
+	}
 }
 
 .beige {
-	background: #f8f8f8;
+	background: var(--dark-grey);
 	color: var(--title);
+
+	&:hover {
+		background: #f1f1f1;
+	}
 }
 
 .yellowGradient {
@@ -138,7 +150,7 @@
 }
 
 .fav {
-	padding: 10px;
+	padding: 9px 15px;
 	border-radius: 50%;
 	background: rgba(235, 87, 87, 0.1);
 

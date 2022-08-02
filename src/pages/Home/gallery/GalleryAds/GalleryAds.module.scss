@@ -103,8 +103,8 @@
 	transition: all 0.3s ease-in-out;
 
 	&:hover {
-		background: #6c55ff;
+    background: #612BFB;
 		transform: scale3d(1.1, 1.1, 1.1);
-		color: #ffffff;
+		color: var(--white);
 	}
 }

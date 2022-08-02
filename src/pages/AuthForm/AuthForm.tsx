@@ -1,21 +1,22 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
 import { Button } from '../../components/Button/Button'
 import { InputGroup } from '../../components/InputGroup/InputGroup'
+import { FormValues } from '../../type'
 
 import styles from './AuthForm.module.scss'
 
-export const AuthForm = () => {
+export const AuthForm: React.FC = (): JSX.Element => {
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: 'onChange' })
+	} = useForm<FormValues>({ mode: 'onChange' })
 
-	const onSubmit = (data) => {
+	const onSubmit: SubmitHandler<FormValues> = (data) => {
 		console.log(data)
 		reset()
 	}
@@ -27,7 +28,6 @@ export const AuthForm = () => {
 				<p>Авторизируйтесь, чтобы начать публиковать свои объявления</p>
 				<form onSubmit={handleSubmit(onSubmit)} className={styles.authForm}>
 					<InputGroup
-						errors={errors}
 						icon='user'
 						errorIcon={errors?.login}
 						register={register}
@@ -36,7 +36,6 @@ export const AuthForm = () => {
 					/>
 
 					<InputGroup
-						errors={errors}
 						icon='castle'
 						errorIcon={errors?.password}
 						register={register}

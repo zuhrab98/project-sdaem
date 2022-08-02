@@ -9,23 +9,29 @@ import {
 	setFiltered,
 	setSort,
 } from '../../redux/slices/filterSlice'
+import { FilterSelectProps } from './interface'
+import { FilterPropertyType } from '../../type'
 
-export const FilterSelect = ({
+type M = MouseEvent & {
+	path: Node[]
+}
+
+export const FilterSelect: React.FC<FilterSelectProps> = ({
 	title,
 	list,
 	ClassName = '',
 	children,
 	name,
-}) => {
+}): JSX.Element => {
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [filterName, setFilterName] = React.useState(name)
-	const btnRef = React.useRef()
+	const btnRef = React.useRef<HTMLDivElement>(null)
 	// useSelector по сути слушатеь на изминения store.filter, далее компонент перерисовывается
 	const { filtered } = useSelector(selectFilter)
 
 	const dispatch = useDispatch()
 
-	const onClickListItem = (obj) => {
+	const onClickListItem = (obj: FilterPropertyType) => {
 		// Обновляем имя
 		setFilterName(obj.name)
 		dispatch(setFiltered(obj))
@@ -45,9 +51,8 @@ export const FilterSelect = ({
 
 	React.useEffect(() => {
 		// если клик произошел в не области выподающего списка
-		const closePopup = (e) => {
-			// console.log(btnRef.current);
-			if (e.path[0] !== btnRef.current) {
+		const closePopup = (e: M) => {
+			if (e.path[0] !== btnRef?.current) {
 				setVisiblePopup(false)
 			}
 		}
@@ -81,7 +86,7 @@ export const FilterSelect = ({
 			{visiblePopup && (
 				<div className={styles.dropdown}>
 					<ul className={styles.list}>
-						{list?.map((obj) => (
+						{list?.map((obj: FilterPropertyType) => (
 							<li
 								key={obj?.name}
 								onClick={() => onClickListItem(obj)}

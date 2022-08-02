@@ -12,20 +12,20 @@ import { RegistrationForm } from './pages/RegistrationForm/RegistrationForm'
 import { Layout } from './Layout/Layout'
 import { Favorites } from './pages/Favorites/Favorites'
 
-const App = () => {
+const App: React.FC = (): JSX.Element => {
 	return (
 		<Routes>
 			<Route path='/' element={<Layout />}>
-				<Route path='/' index element={<Home />} />
+				<Route path='/' element={<Home />} />
 				<Route path='/apartmentCatalog' element={<ApartamentCatalog />} />
-				<Route path='/news' exact element={<News />} />
-				<Route path='/news/:id' exact element={<NewsDetail />} />
-				<Route path='/contacts' exact element={<Сontacts />} />
-				<Route path='/favorites' exact element={<Favorites />} />
+				<Route path='/news' element={<News />} />
+				<Route path='/news/:id' element={<NewsDetail />} />
+				<Route path='/contacts' element={<Сontacts />} />
+				<Route path='/favorites' element={<Favorites />} />
 				<Route path='*' element={<NotFound />} />
 			</Route>
-			<Route path='/registr' exact element={<RegistrationForm />} />
-			<Route path='/authForm' exact element={<AuthForm />} />
+			<Route path='/registr' element={<RegistrationForm />} />
+			<Route path='/authForm' element={<AuthForm />} />
 		</Routes>
 	)
 }

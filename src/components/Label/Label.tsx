@@ -1,8 +1,9 @@
 import React from 'react'
 import cn from 'classnames'
 import styles from './Label.module.scss'
+import { LabelProps } from './interface'
 
-export const Label = ({ tag, type, children, onClick }) => {
+export const Label:React.FC<LabelProps> = ({ tag, type, children, onClick }): JSX.Element => {
 	const Tag = tag
 
 	return (

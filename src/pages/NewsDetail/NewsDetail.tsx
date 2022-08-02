@@ -2,15 +2,16 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 
+import { RootState, useAppDispatch } from '../../redux/store'
 import { Icons } from '../../components/Icons/Icons'
 import { Label } from '../../components/Label/Label'
 import { NewsCards } from '../../components/newsCards/NewsCards'
 import styles from './NewsDetail.module.scss'
 import data from './data.json'
-import { selectFilter, setBreadcrums } from '../../redux/slices/filterSlice'
 import { fetchnewsDetail } from '../../redux/slices/NewsDetaitSlice'
-import { Skeleton } from '@mui/material'
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
+import { skeleton } from '../../utils/skeleton'
+import { NewsCardsDetail } from '../../type'
 
 const breadcrumsb = [
 	{ page: 'Home', path: '/' },
@@ -20,13 +21,16 @@ const breadcrumsb = [
 export const NewsDetail = () => {
 	const { id } = useParams()
 	const navigate = useNavigate()
-	const dispatch = useDispatch()
-	const { newsCardsDetail, status } = useSelector((state) => state.newsDetail)
+	const dispatch = useAppDispatch()
+	const { newsCardsDetail, status } = useSelector(
+		(state: RootState) => state.newsDetail
+	)
 
 	const [socialIcons, setSocialIcons] = React.useState([])
 	const [cardsList, setCardsList] = React.useState([])
-	const [newsCardsDetaill, setNewsCardsDetail] = React.useState([])
-
+	const [newsCardsDetaill, setNewsCardsDetail] =
+		React.useState<NewsCardsDetail>()
+    
 	React.useEffect(() => {
 		dispatch(fetchnewsDetail(id))
 	}, [id, dispatch])
@@ -54,12 +58,10 @@ export const NewsDetail = () => {
 						breadcrumsb={breadcrumsb}
 						pagaName={newsCardsDetaill?.title}
 					/>
-					<h1 className={styles.title1}>
-						{newsCardsDetaill && newsCardsDetaill?.title}
-					</h1>
+					<h1 className={styles.title1}>{newsCardsDetaill?.title}</h1>
 					<div className={styles.headerWrapper}>
 						<Label tag='div' type='primary'>
-							{newsCardsDetaill && newsCardsDetaill?.date}
+							{newsCardsDetaill?.date}
 						</Label>
 						<div className={styles.toShare}>
 							<span className={styles.text}>Поделиться</span>
@@ -76,7 +78,7 @@ export const NewsDetail = () => {
 											<Icons
 												id={`${item.social}`}
 												fill='#664EF9'
-												size={{ w: '17', h: '17' }}
+												size={{ w: 17, h: 17 }}
 											/>
 										</div>
 									</a>
@@ -89,7 +91,7 @@ export const NewsDetail = () => {
 				<div className={styles.wrapper}>
 					<div className={styles.imgBlock}>
 						<img
-							src={newsCardsDetaill.img}
+							src={newsCardsDetaill?.img}
 							width={844}
 							height={563}
 							alt='mainImg'
@@ -105,7 +107,7 @@ export const NewsDetail = () => {
 						<div className={styles.cardsRow}>
 							{status === 'loading'
 								? // при загрузке рендерим скелетон
-								  [...new Array(3)].map((_, index) => <Skeleton key={index} />)
+								  skeleton(3)
 								: cardsList.map((cardNews) => (
 										<NewsCards key={cardNews.id} data={cardNews} />
 								  ))}
