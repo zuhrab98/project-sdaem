@@ -4,8 +4,9 @@ import styles from './Search.module.scss'
 import { Icons } from '../Icons/Icons'
 import { useDispatch } from 'react-redux'
 import { setSearch } from '../../redux/slices/NewsSlice'
+import { SearchProps } from './interface'
 
-export const Search = ({ onClickSearch, search }) => {
+export const Search: React.FC<SearchProps> = ({ onClickSearch, search }): JSX.Element => {
 	const dispatch = useDispatch()
 
 	return (

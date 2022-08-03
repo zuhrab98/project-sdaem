@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styles from './NewsCards.module.scss'
 import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'

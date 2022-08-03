@@ -47,18 +47,22 @@ export const News = () => {
 		}
 		fetchNewsCardsFunc()
 		window.scroll(0, 0)
-	}, [dispatch])
+	}, [dispatch, navigate])
 
 	// По нажатию на кнопку поиска делаем фильтрацию новостных карточек
 	const onClickSearch = async (e) => {
+		e.preventDefault()
 		dispatch(setLoadings(true))
 		const searchValue = search ? `search=${search}` : ''
-		e.preventDefault()
-		const cartResponse = await axios.get(
-			`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?${searchValue}`
-		)
-		dispatch(setLoadings(false))
-		setitems(cartResponse.data)
+    try {
+      const cartResponse = await axios.get(
+        `https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?${searchValue}`
+      )
+      dispatch(setLoadings(false))
+      setitems(cartResponse.data)
+    } catch (error) {
+      alert('По вашему запросу нет новостей')
+    }
 	}
 
 	const paginate = (pageNumber) => {

@@ -12,10 +12,11 @@ import { LocationCard } from '../LocationCard/LocationCard'
 import Skeleton from '../LocationCard/Skeleton'
 import { useSelector } from 'react-redux'
 import { selectHome } from '../../redux/slices/homeSlice'
+import { CardsType } from '../../type'
+import { SliderProps } from './interface'
 
-export const Slider = ({ cards }) => {
+export const Slider: React.FC<SliderProps> = ({ cards }): JSX.Element => {
 	const { status } = useSelector(selectHome)
-
 	return (
 		<>
 			<Swiper
@@ -30,7 +31,7 @@ export const Slider = ({ cards }) => {
 								<Skeleton />
 							</SwiperSlide>
 					  ))
-					: cards.map((obj) => (
+					: cards.map((obj: CardsType) => (
 							<SwiperSlide key={obj.id}>
 								<LocationCard data={obj} />
 							</SwiperSlide>

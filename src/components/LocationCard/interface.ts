@@ -2,6 +2,6 @@ import { CardsType } from '../../type'
 
 export interface LocationCardProps {
 	data: CardsType
-	cardList: boolean
-	catalogCards: boolean
+	cardList?: boolean
+	catalogCards?: boolean
 }

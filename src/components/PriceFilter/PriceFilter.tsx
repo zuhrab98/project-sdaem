@@ -1,14 +1,18 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectFilter, setFiltered } from '../../redux/slices/filterSlice'
+import { PriceFilterProps } from './interface'
 import cn from 'classnames'
 import styles from './PriceFilter.module.scss'
+import { FilterPropertyType } from '../../type'
 
-export const PriceFilter = ({ ClassName }) => {
+export const PriceFilter: React.FC<PriceFilterProps> = ({
+	ClassName,
+}): JSX.Element => {
 	const dispatch = useDispatch()
 	const { filtered } = useSelector(selectFilter)
 
-	const onChangeInput = (obj) => {
+	const onChangeInput = (obj: FilterPropertyType) => {
 		dispatch(setFiltered(obj))
 	}
 

@@ -2,8 +2,12 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './OptionsFilter.module.scss'
 import { Icons } from '../../../Icons/Icons'
+import { OptionsFilterProps } from './interface'
 
-export const OptionsFilter = ({ onclick, visibleOptions }) => {
+export const OptionsFilter: React.FC<OptionsFilterProps> = ({
+	onclick,
+	visibleOptions,
+}): JSX.Element => {
 	return (
 		<div className={styles.optionsFilter}>
 			<button

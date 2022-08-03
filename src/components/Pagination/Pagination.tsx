@@ -2,11 +2,13 @@ import React from 'react'
 
 import styles from './Pagination.module.scss'
 import cn from 'classnames'
+import { PaginationProps } from './interface'
 
-export const Pagination = ({ paginate, pageNumbers }) => {
+
+export const Pagination:React.FC<PaginationProps> = ({ paginate, pageNumbers }):JSX.Element => {
 	const [state, setState] = React.useState(1)
 
-	const onClickPage = (e, pageNumber) => {
+	const onClickPage = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>, pageNumber: number) => {
 		e.preventDefault()
 		setState(pageNumber)
 		paginate(pageNumber)

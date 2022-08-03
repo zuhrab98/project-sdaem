@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import cn from 'classnames'
 
-import data from '../../../api/data'
+import data from '../../../api/data.json'
 import { PriceFilter } from '../../PriceFilter/PriceFilter'
 import { OptionsFilter } from './OptionsFilter/OptionsFilter'
 import { Button } from '../../Button/Button'
@@ -14,9 +14,10 @@ import { MoreOptions } from '../../../pages/ApartamentCatalog/MoreOptions/MoreOp
 import styles from './TabFilter.module.scss'
 import { selectFilter } from '../../../redux/slices/filterSlice'
 
-export const TabFilter = () => {
+export const TabFilter = (): JSX.Element => {
 	const { filtered } = useSelector(selectFilter)
 	const [visibleOptions, setvisibleOptions] = React.useState(false)
+  
 	return (
 		<div className={styles.tabsFilter}>
 			<div className={styles.filteres}>
@@ -33,7 +34,7 @@ export const TabFilter = () => {
 				<PriceFilter />
 				<OptionsFilter onclick={() => setvisibleOptions((prev) => !prev)} />
 				<div className={styles.buttons}>
-					<Button to='/' tag='a' name='openMap'>
+					<Button tag='a' path='/openMap' name='openMap'>
 						<Icons id='location' fill='#FEC81B' />
 						<span>На карте</span>
 					</Button>
