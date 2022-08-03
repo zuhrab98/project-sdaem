@@ -1,9 +1,9 @@
 import React from 'react'
-import cn from 'classnames'
 import styles from './OwnerPopup.module.scss'
 import { Icons } from '../Icons/Icons'
+import { OwnerPopupProps } from './interface'
 
-export const OwnerPopup = ({ owner }) => {
+export const OwnerPopup: React.FC<OwnerPopupProps> = ({ owner }): JSX.Element => {
 	return (
 		<div className={styles.phonePopUp}>
 			<div className={styles.userImg}>

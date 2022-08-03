@@ -4,8 +4,10 @@ import { CardsType, Status } from '../../type'
 
 // все его ключи строчки и все его значения тоже строчки <string, string>
 // Первое передаем возврощаемый тип вторым аргументы => createAsyncThunk <CardsType[], Record<string, string>
-export const fetchCatalogCards = createAsyncThunk<CardsType[], Record<string, string> >('catalog/fetchCatalogCardsStatus', 
-  async ({ param, order }) => {
+export const fetchCatalogCards = createAsyncThunk<
+	CardsType[],
+	Record<string, string>
+>('catalog/fetchCatalogCardsStatus', async ({ param, order }) => {
 	// get <CardsType[]> => скащали, что вернет массив cards
 	const { data } = await axios.get<CardsType[]>(
 		`https://62b821b603c36cb9b7c248ae.mockapi.io/${param}?sortBy=price&order=${order}`
@@ -18,7 +20,7 @@ interface CatalogSliceState {
 	currentPage: number
 	itemsCard: CardsType[]
 	favorites: number[]
-	status: 'loading' | 'success' | 'error'
+	status: Status
 }
 
 const initialState: CatalogSliceState = {
@@ -49,10 +51,13 @@ export const catalogSlice = createSlice({
 			state.status = Status.LOADING
 			state.itemsCard = []
 		})
-		builder.addCase(fetchCatalogCards.fulfilled, (state, action: PayloadAction<CardsType[]>) => {
-			state.status = Status.SUCCESS
-			state.itemsCard = action.payload
-		})
+		builder.addCase(
+			fetchCatalogCards.fulfilled,
+			(state, action: PayloadAction<CardsType[]>) => {
+				state.status = Status.SUCCESS
+				state.itemsCard = action.payload
+			}
+		)
 		builder.addCase(fetchCatalogCards.rejected, (state) => {
 			state.status = Status.ERROR
 			state.itemsCard = []

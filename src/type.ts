@@ -18,7 +18,7 @@ export interface OwnerType {
 	email: string
 	img: string
 	name: string
-	socials: [{ social: string; href: string }]
+	socials: { social: string; href: string }[]
 	tel: string
 	title: string
 }

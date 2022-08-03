@@ -6,14 +6,15 @@ import { LabelProps } from './interface'
 export const Label:React.FC<LabelProps> = ({ tag, type, children, onClick }): JSX.Element => {
 	const Tag = tag
 
-	return (
+  return (
 		<Tag
 			onClick={onClick}
 			className={cn(styles.label, {
-				[styles.labelGold]: type === 'gold',
+				[styles.location]: type === 'location',
+				// [styles.labelGold]: type === 'gold',
 				[styles.labelPrimary]: type === 'primary',
 				[styles.primaryPointer]: type === 'primaryPointer',
-				[styles.labelYellow]: type === 'yellow',
+				// [styles.labelYellow]: type === 'yellow',
 				[styles.lightGrey]: type === 'lightGrey',
 			})}
 		>

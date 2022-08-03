@@ -16,15 +16,20 @@ import 'swiper/css/navigation'
 import './swiperCards.scss'
 import { useDispatch } from 'react-redux'
 import { setFav } from '../../redux/slices/catalogSlice'
+import { LocationCardProps } from './interface'
 
-export const LocationCard = ({ cardList, data, catalogCards }) => {
+export const LocationCard: React.FC<LocationCardProps> = ({
+	cardList,
+	data,
+	catalogCards,
+}): JSX.Element => {
 	const dispatch = useDispatch()
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [activeFav, setActiveFav] = React.useState(false)
 
-	const hendlerClick = () => {
+	const hendlerClick = (id: number) => {
 		setActiveFav((prev) => !prev)
-		dispatch(setFav(Number(data.id)))
+		dispatch(setFav(id))
 	}
 	return (
 		<div
@@ -33,8 +38,12 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 				[styles.catalogCard]: cardList,
 			})}
 		>
-			<div className={cn(styles.headerCard, 'headerCard', {[styles.imgList]: cardList})}>
-        <span className={styles.label}>Gold</span>
+			<div
+				className={cn(styles.headerCard, 'headerCard', {
+					[styles.imgList]: cardList,
+				})}
+			>
+				<span className={styles.label}>Gold</span>
 				{data.img.length > 1 ? (
 					<Swiper
 						slidesPerView={1}
@@ -64,14 +73,14 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 							<p className={styles.priceText}>{data.priceTime}</p>
 						</div>
 						<div className={styles.labelRow}>
-							<Label tag={'span'} type='small'>
-								<Icons id={'user'} />
+							<Label tag='span'>
+								<Icons id='user' />
 								<span>{data.numberPeopleRoom}</span>
 							</Label>
-							<Label tag={'span'} type='small'>
+							<Label tag='span'>
 								<span>{data.rooms} комн.</span>
 							</Label>
-							<Label tag={'span'} type='small'>
+							<Label tag='span'>
 								<span>{data.quadrature}</span>
 							</Label>
 						</div>
@@ -95,7 +104,7 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 					<p className={styles.desc}>{data.description}</p>
 					<div className={styles.footer}>
 						{catalogCards && (
-							<Button name='fav' onClick={() => hendlerClick(data)}>
+							<Button name='fav' onClick={() => hendlerClick(data.id)}>
 								{activeFav ? (
 									<Icons id='fav' />
 								) : (
@@ -138,18 +147,18 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 						</div>
 					</div>
 					<div className={styles.labelRow}>
-						<Label tag={'span'} type='small'>
-							<Icons id={'user'} size={{ w: '20', h: '20' }} />
+						<Label tag='span'>
+							<Icons id={'user'} size={{ w: 20, h: 20 }} />
 							<p>{data.numberPeopleRoom}</p>
 						</Label>
-						<Label tag={'span'} type='small'>
+						<Label tag='span'>
 							<p>{data.rooms} комн.</p>
 						</Label>
-						<Label tag={'span'} className={styles.location}>
+						<Label tag='span' type='location'>
 							<Icons id='metro' fill='#664EF9' />
 							<p className={styles.text}>{data.metro}</p>
 						</Label>
-						<Label tag={'span'} className={styles.location}>
+						<Label tag='span' type='location'>
 							<span className={styles.primaryText}>район:</span>
 							<p className={styles.text}>{data.region}</p>
 						</Label>
@@ -167,7 +176,7 @@ export const LocationCard = ({ cardList, data, catalogCards }) => {
 								<span>Контакты</span>
 								{visiblePopup && <OwnerPopup owner={data.owner} />}
 							</Label>
-							<Button name='fav' onClick={() => hendlerClick(data)}>
+							<Button name='fav' onClick={() => hendlerClick(data.id)}>
 								{cardList && 'В закладки'}
 								{activeFav ? (
 									<Icons id='fav' />

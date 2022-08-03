@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import styles from './NewsCards.module.scss'
 import { Button } from '../Button/Button'
 import { Label } from '../Label/Label'
+import { NewsCardsProps } from './interface'
 
-export const NewsCards = ({ data }) => {
+export const NewsCards: React.FC<NewsCardsProps> = ({ data }): JSX.Element => {
 	return (
 		<div className={styles.card}>
 			<div className={styles.headerCard}>
@@ -17,12 +18,7 @@ export const NewsCards = ({ data }) => {
 					<Label tag='div' type='lightGrey'>
 						<span>{data.date}</span>
 					</Label>
-					<Button
-						tag='a'
-						path={`/news/${data.id}`}
-						onClick={data}
-						name='lightPrimary'
-					>
+					<Button tag='a' path={`/news/${data.id}`} name='lightPrimary'>
 						<span>Читать</span>
 					</Button>
 				</div>
@@ -30,4 +26,3 @@ export const NewsCards = ({ data }) => {
 		</div>
 	)
 }
-// {`id:${data.id}`}

@@ -11,6 +11,7 @@ export const Button: React.FC<ButtonProps> = ({
 	path,
 	onClick,
 }): JSX.Element => {
+
 	return (
 		<>
 			{tag === 'a' ? (
@@ -48,17 +49,4 @@ export const Button: React.FC<ButtonProps> = ({
 			)}
 		</>
 	)
-
-	{
-		/* <Button icon={'home'} name={'return'}>
-				Вернуться на главную
-			</Button>
-			<Button icon={'location'} name={'openMap'}>
-				Открыть карту
-			</Button>
-			<Button name={'buttonDef'}>Войти</Button>
-			<Button name={'error'} icon='error'>
-				Ошибка ввода
-			</Button> */
-	}
 }

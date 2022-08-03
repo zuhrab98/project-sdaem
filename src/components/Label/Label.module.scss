@@ -67,3 +67,21 @@
 		color: var(--btn-yellow);
 	}
 }
+
+.location:first-child {
+	grid-column: 3 span;
+	margin-bottom: 11px;
+}
+
+.location {
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 19px;
+	color: var(--title);
+
+	& > * + * {
+		margin-left: 8px;
+	}
+}

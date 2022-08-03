@@ -3,12 +3,13 @@ import styles from './Lists.module.scss'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setFiltered } from '../../redux/slices/filterSlice'
+import { ListProps } from './interface'
 
-export const Lists = ({ lists, tag }) => {
+export const Lists: React.FC<ListProps> = ({ lists, tag }) => {
 	const Tag = tag
 	const dispatch = useDispatch()
 
-	const handlerClick = (citi) => {
+	const handlerClick = (citi: string) => {
 		citi && dispatch(setFiltered({ name: citi, filterProperty: 'citi' }))
 	}
 
