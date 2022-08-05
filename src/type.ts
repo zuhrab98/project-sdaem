@@ -40,13 +40,13 @@ export interface CardsType {
 	rooms: string
 }
 
-export interface NewsCards {
-	date: string
+export interface NewsCard {
+	id: string
+	title?: string
+	img: string
 	description: string
 	fullDescription: string
-	id: string
-	img: string
-	title: string
+	date: string
 }
 
 export interface NewsCardsDetail {

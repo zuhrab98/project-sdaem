@@ -1,0 +1,18 @@
+{
+	"FILTER_CITIES": {
+		"cities": [
+			{ "name": "Минск", "filterProperty": "citi" },
+			{ "name": "Екатеринбург", "filterProperty": "citi" },
+			{ "name": "Москва", "filterProperty": "citi" }
+		]
+	},
+
+	"FILTER_ROOMS": {
+		"rooms": [
+			{ "name": "1", "filterProperty": "room" },
+			{ "name": "2", "filterProperty": "room" },
+			{ "name": "3", "filterProperty": "room" },
+			{ "name": "4", "filterProperty": "room" }
+		]
+	}
+}

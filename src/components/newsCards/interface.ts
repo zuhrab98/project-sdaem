@@ -1,5 +1,5 @@
-import { NewsCards } from "../../type";
+import { NewsCard} from "../../type";
 
 export interface NewsCardsProps {
-  data: NewsCards
+  data: NewsCard
 }

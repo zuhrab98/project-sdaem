@@ -8,7 +8,7 @@ export const fetchCatalogCards = createAsyncThunk<
 	CardsType[],
 	Record<string, string>
 >('catalog/fetchCatalogCardsStatus', async ({ param, order }) => {
-	// get <CardsType[]> => скащали, что вернет массив cards
+	// get <CardsType[]> => сказали, что вернет массив cards
 	const { data } = await axios.get<CardsType[]>(
 		`https://62b821b603c36cb9b7c248ae.mockapi.io/${param}?sortBy=price&order=${order}`
 	)

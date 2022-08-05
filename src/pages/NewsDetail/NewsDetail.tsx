@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 
 import { RootState, useAppDispatch } from '../../redux/store'
@@ -22,6 +22,7 @@ export const NewsDetail = () => {
 	const { id } = useParams()
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
+
 	const { newsCardsDetail, status } = useSelector(
 		(state: RootState) => state.newsDetail
 	)
@@ -30,7 +31,7 @@ export const NewsDetail = () => {
 	const [cardsList, setCardsList] = React.useState([])
 	const [newsCardsDetaill, setNewsCardsDetail] =
 		React.useState<NewsCardsDetail>()
-    
+
 	React.useEffect(() => {
 		dispatch(fetchnewsDetail(id))
 	}, [id, dispatch])

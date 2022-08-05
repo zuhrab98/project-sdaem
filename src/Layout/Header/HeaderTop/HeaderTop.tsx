@@ -5,10 +5,10 @@ import { Icons } from '../../../components/Icons/Icons'
 import data from '../../../api/data.json'
 import { Link } from 'react-router-dom'
 
-export const HeaderTop = () => {
+export const HeaderTop: React.FC = (): JSX.Element => {
 	return (
 		<div className={styles.top}>
-			<div className={`container`}>
+			<div className='container'>
 				<div className={styles.wrapper}>
 					<NavLinks navs={data.NAVS} appearance='grey' />
 					<div className={styles.headerRight}>

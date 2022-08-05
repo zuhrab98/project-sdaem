@@ -5,8 +5,7 @@ import { Lists } from '../../components/Lists/Lists'
 import data from '../../api/data.json'
 import { Link } from 'react-router-dom'
 
-export const Footer = () => {
-
+export const Footer: React.FC = (): JSX.Element => {
 	return (
 		<footer>
 			<div className={`container ${styles.footerContainer}`}>
@@ -80,12 +79,11 @@ export const Footer = () => {
 						</ul>
 					</div>
 					<div className={styles.payment}>
-						{data.PAYMENT &&
-							data.PAYMENT.map((item, i) => (
-								<div key={i} className={styles.paymentItem}>
-									<img src={item.src} alt={item.alt} />
-								</div>
-							))}
+						{data?.PAYMENT.map((item, i) => (
+							<div key={i} className={styles.paymentItem}>
+								<img src={item.src} alt={item.alt} />
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

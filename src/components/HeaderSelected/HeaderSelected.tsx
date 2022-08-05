@@ -3,7 +3,7 @@ import styles from './HeaderSelected.module.scss'
 import { Link } from 'react-router-dom'
 import { setFiltered } from '../../redux/slices/filterSlice'
 import { useDispatch } from 'react-redux'
-import { HeaderSelectedProps, Selecteds } from './interface'
+import { HeaderSelectedProps, SelectedsObj } from './interface'
 
 export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 	paramName,
@@ -11,13 +11,13 @@ export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 }) => {
 	const dispatch = useDispatch()
 
-	const handlerClick = (item: Selecteds): void => {
+	const handlerClick = (item: SelectedsObj): void => {
 		dispatch(setFiltered({ name: item.citi, filterProperty: 'citi' }))
 	}
 
 	return (
 		<div className={styles.selected}>
-			{selecteds[paramName].map((item: Selecteds, i: number) => (
+			{selecteds[paramName].map((item: SelectedsObj, i: number) => (
 				<Link
 					key={item.name}
 					to={`/apartmentCatalog`}

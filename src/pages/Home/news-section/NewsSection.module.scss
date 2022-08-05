@@ -12,6 +12,21 @@
 	grid-template-columns: 1fr 1fr;
 	gap: 30px;
 	margin-bottom: 30px;
+
+	.img {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			content: '';
+			bottom: -3px;
+			right: -13px;
+			width: 67px;
+			height: 62px;
+			background-image: url('../../../assets/circlesYellow.svg');
+			background-repeat: no-repeat;
+		}
+	}
 }
 
 .apartmentForDay {

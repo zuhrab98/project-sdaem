@@ -1,16 +1,17 @@
 export interface HeaderSelectedProps {
 	paramName: string
-	selecteds: {
-		rooms: Selecteds[]
-		cottages: Selecteds[]
-		cars: Selecteds[]
-		baths: Selecteds[]
-	}
+	selecteds: Selecteds
 }
 
 export interface Selecteds {
+	rooms: SelectedsObj[]
+	cottages: SelectedsObj[]
+	cars: SelectedsObj[]
+	baths: SelectedsObj[]
+}
+
+export interface SelectedsObj {
 	name: string
 	citi: string
 	path?: string
 }
- 

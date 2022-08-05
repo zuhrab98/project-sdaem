@@ -16,7 +16,9 @@ import { CardsType } from '../../type'
 import { SliderProps } from './interface'
 
 export const Slider: React.FC<SliderProps> = ({ cards }): JSX.Element => {
+  
 	const { status } = useSelector(selectHome)
+
 	return (
 		<>
 			<Swiper

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Button } from '../../components/Button/Button'
 import { Icons } from '../../components/Icons/Icons'
+
 import styles from './NotFound.module.scss'
 
-export const NotFound = () => {
+export const NotFound: React.FC = (): JSX.Element => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.root}>
@@ -19,7 +20,8 @@ export const NotFound = () => {
 					</Button>
 				</div>
 				<div className={styles.right}>
-					<img src='/404.png' alt='404' />
+					<img src='/404.png'  alt='404' />
+        {/* <h2 className={styles.title404}>404</h2> */}
 				</div>
 			</div>
 		</div>

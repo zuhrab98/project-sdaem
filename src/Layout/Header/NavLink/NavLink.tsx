@@ -3,16 +3,20 @@ import cn from 'classnames'
 import styles from './NavLink.module.scss'
 import { NavLink } from 'react-router-dom'
 import { HeaderSelected } from '../../../components/HeaderSelected/HeaderSelected'
+import { NavLinkProps } from './interface'
 
-export const NavLinks = ({ navs, appearance, selecteds }) => {
+export const NavLinks: React.FC<NavLinkProps> = ({
+	navs,
+	appearance,
+	selecteds,
+}): JSX.Element => {
 	const [isModalOpen, setModalOpen] = React.useState(false)
-	const [isActive, setActive] = React.useState()
+	const [isActive, setActive] = React.useState<number>()
 
-  const onClickNavItem = (i) => {
+	const onClickNavItem = (i: number) => {
 		setActive(i)
 		setModalOpen((prev) => !prev)
 	}
-
 
 	return (
 		<div className={styles.nav}>

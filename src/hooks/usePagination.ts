@@ -1,10 +1,10 @@
-import { CardsType } from '../type'
+import { CardsType, NewsCard } from '../type'
 
 export const usePagination = (
 	currentPage: number,
 	filterCards: CardsType[],
 	itemsPerPage: number
-): { currentItem: CardsType[]; pageNumbers: number[] } => {
+): { currentItem: CardsType[] | NewsCard[]; pageNumbers: number[] } => {
 	// получаем индекс первой страницы, последней
 	const lastItemIndex = currentPage * itemsPerPage
 	const firstItemIndex = lastItemIndex - itemsPerPage

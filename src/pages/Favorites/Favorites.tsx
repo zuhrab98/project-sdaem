@@ -8,7 +8,7 @@ import { LocationCard } from '../../components/LocationCard/LocationCard'
 import axios from 'axios'
 import { useState } from 'react'
 
-export const Favorites = () => {
+export const Favorites: React.FC = (): JSX.Element => {
 	return (
 		<div className={styles.wrapper}>
 			<div className='container'>

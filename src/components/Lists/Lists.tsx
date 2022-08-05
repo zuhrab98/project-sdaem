@@ -10,7 +10,7 @@ export const Lists: React.FC<ListProps> = ({ lists, tag }) => {
 	const dispatch = useDispatch()
 
 	const handlerClick = (citi: string) => {
-		citi && dispatch(setFiltered({ name: citi, filterProperty: 'citi' }))
+		dispatch(setFiltered({ name: citi, filterProperty: 'citi' }))
 	}
 
 	return (

@@ -1,31 +1,32 @@
 import axios from 'axios'
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import cn from 'classnames'
+import { useNavigate } from 'react-router'
+
 import {
 	setCurrentPage,
 	setLoadings,
 	fetchNewsCards,
 } from '../../redux/slices/NewsSlice'
-
+import { usePagination } from '../../hooks/usePagination'
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import { NewsCards } from '../../components/newsCards/NewsCards'
 import { Pagination } from '../../components/Pagination/Pagination'
 import { Search } from '../../components/Search/Search'
 
 import styles from './News.module.scss'
-import cn from 'classnames'
-import { usePagination } from '../../hooks/usePagination'
-import { useNavigate } from 'react-router'
 import { skeleton } from '../../utils/skeleton'
+import { RootState, useAppDispatch } from '../../redux/store'
 
 const breadcrumsb = [{ page: 'Home', path: '/' }]
 
-export const News = () => {
-	const dispatch = useDispatch()
+export const News: React.FC = (): JSX.Element => {
+	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
-	const { loading, currentPage, search, news } = useSelector(
-		(store) => store.news
+	const { loading, currentPage, search } = useSelector(
+		(store: RootState) => store.news
 	)
 	const [items, setitems] = React.useState([])
 	const [itemsPerPage] = React.useState(8)
@@ -50,22 +51,22 @@ export const News = () => {
 	}, [dispatch, navigate])
 
 	// По нажатию на кнопку поиска делаем фильтрацию новостных карточек
-	const onClickSearch = async (e) => {
+	const onClickSearch = async (e: React.MouseEvent) => {
 		e.preventDefault()
 		dispatch(setLoadings(true))
 		const searchValue = search ? `search=${search}` : ''
-    try {
-      const cartResponse = await axios.get(
-        `https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?${searchValue}`
-      )
-      dispatch(setLoadings(false))
-      setitems(cartResponse.data)
-    } catch (error) {
-      alert('По вашему запросу нет новостей')
-    }
+		try {
+			const cartResponse = await axios.get(
+				`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards?${searchValue}`
+			)
+			dispatch(setLoadings(false))
+			setitems(cartResponse.data)
+		} catch (error) {
+			alert('По вашему запросу нет новостей')
+		}
 	}
 
-	const paginate = (pageNumber) => {
+	const paginate = (pageNumber: number) => {
 		dispatch(setCurrentPage(pageNumber))
 	}
 

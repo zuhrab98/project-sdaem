@@ -5,7 +5,7 @@ export interface ListProps {
 
 export interface ParamLists {
 	name: string
-	paramName: string
+	paramName?: string
 	path?: string
 	citi?: string
 }

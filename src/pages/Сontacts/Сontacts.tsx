@@ -1,10 +1,11 @@
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 import styles from './Сontacts.module.scss'
 import { Icons } from '../../components/Icons/Icons'
 import { InputGroup } from '../../components/InputGroup/InputGroup'
 import { Button } from '../../components/Button/Button'
+import { FormValues } from '../../type'
 
 const contacts = {
 	INFO: [
@@ -19,7 +20,7 @@ const contacts = {
 	],
 }
 
-export const Сontacts = () => {
+export const Сontacts: React.FC = (): JSX.Element => {
 	const {
 		register,
 		handleSubmit,
@@ -27,7 +28,7 @@ export const Сontacts = () => {
 		formState: { errors },
 	} = useForm({ mode: 'onChange' })
 
-	const onSubmit = (data) => {
+	const onSubmit: SubmitHandler<FormValues> = (data) => {
 		console.log(data)
 		reset()
 	}
@@ -70,7 +71,6 @@ export const Сontacts = () => {
 								<div className={styles.inputGroup}>
 									<label htmlFor='name'>Ваше имя</label>
 									<InputGroup
-										errors={errors}
 										icon='user'
 										errorIcon={errors?.name}
 										register={register}
@@ -82,7 +82,6 @@ export const Сontacts = () => {
 								<div className={styles.inputGroup}>
 									<label htmlFor='email'>Ваша электронная почта</label>
 									<InputGroup
-										errors={errors}
 										icon='mail'
 										errorIcon={errors?.email}
 										register={register}
@@ -100,7 +99,6 @@ export const Сontacts = () => {
 										minLength: 5,
 										maxLength: 100,
 									})}
-									type='message'
 									id='message'
 									placeholder='Сообщение'
 								></textarea>

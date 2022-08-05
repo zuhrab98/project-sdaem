@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { CardsType, Status } from '../../type'
-import { filteredApartmentCatalog } from '../../utils/filteredCards'
 import { RootState } from '../store'
 
 export const fetchHomeCards = createAsyncThunk(

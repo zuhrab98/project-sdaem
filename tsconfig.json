@@ -19,6 +19,5 @@
 		"strictNullChecks": false
 	},
 	"include": ["src"],
-	// "exclude": ["node_modules", "build/**/*"],
 	"files": ["src/@types/index.d.ts"]
 }

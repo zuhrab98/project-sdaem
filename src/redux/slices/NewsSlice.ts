@@ -1,22 +1,22 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { NewsCards, Status } from '../../type'
+import { NewsCard, Status } from '../../type'
 
-export const fetchNewsCards = createAsyncThunk<
-	NewsCards[],
-	Record<string, string>
->('newsCard/fetchNewsCardsStatus', async () => {
-	const { data } = await axios.get<NewsCards[]>(
-		`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards`
-	)
-	return data
-})
+export const fetchNewsCards = createAsyncThunk<NewsCard[]>(
+	'newsCard/fetchNewsCardsStatus',
+	async () => {
+		const { data } = await axios.get<NewsCard[]>(
+			`https://62b821b603c36cb9b7c248ae.mockapi.io/newsCards`
+		)
+		return data
+	}
+)
 
 interface NewsSliceState {
 	loading: boolean
 	currentPage: number
 	search: string
-	news: NewsCards[]
+	news: NewsCard[]
 	status: Status
 }
 
@@ -49,7 +49,7 @@ export const NewsSlice = createSlice({
 		})
 		builder.addCase(
 			fetchNewsCards.fulfilled,
-			(state, action: PayloadAction<NewsCards[]>) => {
+			(state, action: PayloadAction<NewsCard[]>) => {
 				state.status = Status.SUCCESS
 				state.news = action.payload
 			}
