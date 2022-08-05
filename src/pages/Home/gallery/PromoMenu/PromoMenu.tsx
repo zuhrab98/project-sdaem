@@ -15,7 +15,7 @@ export const PromoMenu: React.FC<PromoMenuProps> = ({ data, showMore, title }): 
 		setvisibleLinksMore((prev) => !prev)
 	}
   
-	const handlerClick = (item: PromoMenuParams) => {
+	const handleOnClick = (item: PromoMenuParams) => {
 		dispatch(setFiltered({ name: item?.citi, filterProperty: 'citi' }))
 	}
 
@@ -31,7 +31,7 @@ export const PromoMenu: React.FC<PromoMenuProps> = ({ data, showMore, title }): 
 					data.map((item, index) => (
 						<Link
 							to='/apartmentCatalog'
-							onClick={() => handlerClick(item)}
+							onClick={() => handleOnClick(item)}
 							state={{ paramName: item.paramName }}
 							key={index}
 							className={styles.link}

@@ -14,7 +14,7 @@ export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 }) => {
 	const dispatch = useAppDispatch()
 
-	const handlerClick = (item: SelectedsObj, paramName: string): void => {
+	const handleOnClick = (item: SelectedsObj, paramName: string): void => {
 		dispatch(setFiltered({ name: item.citi, filterProperty: 'citi' }))
 		dispatch(setHeaderSelectName({name: item.name, paramName: paramName}))
 	}
@@ -26,7 +26,7 @@ export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 					key={item.name}
 					to={`/apartmentCatalog`}
 					state={{ paramName }}
-					onClick={() => handlerClick(item, paramName)}
+					onClick={() => handleOnClick(item, paramName)}
 				>
 					{item.name}
 				</Link>

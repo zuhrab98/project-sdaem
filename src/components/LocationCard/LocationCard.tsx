@@ -17,6 +17,7 @@ import './swiperCards.scss'
 import { useDispatch } from 'react-redux'
 import { setFav } from '../../redux/slices/catalogSlice'
 import { LocationCardProps } from './interface'
+import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
 export const LocationCard: React.FC<LocationCardProps> = ({
 	cardList,
@@ -26,11 +27,14 @@ export const LocationCard: React.FC<LocationCardProps> = ({
 	const dispatch = useDispatch()
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [activeFav, setActiveFav] = React.useState(false)
+	const [childRef, setChildRef] = React.useState<React.MutableRefObject<HTMLDivElement>>()
 
 	const hendlerClick = (id: number) => {
 		setActiveFav((prev) => !prev)
 		dispatch(setFav(id))
 	}
+	useOnClickOutside(childRef, setVisiblePopup)
+
 	return (
 		<div
 			className={cn(styles.card, {
@@ -73,14 +77,14 @@ export const LocationCard: React.FC<LocationCardProps> = ({
 							<p className={styles.priceText}>{data.priceTime}</p>
 						</div>
 						<div className={styles.labelRow}>
-							<Label tag='span'>
+							<Label>
 								<Icons id='user' />
 								<span>{data.numberPeopleRoom}</span>
 							</Label>
-							<Label tag='span'>
+							<Label>
 								<span>{data.rooms} комн.</span>
 							</Label>
-							<Label tag='span'>
+							<Label>
 								<span>{data.quadrature}</span>
 							</Label>
 						</div>
@@ -114,12 +118,12 @@ export const LocationCard: React.FC<LocationCardProps> = ({
 						)}
 
 						<Label
-							tag={'div'}
 							onClick={() => setVisiblePopup(!visiblePopup)}
 							type='primaryPointer'
+							setChildRef={setChildRef}
 						>
 							<Icons id='phone' />
-							<span>Контакты</span>
+							Контакты
 							{visiblePopup && <OwnerPopup owner={data.owner} />}
 						</Label>
 						<Button tag={'a'} path={'/apartmentCatalog'} name='yellow'>
@@ -147,18 +151,18 @@ export const LocationCard: React.FC<LocationCardProps> = ({
 						</div>
 					</div>
 					<div className={styles.labelRow}>
-						<Label tag='span'>
+						<Label>
 							<Icons id={'user'} size={{ w: 20, h: 20 }} />
 							<p>{data.numberPeopleRoom}</p>
 						</Label>
-						<Label tag='span'>
+						<Label>
 							<p>{data.rooms} комн.</p>
 						</Label>
-						<Label tag='span' type='location'>
+						<Label type='location'>
 							<Icons id='metro' fill='#664EF9' />
 							<p className={styles.text}>{data.metro}</p>
 						</Label>
-						<Label tag='span' type='location'>
+						<Label type='location'>
 							<span className={styles.primaryText}>район:</span>
 							<p className={styles.text}>{data.region}</p>
 						</Label>
@@ -168,20 +172,25 @@ export const LocationCard: React.FC<LocationCardProps> = ({
 					<div className={styles.footer}>
 						<div className={styles.left}>
 							<Label
-								tag={'div'}
 								onClick={() => setVisiblePopup(!visiblePopup)}
 								type='primaryPointer'
+								setChildRef={setChildRef}
 							>
 								<Icons id='phone' />
-								<span>Контакты</span>
+								Контакты
 								{visiblePopup && <OwnerPopup owner={data.owner} />}
 							</Label>
 							<Button name='fav' onClick={() => hendlerClick(data.id)}>
-								{cardList && 'В закладки'}
 								{activeFav ? (
-									<Icons id='fav' />
+									<>
+										<span>Добавлено</span>
+										<Icons id='fav' />
+									</>
 								) : (
-									<Icons id='heart' fill='#EB5757' />
+									<>
+										<span>В закладки</span>
+										<Icons id='heart' fill='#EB5757' />
+									</>
 								)}
 							</Button>
 						</div>

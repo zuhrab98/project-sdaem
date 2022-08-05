@@ -11,7 +11,7 @@ import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import { FilterSelect } from '../../components/FilterSelect/FilterSelect'
 import { filteredApartmentCatalog } from '../../utils/filteredCards'
 import { Button } from '../../components/Button/Button'
-import { selectFilter } from '../../redux/slices/filterSlice'
+import { selectFilter, setFiltered } from '../../redux/slices/filterSlice'
 import {
 	fetchCatalogCards,
 	setCurrentPage,
@@ -22,21 +22,26 @@ import { skeleton } from '../../utils/skeleton'
 import { Filteres } from './Filteres/Filteres'
 import { CardsType, FilterPropertyType } from '../../type'
 import { RootState, useAppDispatch } from '../../redux/store'
-
-const layoutGroup = [
-	{ value: 'list', name: 'Список' },
-	{ value: 'table', name: 'Плитка' },
-]
-
-const sort: FilterPropertyType[] = [
-	{ name: 'По возрастанию цены', filterProperty: 'asc' },
-	{ name: 'По убыванию цены', filterProperty: 'desc' },
-]
+import data from '../../api/data.json'
 
 interface useParamType {
 	paramName?: string | null
 	citi?: string
 }
+
+const labelsBtnRooms:FilterPropertyType[] = [
+	{ label: '1-комнатные', name: '1 ком.', filterProperty: 'room' },
+	{ label: '2-комнатные', name: '2 ком.', filterProperty: 'room' },
+	{ label: '3-комнатные', name: '3 ком.', filterProperty: 'room' },
+	{ label: '4-комнатные', name: '4 ком.', filterProperty: 'room' },
+]
+
+const labelsBtnCars: FilterPropertyType[] = [
+	{ label: '1-местный', name: '1', filterProperty: 'room' },
+	{ label: '2-местный', name: '2', filterProperty: 'room' },
+	{ label: '3-местный', name: '3', filterProperty: 'room' },
+	{ label: '4-местный', name: '4', filterProperty: 'room' },
+]
 
 const breadcrumsb = [{ page: 'Home', path: '/' }]
 
@@ -44,18 +49,29 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 	const dispatch = useAppDispatch()
 	const location = useLocation()
 	const useParam: useParamType = location.state
+
 	const { currentPage, status, itemsCard } = useSelector(
 		(store: RootState) => store.catalog
 	)
 	const { sortCards, filtered } = useSelector(selectFilter)
 
+	const [labelsBtn, setLabelsBtn] = React.useState(labelsBtnRooms)
 	const [titleCatalog, setTitleCatalog] = React.useState<string>()
 	const [filterCards, setFilterCards] = React.useState<CardsType[]>([])
 	const [layoutItem, setLayoutItem] = React.useState<string>('table')
 	const [itemsPerPage] = React.useState<number>(6)
 
 	React.useEffect(() => {
-		setTitleCatalog(useParam?.paramName || 'Квартиры')
+		setTitleCatalog(useParam?.paramName || 'Квартиры') 
+    console.log(useParam?.paramName ==='cars');
+    
+    switch (useParam?.paramName) {
+      case 'cars':
+        setLabelsBtn(labelsBtnCars)
+        break;
+      default:
+        break;
+    }
 		const filtersCard = filteredApartmentCatalog(
 			itemsCard,
 			filtered.room,
@@ -105,6 +121,12 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 			break
 	}
 
+	const handleClickByLabel = (item: FilterPropertyType) => {
+		dispatch(
+			setFiltered({ name: item.name, filterProperty: item.filterProperty })
+		)
+	}
+
 	return (
 		<div className={styles.apartmentCatalog}>
 			<div className={styles.header}>
@@ -114,17 +136,36 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 						Аренда {titleCatalog} на сутки
 						{filtered.citi ? ` в ${filtered.citi?.name}е` : ''}
 					</h1>
+
+					<div className={styles.recommendations}>
+						<p className={styles.text}>Рекомендуем посмотреть</p>
+						<div className={styles.additionalParameters}>
+							{labelsBtn.map((item) => (
+								<button
+									key={item.name}
+									className={styles.btn}
+									onClick={() => handleClickByLabel(item)}
+								>
+									{item.label}
+								</button>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 			<Filteres setFilterCards={setFilterCards} />
 			<div className={styles.sortWrapper}>
 				<div className='container'>
 					<div className={styles.row}>
-						<FilterSelect name='По умолчанию' ClassName='sortPrice' list={sort}>
+						<FilterSelect
+							name='По умолчанию'
+							ClassName='sortPrice'
+							list={data.SORT}
+						>
 							<Icons id='sortIcon' ClassName={styles.sortIcon} />
 						</FilterSelect>
 						<div className={styles.layoutGroupRoot}>
-							{layoutGroup.map((item, i) => (
+							{data.LAYOUT_GROUP.map((item, i) => (
 								<button
 									key={i}
 									onClick={() => setLayoutItem(item.value)}
@@ -160,7 +201,7 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 					>
 						{status === 'loading'
 							? skeleton(itemsPerPage)
-							: currentItem.map((card, i) => (
+							: currentItem.map((card , i:number) => (
 									<LocationCard
 										cardList={layoutItem === 'list'}
 										key={i}

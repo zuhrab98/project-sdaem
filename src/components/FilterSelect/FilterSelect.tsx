@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import cn from 'classnames'
 import styles from './FilterSelect.module.scss'
@@ -11,10 +11,8 @@ import {
 } from '../../redux/slices/filterSlice'
 import { FilterSelectProps } from './interface'
 import { FilterPropertyType } from '../../type'
-
-type M = MouseEvent & {
-	path: Node[]
-}
+import { useOnClickOutside } from '../../hooks/useOnClickOutside'
+import { useAppDispatch } from '../../redux/store'
 
 export const FilterSelect: React.FC<FilterSelectProps> = ({
 	title,
@@ -23,13 +21,14 @@ export const FilterSelect: React.FC<FilterSelectProps> = ({
 	children,
 	name,
 }): JSX.Element => {
+	const dispatch = useAppDispatch()
 	const [visiblePopup, setVisiblePopup] = React.useState(false)
 	const [filterName, setFilterName] = React.useState(name)
-	const btnRef = React.useRef<HTMLDivElement>(null)
+	const divRef = React.useRef<HTMLDivElement>(null)
 	// useSelector по сути слушатеь на изминения store.filter, далее компонент перерисовывается
 	const { filtered } = useSelector(selectFilter)
-
-	const dispatch = useDispatch()
+  
+	useOnClickOutside(divRef, setVisiblePopup)
 
 	const onClickListItem = (obj: FilterPropertyType) => {
 		// Обновляем имя
@@ -49,18 +48,6 @@ export const FilterSelect: React.FC<FilterSelectProps> = ({
 		setFilterName(name)
 	}, [name])
 
-	React.useEffect(() => {
-		// если клик произошел в не области выподающего списка
-		const closePopup = (e: M) => {
-			if (e.path[0] !== btnRef?.current) {
-				setVisiblePopup(false)
-			}
-		}
-		document.body.addEventListener('click', closePopup)
-
-		return () => document.body.removeEventListener('click', closePopup)
-	}, [])
-
 	return (
 		<div
 			className={cn(styles.filterOfferType, {
@@ -74,7 +61,7 @@ export const FilterSelect: React.FC<FilterSelectProps> = ({
 			{title && <span className={styles.title}>{title}</span>}
 
 			<div
-				ref={btnRef}
+				ref={divRef}
 				onClick={() => setVisiblePopup((prev) => !prev)}
 				className={cn(styles.button, { [styles.buttonActive]: visiblePopup })}
 			>

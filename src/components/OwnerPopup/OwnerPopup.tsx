@@ -3,9 +3,12 @@ import styles from './OwnerPopup.module.scss'
 import { Icons } from '../Icons/Icons'
 import { OwnerPopupProps } from './interface'
 
-export const OwnerPopup: React.FC<OwnerPopupProps> = ({ owner }): JSX.Element => {
+export const OwnerPopup: React.FC<OwnerPopupProps> = ({
+	owner,
+}): JSX.Element => {
+
 	return (
-		<div className={styles.phonePopUp}>
+		<div  className={styles.phonePopUp}>
 			<div className={styles.userImg}>
 				<img src={owner?.img} alt='user' />
 			</div>

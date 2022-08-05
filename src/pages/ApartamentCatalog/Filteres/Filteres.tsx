@@ -6,7 +6,7 @@ import styles from './Filteres.module.scss'
 import data from '../../../api/data.json'
 import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
 import { PriceFilter } from '../../../components/PriceFilter/PriceFilter'
-import { OptionsFilter } from '../../../components/Tabs/TabFilter/OptionsFilter/OptionsFilter'
+import { OptionsFilter } from '../../../components/OptionsFilter/OptionsFilter'
 import { Button } from '../../../components/Button/Button'
 import { Icons } from '../../../components/Icons/Icons'
 import {
@@ -61,7 +61,7 @@ export const Filteres: React.FC<FilteresProps> = ({ setFilterCards }) => {
 					<Button onClick={() => dispatch(setFiltersClear())} name='beige'>
 						<span>Очистить</span>
 					</Button>
-					<Button onClick={() => handleClickByShow()} name='show'>
+					<Button onClick={handleClickByShow} name='show'>
 						<span>Показать объекты</span>
 						<Icons id={'arrow'} size={{ w: 12, h: 7 }} fill={'#FFFFFF'} />
 					</Button>

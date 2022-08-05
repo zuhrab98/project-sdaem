@@ -1,20 +1,4 @@
-import { CardsType, FilterPropertyType, PriceType } from '../type'
-
-// export const filteredCardsSlider = (cards, filterByMetro, filterByRegions) => {
-// 	return cards
-// 		.filter((card) => {
-// 			if (filterByMetro) {
-// 				return card.metro === filterByMetro.name
-// 			}
-// 			return true
-// 		})
-// 		.filter((card) => {
-// 			if (filterByRegions) {
-// 				return card.region === filterByRegions.name
-// 			}
-// 			return true
-// 		})
-// }
+import { CardsType, FilterPropertyType } from '../type'
 
 export const filteredApartmentCatalog = (
 	cards: CardsType[],
@@ -47,7 +31,7 @@ export const filteredApartmentCatalog = (
 		})
 		.filter((card) => {
 			if (filterByRooms) {
-				return card.rooms === filterByRooms.name
+				return card.rooms === filterByRooms.name.split(' ')[0]
 			}
 			return true
 		})

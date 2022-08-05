@@ -14,7 +14,7 @@ export const NewsCards: React.FC<NewsCardsProps> = ({ data }): JSX.Element => {
 				<h3 className={styles.title}>{data.title}</h3>
 				<p className={styles.desc}>{data.description}</p>
 				<div className={styles.footer}>
-					<Label tag='div' type='lightGrey'>
+					<Label type='lightGrey'>
 						<span>{data.date}</span>
 					</Label>
 					<Button tag='a' path={`/news/${data.id}`} name='lightPrimary'>

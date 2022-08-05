@@ -34,6 +34,7 @@ export const NewsDetail = () => {
 
 	React.useEffect(() => {
 		dispatch(fetchnewsDetail(id))
+		window.scroll(0, 0)
 	}, [id, dispatch])
 
 	React.useEffect(() => {
@@ -61,9 +62,7 @@ export const NewsDetail = () => {
 					/>
 					<h1 className={styles.title1}>{newsCardsDetaill?.title}</h1>
 					<div className={styles.headerWrapper}>
-						<Label tag='div' type='primary'>
-							{newsCardsDetaill?.date}
-						</Label>
+						<Label type='primary'>{newsCardsDetaill?.date}</Label>
 						<div className={styles.toShare}>
 							<span className={styles.text}>Поделиться</span>
 							{socialIcons &&
@@ -108,7 +107,8 @@ export const NewsDetail = () => {
 						<div className={styles.cardsRow}>
 							{status === 'loading'
 								? // при загрузке рендерим скелетон
-								  skeleton(3)
+								  // skeleton(3) 
+                  'fd'
 								: cardsList.map((cardNews) => (
 										<NewsCards key={cardNews.id} data={cardNews} />
 								  ))}

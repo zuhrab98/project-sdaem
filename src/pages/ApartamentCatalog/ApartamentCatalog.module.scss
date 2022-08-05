@@ -10,6 +10,38 @@
 		font-size: 25px;
 		padding: 30px 0 40px;
 	}
+
+	.recommendations {
+		.text {
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 1;
+			color: var(--title);
+			margin-bottom: 25px;
+		}
+	}
+}
+
+.additionalParameters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+
+	.btn {
+		padding: 6px 10px;
+		background: rgba(102, 78, 249, 0.1);
+		border-radius: 17px;
+
+		font-size: 14px;
+		line-height: 1;
+		color: var(--primary);
+		cursor: pointer;
+		transition: 0.2s ease-in;
+
+		&:hover {
+			background: rgba(102, 78, 249, 0.2);
+		}
+	}
 }
 
 .boxCards {
@@ -94,11 +126,11 @@
 		line-height: 17px;
 		color: var(--title);
 		cursor: pointer;
-    transition: .2s ease-in;
+		transition: 0.2s ease-in;
 
 		&:hover {
-      background: #f8f8f8;
-    }
+			background: #f8f8f8;
+		}
 	}
 
 	.itemBtn.active {
@@ -110,6 +142,7 @@
 
 .wrapperContent {
 	padding-bottom: 50px;
+
 	.title {
 		font-weight: 700;
 		font-size: 20px;
@@ -117,21 +150,6 @@
 		color: var(--title);
 		margin-bottom: 40px;
 	}
-}
-
-.moreOptions {
-	display: flex;
-	flex-direction: column;
-	height: 0;
-	padding: 0;
-	overflow: hidden;
-	transition: all 0.3s ease-in-out;
-}
-
-.moreOptionsActive {
-	height: 313px;
-	padding: 20px 0 30px;
-	overflow: visible;
 }
 
 .filters {
@@ -151,6 +169,7 @@
 	}
 }
 
+// section maps
 .maps {
 	padding: 75px 0 86px;
 	display: flex;

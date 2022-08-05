@@ -5,7 +5,7 @@ import cn from 'classnames'
 
 import data from '../../../api/data.json'
 import { PriceFilter } from '../../PriceFilter/PriceFilter'
-import { OptionsFilter } from './OptionsFilter/OptionsFilter'
+import { OptionsFilter } from '../../OptionsFilter/OptionsFilter'
 import { Button } from '../../Button/Button'
 import { Icons } from '../../Icons/Icons'
 import { FilterSelect } from '../../FilterSelect/FilterSelect'

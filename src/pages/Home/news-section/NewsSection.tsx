@@ -50,7 +50,7 @@ export const NewsSection: React.FC = (): JSX.Element => {
 							{news &&
 								news.map((item) => (
 									<div key={item.id} className={styles.item}>
-										<Link to='/news' className={styles.titleLink}>
+										<Link to={`/news/${item.id}`} className={styles.titleLink}>
 											{item.title}
 										</Link>
 										<div className={styles.date}>{item.date}</div>

@@ -10,6 +10,7 @@ export type FilterProperty =
 	| 'priceTo'
 
 export type FilterPropertyType = {
+  label?: string
 	name: string
 	filterProperty: FilterProperty
 }

@@ -10,7 +10,7 @@ import { GalleryAdsProps } from './interface'
 export const GalleryAds: React.FC<GalleryAdsProps> = ({ data }):JSX.Element => {
 	const dispatch = useAppDispatch()
 
-	const handlerClick = (citi: string) => {
+	const handleOnClick = (citi: string) => {
 		citi && dispatch(setFiltered({ name: citi, filterProperty: 'citi' }))
 	}
 
@@ -35,7 +35,7 @@ export const GalleryAds: React.FC<GalleryAdsProps> = ({ data }):JSX.Element => {
 												className={styles.city}
 												to='/apartmentCatalog'
 												state={{ paramName: null }}
-												onClick={() => handlerClick(item.citi)}
+												onClick={() => handleOnClick(item.citi)}
 											>
 												{item.citi}
 											</Link>
