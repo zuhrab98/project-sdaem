@@ -49,12 +49,12 @@
 		{ "name": "Бани и сауны", "paramName": "baths" },
 		{ "name": "Авто на прокат", "paramName": "cars" }
 	],
-	"NAVS_BY_PARAMS": [
-		{ "name": "Квартиры на сутки", "paramName": "rooms" },
-		{ "name": "Коттеджи и усадьбы", "paramName": "cottages" },
-		{ "name": "Бани и сауны", "paramName": "baths" },
-		{ "name": "Авто на прокат", "paramName": "cars" }
-	],
+	"NAVS_BY_PARAMS": {
+		"rooms": { "name": "Квартиры на сутки", "paramName": "rooms" },
+		"cottages": { "name": "Коттеджи и усадьбы", "paramName": "cottages" },
+		"baths": { "name": "Бани и сауны", "paramName": "baths" },
+		"cars": { "name": "Авто на прокат", "paramName": "cars" }
+	},
 	"PAYMENT": [
 		{ "src": "/payments/visa.png", "alt": "visa" },
 		{ "src": "/payments/webpay.png", "alt": "webpay" },
@@ -95,24 +95,24 @@
 	"PROMO_MENU": {
 		"ROOMS_TITLE": "Квартиры",
 		"ROOMS": [
-			{ "name": "Квартиры в Минске", "citi": "Минск", "count": "3567" },
+			{ "name": "Квартиры в Минске", "citi": "Минск", "count": 3567 },
 			{
 				"name": "Квартиры в Екатерин-е",
 				"citi": "Екатеринбург",
-				"count": "2302 "
+				"count": 2302
 			},
-			{ "name": "Квартиры в Москве", "citi": "Москва", "count": "110" }
+			{ "name": "Квартиры в Москве", "citi": "Москва", "count": 110 }
 		],
 		"COTTAGES_TITLE": "Коттеджи и усадьбы",
 		"COTTAGES": [
-			{ "name": "Аггроусадьбы", "count": "110" },
-			{ "name": "Коттеджи", "count": "110" },
-			{ "name": "Загородный комплекс", "count": "110" },
-			{ "name": "Базы отдыха", "count": "110" },
-			{ "name": "Аггроусадьбы", "count": "110" },
-			{ "name": "Аггроусадьбы", "count": "110" },
-			{ "name": "Аггроусадьбы", "count": "110" },
-			{ "name": "Аггроусадьбы", "count": "110" }
+			{ "name": "Аггроусадьбы", "count": 110 },
+			{ "name": "Коттеджи", "count": 110 },
+			{ "name": "Загородный комплекс", "count": 110 },
+			{ "name": "Базы отдыха", "count": 110 },
+			{ "name": "Аггроусадьбы", "count": 110 },
+			{ "name": "Аггроусадьбы", "count": 110 },
+			{ "name": "Аггроусадьбы", "count": 110 },
+			{ "name": "Аггроусадьбы", "count": 110 }
 		],
 		"POPULARS_TITLE": "Популярные направления",
 		"POPULARS": [

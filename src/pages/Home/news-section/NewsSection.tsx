@@ -5,10 +5,11 @@ import styles from './NewsSection.module.scss'
 // import { Button } from '../../../components/Button/Button'
 import data from '../../../api/data.json'
 import { Link } from 'react-router-dom'
+import { NewsSectionProps } from './interface'
 
-export const NewsSection = () => {
+export const NewsSection: React.FC = (): JSX.Element => {
 	const [news, setWews] = React.useState([])
-	const [apartment, setApartment] = React.useState([])
+	const [apartment, setApartment] = React.useState<NewsSectionProps>()
 
 	React.useEffect(() => {
 		setWews(data.NEWS)
@@ -18,7 +19,7 @@ export const NewsSection = () => {
 	return (
 		<section className={styles.newsSection}>
 			<div className='container'>
-				<div className={styles.wrapper}>
+				{apartment && <div className={styles.wrapper}>
 					<div className={styles.apartmentForDay}>
 						<p className={styles.sdaemText}>
 							ЧТО ТАКОЕ <Link to='/'>SDAEM.BY</Link>
@@ -63,7 +64,7 @@ export const NewsSection = () => {
 							<Icons id={'arrow'} size={{ w: 12, h: 7 }} />
 						</div>
 					</div>
-				</div>
+				</div>}
 			</div>
 		</section>
 	)

@@ -1,22 +1,22 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import styles from './GalleryAds.module.scss'
 import { setFiltered } from '../../../../redux/slices/filterSlice'
 import { Icons } from '../../../../components/Icons/Icons'
+import { useAppDispatch } from '../../../../redux/store'
+import { GalleryAdsProps } from './interface'
 
-export const GalleryAds = ({ data }) => {
-	const dispatch = useDispatch()
+export const GalleryAds: React.FC<GalleryAdsProps> = ({ data }):JSX.Element => {
+	const dispatch = useAppDispatch()
 
-	const handlerClick = (citi) => {
+	const handlerClick = (citi: string) => {
 		citi && dispatch(setFiltered({ name: citi, filterProperty: 'citi' }))
 	}
 
 	return (
 		<>
-			{data &&
-				data.map((item) => (
+			{data?.map((item) => (
 					<div key={item.title} className={styles.item}>
 						{item.paramName ? (
 							<div className={styles.desc}>
@@ -35,7 +35,7 @@ export const GalleryAds = ({ data }) => {
 												className={styles.city}
 												to='/apartmentCatalog'
 												state={{ paramName: null }}
-												onClick={() => handlerClick(item?.citi)}
+												onClick={() => handlerClick(item.citi)}
 											>
 												{item.citi}
 											</Link>
@@ -47,7 +47,7 @@ export const GalleryAds = ({ data }) => {
 						<div className={styles.link}>
 							<img src={item.img} alt='' />
 						</div>
-						{item.paramName && (
+						{item?.paramName && (
 							<Link
 								to='/apartmentCatalog'
 								state={{ paramName: item.paramName }}

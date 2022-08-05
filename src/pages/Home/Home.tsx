@@ -8,9 +8,10 @@ import {
 	StartSection,
 } from './index'
 import { fetchHomeCards, selectHome } from '../../redux/slices/homeSlice'
+import { useAppDispatch } from '../../redux/store'
 
 export const Home = () => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const { itemsCard } = useSelector(selectHome)
 	const [items, setItems] = React.useState([])
 

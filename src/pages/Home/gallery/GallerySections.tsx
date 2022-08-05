@@ -5,7 +5,7 @@ import { GalleryAds } from './GalleryAds/GalleryAds'
 import data from '../../../api/data.json'
 import { PromoMenu } from './PromoMenu/PromoMenu'
 
-export const GallerySections = () => {
+export const GallerySections: React.FC = (): JSX.Element => {
 	return (
 		<div className={styles.galleryAds}>
 			<div className='container'>
@@ -25,7 +25,7 @@ export const GallerySections = () => {
 							<PromoMenu
 								data={data.PROMO_MENU.COTTAGES}
 								title={data.PROMO_MENU.COTTAGES_TITLE}
-								showMore={true}
+								showMore
 							/>
 							<PromoMenu
 								data={data.PROMO_MENU.POPULARS}

@@ -12,6 +12,7 @@ interface FilterSliceState {
 		priceFrom: FilterPropertyType
 		priceTo: FilterPropertyType
 	}
+	headerSelectName: { name: string; paramName: string }
 	sortCards: null | FilterPropertyType
 }
 
@@ -25,6 +26,7 @@ const initialState: FilterSliceState = {
 		priceFrom: { name: '0', filterProperty: 'priceFrom' },
 		priceTo: { name: '', filterProperty: 'priceTo' },
 	},
+	headerSelectName: { name: null, paramName: null },
 	sortCards: null,
 }
 
@@ -49,11 +51,15 @@ export const filterSlice = createSlice({
 		setSort(state, action: PayloadAction<FilterPropertyType>) {
 			state.sortCards = action.payload
 		},
+		setHeaderSelectName(state, action) {
+			state.headerSelectName = action.payload
+		},
 	},
 })
 
 export const selectFilter = (state: RootState) => state.filter
 
-export const { setFiltered, setFiltersClear, setSort } = filterSlice.actions
+export const { setFiltered, setFiltersClear, setSort, setHeaderSelectName } =
+	filterSlice.actions
 
 export default filterSlice.reducer

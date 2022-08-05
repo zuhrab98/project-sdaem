@@ -3,8 +3,9 @@ import { Icons } from '../../../../components/Icons/Icons'
 import styles from './Card.module.scss'
 import { Button } from '../../../../components/Button/Button'
 import cn from 'classnames'
+import { CardProps } from './interface'
 
-export const Card = ({ data }) => {
+export const Card: React.FC<CardProps> = ({ data }): JSX.Element => {
 	return (
 		<div className={cn(styles.card, { [styles.gold]: data.type })}>
 			<div className={styles.header}>

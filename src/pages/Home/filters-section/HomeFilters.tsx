@@ -5,7 +5,7 @@ import styles from './HomeFilters.module.scss'
 import { TabHeaderItem } from '../../../components/Tabs/TabHeaderItem/TabHeaderItem'
 import data from './data.json'
 
-export const HomeFilters = () => {
+export const HomeFilters: React.FC = (): JSX.Element => {
 	return (
 		<section className={cn(styles.filterSection, 'container')}>
 			<div className={styles.wrapper}>

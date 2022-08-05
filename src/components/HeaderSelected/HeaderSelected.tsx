@@ -1,18 +1,22 @@
 import React from 'react'
 import styles from './HeaderSelected.module.scss'
 import { Link } from 'react-router-dom'
-import { setFiltered } from '../../redux/slices/filterSlice'
-import { useDispatch } from 'react-redux'
+import {
+	setFiltered,
+	setHeaderSelectName,
+} from '../../redux/slices/filterSlice'
 import { HeaderSelectedProps, SelectedsObj } from './interface'
+import { useAppDispatch } from '../../redux/store'
 
 export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 	paramName,
 	selecteds,
 }) => {
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 
-	const handlerClick = (item: SelectedsObj): void => {
+	const handlerClick = (item: SelectedsObj, paramName: string): void => {
 		dispatch(setFiltered({ name: item.citi, filterProperty: 'citi' }))
+		dispatch(setHeaderSelectName({name: item.name, paramName: paramName}))
 	}
 
 	return (
@@ -22,7 +26,7 @@ export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 					key={item.name}
 					to={`/apartmentCatalog`}
 					state={{ paramName }}
-					onClick={() => handlerClick(item)}
+					onClick={() => handlerClick(item, paramName)}
 				>
 					{item.name}
 				</Link>

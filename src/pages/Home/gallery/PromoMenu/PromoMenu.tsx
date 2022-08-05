@@ -4,17 +4,18 @@ import styles from './PromoMenu.module.scss'
 import { Icons } from '../../../../components/Icons/Icons'
 import { Link } from 'react-router-dom'
 import { setFiltered } from '../../../../redux/slices/filterSlice'
-import { useDispatch } from 'react-redux'
+import { PromoMenuProps, PromoMenuParams } from './inteface'
+import { useAppDispatch } from '../../../../redux/store'
 
-export const PromoMenu = ({ data, showMore, title }) => {
+export const PromoMenu: React.FC<PromoMenuProps> = ({ data, showMore, title }): JSX.Element => {
 	const [visibleLinksMore, setvisibleLinksMore] = React.useState(false)
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 
 	const toggleVisibleLinksMore = () => {
 		setvisibleLinksMore((prev) => !prev)
 	}
-
-	const handlerClick = (item) => {
+  
+	const handlerClick = (item: PromoMenuParams) => {
 		dispatch(setFiltered({ name: item?.citi, filterProperty: 'citi' }))
 	}
 
