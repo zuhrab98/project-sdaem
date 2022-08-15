@@ -1,13 +1,12 @@
 import React from 'react'
+import { M } from '../type'
 
-export type M = MouseEvent & {
-	path: Node[]
-}
 
 export const useOnClickOutside = (
 	ref: React.MutableRefObject<HTMLDivElement>,
 	setModalOpen: (arg: boolean) => void
 ) => {
+
 	React.useEffect(() => {
 		// если клик произошел в не области выподающего списка
 		const closePopup = (e: M) => {

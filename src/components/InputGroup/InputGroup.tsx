@@ -1,4 +1,5 @@
 import React from 'react'
+import cn from 'classnames'
 import { Icons } from '../Icons/Icons'
 import styles from './InputGroup.module.scss'
 import { InputGroupProps } from './interface'
@@ -9,29 +10,20 @@ export const InputGroup: React.FC<InputGroupProps> = ({
 	type,
 	placeholder,
 	errorIcon,
-  id
+	id,
+	helperText,
 }) => {
-	// волидация для email
-	const pattern = type === 'email' && {
-		value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-		message: 'Please enter valid email',
-	}
-
-	// волидация для password если меньше 5 символов
-	const minLength = type === 'password' && 5
 
 	return (
-		<div className={styles.inputGroup}>
+		<div className={cn(styles.inputGroup, { [styles.errorInput]: errorIcon })}>
 			{errorIcon && <Icons id='error' fill='#EB5757' />}
+			<span className={styles.errorText}>{helperText}</span>
 			<input
-				{...register(`${type}`, {
-					required: 'required field!',
-					pattern,
-					minLength: minLength,
-				})}
-				type={type}
-        id={id}
+				{...register(`${type === 'confirmPassword' ? 'confirmPassword' : type}`)}
+				type={type === 'confirmPassword' ? 'password' : type}
+				id={id}
 				placeholder={placeholder}
+				className={cn(styles.input, { [styles.errorInput]: errorIcon })}
 			/>
 			<Icons id={icon} size={{ w: 20, h: 20 }} fill='#686868' />
 		</div>

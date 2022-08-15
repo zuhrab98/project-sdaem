@@ -1,11 +1,15 @@
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import cn from 'classnames'
 
 import styles from './Сontacts.module.scss'
 import { Icons } from '../../components/Icons/Icons'
 import { InputGroup } from '../../components/InputGroup/InputGroup'
 import { Button } from '../../components/Button/Button'
 import { FormValues } from '../../type'
+import { Modal } from '../../components/Modal/Modal'
+import { ContactsShema } from '../../utils/shemas/contactsValidation'
 
 const contacts = {
 	INFO: [
@@ -21,15 +25,21 @@ const contacts = {
 }
 
 export const Сontacts: React.FC = (): JSX.Element => {
+	const [isActivModal, setActivModal] = React.useState(false)
+
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm({ mode: 'onChange' })
+	} = useForm<FormValues>({
+		mode: 'onChange',
+		resolver: yupResolver(ContactsShema),
+	})
 
 	const onSubmit: SubmitHandler<FormValues> = (data) => {
 		console.log(data)
+		setActivModal(true)
 		reset()
 	}
 
@@ -72,35 +82,42 @@ export const Сontacts: React.FC = (): JSX.Element => {
 									<label htmlFor='name'>Ваше имя</label>
 									<InputGroup
 										icon='user'
-										errorIcon={errors?.name}
 										register={register}
 										type='name'
 										id='name'
 										placeholder='Ваше имя'
+										errorIcon={!!errors.name?.message}
+										helperText={errors.name?.message}
 									/>
 								</div>
 								<div className={styles.inputGroup}>
 									<label htmlFor='email'>Ваша электронная почта</label>
 									<InputGroup
 										icon='mail'
-										errorIcon={errors?.email}
 										register={register}
 										type='email'
 										id='email'
 										placeholder='Введите'
+										errorIcon={!!errors.email?.message}
+										helperText={errors.email?.message}
 									/>
 								</div>
 							</div>
 							<div className={styles.message}>
 								<label htmlFor='message'>Ваше сообщение</label>
+								<span className={styles.errorText}>
+									{errors.message?.message}
+								</span>
 								<textarea
 									{...register('message', {
-										required: 'required field!',
 										minLength: 5,
 										maxLength: 100,
 									})}
 									id='message'
 									placeholder='Сообщение'
+									className={cn(styles.textarea, {
+										[styles.errorTextarea]: !!errors.message?.message,
+									})}
 								></textarea>
 							</div>
 							<Button>Отправить</Button>
@@ -108,6 +125,17 @@ export const Сontacts: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
+			{isActivModal && (
+				<Modal action='Закрыть окно' className='modalContacts' isActive={setActivModal}>
+					<>
+						<h1>Ваше письмо отправлено!</h1>
+						<p>
+							Какое-то сообщение о том, что письмо отправлено, какое-то
+							сообщение, что письмо отправлено.
+						</p>
+					</>
+				</Modal>
+			)}
 		</div>
 	)
 }

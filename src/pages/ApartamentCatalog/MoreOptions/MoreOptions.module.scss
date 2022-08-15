@@ -57,9 +57,10 @@
 	}
 
 	.checkboxRow {
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 	}
+  
 	.text {
 		font-size: 14px;
 		line-height: 17px;
@@ -124,7 +125,7 @@
 	display: flex;
 	justify-content: center;
 	text-align: center;
-	background: url('../../../assets/headerBg.png'),
+	background: url('/assets/headerBg.png'),
 		linear-gradient(360deg, #7e6af3 15.95%, #6540cd 63.1%);
 	background-repeat: no-repeat;
 	background-size: cover;

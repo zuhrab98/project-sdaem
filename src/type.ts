@@ -15,6 +15,10 @@ export type FilterPropertyType = {
 	filterProperty: FilterProperty
 }
 
+export type M = MouseEvent & {
+	path: Node[]
+}
+
 export interface OwnerType {
 	email: string
 	img: string
@@ -76,4 +80,5 @@ export type FormValues = {
 	message: string
 	login: string
 	password: string
+  confirmPassword: string
 }

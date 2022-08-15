@@ -112,6 +112,7 @@
 	svg {
 		transition: 0.2s ease-in-out;
 	}
+  
 	&:hover {
 		svg {
 			fill: var(--btn-yellow);
@@ -127,6 +128,7 @@
 	border-radius: 33px;
 	font-size: 16px;
 	font-weight: 700;
+  color: var(--title);
 
 	svg {
 		margin-right: 10px;
@@ -168,4 +170,9 @@
 			fill: #fc3333;
 		}
 	}
+}
+
+
+.disableBtn {
+  opacity: .3;
 }

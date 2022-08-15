@@ -9,9 +9,9 @@ export const Button: React.FC<ButtonProps> = ({
 	name,
 	tag,
 	path,
+	type,
 	onClick,
 }): JSX.Element => {
-
 	return (
 		<>
 			{tag === 'a' ? (
@@ -32,6 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
 				</Link>
 			) : (
 				<button
+					type={type}
 					onClick={onClick}
 					className={cn(styles.button, {
 						[styles.return]: name === 'return',
@@ -42,6 +43,7 @@ export const Button: React.FC<ButtonProps> = ({
 						[styles.yellowGradient]: name === 'yellow',
 						[styles.fav]: name === 'fav',
 						[styles.beige]: name === 'beige',
+						[styles.disableBtn]: name === 'disableBtn',
 					})}
 				>
 					{children}

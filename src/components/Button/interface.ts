@@ -3,5 +3,6 @@ export interface ButtonProps {
 	name?: string
 	tag?: string
 	path?: string
+  type?: "button" | "submit" | "reset"
 	onClick?: () => void
 }
