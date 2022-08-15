@@ -5,15 +5,20 @@
 
 	.navLink {
 		height: 100%;
-		position: relative;
 		font-size: 14px;
 		cursor: pointer;
 
 		a {
-			position: relative;
+      position: relative;
 			display: flex;
+      align-items: center;
 			height: 100%;
+
+      svg{
+        margin-right: 10px;
+      }
 		}
+
 	}
 }
 

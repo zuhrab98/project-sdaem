@@ -4,6 +4,7 @@ import { Icons } from '../../components/Icons/Icons'
 import { Lists } from '../../components/Lists/Lists'
 import data from '../../api/data.json'
 import { Link } from 'react-router-dom'
+import { Socials } from '../../components/Socials/Socials'
 
 export const Footer: React.FC = (): JSX.Element => {
 	return (
@@ -48,35 +49,13 @@ export const Footer: React.FC = (): JSX.Element => {
 				<div className={styles.wrapperPayment}>
 					<div className={styles.socials}>
 						Мы в соцсетях
-						<ul className={styles.socialsList}>
-							<li>
-								<a
-									href='https://www.instagram.com/sdaem.by'
-									target='_blank'
-									rel='noreferrer'
-								>
-									<Icons id={'instagram'} />
-								</a>
-							</li>
-							<li>
-								<a
-									href='https://vk.com/sdaem_by'
-									target='_blank'
-									rel='noreferrer'
-								>
-									<Icons id={'vk'} />
-								</a>
-							</li>
-							<li>
-								<a
-									href='https://www.facebook.com/sdaem.by'
-									target='_blank'
-									rel='noreferrer'
-								>
-									<Icons id={'facebook'} />
-								</a>
-							</li>
-						</ul>
+						<Socials
+							socials={data.SOCIALS}
+              className='socialFooter'
+							width={23}
+							height={23}
+							fill='#1E2123'
+						/>
 					</div>
 					<div className={styles.payment}>
 						{data?.PAYMENT.map((item, i) => (

@@ -22,5 +22,1036 @@
 			"text2": "Gold объявления <b>перемещаются каждые 5 мин</b> на 1 позицию, что делает размещение одинаковым для всех.",
 			"bntText": "Еще о тарифе Gold"
 		}
-	]
+	],
+  "Cards": [
+    {
+     "id": 1,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "35.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "2",
+     "numberPeopleRoom": "2 (1+1)",
+     "label": "gold",
+     "region": "Уралмаш",
+     "metro": "Грушевка",
+     "quadrature": "100 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Alex",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 2,
+     "img": [
+      "cardLocation/cardLocation2.jpg",
+      "cardLocation/cardLocation2.jpg",
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "80.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "4",
+     "numberPeopleRoom": "4 (2+2)",
+     "label": "gold",
+     "region": "Шабаны",
+     "metro": "Грушевка",
+     "quadrature": "179 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 3,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "65.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "4",
+     "numberPeopleRoom": "4 (2+2)",
+     "label": "gold",
+     "region": "Шабаны",
+     "metro": "Грушевка",
+     "quadrature": "179 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 4,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "65.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "4",
+     "numberPeopleRoom": "4 (2+2)",
+     "label": "gold",
+     "region": "Уралмаш",
+     "metro": "Грушевка",
+     "quadrature": "179 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 5,
+     "img": [
+      "cardLocation/cardLocation2.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "38.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "1",
+     "numberPeopleRoom": "1 (1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "ВДНХ",
+     "quadrature": "67 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 6,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Москва",
+     "price": "23.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "1",
+     "numberPeopleRoom": "1 (1)",
+     "label": "gold",
+     "region": "Шабаны",
+     "metro": "ВДНХ",
+     "quadrature": "79 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 7,
+     "img": [
+      "cardLocation/cardLocation2.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Москва",
+     "price": "43.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Шабаны",
+     "metro": "Чкаловская",
+     "quadrature": "120 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 8,
+     "img": [
+      "cardLocation/cardLocation2.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "10.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "4",
+     "numberPeopleRoom": "4 (2+2)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "179 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 9,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 10,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 11,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 12,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 13,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 14,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 15,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 16,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 17,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 18,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 19,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "96.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "2",
+     "numberPeopleRoom": "2 (1+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "98 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 20,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "68.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "2",
+     "numberPeopleRoom": "2 (1+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "52 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 21,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "49.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "1 (1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "46 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 22,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "87 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 23,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 24,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Екатеринбург",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "3",
+     "numberPeopleRoom": "3 (2+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "Чкаловская",
+     "quadrature": "190 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 25,
+     "img": [
+      "cardLocation/cardLocation.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "1",
+     "numberPeopleRoom": "1 (1+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "ВДНХ",
+     "quadrature": "67 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 26,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "87.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "2",
+     "numberPeopleRoom": "2 (1+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "ВДНХ",
+     "quadrature": "92 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    },
+    {
+     "id": 27,
+     "img": [
+      "cardLocation/cardLocation5.jpg"
+     ],
+     "address": "б-р Мулявина, д. 10",
+     "citi": "Минск",
+     "price": "78.00 BYN",
+     "priceTime": "за сутки",
+     "rooms": "2",
+     "numberPeopleRoom": "2 (1+1)",
+     "label": "gold",
+     "region": "Аэропорт",
+     "metro": "ВДНХ",
+     "quadrature": "67 м²",
+     "owner": {
+      "img": "cardLocation/user.png",
+      "title": "Владелец",
+      "name": "Dmitriy",
+      "email": "vladimir6234@tut.by",
+      "tel": " +375 (29) 291-14-44",
+      "socials": [
+       {
+        "social": "viber",
+        "href": "#"
+       },
+       {
+        "social": "whatsApp",
+        "href": "#"
+       },
+       {
+        "social": "mail",
+        "href": "#"
+       }
+      ]
+     },
+     "description": "Какое-то описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание квартиры, описание ..."
+    }
+   
+  ]
 }

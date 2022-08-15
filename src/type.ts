@@ -9,10 +9,16 @@ export type FilterProperty =
 	| 'priceFrom'
 	| 'priceTo'
 
+  
 export type FilterPropertyType = {
-  label?: string
+	label?: string
 	name: string
 	filterProperty: FilterProperty
+}
+
+export type FilterType = {
+	name: string
+	filterProperty: string
 }
 
 export type M = MouseEvent & {
@@ -80,5 +86,5 @@ export type FormValues = {
 	message: string
 	login: string
 	password: string
-  confirmPassword: string
+	confirmPassword: string
 }

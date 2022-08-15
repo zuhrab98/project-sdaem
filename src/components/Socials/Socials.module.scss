@@ -1,0 +1,45 @@
+.socialsList {
+	display: flex;
+	align-items: center;
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.socialFooter {
+	margin-left: 28px;
+
+	& > * + * {
+		margin-left: 20px;
+	}
+}
+
+.socialContact {
+	flex-direction: column;
+
+	a {
+		width: 45px;
+		height: 45px;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 25px;
+	}
+
+	& > * + * {
+		margin-top: 15px;
+	}
+}
+
+.socialNews {
+	a {
+		width: 35px;
+		height: 35px;
+		background: rgba(102, 78, 249, 0.1);
+		border-radius: 19px;
+	}
+  & > * + * {
+		margin-left: 20px;
+	}
+}

@@ -1,11 +1,8 @@
-type FilterProperty = {
-	name: string
-	filterProperty: string
-}
+import { FilterType } from "../../type"
 
 export interface FilterSelectProps {
 	title?: string
-	list: FilterProperty[]
+	list: FilterType[]
 	ClassName?: string
 	children?: React.ReactNode
 	name: string

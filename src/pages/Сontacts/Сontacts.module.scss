@@ -14,6 +14,7 @@
 
 .root {
 	display: flex;
+  justify-content: space-between;
 	gap: 30px;
 }
 
@@ -40,9 +41,37 @@
 		display: inline-block;
 		padding: 12px 24px;
 	}
-}
-.info {
-	.list {
+
+  .name {
+    margin-top: 30px;
+    margin-bottom: 16px;
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+	.warning {
+    display: flex;
+    align-items: center;
+		max-width: 515px;
+		padding: 21px 25px;
+		background: rgba(80, 57, 189, 0.5);
+		border-radius: 10px;
+
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1.5;
+		color: var(--white);
+
+    svg {
+      margin-right: 22px;
+      flex-shrink: 0;
+    }
+	}
+
+  .list {
 		li {
 			display: flex;
 			align-items: center;
@@ -65,15 +94,6 @@
 		& > * + * {
 			margin-top: 11px;
 		}
-	}
-}
-.name {
-	margin-top: 30px;
-	margin-bottom: 40px;
-	p {
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 1.5;
 	}
 }
 
@@ -111,7 +131,7 @@
 .inputGroup {
 	display: flex;
 	flex-direction: column;
-  align-items: flex-start;
+	align-items: flex-start;
 
 	input {
 		margin-bottom: 20px;
@@ -119,12 +139,12 @@
 }
 
 .message {
-  position: relative;
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 40px;
 
-  .errorText {
+	.errorText {
 		position: absolute;
 		text-align: left;
 		font-size: 10px;
@@ -137,22 +157,22 @@
 		height: 200px;
 		padding: 15px 20px;
 		background: #f8f8f8;
-    
-    border: 2px solid transparent;
+
+		border: 2px solid transparent;
 		border-radius: 30px;
 		resize: none;
-    transition: .2s ease-in;
+		transition: 0.2s ease-in;
 
-    &:focus {
+		&:focus {
 			border: 2px solid rgba(78, 100, 249, 0.8);
 		}
 	}
 
-  .errorTextarea {
+	.errorTextarea {
 		border: 2px solid rgba(249, 78, 78, 0.8);
 
-    &:focus {
-		border: 2px solid rgba(249, 78, 78, 0.8);
+		&:focus {
+			border: 2px solid rgba(249, 78, 78, 0.8);
 		}
-  }
+	}
 }

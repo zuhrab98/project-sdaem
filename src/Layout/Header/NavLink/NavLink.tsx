@@ -3,11 +3,11 @@ import cn from 'classnames'
 import styles from './NavLink.module.scss'
 import { NavLink } from 'react-router-dom'
 import { NavLinkProps } from './interface'
+import { Icons } from '../../../components/Icons/Icons'
 
 export const NavLinks: React.FC<NavLinkProps> = ({
 	navs,
 	appearance,
-	selecteds,
 }): JSX.Element => {
 	return (
 		<div className={styles.nav}>
@@ -22,6 +22,7 @@ export const NavLinks: React.FC<NavLinkProps> = ({
 						to={`${item.path}`}
 						className={({ isActive }) => (isActive ? styles.active : '')}
 					>
+						{item?.icon && <Icons id={item?.icon} size={{ w: 8, h: 10 }} />}
 						{item.name}
 					</NavLink>
 				</div>
