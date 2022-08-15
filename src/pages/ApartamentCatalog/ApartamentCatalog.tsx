@@ -35,7 +35,6 @@ const labelsBtnRooms:FilterPropertyType[] = [
 	{ label: '3-комнатные', name: '3 ком.', filterProperty: 'room' },
 	{ label: '4-комнатные', name: '4 ком.', filterProperty: 'room' },
 ]
-
 const labelsBtnCars: FilterPropertyType[] = [
 	{ label: '1-местный', name: '1', filterProperty: 'room' },
 	{ label: '2-местный', name: '2', filterProperty: 'room' },
@@ -63,7 +62,6 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 
 	React.useEffect(() => {
 		setTitleCatalog(useParam?.paramName || 'Квартиры') 
-    console.log(useParam?.paramName ==='cars');
     
     switch (useParam?.paramName) {
       case 'cars':

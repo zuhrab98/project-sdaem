@@ -10,6 +10,8 @@ import { Button } from '../../components/Button/Button'
 import { FormValues } from '../../type'
 import { Modal } from '../../components/Modal/Modal'
 import { ContactsShema } from '../../utils/shemas/contactsValidation'
+import data from '../../api/data.json'
+import { Socials } from '../../components/Socials/Socials'
 
 const contacts = {
 	INFO: [
@@ -71,6 +73,11 @@ export const Сontacts: React.FC = (): JSX.Element => {
 								))}
 							</div>
 						</div>
+						<div className={styles.warning}>
+							<Icons id='error' fill='#5039BD' size={{ w: 35, h: 35 }} />
+							Администрация сайта не владеет информацией о наличии свободных
+							квартир
+						</div>
 					</div>
 					<div className={styles.right}>
 						<form
@@ -123,10 +130,21 @@ export const Сontacts: React.FC = (): JSX.Element => {
 							<Button>Отправить</Button>
 						</form>
 					</div>
+					<Socials
+						className='socialContact'
+						socials={data.SOCIALS}
+						fill='#FFFFFF'
+						width={20}
+						height={20}
+					/>
 				</div>
 			</div>
 			{isActivModal && (
-				<Modal action='Закрыть окно' className='modalContacts' isActive={setActivModal}>
+				<Modal
+					action='Закрыть окно'
+					className='modalContacts'
+					isActive={setActivModal}
+				>
 					<>
 						<h1>Ваше письмо отправлено!</h1>
 						<p>

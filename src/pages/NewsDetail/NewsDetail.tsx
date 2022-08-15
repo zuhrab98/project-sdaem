@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 
 import { RootState, useAppDispatch } from '../../redux/store'
-import { Icons } from '../../components/Icons/Icons'
 import { Label } from '../../components/Label/Label'
 import { NewsCards } from '../../components/newsCards/NewsCards'
 import styles from './NewsDetail.module.scss'
-import data from './data.json'
+import data from '../../api/data.json'
 import { fetchnewsDetail } from '../../redux/slices/NewsDetaitSlice'
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
-import { skeleton } from '../../utils/skeleton'
 import { NewsCardsDetail } from '../../type'
+import { Socials } from '../../components/Socials/Socials'
+import { skeleton } from '../../utils/skeleton'
 
 const breadcrumsb = [
 	{ page: 'Home', path: '/' },
@@ -39,9 +39,9 @@ export const NewsDetail = () => {
 
 	React.useEffect(() => {
 		setNewsCardsDetail(newsCardsDetail)
-		setSocialIcons(data.socials)
+		setSocialIcons(data.SOCIALS_NEWS)
 		// Перемешиваем массив
-		const shuffled = data?.newsList.sort(() => 0.5 - Math.random())
+		const shuffled = data?.NEWS_LIST.sort(() => 0.5 - Math.random())
 		// Получаем подмассив из первых 3 элементов после перемешивания
 		let selected = shuffled.slice(0, 3)
 		setCardsList(selected)
@@ -65,24 +65,13 @@ export const NewsDetail = () => {
 						<Label type='primary'>{newsCardsDetaill?.date}</Label>
 						<div className={styles.toShare}>
 							<span className={styles.text}>Поделиться</span>
-							{socialIcons &&
-								socialIcons.map((item, i) => (
-									<a
-										className={styles.socialLink}
-										key={i}
-										target='_blank'
-										rel='noreferrer'
-										href={`${item.path}`}
-									>
-										<div className={styles.icon}>
-											<Icons
-												id={`${item.social}`}
-												fill='#664EF9'
-												size={{ w: 17, h: 17 }}
-											/>
-										</div>
-									</a>
-								))}
+							<Socials
+								className='socialNews'
+								socials={socialIcons}
+								fill='#664EF9'
+								width={17}
+								height={17}
+							/>
 						</div>
 					</div>
 				</div>
@@ -106,9 +95,7 @@ export const NewsDetail = () => {
 						<h3 className={styles.title}>Читайте также</h3>
 						<div className={styles.cardsRow}>
 							{status === 'loading'
-								? // при загрузке рендерим скелетон
-								  // skeleton(3) 
-                  'fd'
+								? skeleton(3)
 								: cardsList.map((cardNews) => (
 										<NewsCards key={cardNews.id} data={cardNews} />
 								  ))}

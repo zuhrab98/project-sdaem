@@ -87,19 +87,7 @@ footer {
 	align-items: center;
 }
 
-.socialsList {
-	display: flex;
-	align-items: center;
-	margin-left: 28px;
 
-	a {
-		display: flex;
-	}
-
-	& > * + * {
-		margin-left: 20px;
-	}
-}
 
 .payment {
 	display: flex;
