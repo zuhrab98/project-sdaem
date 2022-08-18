@@ -4,6 +4,28 @@
 		{ "name": "Екатеринбург", "filterProperty": "citi" },
 		{ "name": "Москва", "filterProperty": "citi" }
 	],
+	"TABS": [
+		{
+			"name": "Квартиры на сутки",
+			"property": "Комнаты",
+			"paramName": "rooms"
+		},
+		{
+			"name": "Коттеджи и усадьбы",
+			"property": "Комнаты",
+			"paramName": "cottages"
+		},
+		{
+			"name": "Бани и сауны",
+			"property": "Места",
+			"paramName": "baths"
+		},
+		{
+			"name": "Авто напрокат",
+			"property": "Места",
+			"paramName": "cars"
+		}
+	],
 	"SLEEPING_PLACES": [
 		{ "name": "1 (1)", "filterProperty": "places" },
 		{ "name": "2 (1+1)", "filterProperty": "places" },
@@ -45,9 +67,13 @@
 		{ "name": "Квартиры в Москве", "citi": "Москва" }
 	],
 	"LIST_PRODUCTS": [
-		{ "name": "Коттеджи и усадьбы", "paramName": "cottages" },
-		{ "name": "Бани и сауны", "paramName": "baths" },
-		{ "name": "Авто на прокат", "paramName": "cars" }
+		{
+			"name": "Коттеджи и усадьбы",
+			"paramName": "cottages",
+			"property": "Комнаты"
+		},
+		{ "name": "Бани и сауны", "paramName": "baths", "property": "Места" },
+		{ "name": "Авто на прокат", "paramName": "cars", "property": "Места" }
 	],
 	"SOCIALS": [
 		{
@@ -60,7 +86,7 @@
 			"href": "https://www.facebook.com/sdaem.by"
 		}
 	],
-  "SOCIALS_NEWS": [
+	"SOCIALS_NEWS": [
 		{ "icon": "vk", "href": "https://vk.com/sdaem_by" },
 		{
 			"icon": "facebook",
@@ -79,7 +105,7 @@
 			"href": "https://web.whatsapp.com/"
 		}
 	],
-  "NEWS_LIST": [
+	"NEWS_LIST": [
 		{
 			"id": "1",
 			"img": "/main-photo-news.png",
@@ -428,54 +454,61 @@
 			{
 				"name": "Квартиры на сутки в Минске",
 				"citi": "Минск",
-				"path": "/apartmentCatalog"
+				"property": "Комнаты"
 			},
 			{
 				"name": "Квартиры на сутки в Екатеринбурге",
 				"citi": "Екатеринбург",
-				"path": "/apartmentCatalog"
+				"property": "Комнаты"
 			},
 			{
 				"name": "Квартиры на сутки в Москве",
 				"citi": "Москва",
-				"path": "/apartmentCatalog"
+				"property": "Комнаты"
 			}
 		],
 		"cottages": [
 			{
 				"name": "Коттеджи и усадьбы на сутки в Минске",
 				"citi": "Минск",
-				"path": "/apartmentCatalog"
+				"property": "Комнаты"
 			},
 			{
 				"name": "Коттеджи и усадьбы на сутки в Екатеринбурге",
 				"citi": "Екатеринбург",
-				"path": "/apartmentCatalog"
+				"property": "Комнаты"
 			},
 			{
 				"name": "Коттеджи и усадьбы на сутки в Москве",
 				"citi": "Москва",
-				"path": "/apartmentCatalog"
+				"property": "Комнаты"
 			}
 		],
 		"cars": [
 			{
 				"name": "Авто на прокат в Минске",
-				"citi": "Минск"
+				"citi": "Минск",
+				"property": "Места"
 			},
 			{
 				"name": "Авто на прокат  в Екатеринбурге",
-				"citi": "Екатеринбург"
+				"citi": "Екатеринбург",
+				"property": "Места"
 			},
 			{
 				"name": "Авто на прокат  в Москве",
-				"citi": "Москва"
+				"citi": "Москва",
+				"property": "Места"
 			}
 		],
 		"baths": [
-			{ "name": "Бани и сауны в Минске", "citi": "Минсе" },
-			{ "name": "Бани и сауны в Екатеринбурге", "citi": "Екатеринбург" },
-			{ "name": "Бани и сауны в Москве", "citi": "Москва" }
+			{ "name": "Бани и сауны в Минске", "citi": "Минск", "property": "Места" },
+			{
+				"name": "Бани и сауны в Екатеринбурге",
+				"citi": "Екатеринбург",
+				"property": "Места"
+			},
+			{ "name": "Бани и сауны в Москве", "citi": "Москва", "property": "Места" }
 		]
 	},
 	"OPTIONS": [

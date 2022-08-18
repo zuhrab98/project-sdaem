@@ -7,6 +7,7 @@ import {
 } from '../../redux/slices/filterSlice'
 import { HeaderSelectedProps, SelectedsObj } from './interface'
 import { useAppDispatch } from '../../redux/store'
+import { setTabs } from '../../redux/slices/homeSlice'
 
 export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 	paramName,
@@ -17,6 +18,7 @@ export const HeaderSelected: React.FC<HeaderSelectedProps> = ({
 	const handleOnClick = (item: SelectedsObj, paramName: string): void => {
 		dispatch(setFiltered({ name: item.citi, filterProperty: 'citi' }))
 		dispatch(setHeaderSelectName({name: item.name, paramName: paramName}))
+    dispatch(setTabs({name: item.name, paramName, property: item.property}))
 	}
 
 	return (

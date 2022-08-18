@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import cn from 'classnames'
 
 import data from '../../../api/data.json'
 import { PriceFilter } from '../../PriceFilter/PriceFilter'
@@ -13,11 +12,26 @@ import { MoreOptions } from '../../../pages/ApartamentCatalog/MoreOptions/MoreOp
 
 import styles from './TabFilter.module.scss'
 import { selectFilter } from '../../../redux/slices/filterSlice'
+import { selectHome } from '../../../redux/slices/homeSlice'
 
-export const TabFilter = (): JSX.Element => {
+type Props = {
+	paramName: string
+}
+
+export const TabFilter: React.FC<Props> = ({ paramName }): JSX.Element => {
 	const { filtered } = useSelector(selectFilter)
 	const [visibleOptions, setvisibleOptions] = React.useState(false)
-  
+	const [list, setList] = React.useState(data?.FILTER_ROOMS)
+	const { tabs } = useSelector(selectHome)
+
+	React.useEffect(() => {
+		if (tabs.paramName === 'cars' || tabs.paramName === 'baths') {
+			setList(data.SLEEPING_PLACES)
+		} else {
+			setList(data.FILTER_ROOMS)
+		}
+	}, [tabs])
+
 	return (
 		<div className={styles.tabsFilter}>
 			<div className={styles.filteres}>
@@ -27,9 +41,9 @@ export const TabFilter = (): JSX.Element => {
 					list={data?.FILTER_CITIES}
 				/>
 				<FilterSelect
-					title='Комнаты'
+					title={tabs.property}
 					name={filtered.room ? filtered.room.name : 'Выберите'}
-					list={data?.FILTER_ROOMS}
+					list={list}
 				/>
 				<PriceFilter />
 				<OptionsFilter onclick={() => setvisibleOptions((prev) => !prev)} />
@@ -40,7 +54,7 @@ export const TabFilter = (): JSX.Element => {
 					</Button>
 					<Link
 						to={`/apartmentCatalog`}
-						state={{ paramName: null, citi: filtered.citi?.name }}
+						state={{ paramName: paramName, citi: filtered.citi?.name }}
 						className={styles.lightYellow}
 					>
 						<span>Показать</span>

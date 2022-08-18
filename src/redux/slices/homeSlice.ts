@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { CardsType, Status } from '../../type'
+import { CardsType, Status, Tabs } from '../../type'
 import { RootState } from '../store'
 
 export const fetchHomeCards = createAsyncThunk(
@@ -16,17 +16,27 @@ export const fetchHomeCards = createAsyncThunk(
 interface HomeSliceState {
 	itemsCard: CardsType[]
 	status: Status
+	tabs: Tabs
 }
 
 const initialState: HomeSliceState = {
 	itemsCard: [],
 	status: Status.LOADING,
+	tabs: {
+    name: "Квартиры на сутки",
+    property: 'Комнаты',
+    paramName:'rooms'
+  }
 }
 
 export const homeSlice = createSlice({
 	name: 'home',
 	initialState,
-	reducers: {},
+	reducers: {
+		setTabs(state, action) {
+			state.tabs = action.payload
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchHomeCards.pending, (state) => {
 			state.status = Status.LOADING
@@ -47,4 +57,6 @@ export const homeSlice = createSlice({
 })
 
 export const selectHome = (state: RootState) => state.home
+export const { setTabs } = homeSlice.actions
+
 export default homeSlice.reducer

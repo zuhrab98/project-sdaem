@@ -8,4 +8,5 @@ export interface ParamLists {
 	paramName?: string
 	path?: string
 	citi?: string
+	property?: string 
 }

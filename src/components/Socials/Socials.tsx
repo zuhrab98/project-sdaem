@@ -21,7 +21,7 @@ export const Socials: React.FC<SocialsProps> = ({
 			})}
 		>
 			{socials.map((social) => (
-				<li>
+				<li key={social.icon}>
 					<a href={social.href} target='_blank' rel='noreferrer'>
 						<Icons
 							id={social.icon}

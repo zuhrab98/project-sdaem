@@ -20,7 +20,7 @@ import { Pagination } from '../../components/Pagination/Pagination'
 import { usePagination } from '../../hooks/usePagination'
 import { skeleton } from '../../utils/skeleton'
 import { Filteres } from './Filteres/Filteres'
-import { CardsType, FilterPropertyType } from '../../type'
+import { FilterPropertyType, FilterType } from '../../type'
 import { RootState, useAppDispatch } from '../../redux/store'
 import data from '../../api/data.json'
 
@@ -29,7 +29,7 @@ interface useParamType {
 	citi?: string
 }
 
-const labelsBtnRooms:FilterPropertyType[] = [
+const labelsBtnRooms: FilterPropertyType[] = [
 	{ label: '1-комнатные', name: '1 ком.', filterProperty: 'room' },
 	{ label: '2-комнатные', name: '2 ком.', filterProperty: 'room' },
 	{ label: '3-комнатные', name: '3 ком.', filterProperty: 'room' },
@@ -56,20 +56,18 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 
 	const [labelsBtn, setLabelsBtn] = React.useState(labelsBtnRooms)
 	const [titleCatalog, setTitleCatalog] = React.useState<string>()
+	const [list, setList] = React.useState<FilterType[]>()
 	const [filterCards, setFilterCards] = React.useState([])
 	const [layoutItem, setLayoutItem] = React.useState<string>('table')
 	const [itemsPerPage] = React.useState<number>(6)
 
 	React.useEffect(() => {
-		setTitleCatalog(useParam?.paramName || 'Квартиры') 
-    
-    switch (useParam?.paramName) {
-      case 'cars':
-        setLabelsBtn(labelsBtnCars)
-        break;
-      default:
-        break;
-    }
+		setTitleCatalog(useParam?.paramName || 'Квартиры')
+
+		if (useParam?.paramName === 'cars') {
+			setLabelsBtn(labelsBtnCars)
+		}
+
 		const filtersCard = filteredApartmentCatalog(
 			itemsCard,
 			filtered.room,
@@ -86,7 +84,6 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 	React.useEffect(() => {
 		const order = sortCards?.filterProperty === 'asc' ? 'asc' : 'desc'
 		const param = useParam?.paramName ? useParam.paramName : 'rooms'
-
 		dispatch(fetchCatalogCards({ param, order }))
 
 		window.scroll(0, 0)
@@ -105,15 +102,19 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 	switch (titleCatalog) {
 		case 'rooms':
 			setTitleCatalog('Квартир')
+			setList(data.FILTER_ROOMS)
 			return
 		case 'cottages':
 			setTitleCatalog('Коттеджи и усадьбы')
+			setList(data.FILTER_ROOMS)
 			return
 		case 'cars':
 			setTitleCatalog('Авто')
+			setList(data.SLEEPING_PLACES)
 			return
 		case 'baths':
 			setTitleCatalog('Бани и сауны')
+			setList(data.SLEEPING_PLACES)
 			return
 		default:
 			break
@@ -151,7 +152,7 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-			<Filteres setFilterCards={setFilterCards} />
+			<Filteres list={list} setFilterCards={setFilterCards} />
 			<div className={styles.sortWrapper}>
 				<div className='container'>
 					<div className={styles.row}>
@@ -199,7 +200,7 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 					>
 						{status === 'loading'
 							? skeleton(itemsPerPage)
-							: currentItem.map((card , i:number) => (
+							: currentItem.map((card, i: number) => (
 									<LocationCard
 										cardList={layoutItem === 'list'}
 										key={i}

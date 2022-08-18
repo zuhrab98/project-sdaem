@@ -65,7 +65,6 @@ export const catalogSlice = createSlice({
 	},
 })
 
-// Action creators are generated for each case reducer function
 export const { setCurrentPage, setFav } = catalogSlice.actions
 
 export default catalogSlice.reducer

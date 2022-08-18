@@ -14,4 +14,5 @@ export interface SelectedsObj {
 	name: string
 	citi: string
 	path?: string
+  property: string
 }

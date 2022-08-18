@@ -9,7 +9,6 @@ export type FilterProperty =
 	| 'priceFrom'
 	| 'priceTo'
 
-  
 export type FilterPropertyType = {
 	label?: string
 	name: string
@@ -87,4 +86,10 @@ export type FormValues = {
 	login: string
 	password: string
 	confirmPassword: string
+}
+
+export interface Tabs {
+	name: string
+	property: string
+	paramName: string
 }
