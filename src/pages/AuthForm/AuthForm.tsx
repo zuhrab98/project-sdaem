@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Link } from 'react-router-dom'
-import { yupResolver } from '@hookform/resolvers/yup';
+import { Link, useNavigate } from 'react-router-dom'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import { Button } from '../../components/Button/Button'
 import { InputGroup } from '../../components/InputGroup/InputGroup'
@@ -11,6 +11,7 @@ import { LoginShema } from '../../utils/shemas/loginValidation'
 import styles from './AuthForm.module.scss'
 
 export const AuthForm: React.FC = (): JSX.Element => {
+	const navigate = useNavigate()
 	const {
 		register,
 		handleSubmit,
@@ -23,6 +24,7 @@ export const AuthForm: React.FC = (): JSX.Element => {
 
 	const onSubmit: SubmitHandler<FormValues> = (data) => {
 		console.log(data)
+		navigate('/')
 		reset()
 	}
 
@@ -38,7 +40,7 @@ export const AuthForm: React.FC = (): JSX.Element => {
 						type='login'
 						placeholder='Логин'
 						errorIcon={!!errors.login?.message}
-            helperText={errors.login?.message}
+						helperText={errors.login?.message}
 					/>
 					<InputGroup
 						icon='castle'
@@ -46,14 +48,16 @@ export const AuthForm: React.FC = (): JSX.Element => {
 						type='password'
 						placeholder='Пароль'
 						errorIcon={!!errors.password?.message}
-            helperText={errors.password?.message}
+						helperText={errors.password?.message}
 					/>
 					<div className={styles.rememberMe}>
 						<Link className={styles.link} to='*'>
 							Забыли пароль?
 						</Link>
 					</div>
-					<Button type='submit' name='buttonDef'>Войти</Button>
+					<Button type='submit' name='buttonDef'>
+						Войти
+					</Button>
 					<div className={styles.footerText}>
 						Еще нет аккаунта?{' '}
 						<Link to='/registr' className={styles.link}>

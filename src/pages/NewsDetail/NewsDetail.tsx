@@ -11,8 +11,8 @@ import { fetchnewsDetail } from '../../redux/slices/NewsDetaitSlice'
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import { NewsCardsDetail } from '../../type'
 import { Socials } from '../../components/Socials/Socials'
-import { skeleton } from '../../utils/skeleton'
 import { Icons } from '../../components/Icons/Icons'
+import { Skeleton } from '../../components/Skeleton/Skeleton'
 
 const breadcrumsb = [
 	{ page: 'Home', path: '/' },
@@ -96,7 +96,7 @@ export const NewsDetail = () => {
 					<h3 className={styles.title}>Читайте также</h3>
 					<div className={styles.cardsRow}>
 						{status === 'loading'
-							? skeleton(3)
+							? <Skeleton col={3}/>
 							: cardsList.map((cardNews) => (
 									<NewsCards key={cardNews.id} data={cardNews} />
 							  ))}

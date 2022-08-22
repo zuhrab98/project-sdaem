@@ -16,8 +16,8 @@ import { Pagination } from '../../components/Pagination/Pagination'
 import { Search } from '../../components/Search/Search'
 
 import styles from './News.module.scss'
-import { skeleton } from '../../utils/skeleton'
 import { RootState, useAppDispatch } from '../../redux/store'
+import { Skeleton } from '../../components/Skeleton/Skeleton'
 
 const breadcrumsb = [{ page: 'Home', path: '/' }]
 
@@ -80,6 +80,7 @@ export const News: React.FC = (): JSX.Element => {
 		<NewsCards key={cardNews.id} data={cardNews} />
 	))
 
+
 	return (
 		<div className={styles.wrapper}>
 			<div className={cn(`${'container'}`, styles.wrapperContainer)}>
@@ -89,7 +90,7 @@ export const News: React.FC = (): JSX.Element => {
 					<Search onClickSearch={onClickSearch} search={search} />
 				</div>
 				<div className={styles.newsCards}>
-					{loading ? skeleton(itemsPerPage) : newsCards}
+					{loading ? <Skeleton col={itemsPerPage} /> : newsCards}
 				</div>
 				<Pagination pageNumbers={pageNumbers} paginate={paginate} />
 			</div>

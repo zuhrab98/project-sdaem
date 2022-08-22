@@ -1,6 +1,0 @@
-export { Layout } from '../../Layout/Layout'
-export { HomeFilters } from './filters-section/HomeFilters'
-export { GallerySections } from './gallery/GallerySections'
-export { NewsSection } from './news-section/NewsSection'
-export { RentSection } from './rent-section/RentSection'
-export { StartSection } from './start-section/StartSection'

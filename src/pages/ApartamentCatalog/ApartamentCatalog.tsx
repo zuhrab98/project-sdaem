@@ -18,11 +18,11 @@ import {
 } from '../../redux/slices/catalogSlice'
 import { Pagination } from '../../components/Pagination/Pagination'
 import { usePagination } from '../../hooks/usePagination'
-import { skeleton } from '../../utils/skeleton'
 import { Filteres } from './Filteres/Filteres'
 import { FilterPropertyType, FilterType } from '../../type'
 import { RootState, useAppDispatch } from '../../redux/store'
 import data from '../../api/data.json'
+import { Skeleton } from '../../components/Skeleton/Skeleton'
 
 interface useParamType {
 	paramName?: string | null
@@ -199,7 +199,7 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 						})}
 					>
 						{status === 'loading'
-							? skeleton(itemsPerPage)
+							? <Skeleton col={itemsPerPage}/>
 							: currentItem.map((card, i: number) => (
 									<LocationCard
 										cardList={layoutItem === 'list'}

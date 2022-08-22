@@ -9,11 +9,11 @@ import 'swiper/css/scrollbar'
 import 'swiper/css'
 import './slider.scss'
 import { LocationCard } from '../LocationCard/LocationCard'
-import {skeleton} from '../../utils/skeleton'
 import { useSelector } from 'react-redux'
 import { selectHome } from '../../redux/slices/homeSlice'
 import { CardsType } from '../../type'
 import { SliderProps } from './interface'
+import { Skeleton } from '../Skeleton/Skeleton'
 
 export const Slider: React.FC<SliderProps> = ({ cards }): JSX.Element => {
   
@@ -28,7 +28,7 @@ export const Slider: React.FC<SliderProps> = ({ cards }): JSX.Element => {
 				navigation
 			>
 				{status === 'loading'
-					? skeleton(3)
+					? <Skeleton col={3}/>
 					: cards.map((obj: CardsType) => (
 							<SwiperSlide key={obj.id}>
 								<LocationCard data={obj} />
