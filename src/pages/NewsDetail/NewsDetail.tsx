@@ -12,6 +12,7 @@ import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import { NewsCardsDetail } from '../../type'
 import { Socials } from '../../components/Socials/Socials'
 import { skeleton } from '../../utils/skeleton'
+import { Icons } from '../../components/Icons/Icons'
 
 const breadcrumsb = [
 	{ page: 'Home', path: '/' },
@@ -77,29 +78,28 @@ export const NewsDetail = () => {
 				</div>
 			</div>
 			<div className={styles.mainBlock}>
-				<div className={styles.wrapper}>
-					<div className={styles.imgBlock}>
-						<img
-							src={newsCardsDetaill?.img}
-							width={844}
-							height={563}
-							alt='mainImg'
-						/>
-					</div>
-					<div className={styles.textBlock}>
-						<p>{newsCardsDetaill?.fullDescription}</p>
-					</div>
+				<div className={styles.imgBlock}>
+				<Icons id='circlesYellow' />
+					<img
+						src={newsCardsDetaill?.img}
+						width={844}
+						height={563}
+						alt='mainImg'
+					/>
 				</div>
-				<div className={styles.newsCards}>
-					<div className='container'>
-						<h3 className={styles.title}>Читайте также</h3>
-						<div className={styles.cardsRow}>
-							{status === 'loading'
-								? skeleton(3)
-								: cardsList.map((cardNews) => (
-										<NewsCards key={cardNews.id} data={cardNews} />
-								  ))}
-						</div>
+				<div className={styles.textBlock}>
+					<p>{newsCardsDetaill?.fullDescription}</p>
+				</div>
+			</div>
+			<div className={styles.newsCards}>
+				<div className='container'>
+					<h3 className={styles.title}>Читайте также</h3>
+					<div className={styles.cardsRow}>
+						{status === 'loading'
+							? skeleton(3)
+							: cardsList.map((cardNews) => (
+									<NewsCards key={cardNews.id} data={cardNews} />
+							  ))}
 					</div>
 				</div>
 			</div>
