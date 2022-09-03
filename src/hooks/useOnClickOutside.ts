@@ -1,5 +1,4 @@
 import React from 'react'
-import { M } from '../type'
 
 
 export const useOnClickOutside = (
@@ -9,8 +8,8 @@ export const useOnClickOutside = (
 
 	React.useEffect(() => {
 		// если клик произошел в не области выподающего списка
-		const closePopup = (e: M) => {
-			if (e.path[0] !== ref?.current) {
+		const closePopup = (e: MouseEvent): void => {
+			if (!ref?.current.contains((e.target) as Node) && ref?.current) {
 				setModalOpen(false)
 			}
 		}

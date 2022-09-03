@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { FilterPropertyType } from '../../type'
+import { FilterPropertyType, FilterType } from '../../type'
 import { RootState } from '../store'
 
 interface FilterSliceState {
 	filtered: {
-		region: null | FilterPropertyType
-		metro: null | FilterPropertyType
-		room: null | FilterPropertyType
-		citi: null | FilterPropertyType
-		places: null | FilterPropertyType
+		region: FilterPropertyType
+		metro:  FilterPropertyType
+		room: FilterPropertyType
+		citi: FilterPropertyType
+		places: FilterPropertyType
 		priceFrom: FilterPropertyType
 		priceTo: FilterPropertyType
 	}
 	headerSelectName: { name: string; paramName: string }
-	sortCards: null | FilterPropertyType
+	sortCards: FilterType
 }
 
 const initialState: FilterSliceState = {
@@ -34,7 +34,7 @@ export const filterSlice = createSlice({
 	name: 'filter',
 	initialState,
 	reducers: {
-		setFiltered(state, action: PayloadAction<FilterPropertyType>) {
+		setFiltered(state, action: PayloadAction<FilterType>) {
 			const key = action.payload.filterProperty
 			state.filtered[key] = action.payload
 		},
@@ -48,7 +48,7 @@ export const filterSlice = createSlice({
 			state.filtered.places = null
 			state.sortCards = null
 		},
-		setSort(state, action: PayloadAction<FilterPropertyType>) {
+		setSort(state, action: PayloadAction<FilterType>) {
 			state.sortCards = action.payload
 		},
 		setHeaderSelectName(state, action) {

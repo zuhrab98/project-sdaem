@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './Footer.module.scss'
-import { Icons } from '../../components/Icons/Icons'
 import { Lists } from '../../components/Lists/Lists'
 import data from '../../api/data.json'
 import { Link } from 'react-router-dom'

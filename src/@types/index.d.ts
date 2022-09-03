@@ -1,7 +1,12 @@
-declare module '*.scss'
-declare module '*.svg'
-declare module '*.jpeg'
-declare module '*.png'
-declare module '*.ts'
-declare module '*.tsx'
-declare module '*.json'
+declare module '*.scss' {
+	const styles: { [className: string]: string }
+	export default styles
+}
+
+declare module '*.svg' {
+	import type { FC, SVGProps } from 'react'
+
+	const component: FC<SVGProps<SVGSVGElement>>
+
+	export default component
+}

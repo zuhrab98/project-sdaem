@@ -2,7 +2,6 @@ import React from 'react'
 import cn from 'classnames'
 import styles from './Modal.module.scss'
 import { Button } from '../Button/Button'
-import { M } from '../../type'
 import { ModalProps } from './interface'
 import { useNavigate } from 'react-router'
 
@@ -17,7 +16,7 @@ export const Modal: React.FC<ModalProps> = ({
 	const navigate = useNavigate()
 
 	React.useEffect(() => {
-		const closePopup = (e: M) => {
+		const closePopup = (e: MouseEvent) => {
       if (!navigatPage) {
         if (refModal.current && !refModal.current.contains(e.target)) {
           isActive(false)

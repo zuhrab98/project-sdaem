@@ -10,7 +10,7 @@ import {
 	setSort,
 } from '../../redux/slices/filterSlice'
 import { FilterSelectProps } from './interface'
-import { FilterPropertyType } from '../../type'
+import {  FilterType } from '../../type'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import { useAppDispatch } from '../../redux/store'
 
@@ -30,7 +30,7 @@ export const FilterSelect: React.FC<FilterSelectProps> = ({
   
 	useOnClickOutside(divRef, setVisiblePopup)
 
-	const onClickListItem = (obj: FilterPropertyType) => {
+	const onClickListItem = (obj: FilterType) => {
 		// Обновляем имя
 		setFilterName(obj.name)
 		dispatch(setFiltered(obj))
@@ -73,7 +73,7 @@ export const FilterSelect: React.FC<FilterSelectProps> = ({
 			{visiblePopup && (
 				<div className={styles.dropdown}>
 					<ul className={styles.list}>
-						{list?.map((obj: FilterPropertyType) => (
+						{list?.map((obj: FilterType) => (
 							<li
 								key={obj?.name}
 								onClick={() => onClickListItem(obj)}

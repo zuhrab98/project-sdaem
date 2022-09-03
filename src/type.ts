@@ -20,10 +20,6 @@ export type FilterType = {
 	filterProperty: string
 }
 
-export type M = MouseEvent & {
-	path: Node[]
-}
-
 export interface OwnerType {
 	email: string
 	img: string
