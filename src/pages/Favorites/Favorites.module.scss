@@ -1,0 +1,140 @@
+.wrapper {
+	padding: 180px 0;
+	width: 100%;
+	height: 100%;
+}
+
+.root {
+	display: flex;
+	gap: 30px;
+}
+
+.left {
+	max-width: 515px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	h1 {
+		color: var(--white);
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 1;
+	}
+	p {
+		color: var(--white);
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
+	a {
+		display: inline-block;
+		padding: 12px 24px;
+	}
+}
+.info {
+	.list {
+		li {
+			display: flex;
+			align-items: center;
+			font-weight: 600;
+			font-size: 18px;
+			line-height: 1.5;
+
+			.icon {
+				width: 30px;
+				height: 30px;
+				background: rgba(255, 255, 255, 0.2);
+				border-radius: 17px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-right: 20px;
+			}
+		}
+
+		& > * + * {
+			margin-top: 11px;
+		}
+	}
+}
+.name {
+	margin-top: 30px;
+	margin-bottom: 40px;
+	p {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1.5;
+	}
+}
+
+.right {
+	max-width: 625px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background: #fffefe;
+	box-shadow: 0px 20px 40px rgba(39, 95, 158, 0.2);
+	border-radius: 10px;
+	padding: 40px;
+}
+
+.formBlock {
+	label {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 17px;
+		color: var(--grey);
+		margin-bottom: 15px;
+		cursor: pointer;
+	}
+
+	button {
+		padding: 12px 56px;
+		color: var(--white);
+		margin: 0 auto;
+	}
+}
+
+.inputs {
+	display: flex;
+	gap: 30px;
+}
+
+.inputGroup {
+	display: flex;
+	flex-direction: column;
+
+	input {
+		padding: 15px 55px;
+		width: 100%;
+		height: 50px;
+		background: #f7f7f7;
+		border-radius: 30px;
+		margin-bottom: 20px;
+	}
+	input:focus {
+		border: 2px solid rgba(102, 78, 249, 0.8);
+		& + svg {
+			fill: #6540cd;
+		}
+	}
+}
+
+.message {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 40px;
+
+	textarea {
+		width: 100%;
+		height: 200px;
+		padding: 15px 20px;
+		background: var(--dark-grey);
+		border-radius: 30px;
+		border: none;
+		outline-color: #664ef9;
+		resize: none;
+	}
+}

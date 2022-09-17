@@ -1,0 +1,41 @@
+.galleryAds {
+	padding-bottom: 110px;
+}
+
+.row {
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: -33px;
+		bottom: -110px;
+		width: 61px;
+		height: 61px;
+		background-image: url('../../../assets/circlesYellow.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+
+// галерейные карточки
+.cards {
+	max-width: 953px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+	gap: 30px;
+}
+
+.promoMenu {
+	margin-left: 30px;
+}
+
+.popularLinks {
+	& > * + * {
+		margin-top: 35px;
+	}
+}

@@ -1,0 +1,201 @@
+.card {
+	position: relative;
+	max-width: 406px;
+	width: 100%;
+	background: #fffefe;
+	border-radius: 10px;
+}
+
+.headerCard {
+	position: relative;
+	width: 100%;
+	max-width: 540px;
+	max-height: 227px;
+	display: flex;
+	justify-content: center;
+	background: #e0e0e0;
+	border-radius: 10px;
+	flex-shrink: 0;
+	overflow: hidden;
+
+	img {
+		max-width: 100%;
+		height: 100%;
+	}
+
+	.label {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 66px;
+		padding: 7.5px 12px;
+		background: linear-gradient(106.06deg, #ffd54f 1.12%, #fec100 97.96%);
+		border-radius: 0px 10px 10px 10px;
+
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 22px;
+		color: var(--white);
+		text-shadow: 0px 1px 0px rgba(147, 79, 0, 0.3);
+		z-index: 3;
+	}
+}
+
+.body {
+	padding: 20px;
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 24px;
+}
+
+.price {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+	color: var(--primary);
+}
+
+.priceText {
+	text-align: left;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #bdbdbd;
+}
+
+.labelRow {
+	display: flex;
+	& > * + * {
+		margin-left: 7px;
+	}
+  .primaryText {
+    color: var(--primary);
+  }
+}
+
+.locationBlock {
+	display: grid;
+	grid-template-columns: 133px 115px;
+	margin-bottom: 20px;
+}
+.location:first-child {
+	grid-column: 3 span;
+	margin-bottom: 11px;
+}
+.location {
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 19px;
+	color: var(--title);
+
+	& > * + * {
+		margin-left: 8px;
+	}
+}
+
+.desc {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 15px;
+	color: var(--grey);
+	margin-bottom: 12px;
+	text-align: left;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 13px;
+	border-top: 1px solid rgba(101, 78, 249, 0.1);
+
+	& > div {
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		svg {
+			margin-right: 10px;
+		}
+	}
+	button {
+		padding: 10px;
+	}
+}
+
+// стили применяются на странице каталог
+.imgList {
+	max-height: 100%;
+}
+.bodyList {
+	padding: 25px;
+	.row {
+		margin-bottom: 0;
+	}
+	.title {
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 1;
+		color: var(--title);
+	}
+	.priceBlock {
+		.price {
+			font-size: 25px;
+			margin-bottom: 5px;
+		}
+		.priceText {
+			text-align: right;
+			color: #7a7f86;
+		}
+	}
+	.labelRow {
+		margin-bottom: 14px;
+
+		& > * + * {
+			margin-left: 15px;
+		}
+	}
+	.locationBlock {
+		display: flex;
+		margin-bottom: 15px;
+	}
+	.desc {
+		font-size: 14px;
+		line-height: 21px;
+		margin-bottom: 0;
+	}
+	.footer {
+		padding: 0;
+		margin-top: 25px;
+		border-top: none;
+		.left {
+			display: flex;
+
+			& > * + * {
+				margin-left: 15px;
+			}
+		}
+		button {
+      padding: 9px 15px;
+			border-radius: 18px;
+			color: #eb5757;
+			svg {
+				margin: 0;
+				margin-left: 8px;
+			}
+		}
+	}
+}
+
+.catalogCard {
+	max-width: 100%;
+	display: flex;
+}
+.cardCatalog {
+	box-shadow: (0px 20px 40px rgba(39, 95, 158, 0.1));
+}

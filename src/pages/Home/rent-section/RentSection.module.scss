@@ -1,0 +1,99 @@
+.rentSection {
+	padding-top: 32px;
+	position: relative;
+	height: 970px;
+	width: 100%;
+
+	&::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 848px;
+		background: linear-gradient(90deg, #94afff 0%, #4e64f9 94.5%);
+		opacity: 0.1;
+		border-radius: 40px 0px 0px 0px;
+		z-index: -1;
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.titleRow {
+	width: 100%;
+	& > * + * {
+		margin-top: 15px;
+	}
+}
+
+.subtitle {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	background: linear-gradient(90deg, #9d94ff 0%, #6b50e9 94.5%);
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.title {
+	font-weight: 700;
+	font-size: 25px;
+	line-height: 30px;
+	color: var(--title);
+}
+
+.metroIcon {
+	right: unset;
+	left: 24px;
+	margin-top: -1px;
+	margin-right: 8px;
+}
+
+.filter {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	gap: 30px;
+}
+
+.sliderRow {
+	margin-bottom: 32px;
+}
+
+.offers {
+	display: flex;
+	align-items: center;
+
+	.left {
+		padding-right: 30px;
+		border-right: 1px solid rgba(108, 80, 233, 0.1);
+	}
+  
+	a {
+    margin-left: 24px;
+    color: var(--white);
+	}
+
+	.number {
+		font-weight: 700;
+		font-size: 60px;
+		line-height: 73px;
+		color: var(--title);
+
+		span {
+			color: var(--primary);
+		}
+	}
+
+	.text {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 17px;
+		color: rgba(130, 145, 163, 0.6);
+	}
+}

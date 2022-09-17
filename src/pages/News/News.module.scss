@@ -1,0 +1,39 @@
+.wrapper {
+	position: relative;
+	padding: 45px 0px 100px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 32px;
+		bottom: 0;
+		width: 1033px;
+		height: 1000px;
+		background: linear-gradient(90deg, #94afff 0%, #4e64f9 94.5%);
+		opacity: 0.1;
+		border-radius: 40px 0px 0px 0px;
+		z-index: -1;
+	}
+}
+
+.headerRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+  margin: 25px 0 50px;
+}
+
+.title {
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 1;
+	color: var(--title);
+}
+
+.newsCards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+	margin-bottom: 80px;
+}

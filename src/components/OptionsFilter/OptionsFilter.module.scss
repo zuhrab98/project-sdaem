@@ -1,0 +1,49 @@
+.optionsFilter {
+	flex: 0 0 160px;
+	display: flex;
+	min-height: 64px;
+}
+
+.button {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 17px;
+	background: transparent;
+	color: var(--title);
+	cursor: pointer;
+
+	.content {
+		margin-right: 4px;
+	}
+	&:after {
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 0;
+		bottom: 0;
+		height: 3px;
+		background-color: var(--primary);
+		content: '';
+		transition: width 0.3s ease-out;
+	}
+  
+	&:hover:after {
+		width: 100%;
+	}
+}
+
+.active {
+	&::after {
+		width: 100%;
+	}
+}
+
+.icon {
+	display: contents;
+}

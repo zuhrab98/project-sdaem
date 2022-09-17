@@ -1,0 +1,189 @@
+.filterOfferType {
+	position: relative;
+	padding: 0 20px;
+	width: 100%;
+}
+
+.title {
+	display: inline-block;
+	font-size: 14px;
+	margin-bottom: 11px;
+	font-weight: 500;
+	line-height: 17px;
+	color: #bdbdbd;
+}
+
+.button {
+	position: relative;
+	display: flex;
+	width: 100%;
+	padding: 9px 8px 9px 12px;
+	background: var(--dark-grey);
+	border: 2px solid transparent;
+	border-radius: 20px;
+
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 14px;
+	color: var(--text-grey);
+	text-align: left;
+	transition: 0.2s ease-in-out;
+	cursor: pointer;
+
+	svg {
+		position: absolute;
+		right: 7px;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: transform 0.3s;
+	}
+
+	&:hover {
+		background: rgba(102, 78, 249, 0.1);
+	}
+}
+
+.buttonActive {
+	box-shadow: (0px 5px 15px rgba(135, 124, 202, 0.25));
+	border: 2px solid rgba(102, 78, 249, 0.8);
+
+	svg:last-child {
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+}
+
+.dropdown {
+	position: relative;
+  top: 70px;
+	min-width: 150px;
+	position: absolute;
+	left: 20px;
+	background: #ffffff;
+	box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.3);
+	border-radius: 10px;
+	z-index: 100;
+}
+
+.dropdown.toggleActive {
+	display: block;
+}
+
+.list {
+	margin-top: 10px;
+
+	li {
+		padding: 10px 15px 10px;
+		font-size: 14px;
+		line-height: 17px;
+		color: #1e2123;
+		cursor: pointer;
+		transition: 0.3s ease-in-out;
+
+		&:hover {
+			background: #f7f5f5;
+			border-radius: 10px;
+		}
+	}
+}
+
+.selectActiveMetro,
+.selectActiveReg,
+.selectActiveCiti,
+.selectActiveRoom {
+	background: #f7f5f5;
+}
+
+// =========== Фильтр для метро и районов ===========
+.filterMetro,
+.filterDistricts {
+	max-width: 185px;
+	border-right: none;
+	padding: 0;
+
+	.button {
+		padding: 10px 10px 10px 42px;
+		box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.1);
+		line-height: 16px;
+
+		&:hover {
+			background: #fbfbfb;
+			box-shadow: 3px 7px 14px 3px rgba(0, 96, 206, 0.1);
+		}
+	}
+
+	.dropdown {
+		width: 100%;
+    left: 0;
+	}
+}
+
+// =========== Сортировка на странице каталог кваритир ===========
+
+.sortPrice {
+	max-width: 230px;
+	padding: 0;
+
+	.button {
+		border: none;
+		padding: 11px 10px 11px 42px;
+		background: var(--white);
+		box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
+	}
+
+	.buttonActive {
+		svg:first-child {
+			fill: var(--primary);
+		}
+	}
+
+	.dropdown {
+		width: 100%;
+    top: 45px;
+    left: 0;
+	}
+}
+
+.rentalApartment {
+	display: flex;
+	align-items: center;
+	flex: 0 0 258px;
+	padding-left: 0;
+
+	.button {
+		color: var(--title);
+	}
+
+	.title {
+		margin-right: 25px;
+		margin-bottom: 0;
+
+		color: var(--primary);
+	}
+
+	.dropdown {
+		left: 86px;
+		box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.18);
+		z-index: 100;
+	}
+}
+
+.moreOptionsFilter {
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 200px;
+	padding-left: 0;
+	padding-right: 0;
+
+	.button {
+		line-height: 17px;
+		color: var(--title);
+	}
+
+	.dropdown {
+		width: 100%;
+		left: 0;
+		box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.18);
+		z-index: 100;
+		top: 80px;
+	}
+}

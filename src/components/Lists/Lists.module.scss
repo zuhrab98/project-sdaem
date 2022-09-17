@@ -1,0 +1,23 @@
+.item {
+	a {
+    position: relative;
+		transition: 0.2s ease-in-out;
+	}
+
+  a:after {
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 0;
+    bottom: 0;
+		height: 2px;
+		background-color: var(--light-yellow);
+		content: '';
+		transition: width 0.3s ease-out;
+	}
+
+	a:hover:after,
+	a:focus:after {
+		width: 100%;
+	}
+}

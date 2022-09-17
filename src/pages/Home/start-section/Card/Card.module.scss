@@ -1,0 +1,109 @@
+.card {
+	padding: 26px 39px 55px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	background: var(--white);
+	box-shadow: 0px 20px 40px rgba(135, 124, 202, 0.15);
+	border-radius: 10px;
+
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #242424;
+
+	a {
+		span {
+			padding-right: 10px;
+		}
+		svg {
+			transform: rotate(270deg);
+		}
+	}
+}
+
+.card.gold {
+	padding-top: 39px;
+	align-items: center;
+	background: url('../../../../assets/cardblesc.png'),
+		linear-gradient(105.54deg, #ffd54f 33.53%, #fec100 94.13%);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: revert;
+
+	.header {
+		margin-bottom: 35px;
+	}
+
+	.title {
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 36px;
+		color: var(--title);
+		text-align: center;
+	}
+
+	a {
+		margin-right: auto;
+		background: linear-gradient(270deg, #7e6af3 0%, #6540cd 100%);
+
+		span {
+			padding-right: 10px;
+			color: var(--white);
+		}
+
+		svg {
+			path {
+				stroke: var(--white);
+			}
+		}
+	}
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 25px;
+}
+
+.title {
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+	color: var(--primary);
+	text-align: left;
+}
+
+.img {
+	width: 98px;
+	height: 98px;
+	margin-right: 26px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	flex-shrink: 0;
+
+	background: #ffffff;
+	box-shadow: 0px 11px 20px rgba(127, 155, 187, 0.16);
+}
+
+.text {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: var(--title);
+	margin-bottom: 33px;
+	text-align: left;
+}
+
+.goldText {
+	text-align: left;
+	margin-bottom: 37px;
+	& > * + * {
+		margin-top: 14px;
+	}
+}

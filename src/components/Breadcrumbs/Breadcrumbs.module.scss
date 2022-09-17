@@ -1,0 +1,35 @@
+.breadcrumsb {
+	display: flex;
+	align-items: center;
+
+	a {
+		display: flex;
+	}
+
+	span {
+		color: var(--light-primary);
+	}
+}
+
+.text,
+.pageName {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1;
+	padding-left: 12px;
+}
+
+.text {
+  position: relative;
+  color: var(--grey);
+
+  &::before {
+    content: '.';
+
+    position: absolute;
+    top: 24%;
+    transform: translate(-50%, -50%);
+    left: 6px;
+    color: var(--light-primary);
+  }
+}
