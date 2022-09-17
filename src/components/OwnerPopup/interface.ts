@@ -1,3 +1,3 @@
-import { OwnerType } from "../../type";
+import { OwnerType } from '../../type'
 
 export interface OwnerPopupProps { owner: OwnerType}

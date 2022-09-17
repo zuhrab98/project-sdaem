@@ -1,63 +1,65 @@
 import React from 'react'
+
 import cn from 'classnames'
-import styles from './PromoMenu.module.scss'
 import { Icons } from 'components/Icons/Icons'
 import { Link } from 'react-router-dom'
 import { setFiltered } from 'redux/slices/filterSlice'
-import { PromoMenuProps, PromoMenuParams } from './inteface'
 import { useAppDispatch } from 'redux/store'
 
-export const PromoMenu: React.FC<PromoMenuProps> = ({ data, showMore, title }): JSX.Element => {
-	const [visibleLinksMore, setvisibleLinksMore] = React.useState(false)
-	const dispatch = useAppDispatch()
+import { PromoMenuProps, PromoMenuParams } from './inteface'
+import styles from './PromoMenu.module.scss'
 
-	const toggleVisibleLinksMore = () => {
-		setvisibleLinksMore((prev) => !prev)
-	}
-  
-	const handleOnClick = (item: PromoMenuParams) => {
-		dispatch(setFiltered({ name: item?.citi, filterProperty: 'citi' }))
-	}
+export const PromoMenu: React.FC<PromoMenuProps> = ({ data, showMore, title }) => {
+    const [visibleLinksMore, setvisibleLinksMore] = React.useState(false)
+    const dispatch = useAppDispatch()
 
-	return (
-		<div className={styles.groupMenu}>
-			<h3 className={styles.title}>{title}</h3>
-			<div
-				className={cn(styles.list, {
-					[styles.showMoreLinks]: visibleLinksMore,
-				})}
-			>
-				{data &&
-					data.map((item, index) => (
-						<Link
-							to='/apartmentCatalog'
-							onClick={() => handleOnClick(item)}
-							state={{ paramName: item.paramName }}
-							key={index}
-							className={styles.link}
-						>
-							<span className={styles.name}>{item.name}</span>
-							{item.count ? (
-								<span className={styles.count}>{item.count}</span>
-							) : (
-								''
-							)}
-						</Link>
-					))}
-			</div>
+    const toggleVisibleLinksMore = () => {
+        setvisibleLinksMore((prev) => !prev)
+    }
 
-			{showMore && (
-				<span
-					onClick={toggleVisibleLinksMore}
-					role='button'
-					className={cn(styles.arrowMore, {
-						[styles.arrowMoreToggle]: visibleLinksMore,
-					})}
-				>
-					Еще
-					<Icons id='arrow-more' />
-				</span>
-			)}
-		</div>
-	)
+    const handleOnClick = (item: PromoMenuParams) => {
+        dispatch(setFiltered({ name: item?.citi, filterProperty: 'citi' }))
+    }
+
+    return (
+        <div className={styles.groupMenu}>
+            <h3 className={styles.title}>{title}</h3>
+            <div
+                className={cn(styles.list, {
+                    [styles.showMoreLinks]: visibleLinksMore,
+                })}
+            >
+                {data &&
+                  data.map((item, index) => (
+                      <Link
+                          key={index}
+                          className={styles.link}
+                          onClick={() => handleOnClick(item)}
+                          state={{ paramName: item.paramName }}
+                          to="/apartmentCatalog"
+                      >
+                          <span className={styles.name}>{item.name}</span>
+                          {item.count ? (
+                              <span className={styles.count}>{item.count}</span>
+                          ) : (
+                              ''
+                          )}
+                      </Link>
+                  ))}
+            </div>
+
+            {showMore && (
+                <span
+                    className={cn(styles.arrowMore, {
+                        [styles.arrowMoreToggle]: visibleLinksMore,
+                    })}
+                    onClick={toggleVisibleLinksMore}
+                    role="button"
+                >
+                    Еще
+                    <Icons id="arrow-more" />
+                </span>
+            )}
+        </div>
+    )
 }

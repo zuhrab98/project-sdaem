@@ -1,4 +1,4 @@
-import { CardsType } from "../../type";
+import { CardsType } from '../../type'
 
 export interface SliderProps {
 	cards: CardsType[]

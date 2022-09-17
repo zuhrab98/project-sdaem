@@ -1,4 +1,4 @@
-import { FilterPropertyType } from "../../../type"
+import { FilterPropertyType } from '../../../type'
 
 export interface OptionType {
   id: number
