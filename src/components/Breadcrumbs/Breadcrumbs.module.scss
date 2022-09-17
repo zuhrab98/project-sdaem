@@ -6,30 +6,30 @@
 		display: flex;
 	}
 
-	.text,
-	span {
-		font-weight: 400;
-		font-size: 14px;
-		line-height: 1;
-		padding-left: 12px;
-	}
-
 	span {
 		color: var(--light-primary);
 	}
+}
 
-	.text {
-		position: relative;
-		color: var(--grey);
+.text,
+.pageName {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1;
+	padding-left: 12px;
+}
 
-		&::before {
-			content: '.';
+.text {
+  position: relative;
+  color: var(--grey);
 
-			position: absolute;
-			top: 24%;
-			transform: translate(-50%, -50%);
-			left: 6px;
-			color: var(--light-primary);
-		}
-	}
+  &::before {
+    content: '.';
+
+    position: absolute;
+    top: 24%;
+    transform: translate(-50%, -50%);
+    left: 6px;
+    color: var(--light-primary);
+  }
 }

@@ -1,4 +1,4 @@
-import { CardsType, NewsCard } from "../type"
+import { CardsType, NewsCard } from "type"
 
 export const usePagination = (currentPage: number, filterCards: CardsType[] | NewsCard[], itemsPerPage: number) => {
 	// получаем индекс первой страницы, последней

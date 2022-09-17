@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Icons } from '../../../components/Icons/Icons'
+import { Icons } from 'components/Icons/Icons'
 import styles from './StartSection.module.scss'
-import { Button } from '../../../components/Button/Button'
+import { Button } from 'components/Button/Button'
 import { Card } from './Card/Card'
 import data from './data.json'
 

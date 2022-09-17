@@ -1,9 +1,8 @@
 import React from 'react'
 
-import { Icons } from '../../../components/Icons/Icons'
+import { Icons } from 'components/Icons/Icons'
 import styles from './NewsSection.module.scss'
-// import { Button } from '../../../components/Button/Button'
-import data from '../../../api/data.json'
+import data from 'api/data.json'
 import { Link } from 'react-router-dom'
 import { NewsSectionProps } from './interface'
 

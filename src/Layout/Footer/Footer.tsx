@@ -1,9 +1,11 @@
 import React from 'react'
-import styles from './Footer.module.scss'
-import { Lists } from '../../components/Lists/Lists'
-import data from '../../api/data.json'
 import { Link } from 'react-router-dom'
-import { Socials } from '../../components/Socials/Socials'
+
+import styles from './Footer.module.scss'
+
+import data from 'api/data.json'
+import { Lists } from 'components/Lists/Lists'
+import { Socials } from 'components/Socials/Socials'
 
 export const Footer: React.FC = (): JSX.Element => {
 	return (
@@ -13,7 +15,7 @@ export const Footer: React.FC = (): JSX.Element => {
 					<Link to='/' className='logo'>
 						<img src='/img/logo.svg' width={134} height={19} alt='logo' />
 					</Link>
-					<p className={styles.p}>СДАЁМ БАЙ</p>
+					<p className={styles.descTitle}>СДАЁМ БАЙ</p>
 					<p>
 						ИП Шушкевич Андрей Викторович <br />
 						УНП 192602485 Минским горисполкомом <br />
@@ -56,13 +58,13 @@ export const Footer: React.FC = (): JSX.Element => {
 							fill='#1E2123'
 						/>
 					</div>
-					<div className={styles.payment}>
+					<ul className={styles.payment}>
 						{data?.PAYMENT.map((item, i) => (
-							<div key={i} className={styles.paymentItem}>
+							<li key={i}>
 								<img src={item.src} alt={item.alt} />
-							</div>
+							</li>
 						))}
-					</div>
+					</ul>
 				</div>
 			</div>
 		</footer>

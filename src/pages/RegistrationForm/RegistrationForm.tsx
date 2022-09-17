@@ -2,14 +2,13 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
-import cn from 'classnames'
 
-import { Button } from '../../components/Button/Button'
-import { InputGroup } from '../../components/InputGroup/InputGroup'
+import { Button } from 'components/Button/Button'
+import { InputGroup } from 'components/InputGroup/InputGroup'
 import styles from './RegistrationForm.module.scss'
-import { FormValues } from '../../type'
-import { RegistShema } from '../../utils/shemas/rgistrValidation'
-import { Modal } from '../../components/Modal/Modal'
+import { FormValues } from 'type'
+import { RegistShema } from 'utils/shemas/rgistrValidation'
+import { Modal } from 'components/Modal/Modal'
 
 export const RegistrationForm: React.FC = (): JSX.Element => {
 	const {

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../../components/Button/Button'
-import { Icons } from '../../components/Icons/Icons'
+import { Button } from 'components/Button/Button'
+import { Icons } from 'components/Icons/Icons'
 
 import styles from './NotFound.module.scss'
 

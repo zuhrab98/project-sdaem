@@ -2,23 +2,21 @@ import React from 'react'
 import cn from 'classnames'
 
 import styles from './Filteres.module.scss'
-
-import data from '../../../api/data.json'
-import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
-import { PriceFilter } from '../../../components/PriceFilter/PriceFilter'
-import { OptionsFilter } from '../../../components/OptionsFilter/OptionsFilter'
-import { Button } from '../../../components/Button/Button'
-import { Icons } from '../../../components/Icons/Icons'
+import { FilterSelect } from 'components/FilterSelect/FilterSelect'
+import { PriceFilter } from 'components/PriceFilter/PriceFilter'
+import { OptionsFilter } from 'components/OptionsFilter/OptionsFilter'
+import { Button } from 'components/Button/Button'
+import { Icons } from 'components/Icons/Icons'
 import {
 	selectFilter,
 	setFiltersClear,
-} from '../../../redux/slices/filterSlice'
+} from 'redux/slices/filterSlice'
 import { MoreOptions } from '../MoreOptions/MoreOptions'
 import { useDispatch, useSelector } from 'react-redux'
-import { filteredApartmentCatalog } from '../../../utils/filteredCards'
+import { filteredApartmentCatalog } from 'utils/filteredCards'
 import { FilteresProps } from './interface'
-import { RootState } from '../../../redux/store'
-import { selectHome } from '../../../redux/slices/homeSlice'
+import { RootState } from 'redux/store'
+import { selectHome } from 'redux/slices/homeSlice'
 
 
 export const Filteres: React.FC<FilteresProps> = ({ setFilterCards, list }) => {

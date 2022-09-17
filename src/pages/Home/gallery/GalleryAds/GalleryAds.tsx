@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from './GalleryAds.module.scss'
-import { setFiltered } from '../../../../redux/slices/filterSlice'
-import { Icons } from '../../../../components/Icons/Icons'
-import { useAppDispatch } from '../../../../redux/store'
+import { setFiltered } from 'redux/slices/filterSlice'
+import { Icons } from 'components/Icons/Icons'
+import { useAppDispatch } from 'redux/store'
 import { GalleryAdsProps } from './interface'
 
 export const GalleryAds: React.FC<GalleryAdsProps> = ({

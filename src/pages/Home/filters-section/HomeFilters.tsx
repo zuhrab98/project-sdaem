@@ -2,8 +2,8 @@ import React from 'react'
 import cn from 'classnames'
 
 import styles from './HomeFilters.module.scss'
-import { TabHeaderItem } from '../../../components/Tabs/TabHeaderItem/TabHeaderItem'
-import data from '../../../api/data.json'
+import { TabHeaderItem } from 'components/Tabs/TabHeaderItem/TabHeaderItem'
+import data from 'api/data.json'
 
 export const HomeFilters: React.FC = (): JSX.Element => {
 	return (

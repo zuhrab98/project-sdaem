@@ -17,12 +17,7 @@
 		"noImplicitAny": false,
 		"noFallthroughCasesInSwitch": true,
 		"strictNullChecks": false,
-    "baseUrl": "src", 
-    "paths": {
-      "comps/*": ["components/*"],
-      "utils/*": ["utils/*"],
-      "hooks/*": ["hooks/*"]
-    }
+    "baseUrl": "src",
 	},
 	"include": ["src"],
 	"files": ["src/@types/index.d.ts"]

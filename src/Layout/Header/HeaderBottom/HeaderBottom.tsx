@@ -1,11 +1,10 @@
 import React from 'react'
-import cn from 'classnames'
-import styles from './HeaderBottom.module.scss'
-import { NavLinks } from '../NavLink/NavLink'
-import { Button } from '../../../components/Button/Button'
+import { Button } from 'components/Button/Button'
 import { Link } from 'react-router-dom'
-import data from '../../../api/data.json'
-import { NavHeaderBottom } from '../../../components/NavHeaderBottom/NavHeaderBottom'
+import { NavHeaderBottom } from 'components/NavHeaderBottom/NavHeaderBottom'
+import data from 'api/data.json'
+
+import styles from './HeaderBottom.module.scss'
 
 export const HeaderBottom: React.FC = (): JSX.Element => {
 

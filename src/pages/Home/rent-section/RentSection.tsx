@@ -1,15 +1,15 @@
 import React from 'react'
 
-import { Icons } from '../../../components/Icons/Icons'
+import { Icons } from 'components/Icons/Icons'
 import styles from './RentSection.module.scss'
-import { Slider } from '../../../components/Slider/Slider'
-import { Button } from '../../../components/Button/Button'
-import data from '../../../api/data.json'
+import { Slider } from 'components/Slider/Slider'
+import { Button } from 'components/Button/Button'
+import data from 'api/data.json'
 import { useSelector } from 'react-redux'
-import { filteredApartmentCatalog } from '../../../utils/filteredCards'
-import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
-import { selectFilter } from '../../../redux/slices/filterSlice'
-import { CardsType } from '../../../type'
+import { filteredApartmentCatalog } from 'utils/filteredCards'
+import { FilterSelect } from 'components/FilterSelect/FilterSelect'
+import { selectFilter } from 'redux/slices/filterSlice'
+import { CardsType } from 'type'
 
 export const RentSection: React.FC<{cards: CardsType[]}> = ({ cards }):JSX.Element => {
 	// получаем из stora необходимые свойства

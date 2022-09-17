@@ -9,10 +9,11 @@ footer {
 	justify-content: space-between;
 	font-weight: 400;
 	font-size: 14px;
-	p,
-	a {
-		color: var(--grey);
-	}
+}
+
+p,
+a {
+	color: var(--grey);
 }
 
 .desc {
@@ -21,12 +22,13 @@ footer {
 	max-width: 297px;
 	font-size: 11px;
 
-	.p {
-		padding-bottom: 36px;
-	}
-	& > .p + p {
+	& > p {
 		line-height: 13px;
 	}
+}
+
+.descTitle {
+	padding-bottom: 36px;
 }
 
 .content {
@@ -86,8 +88,6 @@ footer {
 	display: flex;
 	align-items: center;
 }
-
-
 
 .payment {
 	display: flex;

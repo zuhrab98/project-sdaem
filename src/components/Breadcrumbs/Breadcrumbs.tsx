@@ -16,7 +16,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
 					{crumbs.page === 'Home' ? (
 						<Icons id='home' fill='#4E64F9' />
 					) : (
-						<span>{crumbs.page}</span>
+						<span className={styles.pageName}>{crumbs.page}</span>
 					)}
 				</Link>
 			))}

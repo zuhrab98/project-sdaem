@@ -1,11 +1,11 @@
 import React from 'react'
 import cn from 'classnames'
 import styles from './PromoMenu.module.scss'
-import { Icons } from '../../../../components/Icons/Icons'
+import { Icons } from 'components/Icons/Icons'
 import { Link } from 'react-router-dom'
-import { setFiltered } from '../../../../redux/slices/filterSlice'
+import { setFiltered } from 'redux/slices/filterSlice'
 import { PromoMenuProps, PromoMenuParams } from './inteface'
-import { useAppDispatch } from '../../../../redux/store'
+import { useAppDispatch } from 'redux/store'
 
 export const PromoMenu: React.FC<PromoMenuProps> = ({ data, showMore, title }): JSX.Element => {
 	const [visibleLinksMore, setvisibleLinksMore] = React.useState(false)

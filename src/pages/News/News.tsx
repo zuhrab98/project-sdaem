@@ -8,16 +8,16 @@ import {
 	setCurrentPage,
 	setLoadings,
 	fetchNewsCards,
-} from '../../redux/slices/NewsSlice'
-import { usePagination } from '../../hooks/usePagination'
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
-import { NewsCards } from '../../components/newsCards/NewsCards'
-import { Pagination } from '../../components/Pagination/Pagination'
-import { Search } from '../../components/Search/Search'
+} from 'redux/slices/NewsSlice'
+import { usePagination } from 'hooks/usePagination'
+import { Breadcrumbs } from 'components/Breadcrumbs/Breadcrumbs'
+import { NewsCards } from 'components/newsCards/NewsCards'
+import { Pagination } from 'components/Pagination/Pagination'
+import { Search } from 'components/Search/Search'
 
 import styles from './News.module.scss'
-import { RootState, useAppDispatch } from '../../redux/store'
-import { Skeleton } from '../../components/Skeleton/Skeleton'
+import { RootState, useAppDispatch } from 'redux/store'
+import { Skeleton } from 'components/Skeleton/Skeleton'
 
 const breadcrumsb = [{ page: 'Home', path: '/' }]
 

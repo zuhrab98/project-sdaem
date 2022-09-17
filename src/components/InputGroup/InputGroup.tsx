@@ -13,13 +13,14 @@ export const InputGroup: React.FC<InputGroupProps> = ({
 	id,
 	helperText,
 }) => {
-
 	return (
-		<div className={cn(styles.inputGroup, { [styles.errorInput]: errorIcon })}>
+		<div className={styles.inputGroup}>
 			{errorIcon && <Icons id='error' fill='#EB5757' />}
 			<span className={styles.errorText}>{helperText}</span>
 			<input
-				{...register(`${type === 'confirmPassword' ? 'confirmPassword' : type}`)}
+				{...register(
+					`${type === 'confirmPassword' ? 'confirmPassword' : type}`
+				)}
 				type={type === 'confirmPassword' ? 'password' : type}
 				id={id}
 				placeholder={placeholder}

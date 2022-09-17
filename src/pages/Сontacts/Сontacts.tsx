@@ -4,14 +4,16 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import cn from 'classnames'
 
 import styles from './Сontacts.module.scss'
-import { Icons } from '../../components/Icons/Icons'
-import { InputGroup } from '../../components/InputGroup/InputGroup'
-import { Button } from '../../components/Button/Button'
-import { FormValues } from '../../type'
-import { Modal } from '../../components/Modal/Modal'
-import { ContactsShema } from '../../utils/shemas/contactsValidation'
-import data from '../../api/data.json'
-import { Socials } from '../../components/Socials/Socials'
+import { Icons } from 'components/Icons/Icons'
+import { InputGroup } from 'components/InputGroup/InputGroup'
+import { Button } from 'components/Button/Button'
+import { FormValues } from 'type'
+import { Modal } from 'components/Modal/Modal'
+import { Socials } from 'components/Socials/Socials'
+import { ContactsShema } from 'utils/shemas/contactsValidation'
+import data from 'api/data.json'
+
+
 
 const contacts = {
 	INFO: [
@@ -50,16 +52,16 @@ export const Сontacts: React.FC = (): JSX.Element => {
 			<div className='container'>
 				<div className={styles.root}>
 					<div className={styles.left}>
-						<h1>Контакты</h1>
-						<p>
+						<h1 className={styles.title1}>Контакты</h1>
+						<p className={styles.leftText}>
 							Если у Вас есть пожелания, предложения или претензии по
 							организации работы сайта мы всегда рады услышать Ваше мнение.
 						</p>
 						<div className={styles.info}>
-							<ul className={styles.list}>
+							<ul className={styles.leftList}>
 								{contacts?.INFO.map(({ desc, icon }) => (
 									<li key={icon}>
-										<div className={styles.icon}>
+										<div className={styles.contactsIcon}>
 											<Icons id={icon} fill='white' size={{ w: 15, h: 15 }} />
 										</div>
 										{desc}
@@ -67,7 +69,7 @@ export const Сontacts: React.FC = (): JSX.Element => {
 								))}
 							</ul>
 
-							<div className={styles.name}>
+							<div className={styles.nameUser}>
 								{contacts.DATA_NAME.map(({ name }) => (
 									<p key={name}>{name}</p>
 								))}
@@ -86,7 +88,7 @@ export const Сontacts: React.FC = (): JSX.Element => {
 						>
 							<div className={styles.inputs}>
 								<div className={styles.inputGroup}>
-									<label htmlFor='name'>Ваше имя</label>
+									<label className={styles.label} htmlFor='name'>Ваше имя</label>
 									<InputGroup
 										icon='user'
 										register={register}
@@ -98,7 +100,7 @@ export const Сontacts: React.FC = (): JSX.Element => {
 									/>
 								</div>
 								<div className={styles.inputGroup}>
-									<label htmlFor='email'>Ваша электронная почта</label>
+									<label className={styles.label} htmlFor='email'>Ваша электронная почта</label>
 									<InputGroup
 										icon='mail'
 										register={register}

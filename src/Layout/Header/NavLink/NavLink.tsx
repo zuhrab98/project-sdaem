@@ -10,9 +10,9 @@ export const NavLinks: React.FC<NavLinkProps> = ({
 	appearance,
 }): JSX.Element => {
 	return (
-		<div className={styles.nav}>
+		<ul className={styles.nav}>
 			{navs.map((item, i) => (
-				<div
+				<li
 					key={i}
 					className={cn(styles.navLink, {
 						[styles.headerTopLink]: appearance === 'grey',
@@ -25,8 +25,8 @@ export const NavLinks: React.FC<NavLinkProps> = ({
 						{item?.icon && <Icons id={item?.icon} size={{ w: 8, h: 10 }} />}
 						{item.name}
 					</NavLink>
-				</div>
+				</li>
 			))}
-		</div>
+		</ul>
 	)
 }

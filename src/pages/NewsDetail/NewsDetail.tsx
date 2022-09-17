@@ -2,17 +2,18 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
 
-import { RootState, useAppDispatch } from '../../redux/store'
-import { Label } from '../../components/Label/Label'
-import { NewsCards } from '../../components/newsCards/NewsCards'
+import { RootState, useAppDispatch } from 'redux/store'
+import { Label } from 'components/Label/Label'
+import { NewsCards } from 'components/newsCards/NewsCards'
 import styles from './NewsDetail.module.scss'
-import data from '../../api/data.json'
-import { fetchnewsDetail } from '../../redux/slices/NewsDetaitSlice'
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
-import { NewsCardsDetail } from '../../type'
-import { Socials } from '../../components/Socials/Socials'
-import { Icons } from '../../components/Icons/Icons'
-import { Skeleton } from '../../components/Skeleton/Skeleton'
+import data from 'api/data.json'
+import { fetchnewsDetail } from 'redux/slices/NewsDetaitSlice'
+import { Breadcrumbs } from 'components/Breadcrumbs/Breadcrumbs'
+import { NewsCardsDetail } from 'type'
+import { Socials } from 'components/Socials/Socials'
+import { Icons } from 'components/Icons/Icons'
+import { Skeleton } from 'components/Skeleton/Skeleton'
+import ContentLoader from 'react-content-loader'
 
 const breadcrumsb = [
 	{ page: 'Home', path: '/' },
@@ -77,20 +78,42 @@ export const NewsDetail = () => {
 					</div>
 				</div>
 			</div>
-			<div className={styles.mainBlock}>
-				<div className={styles.imgBlock}>
-				<Icons id='circlesYellow' />
-					<img
-						src={newsCardsDetaill?.img}
-						width={844}
-						height={563}
-						alt='mainImg'
-					/>
-				</div>
-				<div className={styles.textBlock}>
-					<p>{newsCardsDetaill?.fullDescription}</p>
-				</div>
+      
+      <div className={styles.mainBlock}>
+			{status === 'loading' ? 
+          <ContentLoader
+          speed={2}
+          width={860}
+          height={550}
+          viewBox="0 0 860 550"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+        >
+          <rect x="153" y="180" rx="0" ry="0" width="0" height="12" /> 
+          <rect x="153" y="192" rx="0" ry="0" width="0" height="9" /> 
+          <rect x="7" y="7" rx="14" ry="14" width="551" height="366" /> 
+          <rect x="7" y="397" rx="5" ry="5" width="552" height="21" /> 
+          <rect x="7" y="477" rx="5" ry="5" width="366" height="20" /> 
+          <rect x="7" y="422" rx="5" ry="5" width="552" height="21" /> 
+          <rect x="7" y="450" rx="5" ry="5" width="552" height="21" />
+        </ContentLoader> :
+          <>
+          <div className={styles.imgBlock}>
+          <Icons id='circlesYellow' />
+            <img
+              src={newsCardsDetaill?.img}
+              width={844}
+              height={563}
+              alt='mainImg'
+            />
+          </div>
+          <div className={styles.textBlock}>
+            <p>{newsCardsDetaill?.fullDescription}</p>
+          </div>
+          </>
+        }
 			</div>
+
 			<div className={styles.newsCards}>
 				<div className='container'>
 					<h3 className={styles.title}>Читайте также</h3>

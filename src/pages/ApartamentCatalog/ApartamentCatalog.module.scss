@@ -10,15 +10,15 @@
 		font-size: 25px;
 		padding: 30px 0 40px;
 	}
+}
 
-	.recommendations {
-		.text {
-			font-weight: 500;
-			font-size: 16px;
-			line-height: 1;
-			color: var(--title);
-			margin-bottom: 25px;
-		}
+.recommendations {
+	.text {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1;
+		color: var(--title);
+		margin-bottom: 25px;
 	}
 }
 
@@ -26,21 +26,21 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 15px;
+}
 
-	.btn {
-		padding: 6px 10px;
-		background: rgba(102, 78, 249, 0.1);
-		border-radius: 17px;
+.btn {
+	padding: 6px 10px;
+	background: rgba(102, 78, 249, 0.1);
+	border-radius: 17px;
 
-		font-size: 14px;
-		line-height: 1;
-		color: var(--primary);
-		cursor: pointer;
-		transition: 0.2s ease-in;
+	font-size: 14px;
+	line-height: 1;
+	color: var(--primary);
+	cursor: pointer;
+	transition: 0.2s ease-in;
 
-		&:hover {
-			background: rgba(102, 78, 249, 0.2);
-		}
+	&:hover {
+		background: rgba(102, 78, 249, 0.2);
 	}
 }
 
@@ -67,16 +67,6 @@
 	background: #ffffff;
 	box-shadow: 0px 20px 40px rgba(39, 95, 158, 0.08);
 	margin-bottom: 21px;
-}
-
-.filteresRow {
-	height: 82px;
-	display: flex;
-	border-bottom: 1px solid rgba(78, 100, 249, 0.1);
-
-	& > div + div {
-		border-left: 1px solid rgba(101, 78, 249, 0.1);
-	}
 }
 
 .buttons {
@@ -175,9 +165,8 @@
 	display: flex;
 	justify-content: center;
 	text-align: center;
-	background: url('/assets/headerBg.png'),
+	background: url('/assets/headerBg.png') no-repeat,
 		linear-gradient(360deg, #7e6af3 15.95%, #6540cd 63.1%);
-	background-repeat: no-repeat;
 	background-size: cover;
 
 	&::before {
@@ -187,8 +176,7 @@
 		top: 46px;
 		width: 61px;
 		height: 61px;
-		background-image: url('../../assets/circles.png');
-		background-repeat: no-repeat;
+		background-image: url('../../assets/circles.png') no-repeat;
 		background-size: contain;
 	}
 }
@@ -206,6 +194,7 @@
 		margin-bottom: 20px;
 		color: var(--white);
 	}
+  
 	.text {
 		max-width: 320px;
 		font-weight: 500;
@@ -214,6 +203,7 @@
 		margin-bottom: 23px;
 		color: var(--white);
 	}
+
 	button {
 		svg {
 			margin-right: 8px;

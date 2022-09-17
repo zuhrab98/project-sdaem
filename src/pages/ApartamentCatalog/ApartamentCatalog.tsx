@@ -4,25 +4,25 @@ import { useLocation } from 'react-router-dom'
 import cn from 'classnames'
 
 import styles from './ApartamentCatalog.module.scss'
-import { Icons } from '../../components/Icons/Icons'
-import { LocationCard } from '../../components/LocationCard/LocationCard'
-import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
+import { Icons } from 'components/Icons/Icons'
+import { LocationCard } from 'components/LocationCard/LocationCard'
+import { Breadcrumbs } from 'components/Breadcrumbs/Breadcrumbs'
 
-import { FilterSelect } from '../../components/FilterSelect/FilterSelect'
-import { filteredApartmentCatalog } from '../../utils/filteredCards'
-import { Button } from '../../components/Button/Button'
-import { selectFilter, setFiltered } from '../../redux/slices/filterSlice'
+import { FilterSelect } from 'components/FilterSelect/FilterSelect'
+import { filteredApartmentCatalog } from 'utils/filteredCards'
+import { Button } from 'components/Button/Button'
+import { selectFilter, setFiltered } from 'redux/slices/filterSlice'
 import {
 	fetchCatalogCards,
 	setCurrentPage,
-} from '../../redux/slices/catalogSlice'
-import { Pagination } from '../../components/Pagination/Pagination'
-import { usePagination } from '../../hooks/usePagination'
+} from 'redux/slices/catalogSlice'
+import { Pagination } from 'components/Pagination/Pagination'
+import { usePagination } from 'hooks/usePagination'
 import { Filteres } from './Filteres/Filteres'
-import { FilterPropertyType, FilterType } from '../../type'
-import { RootState, useAppDispatch } from '../../redux/store'
-import data from '../../api/data.json'
-import { Skeleton } from '../../components/Skeleton/Skeleton'
+import { FilterPropertyType, FilterType } from 'type'
+import { RootState, useAppDispatch } from 'redux/store'
+import data from 'api/data.json'
+import { Skeleton } from 'components/Skeleton/Skeleton'
 
 interface useParamType {
 	paramName?: string | null
@@ -56,7 +56,7 @@ export const ApartamentCatalog: React.FC = (): JSX.Element => {
 
 	const [labelsBtn, setLabelsBtn] = React.useState(labelsBtnRooms)
 	const [titleCatalog, setTitleCatalog] = React.useState<string>()
-	const [list, setList] = React.useState<FilterType[]>()
+	const [list, setList] = React.useState<FilterType[]>(data.FILTER_ROOMS)
 	const [filterCards, setFilterCards] = React.useState([])
 	const [layoutItem, setLayoutItem] = React.useState<string>('table')
 	const [itemsPerPage] = React.useState<number>(6)

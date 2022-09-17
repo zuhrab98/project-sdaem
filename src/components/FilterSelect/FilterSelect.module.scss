@@ -18,8 +18,8 @@
 	display: flex;
 	width: 100%;
 	padding: 9px 8px 9px 12px;
-	background: #ffffff;
-	border: 2px solid rgba(102, 78, 249, 0.8);
+	background: var(--dark-grey);
+	border: 2px solid transparent;
 	border-radius: 20px;
 
 	font-weight: 500;
@@ -45,6 +45,7 @@
 
 .buttonActive {
 	box-shadow: (0px 5px 15px rgba(135, 124, 202, 0.25));
+	border: 2px solid rgba(102, 78, 249, 0.8);
 
 	svg:last-child {
 		transform: translate(-50%, -50%) rotate(180deg);
@@ -53,8 +54,8 @@
 
 .dropdown {
 	position: relative;
+  top: 70px;
 	min-width: 150px;
-	margin-top: 10px;
 	position: absolute;
 	left: 20px;
 	background: #ffffff;
@@ -100,22 +101,19 @@
 	padding: 0;
 
 	.button {
-		position: relative;
-		width: 100%;
 		padding: 10px 10px 10px 42px;
-		border: none;
 		box-shadow: 0px 10px 20px rgba(0, 96, 206, 0.1);
-		line-height: 20px;
+		line-height: 16px;
 
 		&:hover {
-      background: #fbfbfb;
-      box-shadow: 3px 7px 14px 3px rgba(0, 96, 206, 0.1);
+			background: #fbfbfb;
+			box-shadow: 3px 7px 14px 3px rgba(0, 96, 206, 0.1);
 		}
 	}
 
 	.dropdown {
 		width: 100%;
-		left: 0;
+    left: 0;
 	}
 }
 
@@ -128,6 +126,7 @@
 	.button {
 		border: none;
 		padding: 11px 10px 11px 42px;
+		background: var(--white);
 		box-shadow: 0px 5px 20px rgba(0, 96, 206, 0.1);
 	}
 
@@ -139,13 +138,8 @@
 
 	.dropdown {
 		width: 100%;
-		left: 0;
-	}
-}
-
-.filterDistricts {
-	.button {
-		padding: 11px 10px 9px 14px;
+    top: 45px;
+    left: 0;
 	}
 }
 
@@ -156,18 +150,7 @@
 	padding-left: 0;
 
 	.button {
-		border: 0;
-		background: #f8f8f8;
-		padding: 11px 10px 9px 14px;
 		color: var(--title);
-
-		&:hover {
-			background: rgba(102, 78, 249, 0.1);
-		}
-	}
-
-	.buttonActive {
-		box-shadow: 0px 3px 11px rgba(135, 124, 202, 0.18);
 	}
 
 	.title {
@@ -178,11 +161,9 @@
 	}
 
 	.dropdown {
-		margin-top: 10px;
 		left: 86px;
 		box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.18);
 		z-index: 100;
-		top: 60px;
 	}
 }
 
@@ -194,23 +175,15 @@
 	padding-right: 0;
 
 	.button {
-		border: none;
-		background: var(--dark-grey);
-		padding: 11px 10px 9px 14px;
 		line-height: 17px;
 		color: var(--title);
-
-		&:hover {
-			background: rgba(102, 78, 249, 0.1);
-		}
 	}
 
 	.dropdown {
 		width: 100%;
-		margin-top: 15px;
 		left: 0;
 		box-shadow: 0px 0px 40px rgba(135, 124, 202, 0.18);
 		z-index: 100;
-		top: 60px;
+		top: 80px;
 	}
 }

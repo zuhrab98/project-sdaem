@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './GallerySections.module.scss'
 import { GalleryAds } from './GalleryAds/GalleryAds'
-import data from '../../../api/data.json'
+import data from 'api/data.json'
 import { PromoMenu } from './PromoMenu/PromoMenu'
 
 export const GallerySections: React.FC = (): JSX.Element => {

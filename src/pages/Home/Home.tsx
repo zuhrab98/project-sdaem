@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
 	HomeFilters,
 	GallerySections,
@@ -7,8 +7,8 @@ import {
 	RentSection,
 	StartSection,
 } from './index'
-import { fetchHomeCards, selectHome } from '../../redux/slices/homeSlice'
-import { useAppDispatch } from '../../redux/store'
+import { fetchHomeCards, selectHome } from 'redux/slices/homeSlice'
+import { useAppDispatch } from 'redux/store'
 
 export const Home = () => {
 	const dispatch = useAppDispatch()

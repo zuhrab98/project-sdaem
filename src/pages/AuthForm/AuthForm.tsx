@@ -3,10 +3,10 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { Button } from '../../components/Button/Button'
-import { InputGroup } from '../../components/InputGroup/InputGroup'
-import { FormValues } from '../../type'
-import { LoginShema } from '../../utils/shemas/loginValidation'
+import { Button } from 'components/Button/Button'
+import { InputGroup } from 'components/InputGroup/InputGroup'
+import { FormValues } from 'type'
+import { LoginShema } from 'utils/shemas/loginValidation'
 
 import styles from './AuthForm.module.scss'
 
@@ -14,7 +14,7 @@ export const AuthForm: React.FC = (): JSX.Element => {
 	const navigate = useNavigate()
 	const {
 		register,
-		handleSubmit,
+		            handleSubmit,
 		reset,
 		formState: { errors },
 	} = useForm<FormValues>({

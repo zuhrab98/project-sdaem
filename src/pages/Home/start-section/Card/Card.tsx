@@ -1,7 +1,7 @@
 import React from 'react'
-import { Icons } from '../../../../components/Icons/Icons'
+import { Icons } from 'components/Icons/Icons'
 import styles from './Card.module.scss'
-import { Button } from '../../../../components/Button/Button'
+import { Button } from 'components/Button/Button'
 import cn from 'classnames'
 import { CardProps } from './interface'
 

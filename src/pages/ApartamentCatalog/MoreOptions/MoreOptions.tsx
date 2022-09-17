@@ -3,8 +3,8 @@ import cn from 'classnames'
 
 import styles from './MoreOptions.module.scss'
 
-import data from '../../../api/data.json'
-import { FilterSelect } from '../../../components/FilterSelect/FilterSelect'
+import data from 'api/data.json'
+import { FilterSelect } from 'components/FilterSelect/FilterSelect'
 import { MoreOptionsProps, OptionType } from './interface'
 
 export const MoreOptions: React.FC<MoreOptionsProps> = ({
